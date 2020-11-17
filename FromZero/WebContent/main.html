@@ -20,7 +20,7 @@ nav {
 	background-color: #CEF6CE;
 	list-style-type: none;
 	text-align: center;
-	margin-right: 0;
+	margin: 0;
 	padding: 10px;
 }
 
@@ -33,15 +33,16 @@ nav {
 	list-style-type: none;
 	margin: 0px;
 	padding: 0px; 
+	<!--display: inline-block; /*이거 하면 가운데정렬은 되는데 드롭다운 메뉴가 이상*/-->
 }
 
 #topMenu ul li { /* 메인 메뉴 안에 ul 태그 안에 있는 li 태그의 스타일 적용(상위/하위메뉴 모두) */
 	color: white; 
+	float: left; 
 	line-height: 30px; /* 텍스트 한 줄의 높이를 30px로 설정 */
 	vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
 	text-align: center;
 	position: relative; /* 해당 li 태그 내부의 top/left 포지션 초기화 */
-    display: inline-block; /*이거 하면 가운데정렬은 되는데 드롭다운 메뉴가 이상*/
 }
 
 .menuLink, .submenuLink { /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
@@ -123,7 +124,7 @@ nav {
 #slider-wrap ul#slider {
     height: 100%;
     position: absolute;
-    top: 60px; /*내비바와 이미지 슬라이드 간 거리*/
+    top: 0;
     left: 0;
 }
 

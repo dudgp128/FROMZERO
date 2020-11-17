@@ -35,7 +35,6 @@ public class doJoin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8"); 
 		String nmid = request.getParameter("nmid");
 		String npasswd = request.getParameter("npasswd");
 		String nname=request.getParameter("nname");
@@ -54,7 +53,7 @@ public class doJoin extends HttpServlet {
 					if(nmid.equals(rs.getString(1))) {
 						response.sendRedirect("./join.html");
 						DBUtil.modifyUser(conn, nmid, npasswd, nname, naddress, nphone);
-						 //ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
+						 //Á¸ÀçÇÑ´Ù.
 					}
 				}else {
 					response.sendRedirect("./index.html");
