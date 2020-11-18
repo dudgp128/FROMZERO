@@ -2,204 +2,198 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Welcome MyWebApp, Login</title>
+<title>From Zero</title>
 <style>
 header {
-   background-size: 1600px 200px;
-   background-repeat: no-repeat;
-   line-height: 170px;
-   font-size: 30px;
-   text-align: center;
-   height: 160px;
+	background-size: 1600px 200px;
+	background-repeat: no-repeat;
+	line-height: 170px;
+	font-size: 30px;
+	text-align: center;
+	height: 160px;
 }
 
 a {
-   text-decoration: none;
-   color: #000000;
+	text-decoration: none;
+	color: #000000;
 }
 
 nav {
-   background-color: #CEF6CE;
-   list-style-type: none;
-   text-align: center;
-   margin-right: 0;
-   padding: 10px;
+	background-color: #CEF6CE;
+	list-style-type: none;
+	text-align: center;
+	margin-right: 0;
+	padding: 10px;
 }
 
 #topMenu {
-   height: 30px; /* 메인 메뉴의 높이 */
-   width: 100%; /* 메인 메뉴의 넓이 */
+	height: 30px; /* 메인 메뉴의 높이 */
+	width: 100%; /* 메인 메뉴의 넓이 */
 }
 
 #topMenu ul { /* 메인 메뉴 안의 ul을 설정함: 상위메뉴의 ul+하위 메뉴의 ul */
-   list-style-type: none;
-   margin: 0px;
-   padding: 0px;
-   white-space:nowrap;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	white-space: nowrap;
 }
 
 #topMenu ul li { /* 메인 메뉴 안에 ul 태그 안에 있는 li 태그의 스타일 적용(상위/하위메뉴 모두) */
-   color: white;
-   line-height: 30px; /* 텍스트 한 줄의 높이를 30px로 설정 */
-   vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
-   text-align: center;
-   position: relative; /* 해당 li 태그 내부의 top/left 포지션 초기화 */
-   display: inline-block;
-   z-index : 1;      /*제일 앞에 표시되도록*/
+	color: white;
+	line-height: 30px; /* 텍스트 한 줄의 높이를 30px로 설정 */
+	vertical-align: middle; /* 세로 정렬을 가운데로 설정 */
+	text-align: center;
+	position: relative; /* 해당 li 태그 내부의 top/left 포지션 초기화 */
+	display: inline-block;
+	z-index: 1; /*제일 앞에 표시되도록*/
 }
 
 .menuLink, .submenuLink { /* 상위 메뉴와 하위 메뉴의 a 태그에 공통으로 설정할 스타일 */
-   text-decoration: none;
-   display: block; /* a 태그의 클릭 범위를 넓힘 */
-   width: 200px;
-   font-size: 14px;
-   font-weight: bold;
-   font-family: "Trebuchet MS", Dotum;
+	text-decoration: none;
+	display: block; /* a 태그의 클릭 범위를 넓힘 */
+	width: 200px;
+	font-size: 14px;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Dotum;
 }
 
 .menuLink { /* 상위 메뉴의 글씨색을 설정 */
-   color: black;
+	color: black;
 }
 
 .topMenuLi:hover .menuLink { /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
-   color: red;
+	color: red;
 }
 
 .submenuLink { /* 하위 메뉴의 a 태그 스타일 설정 */
-   color: green;
-   background-color: white;
-   border: solid 1px green;
-   margin-top: -1px; /* 위 칸의 하단 테두리와 아래칸의 상단 테두리가 겹쳐지도록 설정 */
+	color: green;
+	background-color: white;
+	border: solid 1px green;
+	margin-top: -1px; /* 위 칸의 하단 테두리와 아래칸의 상단 테두리가 겹쳐지도록 설정 */
 }
 
 .submenu { /* 하위 메뉴 스타일 설정 */
-   position: absolute; /* html의 flow에 영향을 미치지 않게 absolute 설정 */
-   height: 0px; /* 초기 높이는 0px로 설정 */
-   overflow: hidden; /* 실 내용이 높이보다 커지면 해당 내용 감춤 */
-   transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(기본) */
-   -webkit-transition: height .2s;
+	position: absolute; /* html의 flow에 영향을 미치지 않게 absolute 설정 */
+	height: 0px; /* 초기 높이는 0px로 설정 */
+	overflow: hidden; /* 실 내용이 높이보다 커지면 해당 내용 감춤 */
+	transition: height .2s; /* height를 변화 시켰을 때 0.2초간 변화 되도록 설정(기본) */
+	-webkit-transition: height .2s;
 }
 
 .topMenuLi:hover .submenu { /* 상위 메뉴에 마우스 호버한 경우 그 안의 하위 메뉴 스타일 설정 */
-   height: 250px; /* 높이를 250px로 설정 */
+	height: 250px; /* 높이를 250px로 설정 */
 }
 
 .submenuLink:hover { /* 하위 메뉴의 a 태그의 마우스 오버 스타일 설정 */
-   color: red;
-   background-color: #dddddd;
+	color: red;
+	background-color: #dddddd;
 }
 
 .loginarea li {
-   display: inline;
-   text-transform: uppercase;
-   padding: 0 10px;
-   letter-spacing: 0px;
-   font-size: 13px;
+	display: inline;
+	text-transform: uppercase;
+	padding: 0 10px;
+	letter-spacing: 0px;
+	font-size: 13px;
 }
 
 .loginarea {
-   padding: 0 30px;
-   clear: both;
-   position: absolute;
-   width: 200;
-   height: 30px;
-   float: right;
-   top: 0px;
-   right: 10px;
-   overflow: hidden;
-   letter-spacing: 5px;
+	padding: 0 30px;
+	clear: both;
+	position: absolute;
+	width: 200;
+	height: 30px;
+	float: right;
+	top: 0px;
+	right: 10px;
+	overflow: hidden;
+	letter-spacing: 5px;
 }
 
-
-
-
-
-#login_btn1{
-	border-radius:10px;
-	border:1px solid skyblue;
+#login_btn1 {
+	border-radius: 10px;
+	border: 1px solid skyblue;
 	color: white;
-	background-color:skyblue;
+	background-color: skyblue;
 }
-	
-	
-	
-	
-	
-	
 </style>
 </head>
 <body>
-<header>
-      <h1><a href='main.html'>From zero</a></h1>
-   </header>
-   <nav id="topMenu">
-      <ul>
-         <li class="topMenuLi"><a class="menuLink" href="story.html">OUR
-               STORY</a>
-            <ul class="submenu" style="white-space:normal">
-               <li><a href="a.html" class="submenuLink">사이트 소개</a></li>
-               <li><a href="a.html" class="submenuLink">이용 안내</a></li>
-            </ul></li>
-         <li>|</li>
-         <li class="topMenuLi"><a class="menuLink" href="shop.html">SHOP</a>
-            <ul class="submenu" style="white-space:normal">
-               <li><a href="a.html" class="submenuLink">Living</a></li>
-               <li><a href="a.html" class="submenuLink">Bathroom</a></li>
-               <li><a href="a.html" class="submenuLink">Kitchen</a></li>
-               <li><a href="a.html" class="submenuLink">Office</a></li>
-               <li><a href="a.html" class="submenuLink">Book</a></li>
-               <li><a href="a.html" class="submenuLink">Food</a></li>
-               <li><a href="a.html" class="submenuLink">Etc</a></li>
-            </ul></li>
-         <li>|</li>
-         <li class="topMenuLi"><a class="menuLink" href="offline.html">OFFLINE</a>
-         </li>
-         <li>|</li>
-         <li class="topMenuLi"><a class="menuLink" href="ecoDiary.html">ECO
-               DIARY</a>
-            <ul class="submenu" style="white-space:normal">
-               <li><a href="a.html" class="submenuLink">About ZW</a></li>
-               <li><a href="a.html" class="submenuLink">Eco Tip</a></li>
-            </ul></li>
-         <li>|</li>
-         <li class="topMenuLi"><a class="menuLink" href="greenBoard.html">GREEN
-               BOARD</a>
-            <ul class="submenu" style="white-space:normal">
-               <li><a href="a.html" class="submenuLink">Notice</a></li>
-               <li><a href="a.html" class="submenuLink">FAQ</a></li>
-               <li><a href="a.html" class="submenuLink">QnA</a></li>
-            </ul></li>
-      </ul>
-   </nav>
-   <br></br>
+	<header>
+		<h1>
+			<a href='main.html'>From zero</a>
+		</h1>
+	</header>
+	<nav id="topMenu">
+		<ul>
+			<li class="topMenuLi"><a class="menuLink" href="ourStory.html">OUR
+					STORY</a>
+				<ul class="submenu" style="white-space: normal">
+					<li><a href="introduce.html" class="submenuLink">사이트 소개</a></li>
+					<li><a href="guide.html" class="submenuLink">이용 안내</a></li>
+				</ul></li>
+			<li>|</li>
+			<li class="topMenuLi"><a class="menuLink" href="shop.html">SHOP</a>
+				<ul class="submenu" style="white-space: normal">
+					<li><a href="living.html" class="submenuLink">LIVING</a></li>
+					<li><a href="bathroom.html" class="submenuLink">BATHROOM</a></li>
+					<li><a href="kitchen.html" class="submenuLink">KITCHEN</a></li>
+					<li><a href="kit.html" class="submenuLink">KIT</a></li>
+					<li><a href="etc.html" class="submenuLink">ETC</a></li>
+				</ul></li>
+			<li>|</li>
+			<li class="topMenuLi"><a class="menuLink" href="offline.html">OFFLINE</a>
+			</li>
+			<li>|</li>
+			<li class="topMenuLi"><a class="menuLink" href="ecoDiary.html">ECO
+					DIARY</a>
+				<ul class="submenu" style="white-space: normal">
+					<li><a href="aboutZW.html" class="submenuLink">ABOUT ZW</a></li>
+					<li><a href="ecoTip.html" class="submenuLink">ECO TIP</a></li>
+				</ul></li>
+			<li>|</li>
+			<li class="topMenuLi"><a class="menuLink" href="greenBoard.html">GREEN
+					BOARD</a>
+				<ul class="submenu" style="white-space: normal">
+					<li><a href="notice.html" class="submenuLink">NOTICE</a></li>
+					<li><a href="faq.html" class="submenuLink">FAQ</a></li>
+					<li><a href="qna.html" class="submenuLink">QNA</a></li>
+				</ul></li>
+		</ul>
+	</nav>
+	<br></br>
 
 
-   <ul class="loginarea">
-      <li><a href="myPage.html"> <img src="images/mypage.png" width=25
-            height=20>
-      </a></li>
-      <li><a href="cart.html">cart</a></li>
-      <li><a href="login.html">login</a></li>
-      <li><a href="join.html">join</a></li>
-   </ul>
-   
-   
-   
-   
-   
-   
-	<div Style="margin-bottom:50px"><h1 align=center> Login </h1></div>
-  <div style="text-align:center">
-	<form method="post" action="doLogin">
-		<input type="text" name="mid" placeholder="ID" required style="width:250px;" /> <br/>
-		<input type="password" name="passwd" placeholder="PASSWORD" required style="margin:10px; width:250px;"/><br/>
-		<a href="join.html"> JOIN </a> <br />
-		<input id="login_btn1" type="submit" style="background-color:sky_blue;" value="LOGIN"/> <br /> <br />
-	</form>
-  </div>
-  
-  
-  
-  
+	<ul class="loginarea">
+		<li><a href="myPage.html"> <img src="images/mypage.png"
+				width=25 height=20>
+		</a></li>
+		<li><a href="cart.html">cart</a></li>
+		<li><a href="login.html">login</a></li>
+		<li><a href="join.html">join</a></li>
+	</ul>
+
+
+
+
+
+
+	<div Style="margin-bottom: 50px">
+		<h1 align=center>Login</h1>
+	</div>
+	<div style="text-align: center">
+		<form method="post" action="doLogin">
+			<input type="text" name="mid" placeholder="ID" required
+				style="width: 250px;" /> <br /> <input type="password"
+				name="passwd" placeholder="PASSWORD" required
+				style="margin: 10px; width: 250px;" /><br /> <a href="join.html">
+				JOIN </a> <br /> <input id="login_btn1" type="submit"
+				style="background-color: sky_blue;" value="LOGIN" /> <br /> <br />
+		</form>
+	</div>
+
+
+
+
 </body>
 </html>
