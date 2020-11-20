@@ -244,27 +244,19 @@ nav {
 	z-index: 2;
 }
 
-.big-shop-grid {
-	margin-left: 100px;
-	margin-right: 70px
+.big-grid {
+	width:100%;
+	text-align:center
+}
+.div-grid{
+	display:inline-block;
 }
 
-.ul-shop-grid, .li-living-item-box {
-	list-style-type: none;
-	float: left;
-	margin-right: 40px;
-	margin-bottom: 50px
+.row_ul, .row_li{
+	list-style-type:none;
+	float:left;
 }
 
-.img-display-box {
-	height: 220px;
-	width: 220px
-}
-
-.big-category-text {
-	margin-top: 50px;
-	margin-bottom: 20px;
-}
 </style>
 <meta charset="UTF-8">
 <title>From zero</title>
@@ -323,16 +315,45 @@ nav {
 		<li><a href="join.html">join</a></li>
 	</ul>
  
- <div>
+ <div class="big-grid">
    <h2> pick up 에코마일리지 </h2>
-   <ul>
-     <li>
+   <p>집에 있는 공병, 폐지, 등 재활용품을 모아 보내면 사이트의 포인트로 교환해드립니다!<br/>
+   <div class=div-grid>
+   <ul class="row_ul">
+     <li class="row_li">
        <div>
-         <img src=>
-         <input type="number" name="exchange_number" min="0", max="10" step="1"/>
+         <img class="img_exchange" src="exchange/소주병.jpg">
+         <br/>
+         <p>소주병 (1개/100원)</p>
+         <input type="number" name="exchange_number" min="0", max="10" step="1" value="0"/>
+       </div>
+     </li>
+     <li class="row_li">
+       <div>
+         <img class="img_exchange" src="exchange/맥주병.jpg">
+         <br/>
+         <p>맥주병 (1개/140원)</p>
+         <input type="number" name="exchange_number" min="0", max="10" step="1" value="0"/>
+       </div>
+     </li>
+     <li class="row_li">
+       <div>
+         <img class="img_exchange" src="exchange/우유팩.jpg">
+         <br/>
+         <p>우유팩(1L/400원)</p>
+         <input type="number" name="exchange_number" min="0", max="10" step="1" value="0"/>
+       </div>
+     </li>
+     <li class="row_li">
+       <div>
+         <img class="img_exchange" src="exchange/생수병.jpg">
+         <br/>
+         <p>생수통 (1L/50원)</p>
+         <input type="number" name="exchange_number" min="0", max="10" step="1" value="0"/>
        </div>
      </li>
    </ul>
+   </div>
    </div>
 
 </body>
