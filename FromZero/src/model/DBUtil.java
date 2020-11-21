@@ -7,7 +7,7 @@ import java.sql.Statement;
 public class DBUtil {
 
 public static ResultSet findUser(Connection con, String mid) {
-	String sqlSt = "SELECT passwd FROM member WHERE memid=";
+	String sqlSt = "SELECT passwd, name, address, phone FROM member WHERE memid=";
 	Statement st;
 	try {
 		st = con.createStatement();

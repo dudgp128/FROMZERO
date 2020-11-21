@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Connection;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.DBUtil;
-
+import model.User;
 
 
 /**
@@ -36,9 +37,14 @@ public class DoLogin extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("UTF-8"); 	//한글깨짐 방지
 		String mid = request.getParameter("mid");
 		String passwd = request.getParameter("passwd");
-
+		String name = null;
+		String address = null;
+		String phone = null;
+		//User user = new User(mid, passwd, name, address, phone);
+		
 		ServletContext sc = getServletContext();
 		Connection conn= (Connection) sc.getAttribute("DBconnection");
 
@@ -48,9 +54,16 @@ public class DoLogin extends HttpServlet {
 		if (rs != null) {
 			try{
 				if(rs.next()) { // existing user
-						String checkpw = rs.getString(1);
+						String checkpw = rs.getString("passwd");
+						name = rs.getString("name");
+						address = rs.getString("address");
+						phone = rs.getString("phone");
+						User user = new User(mid, passwd, name, address, phone);
+
 						if(checkpw.equals(passwd)){// valid user and passwd
-							out.println("Login Success!!");
+							request.setAttribute("user", user);
+							RequestDispatcher view = request.getRequestDispatcher("main.jsp");
+						    view.forward(request, response);
 						}
 						else{// wrong passwd
 							out.println("Wrong Passwd!!");
