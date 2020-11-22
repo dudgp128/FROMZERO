@@ -292,10 +292,29 @@ element.style {
 	margin-top: 50px;
 	margin-bottom: 20px;
 }
+
+<!--체크박스-->
+
+	
+th, td {
+	padding: 13px;
+	}
+	
+	
+table {
+	margin: 20px;
+	margin-left : auto;
+	margin-right : auto;
+	width: 90%;
+    background-color: #E6E6E6;
+	}
+  
+
 </style>
 <meta charset="UTF-8">
 <title>From zero</title>
 </head>
+
 <body style="overflow-x: hidden">
 	<header>
 		<h1>
@@ -350,56 +369,61 @@ element.style {
 		<li><a href="join.html">join</a></li>
 	</ul>
 
+
+
 	<!-- 체크박스 -->
-
-
 	<form>
-		<h3>상세검색</h3>
-		<div>
-			<dl class="optionList">
-				<dt class="optionTitle">소분류</dt>
-				<dd class="option">
-					<label><input type="checkbox" name="smallCategory"
-						value="straw" id="straw"> 빨대</label> <label><input
-						type="checkbox" name="smallCategory" value="tumblr" id="tumblr">
-						텀블러</label> <label><input type="checkbox" name="smallCategory"
-						value="carrier" id="carrier"> 장바구니</label> <label><input
-						type="checkbox" name="smallCategory" value="pouch" id="pouch">
-						파우치</label> <label><input type="checkbox" name="smallCategory"
-						value="strawPouch" id="strawPouch"> 빨대 주머니</label>
-				</dd>
-			</dl>
-		</div>
+		<table>
+			<tr>
+				<th>상세검색</th>
+				<td />
+				<td />
+				<td />
+				<td />
+			</tr>
+			<tr>
+				<th>소분류</th>
+				<td><label><input type="checkbox" name="smallCategory"
+						value="straw" id="straw"> 빨대</label></td>
+				<td><label><input type="checkbox" name="smallCategory"
+						value="tumblr" id="tumblr"> 텀블러</label></td>
+				<td><label><input type="checkbox" name="smallCategory"
+						value="carrier" id="carrier"> 장바구니</label></td>
+				<td><label><input type="checkbox" name="smallCategory"
+						value="pouch" id="pouch"> 파우치</label></td>
+				<td><label><input type="checkbox" name="smallCategory" value="strawPouch"
+						id="strawPouch"> 빨대 주머니</label></td>
+			</tr>
 
-		<div>
-			<dl class="optionList">
-				<dt class="optionTitle">브랜드</dt>
-				<dd class="option">
-					<label><input type="checkbox" name="brandName"
-						value="thepicker" id="thepicker"> 더피커</label> <label><input
-						type="checkbox" name="brandName" value="jigushop" id="jigushop">
-						지구샵</label> <label><input type="checkbox" name="brandName"
-						value="zwshop" id="zwshop"> 제로웨이스트샵</label> <label><input
-						type="checkbox" name="brandName" value="jigusalimi"
-						id="jigusalimi"> 지구살림e</label>
-				</dd>
-			</dl>
-		</div>
 
-		<div>
-			<dl class="optionList">
-				<dt class="optionTitle">가격</dt>
-				<dd class="option">
-					<label><input type="checkbox" name="price" value="one"
-						id="one"> ~1만원</label> <label><input type="checkbox"
-						name="price" value="three" id="three"> ~3만원</label> <label><input
-						type="checkbox" name="price" value="five" id="five"> ~5만원</label>
-				</dd>
-			</dl>
-		</div>
+			<tr>
+				<th>브랜드</th>
+				<td><label><input type="checkbox" name="brandName"
+						value="thepicker" id="thepicker"> 더피커</label></td>
+				<td><label><input type="checkbox" name="brandName"
+						value="jigushop" id="jigushop"> 지구샵</label></td>
+				<td><label><input type="checkbox" name="brandName"
+						value="zwshop" id="zwshop"> 제로웨이스트샵</label></td>
+				<td><label><input type="checkbox" name="brandName"
+						value="jigusalimi" id="jigusalimi"> 지구살림e</label></td>
+				<td />
+			</tr>
 
-		<input type="submit" value="검색" />
 
+			<tr>
+				<th>가격</th>
+				<td><label><input type="checkbox" name="price"
+						value="one" id="one"> ~1만원</label></td>
+				<td><label><input type="checkbox" name="price" value="three"
+					id="three"> ~3만원</label></td>
+				<td><label><input type="checkbox" name="price"
+						value="five" id="five"> ~5만원</label></td>
+				<td />
+				<td style="text-align:right;">
+				<input type="submit" value="검색" />
+				<td/>
+			</tr>
+		</table>
 	</form>
 
 	<div class="big-shop-grid">
