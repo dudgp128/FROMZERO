@@ -87,6 +87,7 @@ CREATE TABLE `customer` (
   `address` varchar(50) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
+  `level` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`custid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -97,7 +98,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('5','7','8','9','4',NULL),('ã','s','ã','ã·ã','ã',NULL),('khhong','1111','홍기형','충남','02-920-7525',NULL);
+INSERT INTO `customer` VALUES ('5','7','8','9','4',NULL,NULL),('ã','s','ã','ã·ã','ã',NULL,NULL),('khhong','1111','홍기형','충남','02-920-7525',NULL,NULL);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,4 +254,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-11-22 17:54:14
+-- Dump completed on 2020-11-22 19:25:48
