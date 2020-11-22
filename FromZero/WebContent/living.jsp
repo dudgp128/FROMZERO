@@ -322,7 +322,7 @@ table {
 
 	<header>
 		<h1>
-			<a href='main.html'>From Zero</a>
+			<a href='main.html'>From zero</a>
 		</h1>
 	</header>
 	<nav id="topMenu">
@@ -336,11 +336,11 @@ table {
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="shop.html">SHOP</a>
 				<ul class="submenu" style="white-space: normal">
-					<li><a href="living.html" class="submenuLink">LIVING</a></li>
-					<li><a href="bathroom.html" class="submenuLink">BATHROOM</a></li>
-					<li><a href="kitchen.html" class="submenuLink">KITCHEN</a></li>
-					<li><a href="kit.html" class="submenuLink">KIT</a></li>
-					<li><a href="etc.html" class="submenuLink">ETC</a></li>
+					<li><a href="living.jsp" class="submenuLink">LIVING</a></li>
+					<li><a href="bathroom.jsp" class="submenuLink">BATHROOM</a></li>
+					<li><a href="kitchen.jsp" class="submenuLink">KITCHEN</a></li>
+					<li><a href="kit.jsp" class="submenuLink">KIT</a></li>
+					<li><a href="etc.jsp" class="submenuLink">ETC</a></li>
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="offline.html">OFFLINE</a>
@@ -372,7 +372,13 @@ table {
 		<li><a href="login.html">login</a></li>
 		<li><a href="join.html">join</a></li>
 	</ul>
-
+	
+	<ul class="service">
+		<li><a href="exchange.jsp"> <img src="images/exchange.png"
+				width=40 height=50></a></li>
+		<li><a href="test.jsp"><img src="images/test.png" width=40
+				height=50></a></li>
+	</ul>
 
 
 	<!-- 체크박스 -->
@@ -430,462 +436,59 @@ table {
 		</table>
 	</form>
 	<div class="big-shop-grid">
-		<h2 class="big-category-text">living</h2>
+		<h2 class="big-category-text">LIVING</h2>
 		<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
 				<%
-      PreparedStatement pstmt = null;
-   ResultSet rset = null;
-   Connection conn = null;
-   Properties connectionProps = new Properties();
+					PreparedStatement pstmt = null;
+				ResultSet rset = null;
+				Connection conn = null;
+				Properties connectionProps = new Properties();
 
-   String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
-   String DBuser = "fz_webapp";
-   String DBpasswd = "fz_webapp";
-   String DBTimeZone = "UTC";
+				String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
+				String DBuser = "fz_webapp";
+				String DBpasswd = "fz_webapp";
+				String DBTimeZone = "UTC";
 
-   connectionProps.put("user", DBuser);
-   connectionProps.put("password", DBpasswd);
-   connectionProps.put("serverTimezone", DBTimeZone);
-   String name = null;
-   try {
-      conn = DriverManager.getConnection(DBUrl, connectionProps);
+				connectionProps.put("user", DBuser);
+				connectionProps.put("password", DBpasswd);
+				connectionProps.put("serverTimezone", DBTimeZone);
+				String name = null;
+				try {
+					conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-      String sqlSt = "select * from online_product where big_category='living' order by binary(big_category), binary(brand), price, productid";
-      pstmt = conn.prepareStatement(sqlSt);
-      rset = pstmt.executeQuery();
-   } catch (SQLException e) {
-      e.printStackTrace();
-   }
-      String productname = null;
-      String price = null;
-      int img_count = 0;
-      String img_li = null;
-      
-      while (rset.next()) {
-         productname = rset.getString("productname");
-         //out.println(productname);
-         price = rset.getString("price");
-         //out.println(price);
-         img_count++;
-         img_li = "living/living (" + img_count + ").jpg";
-     
-   %>
+					String sqlSt = "select * from online_product where big_category='living' order by binary(big_category), binary(brand), price, productid";
+					pstmt = conn.prepareStatement(sqlSt);
+					rset = pstmt.executeQuery();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				String productname = null;
+				String price = null;
+				int img_count = 0;
+				String img_li = null;
+
+				while (rset.next()) {
+					productname = rset.getString("productname");
+					price = rset.getString("price");
+					img_count++;
+					img_li = "living/living (" + img_count + ").jpg";
+				%>
 				<li id="li-living-item-box"><a href="living-item1.html">
 						<div class="div-display-living-box">
-							<img class="img-display-box" id="living" src="<%= img_li%>" alt="">
+							<img class="img-display-box" src="<%=img_li%>" alt="">
 							<div class="display-text">
-								<strong><%=productname %></strong>
-								<p><%=price %>원</p>
+								<strong><%=productname%></strong>
+								<p><%=price%>원
+								</p>
 							</div>
 						</div>
-				</a></li> 
-				<%} %>
-				<!--  
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (2).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (3).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (4).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (5).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (6).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (7).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (8).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (9).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (10).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (11).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (12).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (13).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (14).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (15).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (16).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (17).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (18).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (19).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (20).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (21).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (22).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (23).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (24).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (25).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (26).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (27).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (28).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (29).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (30).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (31).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (32).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (33).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (34).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (35).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (36).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (37).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (38).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (39).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (40).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (41).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (42).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (43).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (44).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="living/living (45).jpg" alt="">
-                     <div class="display-text">
-                        <strong>1번 제품</strong>
-                        <p>가격</p>
-                     </div>
-                  </div>
-            </a></li>
-            -->
-
+				</a></li>
+				<%
+					}
+				%>
 			</ul>
 		</div>
 	</div>
-<script>
-
-</script>
 </body>
 </html>

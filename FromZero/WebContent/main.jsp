@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="model.User" %>
+	pageEncoding="UTF-8"%>
+<%@page import="model.User"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<% User user = (User)request.getAttribute("user"); %>
-<!--  <% session.setAttribute("user", user); %>--> 
+<%
+	User user = (User) request.getAttribute("user");
+%>
+<!--session.setAttribute("user", user);r); %>-->
 <style>
 header {
 	background-size: 1600px 200px;
@@ -299,11 +301,11 @@ element.style {
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="shop.html">SHOP</a>
 				<ul class="submenu" style="white-space: normal">
-					<li><a href="living.html" class="submenuLink">LIVING</a></li>
-					<li><a href="bathroom.html" class="submenuLink">BATHROOM</a></li>
-					<li><a href="kitchen.html" class="submenuLink">KITCHEN</a></li>
-					<li><a href="kit.html" class="submenuLink">KIT</a></li>
-					<li><a href="etc.html" class="submenuLink">ETC</a></li>
+					<li><a href="living.jsp" class="submenuLink">LIVING</a></li>
+					<li><a href="bathroom.jsp" class="submenuLink">BATHROOM</a></li>
+					<li><a href="kitchen.jsp" class="submenuLink">KITCHEN</a></li>
+					<li><a href="kit.jsp" class="submenuLink">KIT</a></li>
+					<li><a href="etc.jsp" class="submenuLink">ETC</a></li>
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="offline.html">OFFLINE</a>
@@ -330,10 +332,17 @@ element.style {
 		<li><a href="myPage.html"> <img src="images/mypage.png"
 				width=25 height=20>
 		</a></li>
-		<li><%= user.getName() %>님</li>
+		<li><%=user.getName()%>님</li>
 		<li><a href="cart.html">CART</a></li>
 		<li><a href="login.html">LOGIN</a></li>
 		<li><a href="join.html">JOIN</a></li>
+	</ul>
+
+	<ul class="service">
+		<li><a href="exchange.jsp"> <img src="images/exchange.png"
+				width=40 height=50></a></li>
+		<li><a href="test.jsp"><img src="images/test.png" width=40
+				height=50></a></li>
 	</ul>
 
 	<div id="slider-wrap">

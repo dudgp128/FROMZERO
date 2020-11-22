@@ -1,3 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.util.Properties"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,6 +74,7 @@
 		<li><a href="test.jsp"><img src="images/test.png" width=40
 				height=50></a></li>
 	</ul>
+
 	<div class="big-shop-grid">
 		<div class="div-shop-grid">
 			<!-- 체크박스 -->
@@ -123,67 +133,61 @@
 					</tr>
 				</table>
 			</form>
-			<br />
 
-			<h2 class="big-category-text">KIT</h2>
-			<ul class="ul-shop-grid">
-				<li id="li-living-item-box"><a href="living-item1.html">
-						<div class="div-display-living-box">
-							<img class="img-display-box" src="kit/1.jpg" alt="">
-							<div class="display-text">
-								<strong>제로웨이스트 입문 키트</strong>
-								<p>12000원</p>
-							</div>
-						</div>
-				</a></li>
-				<li id="li-living-item-box"><a href="living-item1.html">
-						<div class="div-display-living-box">
-							<img class="img-display-box" src="kit/2.jpg" alt="">
-							<div class="display-text">
-								<strong>제로웨이스트 구강위생 키트</strong>
-								<p>22000원</p>
-							</div>
-						</div>
-				</a></li>
-				<li id="li-living-item-box"><a href="living-item1.html">
-						<div class="div-display-living-box">
-							<img class="img-display-box" src="kit/3.jpg" alt="">
-							<div class="display-text">
-								<strong>[프리다]담금초 세트</strong>
-								<p>52000원</p>
-							</div>
-						</div>
-				</a></li>
-				<li id="li-living-item-box"><a href="living-item1.html">
-						<div class="div-display-living-box">
-							<img class="img-display-box" src="kit/4.jpg" alt="">
-							<div class="display-text">
-								<strong>[E,art] 먼지없는 강화 소창 2겹 행주 5장 세트</strong>
-								<p>12000원</p>
-							</div>
-						</div>
-				</a></li>
-				<li id="li-living-item-box"><a href="living-item1.html">
-						<div class="div-display-living-box">
-							<img class="img-display-box" src="kit/5.jpg" alt="">
-							<div class="display-text">
-								<strong>E,art 프리미엄 집들이 선물 세트</strong>
-								<p>21300원</p>
-							</div>
-						</div>
-				</a></li>
-				<li id="li-living-item-box"><a href="living-item1.html">
-						<div class="div-display-living-box">
-							<img class="img-display-box" src="kit/6.jpg" alt="">
-							<div class="display-text">
-								<strong>100% 천연 밀랍초 비즈왁스 밀랍 캔들 3개 세트</strong>
-								<p>11000원</p>
-							</div>
-						</div>
-				</a></li>
-			</ul>
-		</div>
-	</div>
+			<div class="big-shop-grid">
+				<h2 class="big-category-text">KITCHEN</h2>
+				<div class="div-shop-grid">
+					<ul class="ul-shop-grid">
+						<%
+							PreparedStatement pstmt = null;
+						ResultSet rset = null;
+						Connection conn = null;
+						Properties connectionProps = new Properties();
 
+						String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
+						String DBuser = "fz_webapp";
+						String DBpasswd = "fz_webapp";
+						String DBTimeZone = "UTC";
+
+						connectionProps.put("user", DBuser);
+						connectionProps.put("password", DBpasswd);
+						connectionProps.put("serverTimezone", DBTimeZone);
+						String name = null;
+						try {
+							conn = DriverManager.getConnection(DBUrl, connectionProps);
+
+							String sqlSt = "select * from online_product where big_category='kitchen' order by binary(big_category), binary(brand), price, productid";
+							pstmt = conn.prepareStatement(sqlSt);
+							rset = pstmt.executeQuery();
+						} catch (SQLException e) {
+							e.printStackTrace();
+						}
+						String productname = null;
+						String price = null;
+						int img_count = 0;
+						String img_li = null;
+
+						while (rset.next()) {
+							productname = rset.getString("productname");
+							price = rset.getString("price");
+							img_count++;
+							img_li = "kitchen/" + img_count + ".jpg";
+						%>
+						<li id="li-living-item-box"><a href="living-item1.html">
+								<div class="div-display-living-box">
+									<img class="img-display-box" src="<%=img_li%>" alt="">
+									<div class="display-text">
+										<strong><%=productname%></strong>
+										<p><%=price%>원
+										</p>
+									</div>
+								</div>
+						</a></li>
+						<%
+							}
+						%>
+					</ul>
+				</div>
+			</div>
 </body>
 </html>

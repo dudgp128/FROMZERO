@@ -1,11 +1,14 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>From Zero</title>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
+<meta charset="UTF-8">
+<title>From zero</title>
+<script src="point-calculate.js"></script>
 </head>
-<body>
+<body style="overflow-x: hidden">
 	<header>
 		<h1>
 			<a href='main.html'>From zero</a>
@@ -48,7 +51,6 @@
 				</ul></li>
 		</ul>
 	</nav>
-	<br></br>
 
 
 	<ul class="loginarea">
@@ -67,27 +69,57 @@
 				height=50></a></li>
 	</ul>
 
-
-
-
-
-
-	<div Style="margin-bottom: 50px">
-		<h1 align=center>Login</h1>
+	<div class="big-grid">
+		<br /> <br /> <br />
+		<h2>pick up 에코마일리지</h2>
+		<p>
+			집에 있는 공병, 폐지, 등 재활용품을 모아 보내면 사이트의 포인트로 교환해드립니다!<br /> <br />
+		<div class=div-grid>
+			<form>
+				<ul class="row_ul">
+					<li class="row_li">
+						<div>
+							<img class="img_exchange" src="exchange/소주병.jpg"> <br />
+							<p>소주병 (1개/100원)</p>
+							<input id="soju" type="number" name="exchange_number" min="0"
+								, max="10" step="1" value="0" />
+						</div>
+					</li>
+					<li class="row_li">
+						<div>
+							<img class="img_exchange" src="exchange/맥주병.jpg"> <br />
+							<p>맥주병 (1개/140원)</p>
+							<input id="macju" type="number" name="exchange_number" min="0"
+								, max="10" step="1" value="0" />
+						</div>
+					</li>
+					<li class="row_li">
+						<div>
+							<img class="img_exchange" src="exchange/우유팩.jpg"> <br />
+							<p>우유팩(1L/400원)</p>
+							<input id="milk" type="number" name="exchange_number" min="0"
+								, max="10" step="1" value="0" />
+						</div>
+					</li>
+					<li class="row_li">
+						<div>
+							<img class="img_exchange" src="exchange/생수병.jpg"> <br />
+							<p>생수통 (1L/50원)</p>
+							<input id="water" type="number" name="exchange_number" min="0"
+								, max="10" step="1" value="0" />
+						</div>
+					</li>
+				</ul>
+				<br />
+				<div>
+					<button class="point-reset" type="button" onclick="call()">포인트
+						확인</button>
+					<input id="display" type="text" /> <input id="calculate-result"
+						type="text" />
+					<button class="point-reset" type="reset">초기화</button>
+				</div>
+			</form>
+		</div>
 	</div>
-	<div style="text-align: center">
-		<form method="post" action="doLogin">
-			<input type="text" name="mid" placeholder="ID" required
-				style="width: 250px;" /> <br /> <input type="password"
-				name="passwd" placeholder="PASSWORD" required
-				style="margin: 10px; width: 250px;" /><br /> <a href="join.html">
-				JOIN </a> <br /> <input id="login_btn1" type="submit"
-				style="background-color: sky_blue;" value="LOGIN" /> <br /> <br />
-		</form>
-	</div>
-
-
-
-
 </body>
 </html>
