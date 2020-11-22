@@ -13,6 +13,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 import model.User;
@@ -44,7 +45,6 @@ public class DoLogin extends HttpServlet {
 		String name = null;
 		String address = null;
 		String phone = null;
-		//User user = new User(mid, passwd, name, address, phone);
 		
 		ServletContext sc = getServletContext();
 		Connection conn= (Connection) sc.getAttribute("DBconnection");
@@ -59,6 +59,10 @@ public class DoLogin extends HttpServlet {
 						name = rs.getString("name");
 						address = rs.getString("address");
 						phone = rs.getString("phone");
+						
+						HttpSession session=request.getSession(); //세션 반환 (세선 ㅇ-반환, 세션x-생성)
+						session.setAttribute("user_id", mid); //세션 값 넣기
+						
 						User user = new User(mid, passwd, name, address, phone);
 
 						if(checkpw.equals(passwd)){// valid user and passwd
