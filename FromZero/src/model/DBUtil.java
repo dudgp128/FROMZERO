@@ -7,7 +7,7 @@ import java.sql.Statement;
 public class DBUtil {
 
 public static ResultSet findUser(Connection con, String mid) {
-	String sqlSt = "SELECT passwd, name, address, phone FROM customer WHERE custid=";
+	String sqlSt = "SELECT passwd, name, address, phone FROM member WHERE memid=";
 	Statement st;
 	try {
 		st = con.createStatement();
@@ -28,7 +28,7 @@ public static void modifyUser(Connection conn, String nmid, String npasswd, Stri
 	try {
 		stmt=conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
 								ResultSet.CONCUR_UPDATABLE);
-		ResultSet uprs = stmt.executeQuery("SELECT * FROM customer WHERE "+"custid="+"'"+nmid+"'");
+		ResultSet uprs = stmt.executeQuery("SELECT * FROM member WHERE "+"memid="+"'"+nmid+"'");
 		
 		while(uprs.next()) {
 				//String oldpasswd=uprs.getString("passwd");
@@ -50,7 +50,7 @@ public static void insertWithParam(Connection conn, String nmid, String npasswd,
 	try {
 		conn.setAutoCommit(false);
 		
-		pstmt=conn.prepareStatement("INSERT INTO customer VALUES(?,?,?,?,?)");
+		pstmt=conn.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?)");
 		pstmt.setString(1, nmid);
 		pstmt.setString(2, npasswd);
 		pstmt.setString(3, nname);
