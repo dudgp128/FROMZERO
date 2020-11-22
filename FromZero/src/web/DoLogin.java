@@ -38,6 +38,7 @@ public class DoLogin extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); 	//한글깨짐 방지
+		response.setCharacterEncoding("UTF-8");
 		String mid = request.getParameter("mid");
 		String passwd = request.getParameter("passwd");
 		String name = null;
