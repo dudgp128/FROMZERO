@@ -114,11 +114,14 @@
 				</ul>
 				<br />
 				<div>
-					<button class="point-reset" type="submit" onclick="call()">포인트
-						확인</button>
+					<button class="point-reset" type="button" onclick="call()">포인트
+						미리보기</button>
 					<input id="display" type="text" /> 
 					<input id="calculate-result" name="point" type="text" />
 					<button class="point-reset" type="reset">초기화</button>
+					<br/>
+					<button class="point-reset" type="submit" onclick="call()">포인트
+					 전환하기</button>
 				</div>
 			</form>
 		</div>

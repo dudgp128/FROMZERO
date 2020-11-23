@@ -58,9 +58,12 @@ public class DoPoint extends HttpServlet {
 				if(rs.next()) {
 					if(user_id.equals(rs.getString(1))) {
 						DBUtil.modifyPoint(conn,user_id,soju,beer,milk,water,point);
+						response.sendRedirect("./exchange.jsp");
+
 					}
 				}else {
 					DBUtil.insertPoint(conn,user_id,soju,beer,milk,water,point);
+					response.sendRedirect("./exchange.jsp");
 				}
 			}catch (SQLException e) {
 				e.printStackTrace();
