@@ -11,6 +11,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
+<script src="./search-checkbox.js"></script>
 <meta charset="UTF-8">
 <title>From zero</title>
 </head>
@@ -74,66 +75,58 @@
 		<li><a href="test.jsp"><img src="images/test.png" width=40
 				height=50></a></li>
 	</ul>
-
-	<div class="big-shop-grid">
-		<div class="div-shop-grid">
+	
 			<!-- 체크박스 -->
-			<br />
-			<form>
-				<table>
-					<tr>
-						<th>상세검색</th>
-						<td />
-						<td />
-						<td />
-						<td />
-					</tr>
-					<tr>
-						<th>소분류</th>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="straw" id="straw"> 빨대</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="tumblr" id="tumblr"> 텀블러</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="carrier" id="carrier"> 장바구니</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="pouch" id="pouch"> 파우치</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="strawPouch" id="strawPouch">
-								빨대 주머니</label></td>
-					</tr>
+	<form>
+		<table>
+			<tr>
+				<th>소분류</th>
+				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
+						value="밀랍/시트" id="smallCategory1"> 밀랍/시트</label></td>
+				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
+						value="설거지" id="smallCategory2"> 설거지 </label></td>
+				<td/>
+				<td/>
+			</tr>
 
 
-					<tr>
-						<th>브랜드</th>
-						<td><label><input type="checkbox" name="brandName"
-								value="thepicker" id="thepicker"> 더피커</label></td>
-						<td><label><input type="checkbox" name="brandName"
-								value="jigushop" id="jigushop"> 지구샵</label></td>
-						<td><label><input type="checkbox" name="brandName"
-								value="zwshop" id="zwshop"> 제로웨이스트샵</label></td>
-						<td><label><input type="checkbox" name="brandName"
-								value="jigusalimi" id="jigusalimi"> 지구살림e</label></td>
-						<td />
-					</tr>
+			<tr>
+				<th>브랜드</th>
+				<td><label><input type="checkbox" onClick="check()" name="brandName"
+						value="더피커" id="brand1"> 더피커</label></td>
+				<td><label><input type="checkbox" onClick="check()" name="brandName"
+						value="지구샵" id="brand2"> 지구샵</label></td>
+				<td><label><input type="checkbox" onClick="check()" name="brandName"
+						value="제로웨이스트샵" id="brand3"> 제로웨이스트샵</label></td>
+				<td><label><input type="checkbox" onClick="check()" name="brandName"
+						value="지구살림e" id="brand4"> 지구살림e</label></td>
+				<td />
+			</tr>
 
 
-					<tr>
-						<th>가격</th>
-						<td><label><input type="checkbox" name="price"
-								value="one" id="one"> ~1만원</label></td>
-						<td><label><input type="checkbox" name="price"
-								value="three" id="three"> ~3만원</label></td>
-						<td><label><input type="checkbox" name="price"
-								value="five" id="five"> ~5만원</label></td>
-						<td />
-						<td style="text-align: right;"><input type="submit"
-							value="검색" />
-						<td />
-					</tr>
-				</table>
-			</form>
-
+			<tr>
+				<th>가격</th>
+				<td><input type="radio" onClick="check()" name="price"
+						value="~1만원" id="one"><label for="one"> ~1만원</label></td>
+				<td><input type="radio" onClick="check()" name="price"
+						value="~3만원" id="three"><label for="three"> ~3만원</label></td>
+				<td><input type="radio" onClick="check()" name="price"
+						value="~5만원" id="five"><label for ="five"> ~5만원</label></td>
+			</tr>
+			
+			<tr>
+				<td/>
+				<td/>
+				<td colspan="4" style="text-align:right;"><input type="text" style= "width:500px; height:30px;" id="search-statement"/></td>
+				<td style="text-align:left"><button type="reset">초기화</button></td>
+				<td style="text-align:left"><input type="submit" value="검색" />
+			</tr>
+		</table>
+	</form>
+	
+	
+	
+	
 			<div class="big-shop-grid">
 				<h2 class="big-category-text">KITCHEN</h2>
 				<div class="div-shop-grid">

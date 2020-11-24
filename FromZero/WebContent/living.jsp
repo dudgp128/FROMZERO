@@ -11,13 +11,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
-<script src="./display-checkbox.js"></script>
-<style>
-	form{
-		margin-left:100px;
-		width:95%
-	}
-</style>
+<script src="./search-checkbox.js"></script>
 <meta charset="UTF-8">
 <title>From zero</title>
 </head>
@@ -89,35 +83,28 @@
 	<form>
 		<table>
 			<tr>
-				<th>상세검색</th>
-				<td />
-				<td />
-				<td />
-				<td />
-			</tr>
-			<tr>
 				<th>소분류</th>
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
-						value="집게" id="zipge"> 집게</label></td>
+						value="집게" id="smallCategory1"> 집게</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
-						value="주머니/가방" id="carrier"> 주머니/가방</label></td>
+						value="주머니/가방" id="smallCategory2"> 주머니/가방</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
-						value="책/노트" id="note"> 책/노트</label></td>
+						value="책/노트" id="smallCategory3"> 책/노트</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
-						value="빨대" id="straw"> 빨대</label></td>
+						value="빨대" id="smallCategory4"> 빨대</label></td>
 			</tr>
 
 
 			<tr>
 				<th>브랜드</th>
 				<td><label><input type="checkbox" onClick="check()" name="brandName"
-						value="더피커" id="thepicker"> 더피커</label></td>
+						value="더피커" id="brand1"> 더피커</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="brandName"
-						value="지구샵" id="jigushop"> 지구샵</label></td>
+						value="지구샵" id="brand2"> 지구샵</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="brandName"
-						value="제로웨이스트샵" id="zwshop"> 제로웨이스트샵</label></td>
+						value="제로웨이스트샵" id="brand3"> 제로웨이스트샵</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="brandName"
-						value="지구살림e" id="jigusalimi"> 지구살림e</label></td>
+						value="지구살림e" id="brand4"> 지구살림e</label></td>
 				<td />
 			</tr>
 
@@ -134,13 +121,15 @@
 			
 			<tr>
 				<td/>
-				<td colspan="3"><input type="text" style="width:500px; height:30px;" id="search-statement"/></td>
 				<td/>
-				<td style="text-align:right"><button type="reset">초기화</button></td>
-				<td><input type="submit" value="검색" />
+				<td colspan="4" style="text-align:right;"><input type="text" style= "width:500px; height:30px;" id="search-statement"/></td>
+				<td style="text-align:left"><button type="reset">초기화</button></td>
+				<td style="text-align:left"><input type="submit" value="검색" />
 			</tr>
 		</table>
 	</form>
+	
+	
 	<div class="big-shop-grid">
 		<h2 class="big-category-text">LIVING</h2>
 		<div class="div-shop-grid">
