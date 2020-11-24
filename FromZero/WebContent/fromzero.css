@@ -1,4 +1,5 @@
 @charset "UTF-8";
+
 header {
 	background-size: 1600px 200px;
 	background-repeat: no-repeat;
@@ -298,7 +299,6 @@ element.style {
 }
 
 /*main*/
-
 .ul-shop-grid, #li-living-item-box {
 	list-style-type: none;
 	float: left;
@@ -322,21 +322,15 @@ element.style {
 	display: inline-block;
 }
 
-
-
 .img-display-box {
 	height: 220px;
 	width: 220px
 }
 
 .big-category-text {
-	text-align:left;
+	text-align: left;
 	margin-top: 50px;
 	margin-bottom: 20px
-}
-
-th, td {
-	padding: 13px;
 }
 
 table {
@@ -344,10 +338,13 @@ table {
 	height: 150px;
 	text-align: center;
 	background-color: #E6E6E6;
+	
+}
+th, td {
+	padding: 13px;
 }
 
 /*shop-living-kitchen-etc-kit*/
-
 .big-grid {
 	width: 100%;
 	text-align: center
@@ -367,7 +364,6 @@ table {
 	margin: 30px
 }
 /*exchange*/
-
 div.title {
 	text-align: center;
 	padding: 4% 0% 3% 0%;
@@ -375,61 +371,55 @@ div.title {
 
 div.question_box {
 	text-align: center;
-	background-color:#E6E6E6;
+	background-color: #E6E6E6;
 	margin: 0% 20% 2% 20%;
 	padding: 2% 0% 2% 0%;
 }
-	
+
 div.question {
 	text-align: center;
-	margin:15px 0px 35px 0px;
+	margin: 15px 0px 35px 0px;
 }
 
-
-
-
-	
 /* 버튼 */
-
-.button{
+.button {
 	text-align: center;
 }
+
 .test-result-button {
-    width:100px;
-    background-color: #A9F5A9;
-    border: none;
-    color:#6E6E6E;
-    padding: 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 13px;
-    font-weight:bold;
-    margin: 4px;
-    cursor: pointer;
-    border-radius:10px 0 10px 0;
+	width: 100px;
+	background-color: #A9F5A9;
+	border: none;
+	color: #6E6E6E;
+	padding: 10px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 13px;
+	font-weight: bold;
+	margin: 4px;
+	cursor: pointer;
+	border-radius: 10px 0 10px 0;
 }
 
 .test-result-button:hover {
-    background-color: #04B431;
-    color:#fff;
+	background-color: #04B431;
+	color: #fff;
 }
 
-   
 .title-div {
 	text-align: center;
-   padding: 4% 0% 3% 0%;
+	padding: 4% 0% 3% 0%;
 }
 
 .question_box-div {
 	text-align: center;
-   background-color:#E6E6E6;
-   margin: 0% 20% 2% 20%;
-   padding: 2% 0% 2% 0%;
-}
-   
-.question-div {
-	text-align: center;
-   margin:15px 0px 35px 0px;
+	background-color: #E6E6E6;
+	margin: 0% 20% 2% 20%;
+	padding: 2% 0% 2% 0%;
 }
 
+.question-div {
+	text-align: center;
+	margin: 15px 0px 35px 0px;
+}
