@@ -1,6 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@page import="model.User"%>
 <!DOCTYPE html>
 <html>
 <head>
+<%
+	User user = (User) request.getAttribute("user");
+%>
+<% String user_id=(String)session.getAttribute("user_id"); //세션 값 불러오기%> 
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
 <title>From zero</title>
@@ -32,7 +39,7 @@
 
 .info {
 	background-color: #e2e2e2;
-	width: 960px;
+	width: 970px;
 	height: 100px;
 	float: right;
 	margin-right: 10px;
@@ -137,15 +144,15 @@
 	<div class="inside">
 		<div class="left-menu">
 			<ul>
-				<li style="color:#33cc00"><a href="myPage.html">주문조회</a></li>
-				<li><a href="info-modify.html">회원정보 수정</a></li>
-				<li><a href="info-exit.html">회원탈퇴</a></li>
+				<li style="color: #33cc00"><a href="myPage.jsp">주문조회</a></li>
+				<li><a href="info-modify.jsp">회원정보 수정</a></li>
+				<li><a href="info-exit.jsp">회원탈퇴</a></li>
 			</ul>
 		</div>
 		<div class="info">
 			<div class="intro">
 				<div style='font-weight: bold; font-size: 26px; padding: 10px;'>
-					000님, 안녕하세요.</div>
+					<%=user.getName()%>님, 안녕하세요.</div>
 				<div class="total-price" style='font-size: 16px; padding: 10px;'>누적구매금액:
 					0원</div>
 			</div>
@@ -163,25 +170,25 @@
 				</a>
 			</div> -->
 			<div class="point-view">
-				<a href="point.html">
+				<a href="point.html"> <!-- 공병 개수 보여주는거 어떻게 할것인지 결정하기  -->
 					<ul>
 						<li>포인트</li>
-						<li style='font-size:26px'>0</li>
+						<li style='font-size: 26px'>0</li>
 					</ul>
 				</a>
 			</div>
 			<div class="point-view">
 				<a href="test.jsp">
 					<ul>
-						<li>레 벨</li>
-						<li style='font-size:26px'>나무</li>
+						<li>레 벨</li> <!-- 레벨 디비 저장해서 가져오는거 구현하기 -->
+						<li style='font-size: 26px'>나무</li>
 					</ul>
 				</a>
 			</div>
 		</div>
 		<br />
 		<div style="font-size: 15px; padding: 70px; text-align: center;">주문내역이
-			없습니다.</div>
+			없습니다.</div> <!-- 오프라인구매내역/온라인구매내역으로 나눠서 테이블에서 가져오기 -->
 	</div>
 </body>
 </html>

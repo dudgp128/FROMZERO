@@ -33,7 +33,7 @@
 .info {
 	background-color: #e2e2e2;
 	width: 960px;
-	height: 100px;
+	height: 300px;
 	float: right;
 	margin-right: 10px;
 	margin-left: 10px;
@@ -137,51 +137,29 @@
 	<div class="inside">
 		<div class="left-menu">
 			<ul>
-				<li style="color:#33cc00"><a href="myPage.html">주문조회</a></li>
+				<li style="color: #33cc00"><a href="myPage.html">주문조회</a></li>
 				<li><a href="info-modify.html">회원정보 수정</a></li>
 				<li><a href="info-exit.html">회원탈퇴</a></li>
 			</ul>
 		</div>
 		<div class="info">
-			<div class="intro">
-				<div style='font-weight: bold; font-size: 26px; padding: 10px;'>
-					000님, 안녕하세요.</div>
-				<div class="total-price" style='font-size: 16px; padding: 10px;'>누적구매금액:
-					0원</div>
-			</div>
-			<!-- <div class="point-view">
-				<a href="point.html">
-					<ul>
-						<li style="font-size: 29px; margin-bottom: 5px;">포인트</li>
-						<li style="font-size: 29px; margin-bottom: 5px;">레벨</li>
-					</ul>
-					<ul>
-						<li style="font-size: 29px; margin-bottom: 5px;">0</li>
-						<li style="font-size: 29px; margin-bottom: 5px;">나무</li>
-					</ul>
-					 <div style="font-size: 29px;">0</div> 
-				</a>
-			</div> -->
-			<div class="point-view">
-				<a href="point.html">
-					<ul>
-						<li>포인트</li>
-						<li style='font-size:26px'>0</li>
-					</ul>
-				</a>
-			</div>
-			<div class="point-view">
-				<a href="test.jsp">
-					<ul>
-						<li>레 벨</li>
-						<li style='font-size:26px'>나무</li>
-					</ul>
-				</a>
+		<br/>
+			<h1 align=center>Modify my information</h1>
+			<br /> <br />
+
+			<div style="text-align: center">
+				<form method="post" action="">
+					아이디 <input id="join_input" type="text" name="nmid"
+						placeholder="your ID" required /> <br /> 비밀번호 <input
+						id="join_input" type="password" placeholder="PASSWORD"
+						name="npasswd" required /><br /> 이름 <input id="join_input"
+						type="text" name="nname" placeholder="NAME" required /><br /> 주소
+					<input id="join_input" type="text" placeholder="ADDRESS"
+						name="naddress" /><br /> 전화번호 <input id="join_input" type="text"
+						placeholder="PHONE_NUMBER" name="nphone" /><br /> <input
+						type="submit" style="margin-top: 20px" value="정보수정" /> <br /> <br />
+				</form>
 			</div>
 		</div>
-		<br />
-		<div style="font-size: 15px; padding: 70px; text-align: center;">주문내역이
-			없습니다.</div>
-	</div>
 </body>
 </html>
