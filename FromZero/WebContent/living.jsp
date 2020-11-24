@@ -119,11 +119,11 @@
 
 			<tr>
 				<th>가격</th>
-				<td><label><input type="checkbox" name="price"
+				<td><label><input type="radio" name="price"
 						value="one" id="one"> ~1만원</label></td>
-				<td><label><input type="checkbox" name="price"
+				<td><label><input type="radio" name="price"
 						value="three" id="three"> ~3만원</label></td>
-				<td><label><input type="checkbox" name="price"
+				<td><label><input type="radio" name="price"
 						value="five" id="five"> ~5만원</label></td>
 				<td />
 				<td style="text-align: right;"><input type="submit" value="검색" />
@@ -168,7 +168,7 @@
 					productname = rset.getString("productname");
 					price = rset.getString("price");
 					img_count++;
-					img_li = "living/" + img_count + ".jpg";
+					img_li = "living/living (" + img_count + ").jpg";
 				%>
 				<li id="li-living-item-box"><a href="living-item1.html">
 						<div class="div-display-living-box">
