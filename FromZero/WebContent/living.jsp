@@ -168,7 +168,7 @@
 					productname = rset.getString("productname");
 					price = rset.getString("price");
 					img_count++;
-					img_li = "living/living (" + img_count + ").jpg";
+					img_li = "living/" + img_count + ".jpg";
 				%>
 				<li id="li-living-item-box"><a href="living-item1.html">
 						<div class="div-display-living-box">
