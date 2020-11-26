@@ -80,18 +80,18 @@
 
 	<!-- 체크박스 -->
 
-	<form>
+	<form method="post" action="doLiving">
 		<table>
 			<tr>
 				<th>소분류</th>
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
-						value="집게" id="smallCategory1"> 집게</label></td>
+						value="빨대" id="smallCategory1"> 빨대</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
 						value="주머니/가방" id="smallCategory2"> 주머니/가방</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
-						value="책/노트" id="smallCategory3"> 책/노트</label></td>
+						value="집게" id="smallCategory3"> 집게</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory"
-						value="빨대" id="smallCategory4"> 빨대</label></td>
+						value="책/노트" id="smallCategory4"> 책/노트</label></td>
 			</tr>
 
 
@@ -112,17 +112,17 @@
 			<tr>
 				<th>가격</th>
 				<td><input type="radio" onClick="check()" name="price"
-						value="~1만원" id="one"><label for="one"> ~1만원</label></td>
+						value="10000" id="one"><label for="one"> ~1만원</label></td>
 				<td><input type="radio" onClick="check()" name="price"
-						value="~3만원" id="three"><label for="three"> ~3만원</label></td>
+						value="30000" id="three"><label for="three"> ~3만원</label></td>
 				<td><input type="radio" onClick="check()" name="price"
-						value="~5만원" id="five"><label for ="five"> ~5만원</label></td>
+						value="50000" id="five"><label for ="five"> ~5만원</label></td>
 			</tr>
 			
 			<tr>
 				<td/>
 				<td/>
-				<td colspan="4" style="text-align:right;"><input type="text" style= "width:500px; height:30px;" id="search-statement"/></td>
+				<td colspan="4" style="text-align:right;"><input type="text" name="search_result" style= "width:500px; height:30px;" id="search-statement"/></td>
 				<td style="text-align:left"><button type="reset">초기화</button></td>
 				<td style="text-align:left"><input type="submit" value="검색" />
 			</tr>

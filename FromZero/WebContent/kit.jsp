@@ -78,6 +78,7 @@
 		<div class="div-shop-grid">
 			<!-- 체크박스 -->
 			<br />
+<!-- 
 			<form>
 				<table>
 					<tr>
@@ -101,38 +102,41 @@
 								name="smallCategory" value="strawPouch" id="strawPouch">
 								빨대 주머니</label></td>
 					</tr>
-
-
 					<tr>
 						<th>브랜드</th>
-						<td><label><input type="checkbox" name="brandName"
-								value="thepicker" id="thepicker"> 더피커</label></td>
-						<td><label><input type="checkbox" name="brandName"
-								value="jigushop" id="jigushop"> 지구샵</label></td>
-						<td><label><input type="checkbox" name="brandName"
-								value="zwshop" id="zwshop"> 제로웨이스트샵</label></td>
-						<td><label><input type="checkbox" name="brandName"
-								value="jigusalimi" id="jigusalimi"> 지구살림e</label></td>
+						<td><label><input type="checkbox" onClick="check()"
+								name="brandName" value="더피커" id="brand1"> 더피커</label></td>
+						<td><label><input type="checkbox" onClick="check()"
+								name="brandName" value="지구샵" id="brand2"> 지구샵</label></td>
+						<td><label><input type="checkbox" onClick="check()"
+								name="brandName" value="제로웨이스트샵" id="brand3"> 제로웨이스트샵</label></td>
+						<td><label><input type="checkbox" onClick="check()"
+								name="brandName" value="지구살림e" id="brand4"> 지구살림e</label></td>
 						<td />
 					</tr>
 
 
 					<tr>
 						<th>가격</th>
-						<td><label><input type="checkbox" name="price"
-								value="one" id="one"> ~1만원</label></td>
-						<td><label><input type="checkbox" name="price"
-								value="three" id="three"> ~3만원</label></td>
-						<td><label><input type="checkbox" name="price"
-								value="five" id="five"> ~5만원</label></td>
+						<td><input type="radio" onClick="check()" name="price"
+							value="10000" id="one"><label for="one"> ~1만원</label></td>
+						<td><input type="radio" onClick="check()" name="price"
+							value="30000" id="three"><label for="three"> ~3만원</label></td>
+						<td><input type="radio" onClick="check()" name="price"
+							value="50000" id="five"><label for="five"> ~5만원</label></td>
+					</tr>
+
+					<tr>
 						<td />
-						<td style="text-align: right;"><input type="submit"
-							value="검색" />
 						<td />
+						<td colspan="4" style="text-align: right;"><input type="text"
+							style="width: 500px; height: 30px;" id="search-statement" /></td>
+						<td style="text-align: left"><button type="reset">초기화</button></td>
+						<td style="text-align: left"><input type="submit" value="검색" />
 					</tr>
 				</table>
 			</form>
-
+-->
 			<div class="big-shop-grid">
 				<h2 class="big-category-text">KIT</h2>
 				<div class="div-shop-grid">

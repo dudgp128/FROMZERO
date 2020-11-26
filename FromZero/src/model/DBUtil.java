@@ -156,4 +156,19 @@ public class DBUtil {
 			}
 		}
 	}
+	
+	public static ResultSet findCheckbox(Connection con, String sqlSt) {
+		Statement st;
+		try {
+			st = con.createStatement();
+			if (st.execute(sqlSt)) {
+				return st.getResultSet();
+			}
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+		
+	}
 }

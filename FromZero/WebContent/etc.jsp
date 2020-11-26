@@ -80,6 +80,7 @@
 		<div class="div-shop-grid">
 
 			<br />
+			<!-- 
 			<form>
 				<table>
 					<tr>
@@ -134,6 +135,7 @@
 					</tr>
 				</table>
 			</form>
+			 -->
 			<div class="big-shop-grid">
 				<h2 class="big-category-text">ETC</h2>
 				<div class="div-shop-grid">

@@ -14,6 +14,10 @@
 <script src="./search-checkbox.js"></script>
 <meta charset="UTF-8">
 <title>From zero</title>
+<%
+	ResultSet rs = (ResultSet) request.getAttribute("rs");
+%>
+<%String search_result = (String)request.getAttribute("search_result"); %>
 </head>
 <body style="overflow-x: hidden">
 	<header>
@@ -88,17 +92,19 @@
 						value="샤워" id="smallCategory2"> 샤워</label></td>
 				<td><label><input type="checkbox" name="smallCategory" onClick="check()"
 						value="타월" id="smallCategory3"> 타월</label></td>
+
 			</tr>
+
 			<tr>
 				<th>브랜드</th>
-				<td><label><input type="checkbox" onClick="check()" name="brandName"
-						value="더피커" id="brand1"> 더피커</label></td>
-				<td><label><input type="checkbox" onClick="check()" name="brandName"
-						value="지구샵" id="brand2"> 지구샵</label></td>
-				<td><label><input type="checkbox" onClick="check()" name="brandName"
-						value="제로웨이스트샵" id="brand3"> 제로웨이스트샵</label></td>
-				<td><label><input type="checkbox" onClick="check()" name="brandName"
-						value="지구살림e" id="brand4"> 지구살림e</label></td>
+				<td><label><input type="checkbox" onClick="check()"
+						name="brandName" value="더피커" id="brand1"> 더피커</label></td>
+				<td><label><input type="checkbox" onClick="check()"
+						name="brandName" value="지구샵" id="brand2"> 지구샵</label></td>
+				<td><label><input type="checkbox" onClick="check()"
+						name="brandName" value="제로웨이스트샵" id="brand3"> 제로웨이스트샵</label></td>
+				<td><label><input type="checkbox" onClick="check()"
+						name="brandName" value="지구살림e" id="brand4"> 지구살림e</label></td>
 				<td />
 			</tr>
 
@@ -106,60 +112,41 @@
 			<tr>
 				<th>가격</th>
 				<td><input type="radio" onClick="check()" name="price"
-						value="10000" id="one"><label for="one"> ~1만원</label></td>
+					value="10000" id="one"><label for="one"> ~1만원</label></td>
 				<td><input type="radio" onClick="check()" name="price"
-						value="30000" id="three"><label for="three"> ~3만원</label></td>
+					value="30000" id="three"><label for="three"> ~3만원</label></td>
 				<td><input type="radio" onClick="check()" name="price"
-						value="50000" id="five"><label for ="five"> ~5만원</label></td>
+					value="50000" id="five"><label for="five"> ~5만원</label></td>
 			</tr>
-			
+
 			<tr>
-				<td/>
-				<td/>
-				<td colspan="4" style="text-align:right;"><input type="text"  name="search_result" style= "width:500px; height:30px;" id="search-statement"/></td>
-				<td style="text-align:left"><button type="reset">초기화</button></td>
-				<td style="text-align:left"><input type="submit" value="검색" />
+				<td />
+				<td />
+				<td colspan="4" style="text-align: right;"><input type="text"
+					 name="search_result" style="width: 500px; height: 30px;" id="search-statement" /></td>
+				<td style="text-align: left"><button type="reset">초기화</button></td>
+				<td style="text-align: left"><input type="submit" value="검색" />
 			</tr>
 		</table>
 	</form>
+	
+	<h3 style="float:left"> <%=search_result %></h3>
 	<div class="big-shop-grid">
 		<h2 class="big-category-text">BATHROOM</h2>
 		<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
 				<%
-					PreparedStatement pstmt = null;
-				ResultSet rset = null;
-				Connection conn = null;
-				Properties connectionProps = new Properties();
-
-				String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
-				String DBuser = "fz_webapp";
-				String DBpasswd = "fz_webapp";
-				String DBTimeZone = "UTC";
-
-				connectionProps.put("user", DBuser);
-				connectionProps.put("password", DBpasswd);
-				connectionProps.put("serverTimezone", DBTimeZone);
-				String name = null;
-				try {
-					conn = DriverManager.getConnection(DBUrl, connectionProps);
-
-					String sqlSt = "select * from online_product where big_category='bathroom' order by binary(big_category), binary(brand), price, productid";
-					pstmt = conn.prepareStatement(sqlSt);
-					rset = pstmt.executeQuery();
-				} catch (SQLException e) {
-					e.printStackTrace();
-				}
-				String productname = null;
-				String price = null;
-				int img_count = 0;
+					String img;
 				String img_li = null;
+				while (rs.next()) {
+					String productname = null;
+					String price = null;
+					productname = rs.getString("productname");
+					price = rs.getString("price");
+					img = rs.getString("img");
+					img_li = "bathroom/" + img + ".jpg";
 
-				while (rset.next()) {
-					productname = rset.getString("productname");
-					price = rset.getString("price");
-					img_count++;
-					img_li = "bathroom/" + img_count + ".jpg";
+					System.out.println(productname);
 				%>
 				<li id="li-living-item-box"><a href="living-item1.html">
 						<div class="div-display-living-box">
