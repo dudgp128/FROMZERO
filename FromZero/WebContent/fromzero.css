@@ -344,6 +344,11 @@ th, td {
 	padding: 13px;
 }
 
+form{
+		margin-left:100px;
+		width:95%
+	}
+
 /*shop-living-kitchen-etc-kit*/
 .big-grid {
 	width: 100%;
