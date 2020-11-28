@@ -17,7 +17,9 @@
 <%
 	ResultSet rs = (ResultSet) request.getAttribute("rs");
 %>
-<%String search_result = (String)request.getAttribute("search_result"); %>
+<%
+	String search_result = (String) request.getAttribute("search_result");
+%>
 </head>
 <body style="overflow-x: hidden">
 	<header>
@@ -64,14 +66,22 @@
 	</nav>
 
 
-	<ul class="loginarea">
-		<li><a href="myPage.html"> <img src="images/mypage.png"
-				width=25 height=20>
-		</a></li>
-		<li><a href="cart.html">cart</a></li>
-		<li><a href="login.html">login</a></li>
-		<li><a href="join.html">join</a></li>
-	</ul>
+	<form method="post" action="doSearch">
+		<ul class="loginarea">
+			<li><a href="login.html"> <img src="images/mypage.png"
+					width=25 height=20>
+			</a></li>
+			<li><a href="login.html">cart</a></li>
+			<li><a href="login.html">login</a></li>
+			<li><a href="join.html">join</a></li>
+			<li><input type="text" name="search_text"></li>
+			<li style='top: 100px; padding: 0 0px;'>
+				<button type="submit">
+					<img src="images/magnifying-glass.png" width=20 height=20>
+				</button>
+			</li>
+		</ul>
+	</form>
 
 	<ul class="service">
 		<li><a href="exchange.jsp"> <img src="images/exchange.png"
@@ -86,12 +96,12 @@
 		<table>
 			<tr>
 				<th>소분류</th>
-				<td><label><input type="checkbox" name="smallCategory" onClick="check()"
-						value="비누" id="smallCategory1"> 비누</label></td>
-				<td><label><input type="checkbox" name="smallCategory" onClick="check()"
-						value="샤워" id="smallCategory2"> 샤워</label></td>
-				<td><label><input type="checkbox" name="smallCategory" onClick="check()"
-						value="타월" id="smallCategory3"> 타월</label></td>
+				<td><label><input type="checkbox" name="smallCategory"
+						onClick="check()" value="비누" id="smallCategory1"> 비누</label></td>
+				<td><label><input type="checkbox" name="smallCategory"
+						onClick="check()" value="샤워" id="smallCategory2"> 샤워</label></td>
+				<td><label><input type="checkbox" name="smallCategory"
+						onClick="check()" value="타월" id="smallCategory3"> 타월</label></td>
 
 			</tr>
 
@@ -123,14 +133,16 @@
 				<td />
 				<td />
 				<td colspan="4" style="text-align: right;"><input type="text"
-					 name="search_result" style="width: 500px; height: 30px;" id="search-statement" /></td>
+					name="search_result" style="width: 500px; height: 30px;"
+					id="search-statement" /></td>
 				<td style="text-align: left"><button type="reset">초기화</button></td>
 				<td style="text-align: left"><input type="submit" value="검색" />
 			</tr>
 		</table>
 	</form>
-	
-	<h3 style="float:left"> <%=search_result %></h3>
+
+	<h3 style="float: left">
+		<%=search_result%></h3>
 	<div class="big-shop-grid">
 		<h2 class="big-category-text">BATHROOM</h2>
 		<div class="div-shop-grid">

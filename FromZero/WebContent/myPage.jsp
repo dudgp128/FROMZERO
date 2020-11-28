@@ -7,7 +7,9 @@
 <%
 	User user = (User) request.getAttribute("user");
 %>
-<% String user_id=(String)session.getAttribute("user_id"); //세션 값 불러오기%> 
+<%
+	String user_id = (String) session.getAttribute("user_id"); //세션 값 불러오기
+%>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
 <title>From zero</title>
@@ -125,20 +127,28 @@
 	</nav>
 
 
-	<ul class="loginarea">
-		<li><a href="myPage.html"> <img src="images/mypage.png"
-				width=25 height=20>
-		</a></li>
-		<li><a href="cart.html">cart</a></li>
-		<li><a href="login.html">login</a></li>
-		<li><a href="join.html">join</a></li>
-	</ul>
+	<form method="post" action="doSearch">
+		<ul class="loginarea">
+			<li><a href="login.html"> <img src="images/mypage.png"
+					width=25 height=20>
+			</a></li>
+			<li><a href="login.html">cart</a></li>
+			<li><a href="login.html">login</a></li>
+			<li><a href="join.html">join</a></li>
+			<li><input type="text" name="search_text"></li>
+			<li style='top: 100px; padding: 0 0px;'>
+				<button type="submit">
+					<img src="images/magnifying-glass.png" width=20 height=20>
+				</button>
+			</li>
+		</ul>
+	</form>
 
 	<ul class="service">
 		<li><a href="exchange.jsp"> <img src="images/exchange.png"
-				style="width:50px; height:50px;"></a></li>
-		<li><a href="test.jsp"><img src="images/test.png" style="width:50px;
-				height:50px;"></a></li>
+				style="width: 50px; height: 50px;"></a></li>
+		<li><a href="test.jsp"><img src="images/test.png"
+				style="width: 50px; height: 50px;"></a></li>
 	</ul>
 
 	<div class="inside">
@@ -152,7 +162,8 @@
 		<div class="info">
 			<div class="intro">
 				<div style='font-weight: bold; font-size: 26px; padding: 10px;'>
-					<%=user.getName()%>님, 안녕하세요.</div>
+					<%=user.getName()%>님, 안녕하세요.
+				</div>
 				<div class="total-price" style='font-size: 16px; padding: 10px;'>누적구매금액:
 					0원</div>
 			</div>
@@ -180,7 +191,8 @@
 			<div class="point-view">
 				<a href="test.jsp">
 					<ul>
-						<li>레 벨</li> <!-- 레벨 디비 저장해서 가져오는거 구현하기 -->
+						<li>레 벨</li>
+						<!-- 레벨 디비 저장해서 가져오는거 구현하기 -->
 						<li style='font-size: 26px'>나무</li>
 					</ul>
 				</a>
@@ -188,7 +200,8 @@
 		</div>
 		<br />
 		<div style="font-size: 15px; padding: 70px; text-align: center;">주문내역이
-			없습니다.</div> <!-- 오프라인구매내역/온라인구매내역으로 나눠서 테이블에서 가져오기 -->
+			없습니다.</div>
+		<!-- 오프라인구매내역/온라인구매내역으로 나눠서 테이블에서 가져오기 -->
 	</div>
 </body>
 </html>

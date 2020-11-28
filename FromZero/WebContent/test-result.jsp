@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,44 +53,52 @@
 	</nav>
 
 
-	<ul class="loginarea">
-		<li><a href="login.html"> <img src="images/mypage.png"
-				width=25 height=20>
-		</a></li>
-		<li><a href="login.html">cart</a></li>
-		<li><a href="login.html">login</a></li>
-		<li><a href="join.html">join</a></li>
-		<li><input type="text"></li>
-		<li style='top:100px; padding:0 0px;'>
-		<img src="images/magnifying-glass.png" width=20 height=20></li>
-	</ul>
+	<form method="post" action="doSearch">
+		<ul class="loginarea">
+			<li><a href="login.html"> <img src="images/mypage.png"
+					width=25 height=20>
+			</a></li>
+			<li><a href="login.html">cart</a></li>
+			<li><a href="login.html">login</a></li>
+			<li><a href="join.html">join</a></li>
+			<li><input type="text" name="search_text"></li>
+			<li style='top: 100px; padding: 0 0px;'>
+				<button type="submit">
+					<img src="images/magnifying-glass.png" width=20 height=20>
+				</button>
+			</li>
+		</ul>
+	</form>
 
-		<ul class="service">
+	<ul class="service">
 		<li><a href="exchange.jsp"> <img src="images/exchange.png"
 				width=40 height=50></a></li>
 		<li><a href="test.jsp"><img src="images/test.png" width=40
 				height=50></a></li>
 	</ul>
 
-<!-- 테스트 페이지 본문 -->
+	<!-- 테스트 페이지 본문 -->
 
-<div class="title">
-<h2 style="text-align:center">레벨 테스트</h2>
-<h4 style="text-align:center">나는 제로웨이스트 입문자? 고수? 내 제로웨이스트 레벨을 알아보자!</h4>
-</div>
- 
-<form name="question">
-<div class="question_box">
+	<div class="title">
+		<h2 style="text-align: center">레벨 테스트</h2>
+		<h4 style="text-align: center">나는 제로웨이스트 입문자? 고수? 내 제로웨이스트 레벨을
+			알아보자!</h4>
+	</div>
 
-<br /><br />
-<img id="img" src="" border="0" width="250px">
-<br /><br /><br />
-<div id="result" style="font-weight:bold"></div>
-<br />
-</div>
-</form>
+	<form name="question">
+		<div class="question_box">
+
+			<br />
+			<br /> <img id="img" src="" border="0" width="250px"> <br />
+			<br />
+			<br />
+			<div id="result" style="font-weight: bold"></div>
+			<br />
+		</div>
+	</form>
 
 
-<br /><br />
+	<br />
+	<br />
 </body>
 </html>

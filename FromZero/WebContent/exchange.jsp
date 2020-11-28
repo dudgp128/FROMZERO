@@ -4,7 +4,9 @@
 <html>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
-<% String user_id=(String)session.getAttribute("user_id"); //세션 값 불러오기%> 
+<%
+	String user_id = (String) session.getAttribute("user_id"); //세션 값 불러오기
+%>
 <meta charset="UTF-8">
 <title>From zero</title>
 <script src="point-calculate.js"></script>
@@ -54,25 +56,33 @@
 	</nav>
 
 
-	<ul class="loginarea">
-		<li><a href="myPage.html"> <img src="images/mypage.png"
-				width=25 height=20>
-		</a></li>
-		<li><a href="cart.html">cart</a></li>
-		<li><a href="login.html">login</a></li>
-		<li><a href="join.html">join</a></li>
-	</ul>
+	<form method="post" action="doSearch">
+		<ul class="loginarea">
+			<li><a href="login.html"> <img src="images/mypage.png"
+					width=25 height=20>
+			</a></li>
+			<li><a href="login.html">cart</a></li>
+			<li><a href="login.html">login</a></li>
+			<li><a href="join.html">join</a></li>
+			<li><input type="text" name="search_text"></li>
+			<li style='top: 100px; padding: 0 0px;'>
+				<button type="submit">
+					<img src="images/magnifying-glass.png" width=20 height=20>
+				</button>
+			</li>
+		</ul>
+	</form>
 
 	<ul class="service">
 		<li><a href="exchange.jsp"> <img src="images/exchange.png"
-				style="width:50px; height:50px;"></a></li>
-		<li><a href="test.jsp"><img src="images/test.png" style="width:50px;
-				height:50px;"></a></li>
+				style="width: 50px; height: 50px;"></a></li>
+		<li><a href="test.jsp"><img src="images/test.png"
+				style="width: 50px; height: 50px;"></a></li>
 	</ul>
 
 	<div class="big-grid">
 		<br /> <br /> <br />
-		<%= user_id %>
+		<%=user_id%>
 		<h2>pick up 에코마일리지</h2>
 		<p>
 			집에 있는 공병, 폐지, 등 재활용품을 모아 보내면 사이트의 포인트로 교환해드립니다!<br /> <br />
@@ -83,32 +93,32 @@
 						<div>
 							<img class="img_exchange" src="exchange/소주병.jpg"> <br />
 							<p>소주병 (1개/100원)</p>
-							<input id="soju" type="number" name="soju" min="0"
-								, max="10" step="1" value="0" />
+							<input id="soju" type="number" name="soju" min="0" , max="10"
+								step="1" value="0" />
 						</div>
 					</li>
 					<li class="row_li">
 						<div>
 							<img class="img_exchange" src="exchange/맥주병.jpg"> <br />
 							<p>맥주병 (1개/140원)</p>
-							<input id="macju" type="number" name="beer" min="0"
-								, max="10" step="1" value="0" />
+							<input id="macju" type="number" name="beer" min="0" , max="10"
+								step="1" value="0" />
 						</div>
 					</li>
 					<li class="row_li">
 						<div>
 							<img class="img_exchange" src="exchange/우유팩.jpg"> <br />
 							<p>우유팩(1L/400원)</p>
-							<input id="milk" type="number" name="milk" min="0"
-								, max="10" step="1" value="0" />
+							<input id="milk" type="number" name="milk" min="0" , max="10"
+								step="1" value="0" />
 						</div>
 					</li>
 					<li class="row_li">
 						<div>
 							<img class="img_exchange" src="exchange/생수병.jpg"> <br />
 							<p>생수통 (1L/50원)</p>
-							<input id="water" type="number" name="water" min="0"
-								, max="10" step="1" value="0" />
+							<input id="water" type="number" name="water" min="0" , max="10"
+								step="1" value="0" />
 						</div>
 					</li>
 				</ul>
@@ -116,12 +126,12 @@
 				<div>
 					<button class="point-reset" type="button" onclick="call()">포인트
 						미리보기</button>
-					<input id="display" type="text" /> 
-					<input id="calculate-result" name="point" type="text" />
+					<input id="display" type="text" /> <input id="calculate-result"
+						name="point" type="text" />
 					<button class="point-reset" type="reset">초기화</button>
-					<br/>
+					<br />
 					<button class="point-reset" type="submit" onclick="call()">포인트
-					 전환하기</button>
+						전환하기</button>
 				</div>
 			</form>
 		</div>

@@ -59,26 +59,34 @@
 	</nav>
 
 
-	<ul class="loginarea">
-		<li><a href="myPage.html"> <img src="images/mypage.png"
-				width=25 height=20>
-		</a></li>
-		<li><a href="cart.html">cart</a></li>
-		<li><a href="login.html">login</a></li>
-		<li><a href="join.html">join</a></li>
-	</ul>
+	<form method="post" action="doSearch">
+		<ul class="loginarea">
+			<li><a href="login.html"> <img src="images/mypage.png"
+					width=25 height=20>
+			</a></li>
+			<li><a href="login.html">cart</a></li>
+			<li><a href="login.html">login</a></li>
+			<li><a href="join.html">join</a></li>
+			<li><input type="text" name="search_text"></li>
+			<li style='top: 100px; padding: 0 0px;'>
+				<button type="submit">
+					<img src="images/magnifying-glass.png" width=20 height=20>
+				</button>
+			</li>
+		</ul>
+	</form>
 
 	<ul class="service">
 		<li><a href="exchange.jsp"> <img src="images/exchange.png"
-				style="width:50px; height:50px;"></a></li>
-		<li><a href="test.jsp"><img src="images/test.png" style="width:50px;
-				height:50px;"></a></li>
+				style="width: 50px; height: 50px;"></a></li>
+		<li><a href="test.jsp"><img src="images/test.png"
+				style="width: 50px; height: 50px;"></a></li>
 	</ul>
 	<div class="big-shop-grid">
 		<div class="div-shop-grid">
 			<!-- 체크박스 -->
 			<br />
-<!-- 
+			<!-- 
 			<form>
 				<table>
 					<tr>
