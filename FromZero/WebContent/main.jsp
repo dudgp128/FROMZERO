@@ -69,9 +69,9 @@
 
 	<ul class="service">
 		<li><a href="exchange.jsp"> <img src="images/exchange.png"
-				width=60 height=70></a></li>
-		<li><a href="test.jsp"><img src="images/test.png" width=68
-				height=70></a></li>
+				style="width:50px; height:50px;"></a></li>
+		<li><a href="test.jsp"><img src="images/test.png" style="width:50px;
+				height:50px;"></a></li>
 	</ul>
 
 

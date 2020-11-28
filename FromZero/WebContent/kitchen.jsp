@@ -62,7 +62,7 @@
 
 	<ul class="loginarea">
 		<li><a href="myPage.html"> <img src="images/mypage.png"
-				width=25 height=20>
+				 width=25 height=20>
 		</a></li>
 		<li><a href="cart.html">cart</a></li>
 		<li><a href="login.html">login</a></li>
@@ -71,9 +71,9 @@
 
 	<ul class="service">
 		<li><a href="exchange.jsp"> <img src="images/exchange.png"
-				width=40 height=50></a></li>
-		<li><a href="test.jsp"><img src="images/test.png" width=40
-				height=50></a></li>
+				style="width:50px; height:50px;"></a></li>
+		<li><a href="test.jsp"><img src="images/test.png" style="width:50px;
+				height:50px;"></a></li>
 	</ul>
 	
 			<!-- 체크박스 -->
