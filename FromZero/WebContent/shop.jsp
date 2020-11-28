@@ -82,7 +82,7 @@
 			<li><a href="login.html">cart</a></li>
 			<li><a href="login.html">login</a></li>
 			<li><a href="join.html">join</a></li>
-			<li><input type="text" id="search_text"></li>
+			<li><input type="text" name="search_text"></li>
 			<li style='top: 100px; padding: 0 0px;'>
 				<button type="submit">
 					<img src="images/magnifying-glass.png" width=20 height=20>

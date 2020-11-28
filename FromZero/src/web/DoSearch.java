@@ -44,7 +44,8 @@ public class DoSearch extends HttpServlet {
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 
-		String sqlSt = "SELECT * FROM online_product WHERE productname LIKE '%빨대%'";
+		String sqlSt = "SELECT * FROM online_product WHERE productname LIKE ";
+		sqlSt=sqlSt+"'%"+search_text+"%'";
 		ResultSet rs = DBUtil.findText(conn, sqlSt);
 		PrintWriter out = response.getWriter();
 		if (rs != null) {

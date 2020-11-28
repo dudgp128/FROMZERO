@@ -81,7 +81,7 @@
    </ul>
 
 
-   <h3 style="float:left"> <%=search_text %></h3>
+
    <div class="big-shop-grid">
       <h2 class="big-category-text"></h2>
       <div class="div-shop-grid">
