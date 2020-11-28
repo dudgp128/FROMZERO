@@ -38,6 +38,22 @@ public class DBUtil {
 		return null;
 	}
 
+	public static ResultSet findText(Connection con, String mid) {
+		String sqlSt="SELECT * FROM online_product WHERE productname LIKE ";
+		Statement st;
+		
+		try {
+			st=con.createStatement();
+			if(st.execute(sqlSt+"'%"+mid+"%'")) {
+				return st.getResultSet();
+			}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+			return null;
+		}
+
 	public static void modifyUser(Connection conn, String nmid, String npasswd, String nname, String naddress,
 			String nphone) throws SQLException {
 
@@ -75,14 +91,13 @@ public class DBUtil {
 			int a_milk = 0;
 			int a_water = 0;
 			int a_point = 0;
-			
 
 			while (uprs.next()) {
 				a_soju = uprs.getInt(2);
 				a_beer = uprs.getInt(3);
 				a_milk = uprs.getInt(4);
 				a_water = uprs.getInt(5);
-				a_point=uprs.getInt(6);
+				a_point = uprs.getInt(6);
 
 				uprs.updateInt("soju", a_soju + soju);
 				uprs.updateInt("beer", a_beer + beer);
@@ -128,7 +143,6 @@ public class DBUtil {
 		}
 	}
 
-
 	public static void insertPoint(Connection conn, String user_id, int soju, int beer, int milk, int water, int point)
 			throws SQLException {
 		PreparedStatement pstmt = null;
@@ -139,7 +153,8 @@ public class DBUtil {
 			pstmt.setString(1, user_id);
 			pstmt.setInt(2, soju);
 			pstmt.setInt(3, beer);
-			pstmt.setInt(4, milk);;
+			pstmt.setInt(4, milk);
+			;
 			pstmt.setInt(5, water);
 			pstmt.setInt(6, point);
 
@@ -147,7 +162,7 @@ public class DBUtil {
 
 			conn.commit();
 			conn.setAutoCommit(true);
-			
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -156,7 +171,7 @@ public class DBUtil {
 			}
 		}
 	}
-	
+
 	public static ResultSet findCheckbox(Connection con, String sqlSt) {
 		Statement st;
 		try {
@@ -169,6 +184,6 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 		return null;
-		
+
 	}
 }

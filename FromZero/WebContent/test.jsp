@@ -108,12 +108,15 @@ input[type=radio]:checked+label {
 
 
 	<ul class="loginarea">
-		<li><a href="myPage.html"> <img src="images/mypage.png"
+		<li><a href="login.html"> <img src="images/mypage.png"
 				width=25 height=20>
 		</a></li>
-		<li><a href="cart.html">cart</a></li>
+		<li><a href="login.html">cart</a></li>
 		<li><a href="login.html">login</a></li>
 		<li><a href="join.html">join</a></li>
+		<li><input type="text"></li>
+		<li style='top:100px; padding:0 0px;'>
+		<img src="images/magnifying-glass.png" width=20 height=20></li>
 	</ul>
 
 	<ul class="service">
