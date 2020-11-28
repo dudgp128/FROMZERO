@@ -84,6 +84,7 @@
 	</ul>
 
 	<!-- 체크박스 -->
+	</br>
 	<form method="post" action="doKitchen">
 		<table>
 			<tr>

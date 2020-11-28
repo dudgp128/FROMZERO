@@ -86,6 +86,7 @@
 
 
 	<!-- 체크박스 -->
+	</br>
 
 	<form method="post" action="doLiving">
 		<table>
