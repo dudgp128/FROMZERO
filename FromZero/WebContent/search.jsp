@@ -13,11 +13,10 @@
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
-<script src="./search-checkbox.js"></script>
 <title>From zero</title>
 
 <%ResultSet rs = (ResultSet)request.getAttribute("rs");%>
-<%String search_result = (String)request.getAttribute("search_result"); %>
+<%String search_text = (String)request.getAttribute("search_text"); %>
 </head>
 <body style="overflow-x: hidden">
 
@@ -82,14 +81,9 @@
    </ul>
 
 
-
-   <form method="post" action="doLiving">
-      
-   </form>
-   
-   <h3 style="float:left"> <%=search_result %></h3>
+   <h3 style="float:left"> <%=search_text %></h3>
    <div class="big-shop-grid">
-      <h2 class="big-category-text">LIVING</h2>
+      <h2 class="big-category-text"></h2>
       <div class="div-shop-grid">
          <ul class="ul-shop-grid">
             <% 

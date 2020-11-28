@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class DBUtil {
 
 	public static ResultSet findUser(Connection con, String mid) {
-		String sqlSt = "SELECT passwd, name, address, phone FROM member WHERE memid=";
+		String sqlSt = "SELECT passwd, name, address, phone FROM customer WHERE custid=";
 		Statement st;
 		try {
 			st = con.createStatement();
@@ -38,21 +38,6 @@ public class DBUtil {
 		return null;
 	}
 
-	public static ResultSet findText(Connection con, String mid) {
-		String sqlSt="SELECT * FROM online_product WHERE productname LIKE ";
-		Statement st;
-		
-		try {
-			st=con.createStatement();
-			if(st.execute(sqlSt+"'%"+mid+"%'")) {
-				return st.getResultSet();
-			}
-			}
-			catch (SQLException e) {
-				e.printStackTrace();
-			}
-			return null;
-		}
 
 	public static void modifyUser(Connection conn, String nmid, String npasswd, String nname, String naddress,
 			String nphone) throws SQLException {
@@ -60,7 +45,7 @@ public class DBUtil {
 		Statement stmt = null;
 		try {
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			ResultSet uprs = stmt.executeQuery("SELECT * FROM member WHERE " + "memid=" + "'" + nmid + "'");
+			ResultSet uprs = stmt.executeQuery("SELECT * FROM customer WHERE " + "custid=" + "'" + nmid + "'");
 
 			while (uprs.next()) {
 				uprs.updateString("passwd", npasswd);
@@ -123,7 +108,7 @@ public class DBUtil {
 		try {
 			conn.setAutoCommit(false);
 
-			pstmt = conn.prepareStatement("INSERT INTO member VALUES(?,?,?,?,?)");
+			pstmt = conn.prepareStatement("INSERT INTO customer VALUES(?,?,?,?,?)");
 			pstmt.setString(1, nmid);
 			pstmt.setString(2, npasswd);
 			pstmt.setString(3, nname);
@@ -185,5 +170,18 @@ public class DBUtil {
 		}
 		return null;
 
+	}
+	
+	public static ResultSet findText(Connection con, String sqlSt) {
+		Statement st;
+		try {
+			st = con.createStatement();
+			if (st.execute(sqlSt)) {
+				return st.getResultSet();
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 }
