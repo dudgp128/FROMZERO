@@ -27,6 +27,7 @@
    <%@ include file="./fz_header.jsp" %>
    <!-- 체크박스 -->
 
+<<<<<<< HEAD
    <form method="post" action="doLiving">
       <table>
          <tr>
@@ -36,6 +37,17 @@
             <td><label><input type="checkbox" onClick="check()" name="smallCategory" value="집게" id="smallCategory3">집게</label></td>
             <td><label><input type="checkbox" onClick="check()" name="smallCategory" value="책/노트" id="smallCategory4"> 책/노트</label></td>
          </tr>
+=======
+	<form method="post" action="doLiving">
+		<table>
+			<tr>
+				<th>소분류</th>
+				<td><label><input type="checkbox" onClick="check()"name="smallCategory" value="빨대" id="smallCategory1"> 빨대</label></td>
+				<td><label><input type="checkbox" onClick="check()"name="smallCategory" value="주머니/가방" id="smallCategory2">주머니/가방</label></td>
+				<td><label><input type="checkbox" onClick="check()" name="smallCategory" value="집게" id="smallCategory3">집게</label></td>
+				<td><label><input type="checkbox" onClick="check()" name="smallCategory" value="책/노트" id="smallCategory4"> 책/노트</label></td>
+			</tr>
+>>>>>>> b9e5c73ebf8325dc2e7e65935ea8d544ee6b66da
 
 
          <tr>
