@@ -16,7 +16,8 @@ public class DBUtil {
 			if (st.execute(sqlSt + "'" + mid + "'")) {
 				return st.getResultSet();
 			}
-
+			con.close();
+			st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -31,7 +32,8 @@ public class DBUtil {
 			if (st.execute(sqlSt + "'" + mid + "'")) {
 				return st.getResultSet();
 			}
-
+			con.close();
+			st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -59,6 +61,7 @@ public class DBUtil {
 			e.printStackTrace();
 		} finally {
 			if (stmt != null) {
+				conn.close();
 				stmt.close();
 			}
 		}
@@ -96,6 +99,7 @@ public class DBUtil {
 			e.printStackTrace();
 		} finally {
 			if (stmt != null) {
+				conn.close();
 				stmt.close();
 			}
 		}
@@ -123,6 +127,7 @@ public class DBUtil {
 			e.printStackTrace();
 		} finally {
 			if (pstmt != null) {
+				conn.close();
 				pstmt.close();
 			}
 		}
@@ -152,19 +157,21 @@ public class DBUtil {
 			e.printStackTrace();
 		} finally {
 			if (pstmt != null) {
+				conn.close();
 				pstmt.close();
 			}
 		}
 	}
 
-	public static ResultSet findCheckbox(Connection con, String sqlSt) {
+	public static ResultSet findProduct(Connection con, String sqlSt) {
 		Statement st;
 		try {
 			st = con.createStatement();
 			if (st.execute(sqlSt)) {
 				return st.getResultSet();
 			}
-
+			con.close();
+			st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -179,6 +186,8 @@ public class DBUtil {
 			if (st.execute(sqlSt)) {
 				return st.getResultSet();
 			}
+			con.close();
+			st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

@@ -16,16 +16,16 @@ import javax.servlet.http.HttpServletResponse;
 import model.DBUtil;
 
 /**
- * Servlet implementation class DoLiving
+ * Servlet implementation class DoDetailProduct
  */
-@WebServlet("/doLiving")
-public class DoLiving extends HttpServlet {
+@WebServlet("/doDetailProduct")
+public class DoDetailProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public DoLiving() {
+    public DoDetailProduct() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -36,54 +36,19 @@ public class DoLiving extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
 		response.setCharacterEncoding("UTF-8");
-		String search_result = request.getParameter("search_result");
-		String[] categoryCheck = request.getParameterValues("smallCategory");
-		String[] brandCheck = request.getParameterValues("brandName");
-		String price = request.getParameter("price");
-
+		String productid = request.getParameter("productid");
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 		
-		String sqlSt = "select * from online_product where (big_category='living') ";
-		if (request.getParameter("smallCategory") != null) {
-			for (int i = 0; i < categoryCheck.length; i++) {
-				if (i == 0)
-					sqlSt += "and (";
-				sqlSt += ("small_category = '" + categoryCheck[i] + "'");
-				if (i == categoryCheck.length - 1)
-					sqlSt += ") ";
-				else
-					sqlSt += " or ";
-			}
-		}
-		if (request.getParameter("brandName") != null) {
-			for (int i = 0; i < brandCheck.length; i++) {
-				if (i == 0)
-					sqlSt += "and (";
-				sqlSt += ("brand = '" + brandCheck[i] + "'");
-				if (i == brandCheck.length - 1)
-					sqlSt += ") ";
-				else
-					sqlSt += " or ";
-			}
-		}
-		if(price != null)
-			sqlSt += "and (price <= " + price + ") ";
+		String sqlSt = "select * from online_product where productid=";
+		sqlSt += productid;
 		
-		sqlSt += "order by binary(big_category), binary(brand), price, productid";
 		ResultSet rs = DBUtil.findProduct(conn, sqlSt);
 		PrintWriter out = response.getWriter();
-		if (rs != null) {
-			try {
-				request.setAttribute("rs", rs);
-				request.setAttribute("search_result", search_result);
-				RequestDispatcher view = request.getRequestDispatcher("checkbox_search_living.jsp");
-				view.forward(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		System.out.println(sqlSt);
+		request.setAttribute("rs", rs);
+		
+		RequestDispatcher view = request.getRequestDispatcher("product_detail.jsp");
+		view.forward(request, response);
 	}
 
 	/**
@@ -95,5 +60,6 @@ public class DoLiving extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		doGet(request, response);
 	}
+
 
 }

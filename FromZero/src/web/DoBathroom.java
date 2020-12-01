@@ -71,7 +71,7 @@ public class DoBathroom extends HttpServlet {
 			sqlSt += "and (price <= " + price + ") ";
 		
 		sqlSt += "order by binary(big_category), binary(brand), price, productid";
-		ResultSet rs = DBUtil.findCheckbox(conn, sqlSt);
+		ResultSet rs = DBUtil.findProduct(conn, sqlSt);
 		PrintWriter out = response.getWriter();
 		if (rs != null) {
 			try {
