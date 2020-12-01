@@ -72,7 +72,7 @@ public class DBUtil {
 		try {
 			conn.setAutoCommit(false);
 
-			pstmt = conn.prepareStatement("SET_SQL_SAFE_UPDATES=0;" + "UPDATE customer SET level =" + "'숲' "
+			pstmt = conn.prepareStatement("SET_SQL_SAFE_UPDATES=0;" + "UPDATE customer SET level =" + level
 					+ "where custid='" + user_id + "'");
 			pstmt.executeUpdate();
 

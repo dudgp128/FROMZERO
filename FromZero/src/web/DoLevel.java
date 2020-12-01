@@ -73,7 +73,10 @@ public class DoLevel extends HttpServlet {
 		if(rs!=null) {
 			try {
 				if(rs.next()) {
-					DBUtil.updateLevel(conn, user_id, level);
+					
+						DBUtil.updateLevel(conn,user_id,level);
+						
+				}
 			}catch (SQLException e) {
 				e.printStackTrace();
 			}	
