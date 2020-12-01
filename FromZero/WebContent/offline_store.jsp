@@ -33,18 +33,18 @@
 				<div style="position: relative; top: 120px, left:76px">
 					<img src="images/seoul_map_store.jpg" width="400" usemap="#Map">
 					<map name="Map" id="Map">
-						<area shape="rect" coords="134,136,160,152" onClick="Store1()"
-							tabindex="1">
-						<area shape="rect" coords="165,200,192,217" onClick="Store2()"
-							tabindex="2">
-						<area shape="rect" coords="238,158,267,175" onClick="Store3()"
-							tabindex="3">
-						<area shape="rect" coords="183,139,213,157" onClick="Store4()"
-							tabindex="4">
-						<area shape="rect" coords="315,173,344,190" onClick="Store5()"
-							tabindex="5">
-						<area shape="rect" coords="133,136,174,176" onClick="Store6()"
-							tabindex="6">
+						<area shape="rect" coords="129,131,169,156" style="cursor:pointer"
+						onClick="Store1()" tabindex="1">
+						<area shape="rect" coords="162,197,202,222" style="cursor:pointer border:0px"
+						onClick="Store2()" tabindex="2">
+						<area shape="rect" coords="236,154,276,179" style="cursor:pointer"
+						onClick="Store3()" tabindex="3">
+						<area shape="rect" coords="181,135,221,160" style="cursor:pointer"
+						onClick="Store4()" tabindex="4">
+						<area shape="rect" coords="314,170,354,195" style="cursor:pointer"
+						onClick="Store5()" tabindex="5">
+						<area shape="rect" coords="145,156,185,181" style="cursor:pointer"
+						onClick="Store6()" tabindex="6">
 					</map>
 				</div>
 			</div>
