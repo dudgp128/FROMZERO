@@ -40,7 +40,6 @@ public class DBUtil {
 		return null;
 	}
 
-
 	public static void modifyUser(Connection conn, String nmid, String npasswd, String nname, String naddress,
 			String nphone) throws SQLException {
 
@@ -65,6 +64,29 @@ public class DBUtil {
 				stmt.close();
 			}
 		}
+	}
+
+	public static void updateLevel(Connection conn, String user_id, String level) throws SQLException {
+		PreparedStatement pstmt = null;
+
+		try {
+			conn.setAutoCommit(false);
+
+			pstmt = conn.prepareStatement("SET_SQL_SAFE_UPDATES=0;" + "UPDATE customer SET level =" + "'숲' "
+					+ "where custid='" + user_id + "'");
+			pstmt.executeUpdate();
+
+			conn.commit();
+			conn.setAutoCommit(true);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				conn.close();
+				pstmt.close();
+			}
+		}
+
 	}
 
 	public static void modifyPoint(Connection conn, String user_id, int soju, int beer, int milk, int water, int point)
@@ -178,7 +200,7 @@ public class DBUtil {
 		return null;
 
 	}
-	
+
 	public static ResultSet findText(Connection con, String sqlSt) {
 		Statement st;
 		try {
