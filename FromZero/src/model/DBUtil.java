@@ -215,4 +215,34 @@ public class DBUtil {
 		}
 		return null;
 	}
+
+	public static void insertBuying(Connection conn, int order_id, String user_id, int count)
+		throws SQLException {
+		PreparedStatement pstmt = null;
+		try {
+			conn.setAutoCommit(false);
+
+			pstmt = conn.prepareStatement("INSERT INTO online_order VALUES(?,?,?,?)");
+			pstmt.setInt(1, order_id);
+			pstmt.setString(2, user_id);
+			pstmt.setInt(3, count);
+			
+			java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //format
+			String stringDate = sdf.format(new java.util.Date());
+			java.sql.Date date = java.sql.Date.valueOf(stringDate);
+			pstmt.setDate(4, date);
+			
+			pstmt.executeUpdate();
+
+			conn.commit();
+			conn.setAutoCommit(true);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				pstmt.close();
+			}
+		}
+	}
 }
