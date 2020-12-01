@@ -193,4 +193,37 @@ public class DBUtil {
 		}
 		return null;
 	}
+	
+public static void updateLevel(Connection conn, String user_id, String level) throws SQLException {
+	Statement stmt = null;
+	try {
+		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		ResultSet uprs = stmt.executeQuery("SELECT * FROM customer WHERE " + "custid=" + "'" + user_id + "'");
+
+		if(uprs != null) {
+			if (uprs.next()) {
+			uprs.updateString("level", level);
+			System.out.print("데베 레벨 확인 : ");
+			System.out.println(level);
+			uprs.updateRow();
+			}
+		}
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		if (stmt != null) {
+			//conn.close();
+			//stmt.close();
+			/*
+			 * 이 함수 한 번 호출 됐을 때 close()됨
+			 * close()된 후, 바로 다시 test하면 위에 닫힌 statement 객체가 다시 호출되는데
+			 * 이때 객체가 close된지 얼마 안 되서 사용 불가.
+			 * => 여기서는 close() 쓰지 말기
+			 */
+			
+		}
+	}
+}
+	
 }
