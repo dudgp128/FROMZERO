@@ -18,8 +18,6 @@
 
 <%
    ResultSet rs = (ResultSet) request.getAttribute("rs");
-%>
-<%
    String search_result = (String) request.getAttribute("search_result");
 %>
 </head>
@@ -27,18 +25,8 @@
    <%@ include file="./fz_header.jsp" %>
    <!-- 체크박스 -->
 
-<<<<<<< HEAD
    <form method="post" action="doLiving">
-      <table>
-         <tr>
-            <th>소분류</th>
-            <td><label><input type="checkbox" onClick="check()"name="smallCategory" value="빨대" id="smallCategory1"> 빨대</label></td>
-            <td><label><input type="checkbox" onClick="check()"name="smallCategory" value="주머니/가방" id="smallCategory2">주머니/가방</label></td>
-            <td><label><input type="checkbox" onClick="check()" name="smallCategory" value="집게" id="smallCategory3">집게</label></td>
-            <td><label><input type="checkbox" onClick="check()" name="smallCategory" value="책/노트" id="smallCategory4"> 책/노트</label></td>
-         </tr>
-=======
-	<form method="post" action="doLiving">
+
 		<table>
 			<tr>
 				<th>소분류</th>
@@ -47,7 +35,7 @@
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory" value="집게" id="smallCategory3">집게</label></td>
 				<td><label><input type="checkbox" onClick="check()" name="smallCategory" value="책/노트" id="smallCategory4"> 책/노트</label></td>
 			</tr>
->>>>>>> b9e5c73ebf8325dc2e7e65935ea8d544ee6b66da
+
 
 
          <tr>
@@ -93,32 +81,40 @@
       <div class="div-shop-grid">
          <ul class="ul-shop-grid">
             <%
-               String img;
+            String img = null;
             String img_li = null;
+            String productname = null;
+            String price = null;
+            String productid = null;
             while (rs.next()) {
-               String productname = null;
-               String price = null;
+               productid = rs.getString("productid");
                productname = rs.getString("productname");
                price = rs.getString("price");
                img = rs.getString("img");
                img_li = "living/" + img + ".jpg";
 
-               System.out.println(productname);
+               //System.out.println(productname);
             %>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="<%=img_li%>" alt="">
-                     <div class="display-text">
-                        <strong><%=productname%></strong>
-                        <p><%=price%>원
-                        </p>
-                     </div>
-                  </div>
-            </a></li>
-            <%
-               }
-            %>
-         </ul>
+            <form method="post" action="doDetailProduct">
+	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid %>>
+	            <li id="li-living-item-box">
+	                  <div class="div-display-living-box" style="margin-left:0">
+	                     <img class="img-display-box" src="<%=img_li%>" alt="" >
+	                     <div class="display-text">
+	                        <strong><%=productname%></strong>
+	                        <p><%=price%>원
+	                        </p>
+	                     </div>
+	                  </div>
+	                  
+	            </a></li>
+	            
+	            <%
+	               }
+	            %>
+	            </button>
+	         </ul>
+	         </form>
       </div>
    </div>
 </body>

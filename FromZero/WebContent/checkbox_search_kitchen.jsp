@@ -82,32 +82,40 @@
 		<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
 				<%
-					String img;
-				String img_li = null;
-				while (rs.next()) {
-					String productname = null;
-					String price = null;
-					productname = rs.getString("productname");
-					price = rs.getString("price");
-					img = rs.getString("img");
-					img_li = "kitchen/" + img + ".jpg";
+            String img = null;
+            String img_li = null;
+            String productname = null;
+            String price = null;
+            String productid = null;
+            while (rs.next()) {
+               productid = rs.getString("productid");
+               productname = rs.getString("productname");
+               price = rs.getString("price");
+               img = rs.getString("img");
+               img_li = "kitchen/" + img + ".jpg";
 
-					System.out.println(productname);
-				%>
-				<li id="li-living-item-box"><a href="living-item1.html">
-						<div class="div-display-living-box">
-							<img class="img-display-box" src="<%=img_li%>" alt="">
-							<div class="display-text">
-								<strong><%=productname%></strong>
-								<p><%=price%>원
-								</p>
-							</div>
-						</div>
-				</a></li>
-				<%
-					}
-				%>
-			</ul>
+               //System.out.println(productname);
+            %>
+            <form method="post" action="doDetailProduct">
+	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid %>>
+	            <li id="li-living-item-box">
+	                  <div class="div-display-living-box" style="margin-left:0">
+	                     <img class="img-display-box" src="<%=img_li%>" alt="" >
+	                     <div class="display-text">
+	                        <strong><%=productname%></strong>
+	                        <p><%=price%>원
+	                        </p>
+	                     </div>
+	                  </div>
+	                  
+	            </a></li>
+	            
+	            <%
+	               }
+	            %>
+	            </button>
+	         </ul>
+	         </form>
 		</div>
 	</div>
 </body>
