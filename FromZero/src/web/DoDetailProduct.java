@@ -87,8 +87,7 @@ public class DoDetailProduct extends HttpServlet {
 		}
 		
 		String recommend = "select * from online_product where (big_category='" + big_category + "') and (small_category='"
-				+ small_category;
-				//+ "') order by binary(big_category), binary(brand), price, productid";
+				+ small_category + "') order by binary(big_category), binary(brand), price, productid";
 		ResultSet res = DBUtil.findProduct(conn, recommend);
 		request.setAttribute("rs", res);
 		

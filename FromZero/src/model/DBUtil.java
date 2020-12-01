@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 
 public class DBUtil {
 
@@ -41,6 +40,7 @@ public class DBUtil {
 		return null;
 	}
 
+
 	public static void modifyUser(Connection conn, String nmid, String npasswd, String nname, String naddress,
 			String nphone) throws SQLException {
 
@@ -65,29 +65,6 @@ public class DBUtil {
 				stmt.close();
 			}
 		}
-	}
-
-	public static void updateLevel(Connection conn, String user_id, String level) throws SQLException {
-		PreparedStatement pstmt = null;
-
-		try {
-			conn.setAutoCommit(false);
-
-			pstmt = conn.prepareStatement("SET_SQL_SAFE_UPDATES=0;" + "UPDATE customer SET level =" + level
-					+ "where custid='" + user_id + "'");
-			pstmt.executeUpdate();
-
-			conn.commit();
-			conn.setAutoCommit(true);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (pstmt != null) {
-				conn.close();
-				pstmt.close();
-			}
-		}
-
 	}
 
 	public static void modifyPoint(Connection conn, String user_id, int soju, int beer, int milk, int water, int point)
@@ -201,7 +178,7 @@ public class DBUtil {
 		return null;
 
 	}
-
+	
 	public static ResultSet findText(Connection con, String sqlSt) {
 		Statement st;
 		try {
@@ -215,35 +192,5 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 		return null;
-	}
-
-	public static void insertBuying(Connection conn, int order_id, String user_id, int count)
-		throws SQLException {
-		PreparedStatement pstmt = null;
-		try {
-			conn.setAutoCommit(false);
-
-			pstmt = conn.prepareStatement("INSERT INTO online_order VALUES(?,?,?,?)");
-			pstmt.setInt(1, order_id);
-			pstmt.setString(2, user_id);
-			pstmt.setInt(3, count);
-			
-			java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //format
-			String stringDate = sdf.format(new java.util.Date());
-			java.sql.Date date = java.sql.Date.valueOf(stringDate);
-			pstmt.setDate(4, date);
-			
-			pstmt.executeUpdate();
-
-			conn.commit();
-			conn.setAutoCommit(true);
-			
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (pstmt != null) {
-				pstmt.close();
-			}
-		}
 	}
 }

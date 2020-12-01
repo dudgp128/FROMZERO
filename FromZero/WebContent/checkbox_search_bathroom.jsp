@@ -81,21 +81,19 @@
 		<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
 				<%
-            String img = null;
-            String img_li = null;
-            String productname = null;
-            String price = null;
-            String productid = null;
-            while (rs.next()) {
-               productid = rs.getString("productid");
-               productname = rs.getString("productname");
-               price = rs.getString("price");
-               img = rs.getString("img");
-               img_li = "kitchen/" + img + ".jpg";
-
-               //System.out.println(productname);
-            %>
-            <form method="post" action="doDetailProduct">
+				String img = null;
+	            String img_li = null;
+	            String productname = null;
+	            String price = null;
+	            String productid = null;
+				while (rs.next()) {
+					productid = rs.getString("productid");
+					productname = rs.getString("productname");
+					price = rs.getString("price");
+					img = rs.getString("img");
+					img_li = "bathroom/" + img + ".jpg";
+				%>
+				<form method="post" action="doDetailProduct">
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid %>>
 	            <li id="li-living-item-box">
 	                  <div class="div-display-living-box" style="margin-left:0">

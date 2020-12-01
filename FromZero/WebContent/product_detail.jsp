@@ -218,7 +218,9 @@ ul {
 				String re_img = null;
 				String img_li = null;
 				int count = 0;
+				System.out.println("test0");
 				if (rs != null) {
+					System.out.println("test1");
 					while (rs.next()) {
 						if (count < 4) {
 							re_productid = rs.getString("productid");

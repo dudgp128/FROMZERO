@@ -73,7 +73,7 @@ input[type=radio]:checked+label {
 			알아보자!</h4>
 	</div>
 
-	<form name="question" action="DoLevel" method="POST">
+	<form name="question">
 		<div class="question_box">
 			<div class="question">
 				<h4>Q1</h4>
