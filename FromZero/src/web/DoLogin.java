@@ -62,6 +62,7 @@ public class DoLogin extends HttpServlet {
 						
 						HttpSession session=request.getSession(); //세션 반환 (세선 ㅇ-반환, 세션x-생성)
 						session.setAttribute("user_id", mid); //세션 값 넣기
+						session.setAttribute("user_name", name);
 						
 						User user = new User(mid, passwd, name, address, phone);
 
