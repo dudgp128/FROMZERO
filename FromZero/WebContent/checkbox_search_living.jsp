@@ -31,16 +31,10 @@
 		<table>
 			<tr>
 				<th>소분류</th>
-				<td><label><input type="checkbox" onClick="check()"
-						name="smallCategory" value="집게" id="smallCategory1"> 집게</label></td>
-				<td><label><input type="checkbox" onClick="check()"
-						name="smallCategory" value="주머니/가방" id="smallCategory2">
-						주머니/가방</label></td>
-				<td><label><input type="checkbox" onClick="check()"
-						name="smallCategory" value="책/노트" id="smallCategory3">
-						책/노트</label></td>
-				<td><label><input type="checkbox" onClick="check()"
-						name="smallCategory" value="빨대" id="smallCategory4"> 빨대</label></td>
+				<td><label><input type="checkbox" onClick="check()"name="smallCategory" value="빨대" id="smallCategory1"> 빨대</label></td>
+				<td><label><input type="checkbox" onClick="check()"name="smallCategory" value="주머니/가방" id="smallCategory2">주머니/가방</label></td>
+				<td><label><input type="checkbox" onClick="check()" name="smallCategory" value="집게" id="smallCategory3">집게</label></td>
+				<td><label><input type="checkbox" onClick="check()" name="smallCategory" value="책/노트" id="smallCategory4"> 책/노트</label></td>
 			</tr>
 
 
