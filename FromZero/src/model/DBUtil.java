@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class DBUtil {
 
 	public static ResultSet findUser(Connection con, String mid) {
-		String sqlSt = "SELECT passwd, name, address, phone FROM customer WHERE custid=";
+		String sqlSt = "SELECT passwd, name, address, phone, email FROM customer WHERE custid=";
 		Statement st;
 		try {
 			st = con.createStatement();
@@ -42,7 +42,7 @@ public class DBUtil {
 
 
 	public static void modifyUser(Connection conn, String nmid, String npasswd, String nname, String naddress,
-			String nphone) throws SQLException {
+			String nphone, String nemail) throws SQLException {
 
 		Statement stmt = null;
 		try {
@@ -54,6 +54,7 @@ public class DBUtil {
 				uprs.updateString("name", nname);
 				uprs.updateString("address", naddress);
 				uprs.updateString("phone", nphone);
+				uprs.updateString("email", nemail);
 				uprs.updateRow();
 			}
 
@@ -106,23 +107,26 @@ public class DBUtil {
 	}
 
 	public static void insertWithParam(Connection conn, String nmid, String npasswd, String nname, String naddress,
-			String nphone) throws SQLException {
+			String nphone, String nemail) throws SQLException {
 		PreparedStatement pstmt = null;
 
 		try {
 			conn.setAutoCommit(false);
-
+			
 			pstmt = conn.prepareStatement("INSERT INTO customer VALUES(?,?,?,?,?)");
 			pstmt.setString(1, nmid);
 			pstmt.setString(2, npasswd);
 			pstmt.setString(3, nname);
 			pstmt.setString(4, naddress);
 			pstmt.setString(5, nphone);
+			pstmt.setString(6, nemail);
+
 
 			pstmt.executeUpdate();
 
 			conn.commit();
 			conn.setAutoCommit(true);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -144,7 +148,6 @@ public class DBUtil {
 			pstmt.setInt(2, soju);
 			pstmt.setInt(3, beer);
 			pstmt.setInt(4, milk);
-			;
 			pstmt.setInt(5, water);
 			pstmt.setInt(6, point);
 
@@ -193,37 +196,35 @@ public class DBUtil {
 		}
 		return null;
 	}
-	
-public static void updateLevel(Connection conn, String user_id, String level) throws SQLException {
-	Statement stmt = null;
-	try {
-		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-		ResultSet uprs = stmt.executeQuery("SELECT * FROM customer WHERE " + "custid=" + "'" + user_id + "'");
+	public static void updateLevel(Connection conn, String user_id, String level) throws SQLException {
+		   Statement stmt = null;
+		   try {
+		      stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		      ResultSet uprs = stmt.executeQuery("SELECT * FROM customer WHERE " + "custid=" + "'" + user_id + "'");
 
-		if(uprs != null) {
-			if (uprs.next()) {
-			uprs.updateString("level", level);
-			System.out.print("데베 레벨 확인 : ");
-			System.out.println(level);
-			uprs.updateRow();
-			}
-		}
+		      if(uprs != null) {
+		         if (uprs.next()) {
+		         uprs.updateString("level", level);
+		         System.out.print("데베 레벨 확인 : ");
+		         System.out.println(level);
+		         uprs.updateRow();
+		         }
+		      }
 
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} finally {
-		if (stmt != null) {
-			//conn.close();
-			//stmt.close();
-			/*
-			 * 이 함수 한 번 호출 됐을 때 close()됨
-			 * close()된 후, 바로 다시 test하면 위에 닫힌 statement 객체가 다시 호출되는데
-			 * 이때 객체가 close된지 얼마 안 되서 사용 불가.
-			 * => 여기서는 close() 쓰지 말기
-			 */
-			
+		   } catch (SQLException e) {
+		      e.printStackTrace();
+		   } finally {
+		      if (stmt != null) {
+		         //conn.close();
+		         //stmt.close();
+		         /*
+		          * 이 함수 한 번 호출 됐을 때 close()됨
+		          * close()된 후, 바로 다시 test하면 위에 닫힌 statement 객체가 다시 호출되는데
+		          * 이때 객체가 close된지 얼마 안 되서 사용 불가.
+		          * => 여기서는 close() 쓰지 말기
+		          */
+		         
+		      }
+		   }
 		}
-	}
-}
-	
 }

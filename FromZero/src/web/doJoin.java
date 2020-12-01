@@ -42,24 +42,24 @@ public class doJoin extends HttpServlet {
 		String nname=request.getParameter("nname");
 		String naddress=request.getParameter("naddress");
 		String nphone=request.getParameter("nphone");
+		String nemail=request.getParameter("nemail");
 		
 		ServletContext sc=getServletContext();
 		Connection conn=(Connection)sc.getAttribute("DBconnection");
 		
 		ResultSet rs = DBUtil.findUser(conn, nmid);
 
-		PrintWriter out = response.getWriter();
 		if(rs!=null) {
 			try {
 				if(rs.next()) {
 					if(nmid.equals(rs.getString(1))) {
 						response.sendRedirect("./join.html");
-						DBUtil.modifyUser(conn, nmid, npasswd, nname, naddress, nphone);
+						DBUtil.modifyUser(conn, nmid, npasswd, nname, naddress, nphone,nemail);
 						 //�����Ѵ�.
 					}
 				}else {
 					response.sendRedirect("./index.html");
-					DBUtil.insertWithParam(conn, nmid, npasswd, nname, naddress, nphone);
+					DBUtil.insertWithParam(conn, nmid, npasswd, nname, naddress, nphone,nemail);
 					
 				}
 			}catch (SQLException e) {
