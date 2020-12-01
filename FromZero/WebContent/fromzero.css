@@ -316,8 +316,7 @@ element.style {
 
 .big-shop-grid {
 	width: 100%;
-	margin-left: 100px;
-	text-align: center
+	text-align: center;
 }
 
 .div-shop-grid {
@@ -332,6 +331,7 @@ element.style {
 .big-category-text {
 	text-align: left;
 	margin-top: 50px;
+	margin-left:100px;
 	margin-bottom: 20px
 }
 

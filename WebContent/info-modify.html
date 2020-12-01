@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="./fromzero.css" type="text/css">
+<meta charset="UTF-8">
+<title>From zero</title>
+<style>
+.inside {
+	padding: 10px;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.left-menu {
+	background-color: #CEF6CE;
+	list-style-type: none;
+	text-align: center;
+	margin-right: 0;
+	padding: 10px;
+	width: 200px;
+	height: 100px;
+	font-size: 16px;
+	font-weight: bold;
+	font-family: "Trebuchet MS", Tmon소리 Black;
+	display: inline-block;
+}
+
+.left-menu li {
+	margin: 10px;
+}
+
+.info {
+	background-color: #e2e2e2;
+	width: 960px;
+	height: 300px;
+	float: right;
+	margin-right: 10px;
+	margin-left: 10px;
+	padding: 10px;
+	display: inline-block;
+}
+
+.intro {
+	display: inline-block;
+}
+
+.point-view {
+	display: inline-block;
+	float: right;
+	margin-right: 10px;
+	margin-left: 10px;
+	text-align: center;
+	font-weight: bold;
+}
+
+.point-view ul {
+	display: flex;
+	align-center: flex-start;
+	flex-direction: column;
+	flex-wrap: wrap;
+	overflow: auto;
+	margin: 0 0 20px 20px;
+}
+
+.point-view li {
+	margin: 5px 0 0 0;
+	padding: 0 0 0 0;
+	border: 0;
+	float: left;
+	font-size: 29px;
+	margin-bottom: 5px;
+}
+</style>
+</head>
+<body style="overflow-x: hidden">
+	<header>
+		<h1>
+			<a href='main.html'>From zero</a>
+		</h1>
+	</header>
+	<nav id="topMenu">
+		<ul>
+			<li class="topMenuLi"><a class="menuLink" href="ourStory.html">OUR
+					STORY</a>
+				<ul class="submenu" style="white-space: normal">
+					<li><a href="introduce.html" class="submenuLink">사이트 소개</a></li>
+					<li><a href="guide.html" class="submenuLink">이용 안내</a></li>
+				</ul></li>
+			<li>|</li>
+			<li class="topMenuLi"><a class="menuLink" href="shop.jsp">SHOP</a>
+				<ul class="submenu" style="white-space: normal">
+					<li><a href="living.jsp" class="submenuLink">LIVING</a></li>
+					<li><a href="bathroom.jsp" class="submenuLink">BATHROOM</a></li>
+					<li><a href="kitchen.jsp" class="submenuLink">KITCHEN</a></li>
+					<li><a href="kit.jsp" class="submenuLink">KIT</a></li>
+					<li><a href="etc.jsp" class="submenuLink">ETC</a></li>
+				</ul></li>
+			<li>|</li>
+			<li class="topMenuLi"><a class="menuLink" href="offline.html">OFFLINE</a>
+			</li>
+			<li>|</li>
+			<li class="topMenuLi"><a class="menuLink" href="ecoDiary.html">ECO
+					DIARY</a>
+				<ul class="submenu" style="white-space: normal">
+					<li><a href="aboutZW.html" class="submenuLink">ABOUT ZW</a></li>
+					<li><a href="ecoTip.html" class="submenuLink">ECO TIP</a></li>
+				</ul></li>
+			<li>|</li>
+			<li class="topMenuLi"><a class="menuLink" href="greenBoard.html">GREEN
+					BOARD</a>
+				<ul class="submenu" style="white-space: normal">
+					<li><a href="notice.html" class="submenuLink">NOTICE</a></li>
+					<li><a href="faq.html" class="submenuLink">FAQ</a></li>
+					<li><a href="qna.html" class="submenuLink">QNA</a></li>
+				</ul></li>
+		</ul>
+	</nav>
+
+
+	<ul class="loginarea">
+		<li><a href="myPage.html"> <img src="images/mypage.png"
+				width=25 height=20>
+		</a></li>
+		<li><a href="cart.html">cart</a></li>
+		<li><a href="login.html">login</a></li>
+		<li><a href="join.html">join</a></li>
+	</ul>
+
+	<ul class="service">
+		<li><a href="exchange.jsp"> <img src="images/exchange.png"
+				style="width:50px; height:50px;"></a></li>
+		<li><a href="test.jsp"><img src="images/test.png" style="width:50px;
+				height:50px;"></a></li>
+	</ul>
+
+	<div class="inside">
+		<div class="left-menu">
+			<ul>
+				<li style="color: #33cc00"><a href="myPage.html">주문조회</a></li>
+				<li><a href="info-modify.html">회원정보 수정</a></li>
+				<li><a href="info-exit.html">회원탈퇴</a></li>
+			</ul>
+		</div>
+		<div class="info">
+		<br/>
+			<h1 align=center>Modify my information</h1>
+			<br /> <br />
+
+			<div style="text-align: center">
+				<form method="post" action="">
+					아이디 <input id="join_input" type="text" name="nmid"
+						placeholder="your ID" required /> <br /> 비밀번호 <input
+						id="join_input" type="password" placeholder="PASSWORD"
+						name="npasswd" required /><br /> 이름 <input id="join_input"
+						type="text" name="nname" placeholder="NAME" required /><br /> 주소
+					<input id="join_input" type="text" placeholder="ADDRESS"
+						name="naddress" /><br /> 전화번호 <input id="join_input" type="text"
+						placeholder="PHONE_NUMBER" name="nphone" /><br /> <input
+						type="submit" style="margin-top: 20px" value="정보수정" /> <br /> <br />
+				</form>
+			</div>
+		</div>
+</body>
+</html>
