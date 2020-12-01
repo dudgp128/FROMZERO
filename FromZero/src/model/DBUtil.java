@@ -113,7 +113,7 @@ public class DBUtil {
 		try {
 			conn.setAutoCommit(false);
 			
-			pstmt = conn.prepareStatement("INSERT INTO customer VALUES(?,?,?,?,?)");
+			pstmt = conn.prepareStatement("INSERT INTO customer VALUES(?,?,?,?,?,?)");
 			pstmt.setString(1, nmid);
 			pstmt.setString(2, npasswd);
 			pstmt.setString(3, nname);
