@@ -63,7 +63,7 @@ input[type=radio]:checked+label {
 <script src="level-calculate.js"></script>
 </head>
 <body style="overflow-x: hidden">
-	<%@ include file="./fz_header.jsp" %>
+	<%@ include file="./fz_header.jsp"%>
 
 	<!-- 테스트 페이지 본문 -->
 
@@ -73,103 +73,86 @@ input[type=radio]:checked+label {
 			알아보자!</h4>
 	</div>
 
-	<form name="question" action="DoLevel" method="POST">
+	<form method="post" name="question" action="doLevel">
 		<div class="question_box">
 			<div class="question">
 				<h4>Q1</h4>
 				<h5>나는 카페에서 음료를 마실 때 플라스틱 컵 대신 텀블러를 이용한다.</h5>
-				<input type="radio" id="q1a1" name="q1" value="4" checked><label
-					for="q1a1">항상</label> <input type="radio" id="q1a2" name="q1"
-					value="3"><label for="q1a2">자주</label> <input type="radio"
-					id="q1a3" name="q1" value="2"><label for="q1a3">종종</label>
-				<input type="radio" id="q1a4" name="q1" value="1"><label
-					for="q1a4">전혀</label>
+				<input type="radio" id="q1a1" name="q1" value="4" checked><label for="q1a1">항상</label> 
+				<input type="radio" id="q1a2" name="q1" value="3"><label for="q1a2">자주</label> 
+				<input type="radio" id="q1a3" name="q1" value="2"><label for="q1a3">종종</label>
+				<input type="radio" id="q1a4" name="q1" value="1"><label for="q1a4">전혀</label>
 			</div>
 
 			<div class="question">
 				<h4>Q2</h4>
 				<h5>나는 카페에서 음료를 마실 때 플라스틱 컵 대신 텀블러를 이용한다.</h5>
-				<input type="radio" id="q2a1" name="q2" value="4"><label
-					for="q2a1">항상</label> <input type="radio" id="q2a2" name="q2"
-					value="3"><label for="q2a2">자주</label> <input type="radio"
-					id="q2a3" name="q2" value="2"><label for="q2a3">가끔</label>
-				<input type="radio" id="q2a4" name="q2" value="1"><label
-					for="q2a4">전혀</label>
+				<input type="radio" id="q2a1" name="q2" value="4"><label for="q2a1">항상</label> 
+				<input type="radio" id="q2a2" name="q2" value="3"><label for="q2a2">자주</label> 
+				<input type="radio" id="q2a3" name="q2" value="2"><label for="q2a3">가끔</label>
+				<input type="radio" id="q2a4" name="q2" value="1"><label for="q2a4">전혀</label>
 			</div>
 
 			<div class="question">
 				<h4>Q3</h4>
 				<h5>나는 쇼핑할 때 장바구니를 이용한다.</h5>
-				<input type="radio" id="q3a1" name="q3" value="4"><label
-					for="q3a1">항상</label> <input type="radio" id="q3a2" name="q3"
-					value="3"><label for="q3a2">자주</label> <input type="radio"
-					id="q3a3" name="q3" value="2"><label for="q3a3">가끔</label>
-				<input type="radio" id="q3a4" name="q3" value="1"><label
-					for="q3a4">전혀</label>
+				<input type="radio" id="q3a1" name="q3" value="4"><label for="q3a1">항상</label> 
+				<input type="radio" id="q3a2" name="q3" value="3"><label for="q3a2">자주</label> 
+				<input type="radio" id="q3a3" name="q3" value="2"><label for="q3a3">가끔</label>
+				<input type="radio" id="q3a4" name="q3" value="1"><label for="q3a4">전혀</label>
 			</div>
 
 			<div class="question">
 				<h4>Q4</h4>
 				<h5>나는 플라스틱 분리수거 시 물로 깨끗이 씻은 후, 잘 말려서 분리수거한다.</h5>
-				<input type="radio" id="q4a1" name="q4" value="4"><label
-					for="q4a1">항상</label> <input type="radio" id="q4a2" name="q4"
-					value="3"><label for="q4a2">자주</label> <input type="radio"
-					id="q4a3" name="q4" value="2"><label for="q4a3">가끔</label>
-				<input type="radio" id="q4a4" name="q4" value="1"><label
-					for="q4a4">전혀</label>
+				<input type="radio" id="q4a1" name="q4" value="4"><label for="q4a1">항상</label> 
+				<input type="radio" id="q4a2" name="q4" value="3"><label for="q4a2">자주</label> 
+				<input type="radio" id="q4a3" name="q4" value="2"><label for="q4a3">가끔</label>
+				<input type="radio" id="q4a4" name="q4" value="1"><label for="q4a4">전혀</label>
 			</div>
 
 			<div class="question">
 				<h4>Q5</h4>
 				<h5>나는 종이류 분리수거 시 오염된 종이는 배출하지 않는다.</h5>
-				<input type="radio" id="q5a1" name="q5" value="4"><label
-					for="q5a1">항상</label> <input type="radio" id="q5a2" name="q5"
-					value="3"><label for="q5a2">자주</label> <input type="radio"
-					id="q5a3" name="q5" value="2"><label for="q5a3">가끔</label>
-				<input type="radio" id="q5a4" name="q5" value="1"><label
-					for="q5a4">전혀</label>
+				<input type="radio" id="q5a1" name="q5" value="4"><label for="q5a1">항상</label> 
+				<input type="radio" id="q5a2" name="q5" value="3"><label for="q5a2">자주</label> 
+				<input type="radio" id="q5a3" name="q5" value="2"><label for="q5a3">가끔</label>
+				<input type="radio" id="q5a4" name="q5" value="1"><label for="q5a4">전혀</label>
 			</div>
 
 			<div class="question">
 				<h4>Q6</h4>
 				<h5>나는 스팸메일을 자주 정리한다.</h5>
-				<input type="radio" id="q6a1" name="q6" value="4"><label
-					for="q6a1">항상</label> <input type="radio" id="q6a2" name="q6"
-					value="3"><label for="q6a2">자주</label> <input type="radio"
-					id="q6a3" name="q6" value="2"><label for="q6a3">가끔</label>
-				<input type="radio" id="q6a4" name="q6" value="1"><label
-					for="q6a4">전혀</label>
+				<input type="radio" id="q6a1" name="q6" value="4"><label for="q6a1">항상</label> 
+				<input type="radio" id="q6a2" name="q6" value="3"><label for="q6a2">자주</label> 
+				<input type="radio" id="q6a3" name="q6" value="2"><label for="q6a3">가끔</label>
+				<input type="radio" id="q6a4" name="q6" value="1"><label for="q6a4">전혀</label>
 			</div>
 
 			<div class="question">
 				<h4>Q7</h4>
 				<h5>깨진 유리의 양이 많을 경우 분리배출법은?</h5>
-				<input type="radio" id="q7a1" name="q7" value="0"><label
-					for="q7a1">신문지에 싸서 일반 종량제로 버린다.</label> <input type="radio"
-					id="q7a2" name="q7" value="4"><label for="q7a2">특수규격마대를
-					사용한다.</label><br> <input type="radio" id="q7a3" name="q7" value="0"><label
-					for="q7a3">유리류로 분리배출한다.</label> <input type="radio" id="q7a4"
-					name="q7" value="0"><label for="q7a4">타는 쓰레기에 버린다.</label>
+				<input type="radio" id="q7a1" name="q7" value="0"><label for="q7a1">신문지에 싸서 일반 종량제로 버린다.</label> 
+				<input type="radio" id="q7a2" name="q7" value="4"><label for="q7a2">특수규격마대를 사용한다.</label><br> 
+				<input type="radio" id="q7a3" name="q7" value="0"><label for="q7a3">유리류로 분리배출한다.</label> 
+				<input type="radio" id="q7a4" name="q7" value="0"><label for="q7a4">타는 쓰레기에 버린다.</label>
 			</div>
 
 			<div class="question">
 				<h4>Q8</h4>
 				<h5>비닐류 분리배출 시 틀린점은?</h5>
-				<input type="radio" id="q8a1" name="q8" value="0"><label
-					for="q8a1">이물질을 완전히 제거하여 배출한다.</label> <input type="radio"
-					id="q8a2" name="q8" value="0"><label for="q8a2">뽁뽁이도
-					비닐류이다.</label><br> <input type="radio" id="q8a3" name="q8" value="4"><label
-					for="q8a3">유색비닐도 재활용이 된다.</label> <input type="radio" id="q8a4"
-					name="q8" value="0"><label for="q8a4">투명한 비닐봉투에 담아
-					배출한다.</label>
+				<input type="radio" id="q8a1" name="q8" value="0"><label for="q8a1">이물질을 완전히 제거하여 배출한다.</label>
+				<input type="radio" id="q8a2" name="q8" value="0"><label for="q8a2">뽁뽁이도 비닐류이다.</label><br> 
+				<input type="radio" id="q8a3" name="q8" value="4"><label for="q8a3">유색비닐도 재활용이 된다.</label> 
+				<input type="radio" id="q8a4" name="q8" value="0"><label for="q8a4">투명한 비닐봉투에 담아 배출한다.</label>
 			</div>
 		</div>
-	</form>
 
-	<div class="button">
-		<button class="test-result-button" id="button" type="button"
-			onclick="call()">결과 보기</button>
-	</div>
+		<div class="button">
+			<!-- <button class="test-result-button" id="button" type="button" onclick="call()">결과 보기</button> -->
+			<input type="submit" class="test-result-button" id="button" onclick="call()" value="결과 보기" />
+		</div>
+	</form>
 
 	<input type="hidden" id="score" type="text" />
 	<img id="img" src="" border="0" width="250px">

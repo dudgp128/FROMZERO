@@ -7,9 +7,15 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.util.Properties"%>
+<%@page import="javax.servlet.http.HttpServlet" %>
+<%@page import="javax.servlet.http.HttpServletRequest" %>
+<%@page import="javax.servlet.http.HttpServletResponse" %>
+<%@page import="javax.servlet.http.HttpSession" %>
+
 <!DOCTYPE html>
 <html>
 <head>
+
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <script src="./search-checkbox.js"></script>
 <meta charset="UTF-8">
@@ -109,6 +115,7 @@
 	            int img_count = 0;
 	            String img_li = null;
 	            String productid = null;
+	            String small_category = null;
 
 	            while (rset.next()) {
 	               productname = rset.getString("productname");
@@ -117,11 +124,11 @@
 	               img_count++;
 	               img_li = "living/" + img_count + ".jpg";
 	            %>
-					<form method="post" action="doDetailProduct">
-	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
+				<form method="post" action="doDetailProduct">
+	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid %>>
 	            <li id="li-living-item-box">
-	                  <div class="div-display-living-box">
-	                     <img class="img-display-box" src="<%=img_li%>" alt="">
+	                  <div class="div-display-living-box" style="margin-left:0">
+	                     <img class="img-display-box" src="<%=img_li%>" alt="" >
 	                     <div class="display-text">
 	                        <strong><%=productname%></strong>
 	                        <p><%=price%>원
