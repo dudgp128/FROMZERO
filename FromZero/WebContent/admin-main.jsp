@@ -60,17 +60,17 @@
 	<div class="question_box">
 	<table>
 	<tr>
+		<td>주문번호</td>
 		<td>주문자</td>
-		<td>전화번호</td>
-		<td>주문내역</td>
 		<td>주문금액</td>
+		<td>주문날짜</td>
 	</tr>
 	<%
 		try {
 			conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-			
-			String sqlSt = "select * from online_product where big_category='living' order by binary(big_category), binary(brand), price, productid";
+			String sqlSt = "select * from offline_order order by orderid, custid, allprice, orderdate";
+			//where big_category='living' order by binary(big_category), binary(brand), price, productid";
 			pstmt = conn.prepareStatement(sqlSt);				
 			rset = pstmt.executeQuery();
 			} 
@@ -78,26 +78,25 @@
 			e.printStackTrace();
 			}
 			
-		//String name = null;
-		//String phonenum = null;
-		String productname = null;
-		String price = null;
-		int img_count = 0;
-		String img_li = null;
+		String orderid = null;
+		String custid = null;
+		String allprice = null;
+		String orderdate = null;
+		int count = 0;
 
-		while (rset.next() && img_count < 5) {
-			//name = rset.getString("name");
-			//phonenum = rset.getString("phonenum");
-			productname = rset.getString("productname");
-			price = rset.getString("price");
-			img_count++;
+		while (rset.next()) {
+			orderid = rset.getString("orderid");
+			custid = rset.getString("custid");
+			allprice = rset.getString("allprice");
+			orderdate = rset.getString("orderdate");
+			count++;
 	%>
 	
 	<tr>
-		<td>주문자</td>
-		<td>전화번호</td>
-		<td><%=productname%></td>
-		<td><%=price%></td>
+		<td><%=orderid%></td>
+		<td><%=custid%></td>
+		<td><%=allprice%></td>
+		<td><%=orderdate%></td>
 	</tr>
 	<%
 		}
