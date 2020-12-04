@@ -5,9 +5,6 @@
 <html>
 <head>
 <%
-   User user = (User) request.getAttribute("user");
-%>
-<%
    String user_id = (String) session.getAttribute("user_id"); //세션 값 불러오기
 %>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
@@ -95,7 +92,7 @@
       <div class="info">
          <div class="intro">
             <div style='font-weight: bold; font-size: 26px; padding: 10px;'>
-               <%=user.getName()%>님, 안녕하세요.
+               <%=user_name%>님, 안녕하세요.
             </div>
             <div class="total-price" style='font-size: 16px; padding: 10px;'>누적구매금액:
                0원</div>
