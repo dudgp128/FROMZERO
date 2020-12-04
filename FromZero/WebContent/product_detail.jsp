@@ -138,16 +138,16 @@ ul {
 				<h4>배송비</h4>
 			</div>
 			<br> <br> <br> <br> <br>
-			<form action="buying.jsp" method="post">
+			<form method="post" action="doBuyingSpinner">
 			<p>
 				수량 <input id="product_count" type="number" name="product_count"
 					min="1" max="10" step="1" value="1" />
 			</p>
 			<!-- <form> -->
-				<button type="button" id="buy" value="BUY" onclick="location.href='buying.jsp'">BUY</button>
+				<!-- <button type="button" id="buy" value="BUY" onclick="location.href='buying.jsp'">BUY</button> -->
+				<input id="buy" type="submit" value="BUY" />
 				<!-- <input id="buy" type="submit" value="BUY" /> --> 
-				<input id="cart"
-					type="submit" value="CART" />
+				<input id="cart" type="submit" value="CART" />
 			</form>
 			<br> <br> <br>
 			<%

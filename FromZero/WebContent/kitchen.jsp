@@ -63,7 +63,7 @@
 				<td />
 				<td colspan="4" style="text-align: right;"><input type="text"
 					name="search_result" style="width: 500px; height: 30px;"
-					id="search-statement" /></td>
+					id="search-statement" readonly="readonly" /></td>
 				<td style="text-align: left"><button type="reset">초기화</button></td>
 				<td style="text-align: left"><input type="submit" value="검색" />
 			</tr>
