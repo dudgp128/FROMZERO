@@ -48,6 +48,8 @@
 	connectionProps.put("password", DBpasswd);
 	connectionProps.put("serverTimezone", DBTimeZone);
 	String name = null;
+	
+	String product_count = (String) request.getAttribute("product_count");
 	%>
 	<%@ include file="./fz_header.jsp"%>
 	
@@ -62,18 +64,26 @@
       <br><br><br><br><br><br><br>
          <div class="display-text">
             <strong><%=productname%></strong>
-            <p><%=price%>원</p>
+            <p id=onePrice><%=price%>원</p>
          </div><br>
       
          <p>수량
-         <input id="product-count" type="number" name="product-count" min="1" 
-            max="10" step="1" value="1" />
+
+         <input id="productCount" type="number" name="product_count" min="1" max="10" step="1" value=<%=product_count %>
+          onchange="javascript: document.getElementById('allPrice').value = this.value * <%= price%>"/>
          </p>
       </div>
    </div>
-   
+	<% 
+		int pCount = Integer.parseInt(product_count);
+		int pPrice = Integer.parseInt(price);
+		int product_price = pCount * pPrice;
+	%>
    <div class="buy-button" align="right">
-      <p>총 가격 : <%=price%>원</p>
+      <!-- <p id="allPrice">총 가격 : <%=price%>원</p> -->
+      <p><input type="text" value="<%=product_price%>" id="allPrice" readonly="readonly" 
+      	style="border: none; background: transparent; pointer-events: none; text-align:right; width:100px; height:20px; font-size:larger" />
+ 		원</p>
       <button type="submit"> BUY </button>
    </div>
    

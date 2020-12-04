@@ -58,7 +58,7 @@ public class doJoin extends HttpServlet {
                    //     Ѵ .
                }
             }else {
-               response.sendRedirect("./index.html");
+               response.sendRedirect("./login.html");
                DBUtil.insertWithParam(conn, nmid, npasswd, nname, naddress, nphone,nemail);
                
             }
