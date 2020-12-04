@@ -47,9 +47,9 @@
 			<li class="topMenuLi"><a class="menuLink" href="greenBoard.html">GREEN
 					BOARD</a>
 				<ul class="submenu" style="white-space: normal">
-					<li><a href="notice.html" class="submenuLink">NOTICE</a></li>
-					<li><a href="faq.html" class="submenuLink">FAQ</a></li>
-					<li><a href="qna.html" class="submenuLink">QNA</a></li>
+					<li><a href="notice.jsp" class="submenuLink">NOTICE</a></li>
+					<li><a href="FAQ.jsp" class="submenuLink">FAQ</a></li>
+					<li><a href="qna.jsp" class="submenuLink">QNA</a></li>
 				</ul></li>
 		</ul>
 	</nav>
