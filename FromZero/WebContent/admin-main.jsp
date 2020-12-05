@@ -38,10 +38,10 @@
 	</header>
 	<nav id="topMenu">
 		<ul>	
-			<li class="topMenuLi"><a class="menuLink" href="">들어온 주문내역 확인</a>
+			<li class="topMenuLi"><a href="admin-main.jsp" class="menuLink" href="">들어온 주문내역 확인</a>
 			</li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="">재고 변경</a>
+			<li class="topMenuLi"><a href="update_stock.jsp" class="menuLink" href="">재고 변경</a>
 			</li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="">고객 포인트 지급</a>

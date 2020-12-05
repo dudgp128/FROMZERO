@@ -11,12 +11,16 @@
 <html>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
-<% String user_id=(String)session.getAttribute("user_id");
-	session.getAttribute("productid");
+<% 
+	//String user_id=(String)session.getAttribute("user_id");
 	String productid =  (String) session.getAttribute("productid");
 	String productname = (String) session.getAttribute("productname");
 	String price =  (String) session.getAttribute("price");
 	String img_num =  (String) session.getAttribute("img_num");
+	
+	//System.out.println("buying - productname : " + productname);
+	session.setAttribute("product_id", productid);
+	//session.setAttribute("user_id", user_id);
 %>
 <meta charset="UTF-8">
 <title>상품 구매</title>
@@ -51,7 +55,7 @@
 	
 	String product_count = (String) request.getAttribute("product_count");
 	%>
-	<%@ include file="./fz_header.jsp"%>
+	<%@ include file="./fz_header.jsp" %>
 	
 	<div>
       <h2 id="bigCategory" style="text-align: center; margin-top: 20px;">구매 페이지</h2>
@@ -80,8 +84,7 @@
 		int product_price = pCount * pPrice;
 	%>
    <div class="buy-button" align="right">
-      <!-- <p id="allPrice">총 가격 : <%=price%>원</p> -->
-      <p><input type="text" value="<%=product_price%>" id="allPrice" readonly="readonly" 
+      <p><input type="text" name = "product_price" value="<%=product_price%>" id="allPrice" readonly="readonly" 
       	style="border: none; background: transparent; pointer-events: none; text-align:right; width:100px; height:20px; font-size:larger" />
  		원</p>
       <button type="submit"> BUY </button>

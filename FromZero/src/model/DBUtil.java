@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 
 public class DBUtil {
 
@@ -243,4 +244,108 @@ public class DBUtil {
 		      }
 		   }
 		}
+	public static void insertBuying(Connection conn, int order_id, String user_id, int all_price)
+			throws SQLException {
+			PreparedStatement pstmt = null;
+			try {
+				conn.setAutoCommit(false);
+
+				pstmt = conn.prepareStatement("INSERT INTO online_order VALUES(?,?,?,?)");
+				pstmt.setInt(1, order_id);
+				pstmt.setString(2, user_id);
+				pstmt.setInt(3, all_price);
+				
+				java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); //format
+				String stringDate = sdf.format(new java.util.Date());
+				java.sql.Date date = java.sql.Date.valueOf(stringDate);
+				pstmt.setDate(4, date);
+				
+				pstmt.executeUpdate();
+
+				conn.commit();
+				conn.setAutoCommit(true);
+				//System.out.println("insertBuying");
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				if (pstmt != null) {
+					//conn.close();
+					//pstmt.close();
+				}
+			}
+		}
+	
+	public static void insertItems(Connection conn, int order_id, int product_id, String user_id, int count)
+			throws SQLException {
+			PreparedStatement pstmt = null;
+			try {
+				conn.setAutoCommit(false);
+
+				pstmt = conn.prepareStatement("INSERT INTO order_items VALUES(?,?,?,?)");
+				pstmt.setInt(1, order_id);
+				pstmt.setInt(2, product_id);
+				pstmt.setString(3, user_id);
+				pstmt.setInt(4, count);
+				
+				pstmt.executeUpdate();
+
+				conn.commit();
+				conn.setAutoCommit(true);
+				//System.out.println("insertItems");
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				if (pstmt != null) {
+					//conn.close();
+					//pstmt.close();
+				}
+			}
+		}
+	
+	public static ResultSet getOnlineOrder(Connection conn){
+			Statement st = null;
+			try {
+				st = conn.createStatement();
+				if (st.execute("SELECT * FROM online_order")) {
+		            return st.getResultSet();
+		            }
+
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} 
+			return null;
+		}
+	
+	
+	public static void updateStock(Connection conn, String offlineproduct_id, String offlineproduct_num) throws SQLException {
+        Statement stmt = null;
+        try {
+           stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+           ResultSet uprs = stmt.executeQuery("select * from offline_product where offlineproduct_id" + "'" + offlineproduct_id + "'");
+           
+           if(uprs != null) {
+              if (uprs.next()) {
+              uprs.updateString("offlineproduct_num", offlineproduct_num);
+              uprs.updateRow();
+              }
+           }
+
+        } catch (SQLException e) {
+           e.printStackTrace();
+        } finally {
+           if (stmt != null) {
+              //conn.close();
+              //stmt.close();
+              /*
+               * 이 함수 한 번 호출 됐을 때 close()됨
+               * close()된 후, 바로 다시 test하면 위에 닫힌 statement 객체가 다시 호출되는데
+               * 이때 객체가 close된지 얼마 안 되서 사용 불가.
+               * => 여기서는 close() 쓰지 말기
+               */
+              
+           }
+        }
+     }
 }

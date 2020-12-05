@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <%
-	String user_id = (String) session.getAttribute("user_id"); //세션 값 불러오기
+	//String user_id = (String) session.getAttribute("user_id"); //세션 값 불러오기
 %>
 <meta charset="UTF-8">
 <title>From zero</title>

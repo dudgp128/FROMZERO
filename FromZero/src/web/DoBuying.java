@@ -2,8 +2,10 @@ package web;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -20,50 +22,67 @@ import model.DBUtil;
 @WebServlet("/doBuying")
 public class DoBuying extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public DoBuying() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public DoBuying() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
-		int count = Integer.parseInt(request.getParameter("product-count"));
+
+		int count = Integer.parseInt(request.getParameter("product_count"));
+		int all_price = Integer.parseInt(request.getParameter("product_price"));
+
 		int order_id = 1;
-		
+
 		HttpSession session = request.getSession();
-		String user_id = (String)session.getAttribute("user_id");
-		
-		//int price = (int)session.getAttribute("price");
-		
+		String user_id = (String) session.getAttribute("user_id");
+		int product_id = Integer.parseInt((String) session.getAttribute("product_id"));
+
 		ServletContext sc = getServletContext();
-		Connection conn = (Connection)sc.getAttribute("DBconnection");
-		
-		System.out.println(count);
-		
+		Connection conn = (Connection) sc.getAttribute("DBconnection");
+		ResultSet rs = DBUtil.getOnlineOrder(conn);
+		if (rs != null) {
 			try {
-				DBUtil.insertBuying(conn, order_id, user_id, count);
-				response.sendRedirect("./buying.jsp");
+				while (rs.next()) {
+					order_id = rs.getInt("orderid");
+				}
 				order_id++;
-			} 
-			catch (SQLException e) {
+			} catch (Exception e) {
 				e.printStackTrace();
-			}	
+			}
+		} else
+			order_id = 1;
+		try {
+			DBUtil.insertItems(conn, order_id, product_id, user_id, count);
+			DBUtil.insertBuying(conn, order_id, user_id, all_price);
+			request.setAttribute("all_price", all_price);
+			request.setAttribute("count", count);
+			//response.sendRedirect("./buying_result.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("buying_result.jsp");
+			view.forward(request, response);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
