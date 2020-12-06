@@ -208,6 +208,7 @@ ul {
 				</form>
 			<%
 			}
+			session.setAttribute("board_id", board_id);
 			%>
 			
 				<!--

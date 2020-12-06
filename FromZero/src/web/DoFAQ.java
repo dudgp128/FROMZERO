@@ -1,12 +1,19 @@
 package web;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import model.DBUtil;
 
 /**
  * Servlet implementation class DoDetailProduct
@@ -25,16 +32,16 @@ public class DoFAQ extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
-		response.setCharacterEncoding("UTF-8");
-		
-		String board_id = request.getParameter("boardID");
-		System.out.println("확인 : " + board_id);
-		
-		request.setAttribute("board_id", board_id);
-		RequestDispatcher view = request.getRequestDispatcher("faq_board.jsp");
-		view.forward(request, response);
 
+		request.setCharacterEncoding("UTF-8");
+		response.setCharacterEncoding("UTF-8");
+
+	    String board_id = request.getParameter("boardID");
+	    //System.out.println("확인 : " + board_id);
+	      
+	    request.setAttribute("board_id", board_id);
+	    RequestDispatcher view = request.getRequestDispatcher("faq_board.jsp");
+	    view.forward(request, response);
 	}
 
 	/**

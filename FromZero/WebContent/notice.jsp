@@ -139,7 +139,7 @@ ul {
 	</div>
 	
 	<div class="write" align="right">
-		<button>글쓰기</button>
+		<button onclick="location.href='notice_write.jsp'">글쓰기</button>
 	</div>
 	
    <div id="menu" style="float: left;">
@@ -209,6 +209,7 @@ ul {
 				</form>
 			<%
 			}
+			session.setAttribute("board_id", board_id);
 			%>
 			</tbody>
 		</table>

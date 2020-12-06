@@ -28,8 +28,6 @@ table {
 	margin: 50px;
 }
 
-
-
 <!-- 왼쪽 네비게이션 -->
 .leftMenu {
 	margin-top: 50px;
@@ -48,9 +46,12 @@ table {
 
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp" %>
+	<%@ page import="java.text.*" %>
    	<%
-   	user_name = (String) session.getAttribute("user_name");
-   	String board_id = (String)request.getAttribute("board_id");
+   	user_id = (String)session.getAttribute("user_id");
+   	String board_id = (String)session.getAttribute("board_id");
+   	int board_id_2 = Integer.parseInt(board_id) +1;
+   	session.setAttribute("board_id_2", board_id_2);
 
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
@@ -66,6 +67,9 @@ table {
 	connectionProps.put("password", DBpasswd);
 	connectionProps.put("serverTimezone", DBTimeZone);
 	String name = null;
+	
+	java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	String stringDate = sdf.format(new java.util.Date());
 	%>
 	
    <div>
@@ -83,39 +87,15 @@ table {
 
 	<div id="content" style="float: left; width:1000px">
 		<table class="board" border="1" cellspacing="0">
-		<%
-			try {
-				conn = DriverManager.getConnection(DBUrl, connectionProps);
-
-				String sqlSt = "select * from faq where board_id='" + board_id 
-						+ "' order by custid, board_title, board_contant, board_date";
-				pstmt = conn.prepareStatement(sqlSt);				
-				rset = pstmt.executeQuery();
-				} 
-			catch (SQLException e) {				
-				e.printStackTrace();
-				}
-			
-			String custid = null;
-			String board_title = null;
-			String board_content = null;
-			String board_date = null;
-
-			while (rset.next()) {
-				custid = rset.getString("custid");
-				board_title = rset.getString("board_title");
-				board_content = rset.getString("board_contant");
-				board_date = rset.getString("board_date");
-			}
-			%>
-		<form method="post" action="doWrite">
+		<form method="post" action="doFAQWrite">
         <tr>
             <th>글번호</th>
-            <td><%= board_id %></td>
+            <td><%=board_id_2 %></td>
+            
             <th>작성자</th>
-            <td><%= user_name %></td>
+            <td><%= user_id %></td>
 			<th>작성일</th>
-            <td><%= board_date %></td>
+            <td><%= stringDate %></td>
         </tr>
            
         <tr>
@@ -128,7 +108,14 @@ table {
             <td colspan="5"><textarea name="memo" style="width:700px; height:500px"></textarea></td>
         </tr>
 		</table>
+		
+		<div class="save" align="right">
+			<button type="submit">글 작성</button>
+		</div>
+		</form>
 	</div>
+	
+	
 
 </body>
 </html>
