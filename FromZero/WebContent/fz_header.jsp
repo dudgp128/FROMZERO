@@ -57,7 +57,7 @@
 	</nav>
 
 	<ul class="loginarea">
-		<li><a href="myPage.html"> <img src="images/mypage.png"
+		<li><a href="myPage.jsp"> <img src="images/mypage.png"
 				width=25 height=20>
 		</a></li>
 		<li><%=user_name%>님 환영합니다!</li>

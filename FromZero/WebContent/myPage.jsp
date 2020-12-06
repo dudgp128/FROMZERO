@@ -1,6 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
-<%@page import="model.User"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.util.Properties"%>
+<%@page import="javax.servlet.http.HttpServlet" %>
+<%@page import="javax.servlet.http.HttpServletRequest" %>
+<%@page import="javax.servlet.http.HttpServletResponse" %>
+<%@page import="javax.servlet.http.HttpSession" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -81,6 +91,7 @@
 </head>
 <body style="overflow-x: hidden">
    <%@ include file="./fz_header.jsp" %>
+   
    <div class="inside">
       <div class="left-menu">
          <ul>
@@ -97,19 +108,7 @@
             <div class="total-price" style='font-size: 16px; padding: 10px;'>누적구매금액:
                0원</div>
          </div>
-         <!-- <div class="point-view">
-            <a href="point.html">
-               <ul>
-                  <li style="font-size: 29px; margin-bottom: 5px;">포인트</li>
-                  <li style="font-size: 29px; margin-bottom: 5px;">레벨</li>
-               </ul>
-               <ul>
-                  <li style="font-size: 29px; margin-bottom: 5px;">0</li>
-                  <li style="font-size: 29px; margin-bottom: 5px;">나무</li>
-               </ul>
-                <div style="font-size: 29px;">0</div> 
-            </a>
-         </div> -->
+         
          <div class="point-view">
             <a href="point.html"> <!-- 공병 개수 보여주는거 어떻게 할것인지 결정하기  -->
                <ul>
@@ -118,12 +117,44 @@
                </ul>
             </a>
          </div>
+         
+         <%
+				PreparedStatement pstmt = null;
+				ResultSet rset = null;
+				Connection conn = null;
+				Properties connectionProps = new Properties();
+
+				String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
+				String DBuser = "fz_webapp";
+				String DBpasswd = "fz_webapp";
+				String DBTimeZone = "UTC";
+
+				connectionProps.put("user", DBuser);
+				connectionProps.put("password", DBpasswd);
+				connectionProps.put("serverTimezone", DBTimeZone);
+				String name = null;
+				try {
+					conn = DriverManager.getConnection(DBUrl, connectionProps);
+
+					String sqlSt = "select * from customer where custid = '" + user_id + "'";
+					pstmt = conn.prepareStatement(sqlSt);
+					rset = pstmt.executeQuery();
+					
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				String level = null;
+				if (rset.next())
+		               level = rset.getString("level");
+	            %>
+         
          <div class="point-view">
             <a href="test.jsp">
                <ul>
                   <li>레 벨</li>
                   <!-- 레벨 디비 저장해서 가져오는거 구현하기 -->
-                  <li style='font-size: 26px'>나무</li>
+                  
+                  <li style='font-size: 26px'><%=level %></li>
                </ul>
             </a>
          </div>

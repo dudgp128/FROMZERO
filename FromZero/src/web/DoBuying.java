@@ -44,7 +44,7 @@ public class DoBuying extends HttpServlet {
 		int count = Integer.parseInt(request.getParameter("product_count"));
 		int all_price = Integer.parseInt(request.getParameter("product_price"));
 
-		int order_id = 1;
+		int order_id = 0;
 
 		HttpSession session = request.getSession();
 		String user_id = (String) session.getAttribute("user_id");
@@ -62,8 +62,9 @@ public class DoBuying extends HttpServlet {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else
+		} else {
 			order_id = 1;
+		}
 		try {
 			DBUtil.insertItems(conn, order_id, product_id, user_id, count);
 			DBUtil.insertBuying(conn, order_id, user_id, all_price);
@@ -72,7 +73,7 @@ public class DoBuying extends HttpServlet {
 			//response.sendRedirect("./buying_result.jsp");
 			RequestDispatcher view = request.getRequestDispatcher("buying_result.jsp");
 			view.forward(request, response);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
