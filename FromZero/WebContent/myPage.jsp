@@ -113,7 +113,7 @@
             <a href="point.html"> <!-- 공병 개수 보여주는거 어떻게 할것인지 결정하기  -->
                <ul>
                   <li>포인트</li>
-                  <li style='font-size: 26px'>0</li>
+                  <li style='font-size: 23px'>0</li>
                </ul>
             </a>
          </div>
@@ -146,6 +146,9 @@
 				String level = null;
 				if (rset.next())
 		               level = rset.getString("level");
+				
+				if(level == null)
+					level = "테스트하고 레벨 알아보기!";
 	            %>
          
          <div class="point-view">
@@ -154,7 +157,7 @@
                   <li>레 벨</li>
                   <!-- 레벨 디비 저장해서 가져오는거 구현하기 -->
                   
-                  <li style='font-size: 26px'><%=level %></li>
+                  <li style='font-size: 23px'><%=level %></li>
                </ul>
             </a>
          </div>

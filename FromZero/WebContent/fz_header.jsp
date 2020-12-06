@@ -5,8 +5,8 @@
 <head>
 <%
 	//buying, exchange, myPage 확인
-	String user_id = (String) session.getAttribute("user_id");
-	String user_name = (String) session.getAttribute("user_name"); //세션 값 불러오기
+String user_id = (String) session.getAttribute("user_id");
+String user_name = (String) session.getAttribute("user_name"); //세션 값 불러오기
 %>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
@@ -15,7 +15,7 @@
 <body style="overflow-x: hidden">
 	<header>
 		<h1>
-			<a href='main.html'>From zero</a>
+			<a href='main.jsp'>From zero</a>
 		</h1>
 	</header>
 	<nav id="topMenu">
@@ -36,8 +36,8 @@
 					<li><a href="etc.jsp" class="submenuLink">ETC</a></li>
 				</ul></li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="offline_store.jsp">OFFLINE</a>
-			</li>
+			<li class="topMenuLi"><a class="menuLink"
+				href="offline_store.jsp">OFFLINE</a></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="ecoDiary.html">ECO
 					DIARY</a>
@@ -57,13 +57,32 @@
 	</nav>
 
 	<ul class="loginarea">
-		<li><a href="myPage.jsp"> <img src="images/mypage.png"
-				width=25 height=20>
-		</a></li>
-		<li><%=user_name%>님 환영합니다!</li>
-		<li><a href="cart.html">CART</a></li>
-		<li><a href="login.html">LOGIN</a></li>
-		<li><a href="join.html">JOIN</a></li>
+		<form method="post" action="logout.jsp">
+			<%
+				if (user_name == null) {
+			%>
+			<li><a href="login.html">LOGIN</a></li>
+			<li><a href="join.html">JOIN</a></li>
+			<%
+				} else {
+			%>
+			<li><a href="myPage.jsp"> <img src="images/mypage.png"
+					width=25 height=20>
+			</a></li>
+			<li><%=user_name%>님 환영합니다!</li>
+			<li><a href="cart.html">CART</a></li>
+			<li><a href="./doLogout">LOGOUT</a></li>
+			<%
+				}
+			%>
+			<li><input type="text" name="search_text"></li>
+			<li style='top: 100px; padding: 0 0px;'>
+				<button type="submit">
+					<img src="images/magnifying-glass.png" width=20 height=20>
+				</button>
+			</li>
+		</form>
+
 	</ul>
 
 	<ul class="service">
