@@ -17,8 +17,8 @@ public class DBUtil {
 			if (st.execute(sqlSt + "'" + mid + "'")) {
 				return st.getResultSet();
 			}
-			con.close();
-			st.close();
+			//con.close();
+			//st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -33,8 +33,8 @@ public class DBUtil {
 			if (st.execute(sqlSt + "'" + mid + "'")) {
 				return st.getResultSet();
 			}
-			con.close();
-			st.close();
+			//con.close();
+			//st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -63,8 +63,8 @@ public class DBUtil {
 			e.printStackTrace();
 		} finally {
 			if (stmt != null) {
-				conn.close();
-				stmt.close();
+				//conn.close();
+				//stmt.close();
 			}
 		}
 	}
@@ -101,8 +101,8 @@ public class DBUtil {
 			e.printStackTrace();
 		} finally {
 			if (stmt != null) {
-				conn.close();
-				stmt.close();
+				//conn.close();
+				//stmt.close();
 			}
 		}
 	}
@@ -132,8 +132,8 @@ public class DBUtil {
 			e.printStackTrace();
 		} finally {
 			if (pstmt != null) {
-				conn.close();
-				pstmt.close();
+				//conn.close();
+				//pstmt.close();
 			}
 		}
 	}
@@ -161,8 +161,8 @@ public class DBUtil {
 			e.printStackTrace();
 		} finally {
 			if (pstmt != null) {
-				conn.close();
-				pstmt.close();
+				//conn.close();
+				//pstmt.close();
 			}
 		}
 	}
@@ -174,8 +174,8 @@ public class DBUtil {
 			if (st.execute(sqlSt)) {
 				return st.getResultSet();
 			}
-			con.close();
-			st.close();
+			//con.close();
+			//st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -190,8 +190,8 @@ public class DBUtil {
 			if (st.execute(sqlSt)) {
 				return st.getResultSet();
 			}
-			con.close();
-			st.close();
+			//con.close();
+			//st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -205,8 +205,8 @@ public class DBUtil {
 			if (st.execute(sqlSt)) {
 				return st.getResultSet();
 			}
-			con.close();
-			st.close();
+			//con.close();
+			//st.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -222,8 +222,8 @@ public class DBUtil {
 		      if(uprs != null) {
 		         if (uprs.next()) {
 		         uprs.updateString("level", level);
-		         System.out.print("데베 레벨 확인 : ");
-		         System.out.println(level);
+		         //System.out.print("데베 레벨 확인 : ");
+		         //System.out.println(level);
 		         uprs.updateRow();
 		         }
 		      }
