@@ -44,6 +44,7 @@ public class DoOffline extends HttpServlet {
 		String sqlSt="SELECT * FROM offline_product WHERE storename LIKE ";
 		sqlSt=sqlSt+"'%"+offline_store+"%'";
 		ResultSet rs=DBUtil.findStore(con, sqlSt);
+		int storeid=0;
 		
 		if (rs != null) {
 			try {
