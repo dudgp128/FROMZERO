@@ -20,7 +20,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 	</header>
 	<nav id="topMenu">
 		<ul>
-			<li class="topMenuLi"><a class="menuLink" href="ourStory.html">OUR
+			<li class="topMenuLi"><a class="menuLink" href="introduce.html">OUR
 					STORY</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="introduce.html" class="submenuLink">사이트 소개</a></li>
@@ -39,14 +39,14 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 			<li class="topMenuLi"><a class="menuLink"
 				href="offline_store.jsp">OFFLINE</a></li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="ecoDiary.html">ECO
+			<li class="topMenuLi"><a class="menuLink" href="aboutZW.html">ECO
 					DIARY</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="aboutZW.html" class="submenuLink">ABOUT ZW</a></li>
 					<li><a href="ecoTip.html" class="submenuLink">ECO TIP</a></li>
 				</ul></li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="greenBoard.html">GREEN
+			<li class="topMenuLi"><a class="menuLink" href="notice.jsp">GREEN
 					BOARD</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="notice.jsp" class="submenuLink">NOTICE</a></li>

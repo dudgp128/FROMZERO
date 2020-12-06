@@ -44,7 +44,7 @@
 			<li class="topMenuLi"><a href="update_stock.jsp" class="menuLink" href="">재고 변경</a>
 			</li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="">고객 포인트 지급</a>
+			<li class="topMenuLi"><a href="give_point.jsp" class="menuLink" href="">고객 포인트 지급</a>
 			</li>
 			
 		</ul>

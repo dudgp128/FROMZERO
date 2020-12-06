@@ -58,7 +58,7 @@
 	</ul>
 
 	<div class="title">
-		<h2 style="text-align: center">상품 재고 변경</h2>
+		<h2 style="text-align: center">고객 포인트 지급</h2>
 	</div>
 
 	<div class="question_box">
