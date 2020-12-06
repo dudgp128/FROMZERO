@@ -87,7 +87,7 @@ table {
 				conn = DriverManager.getConnection(DBUrl, connectionProps);
 
 				String sqlSt = "select * from faq where board_id='" + board_id 
-						+ "' order by custid, board_title, board_contant, board_date";
+						+ "' order by custid, board_title, board_content, board_date";
 				pstmt = conn.prepareStatement(sqlSt);				
 				rset = pstmt.executeQuery();
 				} 
@@ -103,7 +103,7 @@ table {
 			while (rset.next()) {
 				custid = rset.getString("custid");
 				board_title = rset.getString("board_title");
-				board_content = rset.getString("board_contant");
+				board_content = rset.getString("board_content");
 				board_date = rset.getString("board_date");
 			}
 			%>
