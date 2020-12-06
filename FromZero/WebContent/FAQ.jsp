@@ -1,15 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.util.Properties"%>
 <!DOCTYPE html>
 <html>
 <head>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
-<script src="./search-checkbox.js"></script>
 <meta charset="UTF-8">
 <title>FAQ</title>
 
 <style>
+
+.write {
+	padding-right:250px;
+}
 
 #menu, #content {
 	margin: 50px;
@@ -35,7 +45,6 @@ ul {
    width: 100%;
    border-bottom: 1px solid #999;
    color: #666;
-   font-size: 12px;
    table-layout: fixed
 }
 
@@ -64,14 +73,12 @@ ul {
 .sub_news .date, .sub_news .hit {
    padding: 0;
    font-family: Tahoma;
-   font-size: 11px;
    line-height: normal
 }
 
 .sub_news .title {
    text-align: left;
    padding-left: 15px;
-   font-size: 13px;
 }
 
 .sub_news .title .pic, .sub_news .title .new {
@@ -83,7 +90,6 @@ ul {
    padding: 0;
    background: none;
    color: #f00;
-   font-size: 12px;
    font-weight: bold
 }
 
@@ -110,10 +116,30 @@ ul {
 
 <body style="overflow-x: hidden">
    <%@ include file="./fz_header.jsp" %>
-   
+   <%
+	PreparedStatement pstmt = null;
+	ResultSet rset = null;
+	Connection conn = null;
+	Properties connectionProps = new Properties();
+
+	String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
+	String DBuser = "fz_webapp";
+	String DBpasswd = "fz_webapp";
+	String DBTimeZone = "UTC";
+
+	connectionProps.put("user", DBuser);
+	connectionProps.put("password", DBpasswd);
+	connectionProps.put("serverTimezone", DBTimeZone);
+	String name = null;
+	%>
+	
    <div>
 		<h1 id="bigCategory"
 			style="text-align: center; margin-top: 20px; text-transform: uppercase;">FAQ</h1>
+	</div>
+	
+	<div class="write" align="right">
+		<button onclick="location.href='faq_write.jsp'">글쓰기</button>
 	</div>
 	
    <div id="menu" style="float: left;">
@@ -124,10 +150,10 @@ ul {
 		</ul>
 	</div>
 
-	<div id="content" style="float: left; width:1000px">
+	<div id="content" style="float: left; width:1000px;">
 		<!-- 리스트 게시판 시작-->
 		<table class="sub_news" border="1" cellspacing="0"
-			summary="게시판의 글제목 리스트">
+			summary="게시판의 글제목 리스트" style="font-size: 14px;">
 			<caption>게시판 리스트</caption>
 			<colgroup>
 				<col width="80">
@@ -141,28 +167,63 @@ ul {
 					<th scope="col">제목</th>
 					<th scope="col">글쓴이</th>
 					<th scope="col">날짜</th>
-
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td class="number">1</td>
-					<td class="title"><a href="#">게시판 제목이 들어갑니다</a></td>
-					<td class="name">글쓴이이름</td>
-					<td class="date">2020/12/14</td>
-				</tr>
+			
+			<%
+			try {
+				conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-				<tr class="reply">
+				String sqlSt = "select * from faq order by board_id, custid, board_title, board_date";
+				pstmt = conn.prepareStatement(sqlSt);				
+				rset = pstmt.executeQuery();
+				} 
+			catch (SQLException e) {				
+				e.printStackTrace();
+				}
+			
+			String board_id = null;
+			String custid = null;
+			String board_title = null;
+			String board_date = null;
+			int count = 0;
+
+			while (rset.next()) {
+				board_id = rset.getString("board_id");
+				custid = rset.getString("custid");
+				board_title = rset.getString("board_title");
+				board_date = rset.getString("board_date");
+			%>
+			<form method="post" action="doFAQ">
+				<tr>
+					<td class="number"><input type="text" value="<%=board_id%>" name="boardID" readonly="readonly" 
+      				style="border: none; background: transparent; pointer-events: none; text-align:center; width:100px; height:20px" /></td>
+					<td class="title">
+					<button type="submit" style="border: none; outline:0; background: transparent;"> <%=board_title%> </button>
+					</td>
+					<td class="name"><%=custid%></td>
+					<td class="date"><%=board_date%></td>
+				</tr>
+				</form>
+			<%
+			}
+			%>
+			
+				<!--
+					<tr class="reply">
 					<td class="number"> </td>
 					<td class="title"><a href="#">ㄴ 답글 제목이 들어갑니다</a></td>
 					<td class="name">글쓴이이름</td>
 					<td class="date">2020/12/14</td>
 				</tr>
-				<!-- tr이 제목 1줄입니다 보일 list 갯수만큼 li 반복합니다.-->
+				-->
+				
 			</tbody>
 		</table>
 		<!-- 리스트 게시판 끝-->
 	</div>
+	
 
 </body>
 </html>
