@@ -1,1 +1,0 @@
-ALTER TABLE online_order MODIFY orderdate date

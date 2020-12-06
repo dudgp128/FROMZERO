@@ -44,32 +44,30 @@ LOCK TABLES `bottle` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `cart`
+-- Table structure for table `cart_items`
 --
 
-DROP TABLE IF EXISTS `cart`;
+DROP TABLE IF EXISTS `cart_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `cart` (
-  `cartid` int NOT NULL,
+CREATE TABLE `cart_items` (
   `custid` varchar(50) NOT NULL,
   `productid` int NOT NULL,
-  `count` int NOT NULL,
-  PRIMARY KEY (`custid`,`productid`,`count`),
-  KEY `custid` (`custid`),
-  KEY `productid` (`productid`) /*!80000 INVISIBLE */,
-  CONSTRAINT `custid` FOREIGN KEY (`custid`) REFERENCES `customer` (`custid`),
-  CONSTRAINT `productid` FOREIGN KEY (`productid`) REFERENCES `online_product` (`productid`)
+  `count` int DEFAULT NULL,
+  PRIMARY KEY (`custid`,`productid`),
+  KEY `cart_items_ibfk_2` (`productid`),
+  CONSTRAINT `cart_items_ibfk_1` FOREIGN KEY (`custid`) REFERENCES `customer` (`custid`),
+  CONSTRAINT `cart_items_ibfk_2` FOREIGN KEY (`productid`) REFERENCES `online_product` (`productid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cart`
+-- Dumping data for table `cart_items`
 --
 
-LOCK TABLES `cart` WRITE;
-/*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-/*!40000 ALTER TABLE `cart` ENABLE KEYS */;
+LOCK TABLES `cart_items` WRITE;
+/*!40000 ALTER TABLE `cart_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `cart_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -86,7 +84,8 @@ CREATE TABLE `customer` (
   `address` varchar(50) DEFAULT NULL,
   `phone` varchar(20) DEFAULT NULL,
   `email` varchar(45) DEFAULT NULL,
-  `level` varchar(45) DEFAULT NULL,
+  `level` varchar(40) DEFAULT NULL,
+  `admin` int DEFAULT NULL,
   PRIMARY KEY (`custid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -97,7 +96,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('aa','aa','aa','aa','aa','aa','숲'),('dd','dd','dd','dd','dd','dd',NULL),('khhong','1111','홍기형','충남','02-920-7525',NULL,'새싹'),('test','1111','테스트','서울','01012345678','dd',NULL);
+INSERT INTO `customer` VALUES ('admin','1234','관리자','얏호','01082828282',NULL,NULL,1),('khhong','1111','홍기형','충남','02-920-7525',NULL,NULL,0),('offlineadmin','1234','관리자','이얏호','01082821818',NULL,NULL,1);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -112,7 +111,7 @@ CREATE TABLE `faq` (
   `board_id` int NOT NULL,
   `custid` varchar(50) NOT NULL,
   `board_title` varchar(100) NOT NULL,
-  `board_contant` varchar(1000) NOT NULL,
+  `board_content` varchar(1000) NOT NULL,
   `board_date` date NOT NULL,
   PRIMARY KEY (`board_id`),
   KEY `fk_faq_customer1_idx` (`custid`),
@@ -130,30 +129,6 @@ LOCK TABLES `faq` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `level`
---
-
-DROP TABLE IF EXISTS `level`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `level` (
-  `customer_custid` varchar(50) NOT NULL,
-  `level` varchar(45) NOT NULL,
-  KEY `fk_level_customer1_idx` (`customer_custid`),
-  CONSTRAINT `fk_level_customer1` FOREIGN KEY (`customer_custid`) REFERENCES `customer` (`custid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `level`
---
-
-LOCK TABLES `level` WRITE;
-/*!40000 ALTER TABLE `level` DISABLE KEYS */;
-/*!40000 ALTER TABLE `level` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `notice`
 --
 
@@ -163,9 +138,9 @@ DROP TABLE IF EXISTS `notice`;
 CREATE TABLE `notice` (
   `board_id` int NOT NULL,
   `custid` varchar(50) NOT NULL,
-  `board_title` varchar(100) DEFAULT NULL,
-  `board_contant` varchar(1000) DEFAULT NULL,
-  `board_date` date DEFAULT NULL,
+  `board_title` varchar(100) NOT NULL,
+  `board_content` varchar(1000) NOT NULL,
+  `board_date` date NOT NULL,
   PRIMARY KEY (`board_id`),
   KEY `fk_notice_customer1_idx` (`custid`),
   CONSTRAINT `fk_notice_customer1` FOREIGN KEY (`custid`) REFERENCES `customer` (`custid`)
@@ -191,12 +166,13 @@ DROP TABLE IF EXISTS `offline_order`;
 CREATE TABLE `offline_order` (
   `orderid` int NOT NULL,
   `custid` varchar(50) DEFAULT NULL,
+  `storeid` int DEFAULT NULL,
   `allprice` int DEFAULT NULL,
   `orderdate` date DEFAULT NULL,
   PRIMARY KEY (`orderid`),
-  KEY `offline_order_ibfk_1` (`custid`) /*!80000 INVISIBLE */,
-  KEY `offline_order_ibfk_2` (`allprice`),
-  CONSTRAINT `offline_order_ibfk_1` FOREIGN KEY (`custid`) REFERENCES `customer` (`custid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `custid` (`custid`),
+  CONSTRAINT `offline_order_ibfk_1` FOREIGN KEY (`orderid`) REFERENCES `offline_order_items` (`orderid`),
+  CONSTRAINT `offline_order_ibfk_2` FOREIGN KEY (`custid`) REFERENCES `offline_order_items` (`custid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -207,6 +183,34 @@ CREATE TABLE `offline_order` (
 LOCK TABLES `offline_order` WRITE;
 /*!40000 ALTER TABLE `offline_order` DISABLE KEYS */;
 /*!40000 ALTER TABLE `offline_order` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `offline_order_items`
+--
+
+DROP TABLE IF EXISTS `offline_order_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `offline_order_items` (
+  `orderid` int NOT NULL,
+  `productid` int NOT NULL,
+  `custid` varchar(50) DEFAULT NULL,
+  `storeid` int DEFAULT NULL,
+  `count` int DEFAULT NULL,
+  PRIMARY KEY (`orderid`,`productid`),
+  KEY `custid` (`custid`),
+  CONSTRAINT `offline_order_items_ibfk_1` FOREIGN KEY (`custid`) REFERENCES `customer` (`custid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `offline_order_items`
+--
+
+LOCK TABLES `offline_order_items` WRITE;
+/*!40000 ALTER TABLE `offline_order_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `offline_order_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -224,8 +228,7 @@ CREATE TABLE `offline_product` (
   `offlineproduct_price` int DEFAULT NULL,
   `orderdate` int DEFAULT NULL,
   PRIMARY KEY (`offlineproduct_id`),
-  KEY `storeid_idx` (`storeid`),
-  CONSTRAINT `storeid` FOREIGN KEY (`storeid`) REFERENCES `offline_store` (`storeid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `storeid_idx` (`storeid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=607 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -274,12 +277,13 @@ DROP TABLE IF EXISTS `online_order`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `online_order` (
   `orderid` int NOT NULL,
-  `custid` varchar(50) DEFAULT NULL,
-  `allprice` int DEFAULT NULL,
-  `orderdate` date DEFAULT NULL,
+  `custid` varchar(50) NOT NULL,
+  `allprice` int NOT NULL,
+  `orderdate` date NOT NULL,
   PRIMARY KEY (`orderid`),
-  KEY `online_order_ibfk_1` (`custid`) /*!80000 INVISIBLE */,
-  CONSTRAINT `online_order_ibfk_1` FOREIGN KEY (`custid`) REFERENCES `customer` (`custid`) ON DELETE CASCADE ON UPDATE CASCADE
+  KEY `online_order_ibfk_2` (`custid`),
+  CONSTRAINT `online_order_ibfk_1` FOREIGN KEY (`orderid`) REFERENCES `order_items` (`orderid`),
+  CONSTRAINT `online_order_ibfk_2` FOREIGN KEY (`custid`) REFERENCES `order_items` (`custid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -289,7 +293,6 @@ CREATE TABLE `online_order` (
 
 LOCK TABLES `online_order` WRITE;
 /*!40000 ALTER TABLE `online_order` DISABLE KEYS */;
-INSERT INTO `online_order` VALUES (1,'khhong',10000,'2020-12-06');
 /*!40000 ALTER TABLE `online_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -303,12 +306,12 @@ DROP TABLE IF EXISTS `online_product`;
 CREATE TABLE `online_product` (
   `productid` int NOT NULL,
   `productname` varchar(45) NOT NULL,
-  `brand` varchar(45) DEFAULT NULL,
+  `brand` varchar(45) NOT NULL,
   `price` int NOT NULL,
   `big_category` varchar(45) DEFAULT NULL,
   `small_category` varchar(45) DEFAULT NULL,
   `img` int NOT NULL,
-  PRIMARY KEY (`productid`,`productname`,`price`)
+  PRIMARY KEY (`productid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -332,9 +335,11 @@ DROP TABLE IF EXISTS `order_items`;
 CREATE TABLE `order_items` (
   `orderid` int NOT NULL,
   `productid` int NOT NULL,
-  `custid` varchar(45) NOT NULL,
+  `custid` varchar(50) NOT NULL,
   `count` int NOT NULL,
-  PRIMARY KEY (`orderid`,`productid`)
+  PRIMARY KEY (`orderid`,`productid`),
+  KEY `custid` (`custid`),
+  CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`custid`) REFERENCES `customer` (`custid`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -344,7 +349,6 @@ CREATE TABLE `order_items` (
 
 LOCK TABLES `order_items` WRITE;
 /*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
-INSERT INTO `order_items` VALUES (1,55,'khhong',1);
 /*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -358,9 +362,9 @@ DROP TABLE IF EXISTS `qna`;
 CREATE TABLE `qna` (
   `board_id` int NOT NULL,
   `custid` varchar(50) NOT NULL,
-  `board_title` varchar(100) DEFAULT NULL,
-  `board_contant` varchar(1000) DEFAULT NULL,
-  `board_date` date DEFAULT NULL,
+  `board_title` varchar(100) NOT NULL,
+  `board_content` varchar(1000) NOT NULL,
+  `board_date` date NOT NULL,
   PRIMARY KEY (`board_id`),
   UNIQUE KEY `customer_custid_UNIQUE` (`custid`),
   KEY `fk_qna_customer1_idx` (`custid`),
@@ -376,6 +380,10 @@ LOCK TABLES `qna` WRITE;
 /*!40000 ALTER TABLE `qna` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qna` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'fz_webapp'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -386,4 +394,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-06 15:07:49
+-- Dump completed on 2020-12-06 20:07:42
