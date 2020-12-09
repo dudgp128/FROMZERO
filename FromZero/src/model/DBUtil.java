@@ -114,7 +114,7 @@ public class DBUtil {
 		try {
 			conn.setAutoCommit(false);
 			
-			pstmt = conn.prepareStatement("INSERT INTO customer VALUES(?,?,?,?,?,?,null)");
+			pstmt = conn.prepareStatement("INSERT INTO customer VALUES(?,?,?,?,?,?,null,0)");
 			pstmt.setString(1, nmid);
 			pstmt.setString(2, npasswd);
 			pstmt.setString(3, nname);
@@ -413,4 +413,79 @@ public class DBUtil {
 			}
 		}
 	
+	public static ResultSet findReserve(Connection con) { 
+		Statement st;
+		try {
+			st = con.createStatement();
+			if (st.execute("SELECT * FROM offline_order_items")) {
+				return st.getResultSet();
+			}
+			// con.close();
+			// st.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}	
+public static void insertReserve(Connection conn, int orderid, int productid, String custid, int storeid, int count)
+			throws SQLException {
+		PreparedStatement pstmt = null;
+		try {
+			conn.setAutoCommit(false);
+
+			pstmt = conn.prepareStatement("INSERT INTO offline_order_items VALUES(?,?,?,?,?)");
+			pstmt.setInt(1, orderid);
+			pstmt.setInt(2, productid );
+			pstmt.setString(3, custid);
+			pstmt.setInt(4, storeid);
+			pstmt.setInt(5, count);
+
+			pstmt.executeUpdate();
+
+			conn.commit();
+			conn.setAutoCommit(true);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				// conn.close();
+				// pstmt.close();
+			}
+		}
+	}
+public static void insertReserveOrder(Connection conn, int orderid, String custid, int storeid, int all_price)
+			throws SQLException {
+		PreparedStatement pstmt = null;
+		try {
+			conn.setAutoCommit(false);
+
+			pstmt = conn.prepareStatement("INSERT INTO offline_order VALUES(?,?,?,?,?)");
+			pstmt.setInt(1, orderid);
+			pstmt.setString(2, custid);
+			pstmt.setInt(3, storeid);
+			pstmt.setInt(4, all_price);
+			
+			java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // format
+			String stringDate = sdf.format(new java.util.Date());
+			java.sql.Date date = java.sql.Date.valueOf(stringDate);
+			pstmt.setDate(5, date);
+
+
+			pstmt.executeUpdate();
+
+			conn.commit();
+			conn.setAutoCommit(true);
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			if (pstmt != null) {
+				// conn.close();
+				// pstmt.close();
+			}
+		}
+	}
+	
 }
+

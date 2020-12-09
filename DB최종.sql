@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fz_webapp
 -- ------------------------------------------------------
--- Server version	8.0.21
+-- Server version	8.0.22
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -238,7 +238,7 @@ CREATE TABLE `offline_product` (
 
 LOCK TABLES `offline_product` WRITE;
 /*!40000 ALTER TABLE `offline_product` DISABLE KEYS */;
-INSERT INTO `offline_product` VALUES (100,1,'소프넛',NULL,11000,NULL),(101,1,'플레이니스트(빨래, 설거지)',NULL,9000,NULL),(102,1,'에코띠크 세탁세제',NULL,3500,NULL),(103,1,'에코띠크 섬유유연제',NULL,3500,NULL),(104,1,'구연산',NULL,2000,NULL),(105,1,'탄산수소나트륨(베이킹소다)',NULL,2000,NULL),(106,1,'과탄산소다(빨래)',NULL,2500,NULL),(107,1,'생활공작소(주방세제)',NULL,2500,NULL),(108,1,'바이오 크린콜',NULL,3500,NULL),(200,2,'설거지 비누',NULL,6500,NULL),(201,2,'천연수세미3개입',NULL,9900,NULL),(202,2,'브라질넛',NULL,50,NULL),(203,2,'헤이즐넛',NULL,35,NULL),(204,2,'캐슈넛',NULL,35,NULL),(205,2,'통밀쿠키(비건)',NULL,400,NULL),(206,2,'초코호두(비건)',NULL,600,NULL),(300,3,'자연분해 일회용 접시',NULL,1500,NULL),(301,3,'재사용 소창 화장지',NULL,25000,NULL),(302,3,'재사용 휴대용 소창와압스',NULL,10000,NULL),(303,3,'소창 바게트 주머니',NULL,7000,NULL),(304,3,'천연 실크 치실',NULL,7000,NULL),(305,3,'A5 크라프트 무지노트',NULL,1500,NULL),(306,3,'병아리콩',NULL,4000,NULL),(307,3,'유기농 국산 햇귀리',NULL,7500,NULL),(308,3,'쌀 파스타(펜네)',NULL,8500,NULL),(309,3,'브라운 렌틸콩',NULL,3000,NULL),(400,4,'친환경 노트',NULL,1000,NULL),(401,4,'삼베수세미',NULL,10000,NULL),(402,4,'손수건',NULL,3500,NULL),(403,4,'밀랍초',NULL,5000,NULL),(404,4,'소프넛',NULL,11000,NULL),(405,4,'천 마스크',NULL,5000,NULL),(406,4,'빨대키트',NULL,10000,NULL),(408,4,'대나무 칫솔',NULL,2000,NULL),(500,5,'칫솔 파우치',NULL,3000,NULL),(501,5,'혀클리너',NULL,7000,NULL),(502,5,'닥터노아 어린이 칫솔',NULL,3700,NULL),(503,5,'수세미 병솔(납작형)',NULL,7000,NULL),(504,5,'설거지 수세미 S',NULL,4000,NULL),(505,5,'다용도 집게',NULL,1000,NULL),(506,5,'고체치약',NULL,14000,NULL),(600,6,'삼베 주머니',NULL,2400,NULL),(601,6,'고체치약(120정)',NULL,13900,NULL),(602,6,'팜프리 비누',NULL,6800,NULL),(603,6,'비즈왁스랩(밀랍랩)',NULL,4500,NULL),(604,6,'다회용 소창 티백',NULL,3500,NULL),(605,6,'유기농 우엉(80g)',NULL,11400,NULL),(606,6,'유기농 작두콩(80g)',NULL,9500,NULL);
+INSERT INTO `offline_product` VALUES (100,1,'소프넛',NULL,11000,NULL),(101,1,'플레이니스트(빨래, 설거지)',NULL,9000,NULL),(102,1,'에코띠크 세탁세제',NULL,3500,NULL),(103,1,'에코띠크 섬유유연제',NULL,3500,NULL),(104,1,'구연산',NULL,2000,NULL),(105,1,'탄산수소나트륨(베이킹소다)',NULL,2000,NULL),(106,1,'과탄산소다(빨래)',NULL,2500,NULL),(107,1,'생활공작소(주방세제)',NULL,2500,NULL),(108,1,'바이오 크린콜',NULL,3500,NULL),(200,2,'설거지 비누',NULL,6500,NULL),(201,2,'천연수세미3개입',NULL,9900,NULL),(202,2,'브라질넛',NULL,50,NULL),(203,2,'헤이즐넛',NULL,35,NULL),(204,2,'캐슈넛',NULL,35,NULL),(205,2,'통밀쿠키(비건)',NULL,400,NULL),(206,2,'초코호두(비건)',NULL,600,NULL),(300,3,'자연분해 일회용 접시',NULL,1500,NULL),(301,3,'재사용 소창 화장지',NULL,25000,NULL),(302,3,'재사용 휴대용 소창와압스',NULL,10000,NULL),(303,3,'소창 바게트 주머니',NULL,7000,NULL),(304,3,'천연 실크 치실',NULL,7000,NULL),(305,3,'A5 크라프트 무지노트',NULL,1500,NULL),(306,3,'병아리콩',NULL,4000,NULL),(307,3,'유기농 국산 햇귀리',NULL,7500,NULL),(308,3,'쌀 파스타(펜네)',NULL,8500,NULL),(309,3,'브라운 렌틸콩',NULL,3000,NULL),(400,4,'친환경 노트',NULL,1000,NULL),(401,4,'삼베수세미',NULL,10000,NULL),(402,4,'손수건',NULL,3500,NULL),(403,4,'밀랍초',NULL,5000,NULL),(404,4,'소프넛',NULL,11000,NULL),(405,4,'천 마스크',NULL,5000,NULL),(406,4,'빨대키트',NULL,10000,NULL),(408,4,'대나무 칫솔',NULL,2000,NULL),(500,5,'칫솔 파우치',NULL,3000,NULL),(501,5,'혀클리너',NULL,7000,NULL),(502,5,'닥터노아 어린이 칫솔',NULL,3700,NULL),(503,5,'수세미 병솔(납작형)',NULL,7000,NULL),(504,5,'설거지 수세미 S',NULL,4000,NULL),(505,5,'다용도 집게',NULL,1000,NULL),(506,5,'고체치약',NULL,14000,NULL),(600,6,'삼베 주머니',NULL,2400,NULL),(601,6,'고체치약(120정)',NULL,13900,NULL),(602,6,'팜프리 비누',NULL,6800,NULL),(603,6,'비즈왁스랩(밀랍랩)',NULL,4500,NULL),(604,6,'다회용 소창 티백',NULL,3500,NULL);
 /*!40000 ALTER TABLE `offline_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -264,7 +264,7 @@ CREATE TABLE `offline_store` (
 
 LOCK TABLES `offline_store` WRITE;
 /*!40000 ALTER TABLE `offline_store` DISABLE KEYS */;
-INSERT INTO `offline_store` VALUES (1,'알맹상점','서울 마포구 합정동 월드컵로 49 한우마을 2층','010-2229-1027'),(2,'지구샵','서울 동작구 상도동 성대로1길 16','070-7640-4940'),(3,'더피커','서울 성동구 왕십리로 115 헤이그라운드 9층','070-4118-0710'),(4,'라마홈','서울 종로구 자하문로 48 1층 ',NULL),(5,'송포어스','서울 강동구 풍성로35길 34 1층','070-8095-3534'),(6,'디어얼스','서울 서대문구 수색로 43 104호',NULL);
+INSERT INTO `offline_store` VALUES (1,'알맹상점','서울 마포구 합정동 월드컵로 49 한우마을 2층','0507-1393-8913'),(2,'지구샵','서울 동작구 상도동 성대로1길 16','070-7640-4940'),(3,'더피커','서울 성동구 왕십리로 115 헤이그라운드 9층','070-4118-0710'),(4,'라마홈','서울 종로구 자하문로 48 1층 ','0507-1300-3042'),(5,'송포어스','서울 강동구 풍성로35길 34 1층','070-8095-3534'),(6,'디어얼스','서울 서대문구 수색로 43 104호','0507-1300-3388');
 /*!40000 ALTER TABLE `offline_store` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -380,10 +380,6 @@ LOCK TABLES `qna` WRITE;
 /*!40000 ALTER TABLE `qna` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qna` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'fz_webapp'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -394,4 +390,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-06 20:07:42
+-- Dump completed on 2020-12-09 22:37:42
