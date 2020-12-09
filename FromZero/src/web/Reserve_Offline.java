@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.lang.Integer;
 
 
 import javax.servlet.ServletContext;
@@ -38,8 +39,8 @@ public class Reserve_Offline extends HttpServlet {
 		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
 		response.setCharacterEncoding("UTF-8");
 
-		String i=request.getParameter("offline_storeid");
-		int storeid=Integer.parseInt(i);
+		String storeid=request.getParameter("offline_storeid");
+		int i=Integer.parseInt(storeid);
 		System.out.println("int변환 : "+ storeid);
 		
 		
@@ -88,11 +89,11 @@ public class Reserve_Offline extends HttpServlet {
 					//System.out.println("offline_product_name : "+offline_product_name);
 					int count=Integer.parseInt(request.getParameter(offline_count));
 					if(count!=0) {
-							DBUtil.insertReserve(con,order_id,offline_product_id,user_id,storeid,count);
+							DBUtil.insertReserve(con,order_id,offline_product_id,user_id,i,count);
 							all_price=all_price+(offline_price*count);
 						} 	
 						}
-				DBUtil.insertReserveOrder(con, order_id, user_id,storeid, all_price);
+				DBUtil.insertReserveOrder(con, order_id, user_id,i, all_price);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

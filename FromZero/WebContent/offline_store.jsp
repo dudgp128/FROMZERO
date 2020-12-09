@@ -53,14 +53,14 @@
 						style="width: 500px; height: 300px; text-align: left; table-layout: fixed">
 
 						<tr>
-							<td rowspan="5"><img id="img_td"
-								src="images/offline_store-1.jpg" height="180px" width="180px"></td>
+							<td rowspan="3"><img id="img_td"
+								src="images/offline_store-1.jpg" height="200px" width="200px"></td>
 							<td><input type="text" value="알맹상점" id="name_td"
 								name="name_td"
-								style="text-align: left; border: none; background: transparent; pointer-events: none;" /></td>
+								style="font-size: 20px; text-align: left; border: none; background: transparent; pointer-events: none;" /></td>
 						</tr>
 						<tr>
-							<td><p id="number_td" style="text-align: left">02-000-0000</p></td>
+							<td><p id="number_td" style="text-align: left">0507-1393-8913</p></td>
 						</tr>
 						<tr>
 							<td><p id="address_td"
@@ -69,10 +69,12 @@
 						</tr>
 
 
-						<tr style="text-align: right">
-							<td>
+						<tr>
+							<td />
+							<td style="text-align:right">
 								<button type="submit"
-									style="text-align: center; padding: 10px 30px">shop</button>
+									style="padding: 10px 30px;">shop</button>
+							</td>
 						</tr>
 					</table>
 				</form>

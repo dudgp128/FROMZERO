@@ -75,18 +75,6 @@ public class DoOffline extends HttpServlet {
 				}
 			}
 		}
-		/*
-		 * String sqlSt="SELECT * FROM offline_product WHERE storename LIKE ";
-		 * sqlSt=sqlSt+"'%"+offline_store+"%'"; ResultSet rs=DBUtil.findStore(con,
-		 * sqlSt); int storeid=0;
-		 * 
-		 * if (rs != null) { try { request.setAttribute("rs", rs);
-		 * request.setAttribute("storename", offline_store); RequestDispatcher view =
-		 * request.getRequestDispatcher("offline_shop.jsp"); view.forward(request,
-		 * response); } catch (Exception e) { e.printStackTrace(); }
-		 * 
-		 * System.out.println(sqlSt);
-		 */
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

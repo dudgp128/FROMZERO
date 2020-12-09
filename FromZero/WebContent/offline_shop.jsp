@@ -24,12 +24,11 @@ String store_img = null;
 <body style="overflow-x: hidden">
 
 	<%@ include file="./fz_header.jsp"%>
-
 	<div class="big-shop-grid">
 		<h2 class="big-category-text"></h2>
 		<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
-				<img id="img_td" src=<%=store_img%> height="185px" />
+			<img style="padding-top:0px" id="img_td" src=<%=store_img%> height="185px" />
 				<form style="margin-left: 150px; width: 90%" method="post"
 					action="reserve_Offline">
 					<button style="float:right; margin-right:100px" type="submit">예약하기</button>
@@ -60,7 +59,7 @@ String store_img = null;
 								</p>
 								<p>
 									<input id="productNum" type="number" name="<%=productid%>"
-										min="0" step="1" />
+										min="0" step="1" value="0" />
 								</p>
 							</div>
 						</div>
@@ -70,6 +69,7 @@ String store_img = null;
 					%><p>
 						
 					</p>
+					<input type="hidden", name="offline_storeid" value=<%=offline_storeid%>>
 				</form>
 			</ul>
 		</div>
