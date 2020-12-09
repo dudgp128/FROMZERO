@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
-  <display-name>WebappLogin</display-name>
-  <welcome-file-list>
-    <welcome-file>main.jsp</welcome-file>
-    <welcome-file>main.html</welcome-file>
-    <welcome-file>main.htm</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
-  </welcome-file-list>
- 	<context-param>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	id="WebApp_ID" version="4.0">
+	<display-name>WebappLogin</display-name>
+	<welcome-file-list>
+		<welcome-file>main.jsp</welcome-file>
+		<welcome-file>main.html</welcome-file>
+		<welcome-file>main.htm</welcome-file>
+		<welcome-file>default.html</welcome-file>
+		<welcome-file>default.htm</welcome-file>
+		<welcome-file>default.jsp</welcome-file>
+	</welcome-file-list>
+	<error-page>
+		<error-code>500</error-code>
+		<location>/err/testErr.jsp</location>
+	</error-page>
+	<context-param>
 		<param-name>JDBCUrl</param-name>
 		<param-value>jdbc:mysql://localhost:3306/fz_webapp</param-value>
 	</context-param>
@@ -25,4 +32,5 @@
 		<param-name>DBTimeZone</param-name>
 		<param-value>UTC</param-value>
 	</context-param>
+	
 </web-app>

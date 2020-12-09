@@ -67,8 +67,6 @@
 									style="word-break: keep-all; width: 100%">서울 마포구 합정동 월드컵로
 									49 한우마을 2층</p></td>
 						</tr>
-
-
 						<tr>
 							<td />
 							<td style="text-align:right">

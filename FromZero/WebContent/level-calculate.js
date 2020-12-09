@@ -32,7 +32,6 @@ function call() {
 	var score = document.getElementById('score');
 	
 	
-	
 	with( document.question ) {
 		score.value = 
 		parseInt(q1.value)+
