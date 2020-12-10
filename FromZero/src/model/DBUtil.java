@@ -412,6 +412,38 @@ public class DBUtil {
 				}
 			}
 		}
+
+	public static void insertQnA(Connection conn, int board_id, String custid, String board_title, String board_content)
+			throws SQLException {
+			PreparedStatement pstmt = null;
+			try {
+				conn.setAutoCommit(false);
+
+				pstmt = conn.prepareStatement("INSERT INTO qna VALUES(?,?,?,?,?)");
+				pstmt.setInt(1, board_id);
+				pstmt.setString(2, custid);
+				pstmt.setString(3, board_title);
+				pstmt.setString(4, board_content);
+				
+				java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				String stringDate = sdf.format(new java.util.Date());
+				java.sql.Date date = java.sql.Date.valueOf(stringDate);
+				pstmt.setDate(5, date);
+				
+				pstmt.executeUpdate();
+
+				conn.commit();
+				conn.setAutoCommit(true);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				if (pstmt != null) {
+					//conn.close();
+					//pstmt.close();
+				}
+			}
+		}
 	
 	public static ResultSet findReserve(Connection con) { 
 		Statement st;
