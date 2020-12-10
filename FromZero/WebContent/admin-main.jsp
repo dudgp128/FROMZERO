@@ -14,7 +14,7 @@
 <meta charset="UTF-8">
 <title>Admin Page</title>
 </head>
-<body>
+<body style="overflow-x: hidden">
 	<%
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;

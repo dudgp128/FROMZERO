@@ -486,6 +486,50 @@ public static void insertReserveOrder(Connection conn, int orderid, String custi
 			}
 		}
 	}
+
+	public static void insertCartItems(Connection conn, String custid, int productid, int count)
+			throws SQLException {
+			PreparedStatement pstmt = null;
+			try {
+				conn.setAutoCommit(false);
 	
+				pstmt = conn.prepareStatement("INSERT INTO cart_items VALUES(?,?,?)");
+				pstmt.setString(1, custid);
+				pstmt.setInt(2, productid);
+				pstmt.setInt(3, count);
+				
+				pstmt.executeUpdate();
+	
+				conn.commit();
+				conn.setAutoCommit(true);
+				//System.out.println("insertItems");
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				if (pstmt != null) {
+					//conn.close();
+					//pstmt.close();
+				}
+			}
+		}
+	
+	public static ResultSet findCartItems(Connection con, String sqlSt) {
+		Statement st;
+		try {
+			st = con.createStatement();
+			if (st.execute(sqlSt)) {
+				return st.getResultSet();
+			}
+			//con.close();
+			//st.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}
 }
+
+
+
 
