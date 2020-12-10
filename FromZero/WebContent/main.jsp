@@ -77,12 +77,12 @@
 								</p>
 								<p></p>
 								<h6 class="m_picker_btn_go picker_btn_go">
-									<span><a href="all.html">go →</a></span>
+									<span><a href="shop.jsp">go →</a></span>
 								</h6>
 								<p></p>
 							</div>
 							<a class="item_container _item_container _fade_link "
-								href="all.html" style="display: block">
+								href="shop.jsp" style="display: block">
 								<div class="img_wrap _img_wrap " id="gal_item_"
 									style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200502/1812d3ebea70c.png&quot;); min-height: 305px;"
 									data-bg="url(https://cdn.imweb.me/thumbnail/20200502/1812d3ebea70c.png)"
@@ -106,8 +106,8 @@
 								</a>
 								<h6 class="m_picker_btn_go picker_btn_go">
 									<a class="item_container _item_container _fade_link "
-										href="all.html" style="display: block"><span></span></a><a
-										href="all.html">go →</a>
+										href="shop.jsp" style="display: block"><span></span></a><a
+										href="shop.jsp">go →</a>
 								</h6>
 								<p></p>
 							</div>
@@ -127,12 +127,12 @@
 								</p>
 								<p></p>
 								<h6 class="m_picker_btn_go picker_btn_go">
-									<span><a href="living.html">go →</a></span>
+									<span><a href="living.jsp">go →</a></span>
 								</h6>
 								<p></p>
 							</div>
 							<a class="item_container _item_container _fade_link "
-								href="living.html" style="display: block">
+								href="living.jsp" style="display: block">
 								<div class="img_wrap _img_wrap " id="gal_item_"
 									style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/ca2f5493f3604.jpg&quot;); min-height: 305px;"
 									data-bg="url(https://cdn.imweb.me/thumbnail/20200521/ca2f5493f3604.jpg)"
@@ -143,7 +143,7 @@
 								data-src="https://cdn.imweb.me/thumbnail/20200521/77694d969bc9a.jpg"
 								data-sub-html="#caption_3838152" style="display: table;">
 								<a class="item_container _item_container _fade_link "
-									href="living.html" style="display: block">
+									href="living.jsp" style="display: block">
 									<p class="title"></p>
 									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">LIVING</h6>
 									<h5 style="margin: 0; line-height: 1.6;">
@@ -155,8 +155,8 @@
 								</a>
 								<h6 class="m_picker_btn_go picker_btn_go">
 									<a class="item_container _item_container _fade_link "
-										href="living.html" style="display: block"><span></span></a><a
-										href="living.html">go →</a>
+										href="living.jsp" style="display: block"><span></span></a><a
+										href="living.jsp">go →</a>
 								</h6>
 								<p></p>
 							</div>
@@ -177,12 +177,12 @@
 								</p>
 								<p></p>
 								<h6 class="m_picker_btn_go picker_btn_go">
-									<span><a href="bathroom.html">go →</a></span>
+									<span><a href="bathroom.jsp">go →</a></span>
 								</h6>
 								<p></p>
 							</div>
 							<a class="item_container _item_container _fade_link "
-								href="bathroom.html" style="display: block">
+								href="bathroom.jsp" style="display: block">
 								<div class="img_wrap _img_wrap " id="gal_item_"
 									style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/06038cc8092a7.jpg&quot;); min-height: 305px;"
 									data-bg="url(https://cdn.imweb.me/thumbnail/20200521/06038cc8092a7.jpg)"
@@ -193,7 +193,7 @@
 								data-src="https://cdn.imweb.me/thumbnail/20200521/0ff49d3b24d1d.jpg"
 								data-sub-html="#caption_3838093" style="display: table;">
 								<a class="item_container _item_container _fade_link "
-									href="bathroom.html" style="display: block">
+									href="bathroom.jsp" style="display: block">
 									<p class="title"></p>
 									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">BATHROOM
 									</h6>
@@ -206,8 +206,8 @@
 								</a>
 								<h6 class="m_picker_btn_go picker_btn_go">
 									<a class="item_container _item_container _fade_link "
-										href="bathroom.html" style="display: block"><span></span></a><a
-										href="bathroom.html">go →</a>
+										href="bathroom.jsp" style="display: block"><span></span></a><a
+										href="bathroom.jsp">go →</a>
 								</h6>
 								<p></p>
 							</div>
@@ -229,12 +229,12 @@
 								</p>
 								<p></p>
 								<h6 class="m_picker_btn_go picker_btn_go">
-									<span><a href="kitchen.html">go →</a></span>
+									<span><a href="kitchen.jsp">go →</a></span>
 								</h6>
 								<p></p>
 							</div>
 							<a class="item_container _item_container _fade_link "
-								href="kitchen.html" style="display: block">
+								href="kitchen.jsp" style="display: block">
 								<div class="img_wrap _img_wrap " id="gal_item_"
 									style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/35dab18b68bc3.jpg&quot;); min-height: 305px;"
 									data-bg="url(https://cdn.imweb.me/thumbnail/20200521/35dab18b68bc3.jpg)"
@@ -245,7 +245,7 @@
 								data-src="https://cdn.imweb.me/thumbnail/20200521/db2e758a70105.jpg"
 								data-sub-html="#caption_3838142" style="display: table;">
 								<a class="item_container _item_container _fade_link "
-									href="kithen.html" style="display: block">
+									href="kithen.jsp" style="display: block">
 									<p class="title"></p>
 									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">KITCHEN</h6>
 									<h5 style="margin: 0; line-height: 1.6;">
@@ -257,8 +257,8 @@
 								</a>
 								<h6 class="m_picker_btn_go picker_btn_go">
 									<a class="item_container _item_container _fade_link "
-										href="kitchen.html" style="display: block"><span></span></a><a
-										href="kithen.html">go →</a>
+										href="kitchen.jsp" style="display: block"><span></span></a><a
+										href="kithen.jsp">go →</a>
 								</h6>
 								<p></p>
 							</div>
@@ -269,21 +269,21 @@
 							data-org="S2017101059dc82fe9c146/580422ca58936.png">
 							<div id="caption_3838094" style="display: none">
 								<h4></h4>
-								<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">OFFICE</h6>
+								<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">KIT</h6>
 								<h5 style="margin: 0; line-height: 1.6;">
-									<strong>사무실에서.</strong>
+									<strong>다양한 키트.</strong>
 								</h5>
 								<p class="hidden-xs hidden-sm">
 									<br> <br>
 								</p>
 								<p></p>
 								<h6 class="m_picker_btn_go picker_btn_go">
-									<span><a href="office.html">go →</a></span>
+									<span><a href="kit.jsp">go →</a></span>
 								</h6>
 								<p></p>
 							</div>
 							<a class="item_container _item_container _fade_link "
-								href="office.html" style="display: block">
+								href="kit.jsp" style="display: block">
 								<div class="img_wrap _img_wrap " id="gal_item_"
 									style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200502/75743900a9ff6.png&quot;); min-height: 305px;"
 									data-bg="url(https://cdn.imweb.me/thumbnail/20200502/75743900a9ff6.png)"
@@ -294,11 +294,11 @@
 								data-src="https://cdn.imweb.me/thumbnail/20200502/12e77bd028f3c.png"
 								data-sub-html="#caption_3838094" style="display: table;">
 								<a class="item_container _item_container _fade_link "
-									href="office.html" style="display: block">
+									href="kit.jsp" style="display: block">
 									<p class="title"></p>
-									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">OFFICE</h6>
+									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">KIT</h6>
 									<h5 style="margin: 0; line-height: 1.6;">
-										<strong>사무실에서.</strong>
+										<strong>다양한 키트.</strong>
 									</h5>
 									<p class="hidden-xs hidden-sm">
 										<br> <br>
@@ -306,8 +306,8 @@
 								</a>
 								<h6 class="m_picker_btn_go picker_btn_go">
 									<a class="item_container _item_container _fade_link "
-										href="office" style="display: block"><span></span></a><a
-										href="office.html">go →</a>
+										href="kit.jsp" style="display: block"><span></span></a><a
+										href="kit.jsp">go →</a>
 								</h6>
 								<p></p>
 							</div>
@@ -318,21 +318,21 @@
 							data-org="S2017101059dc82fe9c146/2369049e4d258.jpg">
 							<div id="caption_3838108" style="display: none">
 								<h4></h4>
-								<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">BOOK</h6>
+								<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">ETC</h6>
 								<h5 style="margin: 0; line-height: 1.6;">
-									<strong>책 읽을 때.</strong>
+									<strong>그 외의 것들.</strong>
 								</h5>
 								<p class="hidden-xs hidden-sm">
 									<br> <br>
 								</p>
 								<p></p>
 								<h6 class="m_picker_btn_go picker_btn_go">
-									<span><a href="book.html">go →</a></span>
+									<span><a href="etc.jsp">go →</a></span>
 								</h6>
 								<p></p>
 							</div>
 							<a class="item_container _item_container _fade_link "
-								href="book.html" style="display: block">
+								href="etc.jsp" style="display: block">
 								<div class="img_wrap _img_wrap " id="gal_item_"
 									style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/884887fbae7da.jpg&quot;); min-height: 305px;"
 									data-bg="url(https://cdn.imweb.me/thumbnail/20200521/884887fbae7da.jpg)"
@@ -343,11 +343,11 @@
 								data-src="https://cdn.imweb.me/thumbnail/20200521/6b6c8e53b2830.jpg"
 								data-sub-html="#caption_3838108" style="display: table;">
 								<a class="item_container _item_container _fade_link "
-									href="book.html" style="display: block">
+									href="etc.jsp" style="display: block">
 									<p class="title"></p>
-									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">BOOK</h6>
+									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">ETC</h6>
 									<h5 style="margin: 0; line-height: 1.6;">
-										<strong>책 읽을 때.</strong>
+										<strong>그 외의 것들.</strong>
 									</h5>
 									<p class="hidden-xs hidden-sm">
 										<br> <br>
@@ -355,113 +355,15 @@
 								</a>
 								<h6 class="m_picker_btn_go picker_btn_go">
 									<a class="item_container _item_container _fade_link "
-										href="book.html" style="display: block"><span></span></a><a
-										href="book.html">go →</a>
+										href="etc.jsp" style="display: block"><span></span></a><a
+										href="etc.jsp">go →</a>
 								</h6>
 								<p></p>
 							</div>
 							<div class="slide_overlay"></div>
 						</div>
 					</div>
-					<div class="_gallery_row gallery_row tabled">
-						<div class="_item item_gallary"
-							style="position: relative; padding: 15px;"
-							data-org="S2017101059dc82fe9c146/60742c7012d49.png">
-							<div id="caption_3838155" style="display: none">
-								<h4></h4>
-								<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">FOOD</h6>
-								<h5 style="margin: 0; line-height: 1.6;">
-									<strong>먹을 때.</strong>
-								</h5>
-								<p class="hidden-xs hidden-sm">
-									<br> <br>
-								</p>
-								<p></p>
-								<h6 class="m_picker_btn_go picker_btn_go">
-									<span><a href="food.html">go →</a></span>
-								</h6>
-								<p></p>
-							</div>
-							<a class="item_container _item_container _fade_link "
-								href="food.html" style="display: block">
-								<div class="img_wrap _img_wrap " id="gal_item_"
-									style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200502/0001b66d61b62.png&quot;); min-height: 305px;"
-									data-bg="url(https://cdn.imweb.me/thumbnail/20200502/0001b66d61b62.png)"
-									data-src="https://cdn.imweb.me/thumbnail/20200502/06f2179c4f2be.png"
-									data-sub-html="#caption_3838155" data-no="6"></div>
-							</a>
-							<div class="text_wrap _text_wrap " id="gal_item_"
-								data-src="https://cdn.imweb.me/thumbnail/20200502/06f2179c4f2be.png"
-								data-sub-html="#caption_3838155" style="display: table;">
-								<a class="item_container _item_container _fade_link "
-									href="food.html" style="display: block">
-									<p class="title"></p>
-									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">FOOD</h6>
-									<h5 style="margin: 0; line-height: 1.6;">
-										<strong>먹을 때.</strong>
-									</h5>
-									<p class="hidden-xs hidden-sm">
-										<br> <br>
-									</p> <span class="body"></span>
-								</a>
-								<h6 class="m_picker_btn_go picker_btn_go">
-									<a class="item_container _item_container _fade_link "
-										href="food.html" style="display: block"><span></span></a><a
-										href="food.html">go →</a>
-								</h6>
-								<p></p>
-							</div>
-							<div class="slide_overlay"></div>
-						</div>
-						<div class="_item item_gallary"
-							style="position: relative; padding: 15px;"
-							data-org="S2017101059dc82fe9c146/0969b3ab68ba5.jpg">
-							<div id="caption_3838156" style="display: none">
-								<h4></h4>
-								<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">ETC</h6>
-								<h5 style="margin: 0; line-height: 1.6;">
-									<strong>그 외.</strong>
-								</h5>
-								<p class="hidden-xs hidden-sm">
-									<br> <br>
-								</p>
-								<p></p>
-								<h6 class="m_picker_btn_go picker_btn_go">
-									<span><a href="etc.html">go →</a></span>
-								</h6>
-								<p></p>
-							</div>
-							<a class="item_container _item_container _fade_link "
-								href="etc.html" style="display: block">
-								<div class="img_wrap _img_wrap " id="gal_item_"
-									style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/334ca6537bf21.jpg&quot;); min-height: 305px;"
-									data-bg="url(https://cdn.imweb.me/thumbnail/20200521/334ca6537bf21.jpg)"
-									data-src="https://cdn.imweb.me/thumbnail/20200521/43f7f5931eefe.jpg"
-									data-sub-html="#caption_3838156" data-no="7"></div>
-							</a>
-							<div class="text_wrap _text_wrap " id="gal_item_"
-								data-src="https://cdn.imweb.me/thumbnail/20200521/43f7f5931eefe.jpg"
-								data-sub-html="#caption_3838156" style="display: table;">
-								<a class="item_container _item_container _fade_link "
-									href="etc.html" style="display: block">
-									<p class="title"></p>
-									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">ETC</h6>
-									<h5 style="margin: 0; line-height: 1.6;">
-										<strong>그 외.</strong>
-									</h5>
-									<p class="hidden-xs hidden-sm">
-										<br> <br>
-									</p> <span class="body"></span>
-								</a>
-								<h6 class="m_picker_btn_go picker_btn_go">
-									<a class="item_container _item_container _fade_link "
-										href="etc.html" style="display: block"><span></span></a><a
-										href="etc.html">go →</a>
-								</h6>
-								<p></p>
-							</div>
-							<div class="slide_overlay"></div>
-						</div>
+					
 						<div class="dummy_col item_gallary _item _dummy_item"></div>
 					</div>
 				</div>
