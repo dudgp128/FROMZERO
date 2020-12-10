@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fz_webapp
 -- ------------------------------------------------------
--- Server version	8.0.22
+-- Server version	8.0.21
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -40,6 +40,7 @@ CREATE TABLE `bottle` (
 
 LOCK TABLES `bottle` WRITE;
 /*!40000 ALTER TABLE `bottle` DISABLE KEYS */;
+INSERT INTO `bottle` VALUES ('khhong',4,2,1,4,1280);
 /*!40000 ALTER TABLE `bottle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +97,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('admin','1234','관리자','얏호','01082828282',NULL,NULL,1),('apple','4','8','7','5','3','새싹',0),('khhong','1111','홍기형','충남','02-920-7525',NULL,NULL,0),('offlineadmin','1234','관리자','이얏호','01082821818',NULL,NULL,1);
+INSERT INTO `customer` VALUES ('admin','1234','관리자','얏호','01082828282',NULL,NULL,1),('khhong','1111','홍기형','충남','02-920-7525',NULL,NULL,0),('offlineadmin','1234','관리자','이얏호','01082821818',NULL,NULL,1);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -125,6 +126,7 @@ CREATE TABLE `faq` (
 
 LOCK TABLES `faq` WRITE;
 /*!40000 ALTER TABLE `faq` DISABLE KEYS */;
+INSERT INTO `faq` VALUES (1,'admin','대량 주문하고 싶어요.','대량 주문을 희망하실 경우 \' QnA\' 게시판을 통해 문의해주시면 확인 후 담당자가 연락을 드리도록 하겠습니다.','2020-12-06'),(2,'admin','상품을 포장 없이 구매하고 싶어요.','Fromzero 내 제품은 가급적 포장없이 제공하고 있습니다.\r다만, 제조사 측의 요청이나 제품 위생상 포장이 반드시 필요한 경우,\r제품의 안전한 배송을 위해 포장이 필요한 경우 등 포장된 제품도 있으니 구매에 참고 부탁드립니다.\r포장이 필요한 경우, 자원의 낭비를 최소화 하기위해 다중포장 되지 않도록 노력하고 있습니다.','2020-12-06'),(3,'admin','상품을 주문했는데 아직 배송을 받지 못 했어요.','지구샵은 주문일로부터 약 1~3일 내에 제품을 출고하고 있습니다. 따라서 고객님께서 제품을 수령하시기까지 약 3~5일가량 소요될 수 있습니다. 주문일로부터 5일 이상이 지난 후에도 별도의 연락을 받지 못하셨거나 배송이 되지 않았을 경우 고객센터를 통해 문의주시면 친절히 안내해드리도록 하겠습니다.','2020-12-06'),(4,'admin','불량/오배송의 경우 택배비를 부담해야 하나요?','불량/오배송 등 판매자 귀책사유로 인한 반품/교환의 경우 택배비를 모두 부담하고 있습니다.','2020-12-06'),(5,'admin','비닐이나 플라스틱 없이 어떻게 안전하게 배송되는지 궁금해요.','Fromzero의 모든 배송은 원칙적으로 플라스틱 없이 제공되고 있습니다. 상품의 안전한 배송을 위해 종이완충재를 사용하여 배송되며, 그 외 모든 택배 부자재 또한 종이를 사용합니다. 다만, 장마 기간 혹은 우천이 예상되는 경우, 제품의 안전을 위해 재사용 비닐 혹은 생분해성 비닐이 사용될 수도 있는 점 양해 부탁드립니다.','2020-12-06');
 /*!40000 ALTER TABLE `faq` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -182,7 +184,7 @@ CREATE TABLE `offline_order` (
 
 LOCK TABLES `offline_order` WRITE;
 /*!40000 ALTER TABLE `offline_order` DISABLE KEYS */;
-INSERT INTO `offline_order` VALUES (1,'khhong',1,7000,'2020-12-09'),(2,'apple',6,18100,'2020-12-09'),(3,'apple',3,24000,'2020-12-10'),(4,'apple',3,24000,'2020-12-10'),(5,'apple',1,16000,'2020-12-10'),(6,'apple',1,9000,'2020-12-10'),(7,'apple',1,2000,'2020-12-10');
+INSERT INTO `offline_order` VALUES (1,'admin',1,22000,'2020-12-06');
 /*!40000 ALTER TABLE `offline_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +213,7 @@ CREATE TABLE `offline_order_items` (
 
 LOCK TABLES `offline_order_items` WRITE;
 /*!40000 ALTER TABLE `offline_order_items` DISABLE KEYS */;
-INSERT INTO `offline_order_items` VALUES (1,102,'khhong',1,1),(1,103,'khhong',1,1),(2,602,'apple',6,2),(2,603,'apple',6,1),(3,302,'apple',3,1),(3,303,'apple',3,2),(4,302,'apple',3,1),(4,303,'apple',3,2),(5,101,'apple',1,1),(5,102,'apple',1,2),(6,101,'apple',1,1),(7,104,'apple',1,1);
+INSERT INTO `offline_order_items` VALUES (1,100,'admin',1,2);
 /*!40000 ALTER TABLE `offline_order_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -382,6 +384,10 @@ LOCK TABLES `qna` WRITE;
 /*!40000 ALTER TABLE `qna` DISABLE KEYS */;
 /*!40000 ALTER TABLE `qna` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'fz_webapp'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -392,4 +398,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-10  1:52:46
+-- Dump completed on 2020-12-11  0:47:35
