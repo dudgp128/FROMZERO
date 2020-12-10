@@ -13,7 +13,7 @@
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>FAQ</title>
+<title>QnA</title>
 
 <style>
 table {
@@ -50,14 +50,14 @@ table {
    	<%
    	user_id = (String)session.getAttribute("user_id");
    	String board_id = (String)session.getAttribute("board_id");
-	int board_id_2 = 1;
-	
-	if (user_id == null) {
+   	int board_id_2 = 1;
+   	
+   	if (user_id == null) {
 		RequestDispatcher view = request.getRequestDispatcher("login.html");
 	    view.forward(request, response);
 	}
-		
-   	if (board_id == null)
+   	
+   	if ( board_id == null )
    		board_id_2 = 1;
    	else if (Integer.parseInt(board_id) > 0)
    		board_id_2 = Integer.parseInt(board_id) +1;
@@ -85,7 +85,7 @@ table {
 	
    <div>
 		<h1 id="bigCategory"
-			style="text-align: center; margin-top: 20px; text-transform: uppercase;">NOTICE</h1>
+			style="text-align: center; margin-top: 20px; text-transform: uppercase;">QnA</h1>
 	</div>
 	
    <div id="menu" style="float: left;">
@@ -98,7 +98,7 @@ table {
 
 	<div id="content" style="float: left; width:1000px">
 		<table class="board" border="1" cellspacing="0">
-		<form method="post" action="doNoticeWrite">
+		<form method="post" action="doQnAWrite">
         <tr>
             <th>글번호</th>
             <td><%=board_id_2 %></td>
@@ -125,8 +125,6 @@ table {
 		</div>
 		</form>
 	</div>
-	
-	
 
 </body>
 </html>

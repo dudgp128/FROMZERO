@@ -13,7 +13,7 @@
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>FAQ</title>
+<title>QnA</title>
 
 <style>
 table {
@@ -46,23 +46,8 @@ table {
 
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp" %>
-	<%@ page import="java.text.*" %>
    	<%
-   	user_id = (String)session.getAttribute("user_id");
-   	String board_id = (String)session.getAttribute("board_id");
-	int board_id_2 = 1;
-	
-	if (user_id == null) {
-		RequestDispatcher view = request.getRequestDispatcher("login.html");
-	    view.forward(request, response);
-	}
-		
-   	if (board_id == null)
-   		board_id_2 = 1;
-   	else if (Integer.parseInt(board_id) > 0)
-   		board_id_2 = Integer.parseInt(board_id) +1;
-   	
-   	session.setAttribute("board_id_2", board_id_2);
+   	String board_id = (String)request.getAttribute("board_id");
 
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
@@ -78,14 +63,11 @@ table {
 	connectionProps.put("password", DBpasswd);
 	connectionProps.put("serverTimezone", DBTimeZone);
 	String name = null;
-	
-	java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	String stringDate = sdf.format(new java.util.Date());
 	%>
 	
    <div>
 		<h1 id="bigCategory"
-			style="text-align: center; margin-top: 20px; text-transform: uppercase;">NOTICE</h1>
+			style="text-align: center; margin-top: 20px; text-transform: uppercase;">QnA</h1>
 	</div>
 	
    <div id="menu" style="float: left;">
@@ -98,35 +80,75 @@ table {
 
 	<div id="content" style="float: left; width:1000px">
 		<table class="board" border="1" cellspacing="0">
-		<form method="post" action="doNoticeWrite">
+		<%
+			try {
+				conn = DriverManager.getConnection(DBUrl, connectionProps);
+
+				String sqlSt = "select * from qna where board_id='" + board_id 
+						+ "' order by custid, board_title, board_content, board_date";
+				pstmt = conn.prepareStatement(sqlSt);				
+				rset = pstmt.executeQuery();
+				} 
+			catch (SQLException e) {				
+				e.printStackTrace();
+				}
+			
+			String custid = null;
+			String board_title = null;
+			String board_content = null;
+			String board_date = null;
+
+			while (rset.next()) {
+				custid = rset.getString("custid");
+				board_title = rset.getString("board_title");
+				board_content = rset.getString("board_content");
+				board_date = rset.getString("board_date");
+			}
+			%>
         <tr>
             <th>글번호</th>
-            <td><%=board_id_2 %></td>
-            
+            <td><%= board_id %></td>
             <th>작성자</th>
-            <td><%= user_id %></td>
+            <td><%= custid %></td>
 			<th>작성일</th>
-            <td><%= stringDate %></td>
+            <td><%= board_date %></td>
         </tr>
            
         <tr>
             <th>제목</th>
-            <td colspan="5"><input name="title" maxlength="100" style="width:700px"></td>
+            <td colspan="5"><%= board_title %></td>
         </tr>
          
         <tr>
             <th style="height:500px">글 내용</th>
-            <td colspan="5"><textarea name="memo" style="width:700px; height:500px"></textarea></td>
+            <td colspan="5"><%= board_content %></td>
         </tr>
 		</table>
+
+		<div>
+			<table class="board" border="1" cellspacing="0">
+				<tr>
+					<th style="height: 150px">댓글</th>
+					<td colspan="5"><%= board_content %></td>
+				</tr>
+			</table>
+		</div>
+		<br /><br /><br />
 		
+		<form method="post" action="doQnAComment">
+		<div>
+			<table class="board" border="1" cellspacing="0">
+				<tr>
+					<th style="height: 150px">댓글 작성</th>
+					<td colspan="5"><textarea name="comment"
+							style="width: 700px; height: 150px"></textarea></td>
+				</tr>
+			</table>
+		</div>
 		<div class="save" align="right">
-			<button type="submit">글 작성</button>
+			<button type="submit">댓글 작성</button>
 		</div>
 		</form>
 	</div>
-	
-	
-
 </body>
 </html>
