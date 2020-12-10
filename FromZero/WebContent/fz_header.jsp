@@ -20,11 +20,11 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 	</header>
 	<nav id="topMenu">
 		<ul>
-			<li class="topMenuLi"><a class="menuLink" href="introduce.html">OUR
+			<li class="topMenuLi"><a class="menuLink" href="introduce.jsp">OUR
 					STORY</a>
 				<ul class="submenu" style="white-space: normal">
-					<li><a href="introduce.html" class="submenuLink">사이트 소개</a></li>
-					<li><a href="guide.html" class="submenuLink">이용 안내</a></li>
+					<li><a href="introduce.jsp" class="submenuLink">사이트 소개</a></li>
+					<li><a href="guide.jsp" class="submenuLink">이용 안내</a></li>
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="shop.jsp">SHOP</a>
@@ -39,11 +39,11 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 			<li class="topMenuLi"><a class="menuLink"
 				href="offline_store.jsp">OFFLINE</a></li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="aboutZW.html">ECO
+			<li class="topMenuLi"><a class="menuLink" href="aboutZW.jsp">ECO
 					DIARY</a>
 				<ul class="submenu" style="white-space: normal">
-					<li><a href="aboutZW.html" class="submenuLink">ABOUT ZW</a></li>
-					<li><a href="ecoTip.html" class="submenuLink">ECO TIP</a></li>
+					<li><a href="aboutZW.jsp" class="submenuLink">ABOUT ZW</a></li>
+					<li><a href="ecoTip.jsp" class="submenuLink">ECO TIP</a></li>
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="notice.jsp">GREEN
