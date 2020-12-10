@@ -18,7 +18,7 @@
 .text {
 	clear: both;
 	float: left;
-	margin-left: 50px;
+	margin-left: 90px;
 	text-align: left;
 }
 </style>

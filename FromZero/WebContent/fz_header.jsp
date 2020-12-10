@@ -43,11 +43,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 					DIARY</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="aboutZW.jsp" class="submenuLink">ABOUT ZW</a></li>
-<<<<<<< HEAD
-					<li><a href="ecoTip.html" class="submenuLink">ECO TIP</a></li>
-=======
 					<li><a href="ecoTip.jsp" class="submenuLink">ECO TIP</a></li>
->>>>>>> 5579184d032254a39dc469b8af0521e8476c5996
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="notice.jsp">GREEN
