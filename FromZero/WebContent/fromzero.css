@@ -9,6 +9,10 @@ header {
 	height: 160px;
 }
 
+body {
+	overflow-x: hidden;
+}
+
 a {
 	text-decoration: none;
 	color: #000000;
