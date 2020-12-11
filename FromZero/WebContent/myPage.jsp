@@ -81,6 +81,64 @@
 	padding: 10px;
 	text-align: center;
 }
+
+ul {
+	list-style: none;
+}
+
+.tabmenu {
+	margin: 0;
+	padding: 0px;
+	font-size: 15px;
+	line-height: 1.3;
+	max-width: 100%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.tabmenu ul li {
+	display: inline-block;
+	width: 50.00%;
+	float: left;
+	text-align: center;
+	background: #CEF6CE;
+	line-height: 40px;
+}
+
+.tabmenu label {
+	display: block;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+}
+
+.tabmenu input {
+	display: none;
+}
+
+.tabCon {
+	float: left; /**/
+	display: none;
+	text-align: left;
+	padding: 20px;
+	position: absolute;
+	left: 0;
+	box-sizing: border-box;
+	border: 5px solid #f9f9f9;
+}
+
+.tabmenu input:checked ~ label {
+	background: green;
+}
+
+.tabmenu input:checked ~ .tabCon {
+	display: block;
+}
+
+td, tr {
+	margin: 0;
+	padding: 0;
+}
 </style>
 </head>
 <body style="overflow-x: hidden">
@@ -155,9 +213,141 @@
 					</ul>
 				</a>
 			</div>
+			<br /> <br /> <br />
+			<div class="tabmenu" style="">
+				<ul>
+					<li id="tab1" class="btnCon"><input type="radio" checked
+						name="tabmenu" id="tabmenu1"> <label for="tabmenu1">ONLINE
+							ORDER</label>
+
+						<div style="width:100%"class="tabCon">
+							<table>
+								<tr>
+									<%
+										try {
+										conn = DriverManager.getConnection(DBUrl, connectionProps);
+
+										String osqlSt = "select online_product.productid,productname, count, price, img,big_category from online_product, order_items where online_product.productid=order_items.productid and custid="
+										+ "'" + user_id + "'";
+										pstmt = conn.prepareStatement(osqlSt);
+										rset = pstmt.executeQuery();
+
+									} catch (SQLException e) {
+										e.printStackTrace();
+									}
+									String productname = "";
+									int count = 0;
+									int online_price = 0;
+									int online_productid = 0;
+									String img="";
+									String img_li = "";
+									String big_category = "";
+									while (rset.next()) {
+										online_productid = rset.getInt(1);
+										productname = rset.getString(2);
+										count = rset.getInt(3);
+										online_price = rset.getInt(4);
+										img=rset.getString("img");
+										big_category = rset.getString("big_category");
+
+										img_li = big_category + "/" + img + ".jpg";
+									%>
+									<td style="border-bottom: 1px solid #444444">
+										<table style="width: 50%; text-algin: left">
+											<tr>
+
+												<td rowspan="2"><img
+													style="width: 130px; height: 130px;"
+													class="img-display-box" src="<%=img_li%>" alt=""></td>
+
+												<td style="text-align: left; width: 100%"><strong><%=productname%></strong>
+													<br />
+													<p style="font-size: 12px">
+														수량 :
+														<%=count%>개 /
+														<%=online_price%>원
+													</p></td>
+												<td />
+												<td>
+													<button style="width: 40px" type="button">후기작성</button>
+												</td>
+											</tr>
+											<tr />
+										</table>
+									</td>
+								</tr>
+								<%
+									}
+								%>
+							</table>
+						</div></li>
+					<li id="tab2" class="btnCon"><input type="radio"
+						name="tabmenu" id="tabmenu2"> <label for="tabmenu2">OFFLINE
+							ORDER</label>
+
+						<div style="width: 100%" class="tabCon">
+							<table>
+								<tr>
+									<%
+										try {
+										conn = DriverManager.getConnection(DBUrl, connectionProps);
+
+										String sqlSt = "select productid, offlineproduct_name, count, offlineproduct_price from offline_order_items, offline_product where offline_order_items.productid=offline_product.offlineproduct_id and offline_order_items.storeid=offline_product.storeid and custid="
+										+ "'" + user_id + "'";
+										pstmt = conn.prepareStatement(sqlSt);
+										rset = pstmt.executeQuery();
+
+									} catch (SQLException e) {
+										e.printStackTrace();
+									}
+									String offlineproduct_name = "";
+									//int count = 0;
+									int offline_price = 0;
+									int productid = 0;
+									int storeid = 0;
+									//String img_li = "";
+									while (rset.next()) {
+										productid = rset.getInt(1);
+										storeid = productid / 100;
+										offlineproduct_name = rset.getString(2);
+										count = rset.getInt(3);
+										offline_price = rset.getInt(4);
+										img_li = "offline_store_img/Store" + storeid + "/" + productid + ".jpg";
+									%>
+									<td style="border-bottom: 1px solid #444444">
+										<table style="width: 50%; text-algin: left">
+											<tr>
+
+												<td rowspan="2"><img
+													style="width: 130px; height: 130px;"
+													class="img-display-box" src="<%=img_li%>" alt=""></td>
+
+												<td style="text-align: left; width: 100%"><strong><%=offlineproduct_name%></strong>
+													<br />
+													<p style="font-size: 12px">
+														수량 :
+														<%=count%>개 /
+														<%=offline_price%>원
+													</p></td>
+												<td />
+												<td>
+													<button style="width: 40px" type="button">후기작성</button>
+												</td>
+											</tr>
+											<tr />
+										</table>
+									</td>
+								</tr>
+								<%
+									}
+								%>
+							</table>
+						</div></li>
+				</ul>
+			</div>
 		</div>
-		<br />
-		
+
+
 		<!-- 오프라인구매내역/온라인구매내역으로 나눠서 테이블에서 가져오기 -->
 	</div>
 </body>
