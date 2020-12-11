@@ -39,6 +39,19 @@ public class Reserve_Offline extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
 		response.setCharacterEncoding("UTF-8");
+		
+		HttpSession session=request.getSession(); //세션 반환 (세선 ㅇ-반환, 세션x-생성)
+		String user_id=(String)session.getAttribute("user_id"); //세션 값 불러오기  
+		
+		if(user_id==null) {
+				System.out.println("세션null이다..!");
+				response.setContentType("text/html; charset=UTF-8");
+				PrintWriter pout = response.getWriter();
+				pout.println("<script>alert('로그인이 필요합니다.'); location.href='login.html';</script>");
+				pout.flush();
+		}
+		else {
+		
 
 		String storeid=request.getParameter("offline_storeid");
 		int i=Integer.parseInt(storeid);
@@ -51,10 +64,6 @@ public class Reserve_Offline extends HttpServlet {
 		String product_sqlSt = "SELECT * FROM offline_product WHERE storeid=" + i;
 		ResultSet rs=DBUtil.findProduct(con, product_sqlSt);
 		int offline_product_id=0;
-		
-
-		HttpSession session=request.getSession(); //세션 반환 (세선 ㅇ-반환, 세션x-생성)
-		String user_id=(String)session.getAttribute("user_id"); //세션 값 불러오기  
 		
 		ResultSet find_reserve=DBUtil.findReserve(con);
 		String reservecustid;
@@ -113,6 +122,7 @@ public class Reserve_Offline extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+		}
 		}
 
 	}

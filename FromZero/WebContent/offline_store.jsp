@@ -30,6 +30,8 @@
 
 	<div class="big-shop-grid">
 		<div class="div-shop-grid">
+		<h2 style="margin-top:50px">제로웨이스트샵</h2>
+		<h4>나뭇잎을 클릭해보세요!</h4>
 			<div class="map_image" style="float: left;">
 				<img src="images/seoul_map_store.jpg" width="400px" usemap="#Map">
 				<map name="Map" id="Map">

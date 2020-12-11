@@ -1,7 +1,7 @@
 package web;
 
-
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,23 +37,23 @@ public class DoLevel extends HttpServlet {
 	 *      response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
-		response.setCharacterEncoding("UTF-8");
+	         throws ServletException, IOException {
+	      // TODO Auto-generated method stub
+	      request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
+	      response.setCharacterEncoding("UTF-8");
 
-		int q1 = Integer.parseInt(request.getParameter("q1"));
-		int q2 = Integer.parseInt(request.getParameter("q2"));
-		int q3 = Integer.parseInt(request.getParameter("q3"));
-		int q4 = Integer.parseInt(request.getParameter("q4"));
-		int q5 = Integer.parseInt(request.getParameter("q5"));
-		int q6 = Integer.parseInt(request.getParameter("q6"));
-		int q7 = Integer.parseInt(request.getParameter("q7"));
-		int q8 = Integer.parseInt(request.getParameter("q8"));
+	      int q1 = Integer.parseInt(request.getParameter("q1"));
+	      int q2 = Integer.parseInt(request.getParameter("q2"));
+	      int q3 = Integer.parseInt(request.getParameter("q3"));
+	      int q4 = Integer.parseInt(request.getParameter("q4"));
+	      int q5 = Integer.parseInt(request.getParameter("q5"));
+	      int q6 = Integer.parseInt(request.getParameter("q6"));
+	      int q7 = Integer.parseInt(request.getParameter("q7"));
+	      int q8 = Integer.parseInt(request.getParameter("q8"));
 
-		int result_int = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8;
-		String level = "s";
-		// System.out.println(result_int);
+	      int result_int = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8;
+	      String level = "s";
+	      // System.out.println(result_int)
 
 		if (result_int <= 12)
 			level = "새싹";
