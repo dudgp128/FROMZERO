@@ -560,6 +560,17 @@ public static void insertReserveOrder(Connection conn, int orderid, String custi
 		}
 		return null;
 	}
+	
+	public static void delCartItems(Connection conn, String custid, int productid){
+		Statement st = null;
+		String sqlSt = "DELETE FROM cart_items WHERE custid='" + custid + "' and productid= " + productid;
+		try {
+			st = conn.createStatement();
+			st.execute(sqlSt);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 
+	}
 }
 
 

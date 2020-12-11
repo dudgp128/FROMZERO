@@ -133,9 +133,7 @@ ul {
 				style="margin-left: 50px; padding: 0px 30px 0px 0px" /> <br> <br>
 			<div id="display-text">
 				<h2><%=productname%></h2>
-				<h4><%=price%>원
-				</h4>
-				<h4>배송비</h4>
+				<h3><%=price%>원</h3>
 			</div>
 			<br> <br> <br> <br> <br>
 			<form method="post" action="doBuyingSpinner">
@@ -203,7 +201,7 @@ ul {
 
 			<div
 				style="clear: both; position: absolute; left: 330px; top: 1000px;">
-				<h3>추천 상품</h3>
+				
 				<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
 				<br>
@@ -215,6 +213,7 @@ ul {
 				String re_img = null;
 				String img_li = null;
 				int count = 0;
+				int c = 0;
 				if (rs != null) {
 					while (rs.next()) {
 						if (count < 4) {
@@ -227,13 +226,21 @@ ul {
 									re_img = rs.getString("img");
 									count++;
 									img_li = big_category + "/" + re_img + ".jpg";
+									c++;
+									if(c == 1) {
+				%>
+				<div>
+				<br>
+				<h3>추천 상품</h3>
+				<br>
+				<%} 
 				%>
 				<form method="post" action="doDetailProduct">
-	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= re_productid%>>
+	            <button style="clear:both; border:0; outline:0; background-color:white" name="productid" value=<%= re_productid%>>
 				<li><a href="product_detail.jsp">
-						<div class="div-display-living-box" style="padding:20px">
-							<img class="img-display-box" src="<%=img_li%>" alt="">
-							<div class="display-text">
+						<div class="recommend" style="position:relative; left:-120px; padding:20px; left-margin:-20px;">
+							<img class="recommend_img" src="<%=img_li%>" alt="" style="width:220px; height:220px">
+							<div class="recommended">
 								<strong><%=re_productname%></strong>
 								<p><%=re_price%>원
 								</p>
@@ -250,6 +257,7 @@ ul {
 				</button>
 				</ul>
 	         </form>
+	         </div>
 		</div>
 			</div>
 			</p>

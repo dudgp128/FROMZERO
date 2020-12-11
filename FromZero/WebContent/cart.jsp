@@ -67,7 +67,7 @@
 		int count = 0;
 
 		String productname = null;
-		String price = null;
+		int price = 0;
 		String big_category = null;
 		String img = null;
 
@@ -75,9 +75,11 @@
 
 		PreparedStatement pPstmt = null;
 		ResultSet pRset = null;
+		int c = 0;
 
 		if (rset != null) {
 			while (rset.next()) {
+				c++;
 				productid = rset.getInt("productid");
 				count = rset.getInt("count");
 
@@ -86,7 +88,7 @@
 				pRset = pPstmt.executeQuery();
 				if (pRset.next()) {
 			productname = pRset.getString("productname");
-			price = pRset.getString("price");
+			price = pRset.getInt("price");
 			big_category = pRset.getString("big_category");
 			img = pRset.getString("img");
 			img_li = big_category + "/" + img + ".jpg";
@@ -95,39 +97,52 @@
 		<form method="post" action="doCartBuying">
 			<div class="product-detail">
 				<div style="margin-left: 50px;">
-					<input type="checkbox" onClick="" name="cart" value="<%=productid %>"
-						id="cart">
+					<input type="checkbox" onClick="" name="cart"
+						value="<%=productid%>" id="cart">
 				</div>
-				<input type="hidden" name="productID" value="<%= productid%>" />
 				<img src="<%=img_li%>" width=200 height=200 alt="" align="left"
-					style="margin-left: 50px; padding: 0px 30px 0px 30px;" /> <br>
-				<br>
+					style="margin-left: 50px; padding: 0px 30px 0px 30px;" />
+
 				<div id="display-text">
+
 					<strong><%=productname%></strong>
-					<p><%=price%>원
+					<p>
+						<input type="text" name="<%=productid%>P" value="<%=price%>"
+							readonly="readonly"
+							style="border: none; background: transparent; pointer-events: none; width: 55px; height: 20px; font-size: larger; text-align: right" />원
 					</p>
 				</div>
-				<br>
+				<input type="hidden" name="productID" value="<%=productid%>"
+					style="height: 3px" /> <input type="hidden" name="<%=productid%>N"
+					value="<%=productname%>" style="height: 3px" /> <input
+					type="hidden" name="<%=productid%>I" value="<%=img_li%>"
+					style="height: 3px" />
+					<br><br>
 				<p>
-					수량 <input id="product-count" type="number" name="product-count"
+					수량 <input id="product_count" type="number" name="<%=productid%>"
 						min="0" step="1" value="<%=count%>" />
 				</p>
-				<br> <br> <br>
+				<br>
+				
 			</div>
 			<%
 				}
-			} else {
+			if (c == 0) {
 			%>
-			<h5>장바구니에 상품이 없습니다.</h5>
+			<br> <br>
+			<h3 style="text-align: center">장바구니에 상품이 없습니다.</h3>
 			<%
-				}
+				} else {
 			%>
-
-
 			<div class="buy-button" align="right">
-				<input id="buy" type="submit" name = "action" value="BUY" /> 
-				<input id="delete" type="submit" name = "action" value="DELETE" />
+				<input id="buy" type="submit" name="action" value="BUY" /> <input
+					id="delete" type="submit" name="action" value="DELETE" />
 			</div>
 		</form>
+		<%
+			}
+		}
+		%>
+	
 </body>
 </html>
