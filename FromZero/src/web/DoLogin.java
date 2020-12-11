@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.swing.JOptionPane;
 
 import model.DBUtil;
 import model.User;
@@ -61,6 +60,9 @@ public class DoLogin extends HttpServlet {
 						address = rs.getString("address");
 						phone = rs.getString("phone");
 						
+						HttpSession session=request.getSession(); //세션 반환 (세선 ㅇ-반환, 세션x-생성)
+						session.setAttribute("user_id", mid); //세션 값 넣기
+						session.setAttribute("user_name", name);
 						
 						User user = new User(mid, passwd, name, address, phone);
 
@@ -68,23 +70,13 @@ public class DoLogin extends HttpServlet {
 							request.setAttribute("user", user);
 							RequestDispatcher view = request.getRequestDispatcher("main.jsp");
 						    view.forward(request, response);
-						    
-						    HttpSession session=request.getSession(); //세션 반환 (세선 ㅇ-반환, 세션x-생성)
-							session.setAttribute("user_id", mid); //세션 값 넣기
-							session.setAttribute("user_name", name);
 						}
 						else{// wrong passwd
-							response.setContentType("text/html; charset=UTF-8");
-							PrintWriter pout = response.getWriter();
-							out.println("<script>alert('잘못된 비밀번호입니다.'); location.href='login.html';</script>");
-							pout.flush();
+							out.println("Wrong Passwd!!");
 						}
 				}
 				else { // invalid user
-					response.setContentType("text/html; charset=UTF-8");
-					PrintWriter pout = response.getWriter();
-					out.println("<script>alert('가입되지 않은 아이디입니다.'); location.href='login.html';</script>");
-					pout.flush();
+					out.println("Invalid User Name!!");
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();

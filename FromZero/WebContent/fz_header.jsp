@@ -57,7 +57,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 	</nav>
 
 	<ul class="loginarea">
-		<form method="post" action="doSearch">
+		<form method="post" action="logout.jsp">
 			<%
 				if (user_name == null) {
 			%>
