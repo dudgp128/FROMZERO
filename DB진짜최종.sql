@@ -421,9 +421,10 @@ DROP TABLE IF EXISTS `qna_comment`;
 CREATE TABLE `qna_comment` (
   `comment_id` int NOT NULL,
   `custid` varchar(50) DEFAULT NULL,
-  `board_id` int DEFAULT NULL,
+  `board_id` int NOT NULL,
   `comment` varchar(1000) DEFAULT NULL,
-  PRIMARY KEY (`comment_id`),
+  `comment_date` date DEFAULT NULL,
+  PRIMARY KEY (`comment_id`,`board_id`),
   KEY `custid` (`custid`),
   KEY `board_id` (`board_id`),
   CONSTRAINT `qna_comment_ibfk_1` FOREIGN KEY (`custid`) REFERENCES `customer` (`custid`),
@@ -484,4 +485,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-13  0:29:04
+-- Dump completed on 2020-12-13  0:48:50
