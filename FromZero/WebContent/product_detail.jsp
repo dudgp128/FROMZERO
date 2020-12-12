@@ -104,6 +104,7 @@ ul {
 	String productname = (String) request.getAttribute("productname");
 	String price = (String) request.getAttribute("price");
 	String img = (String) request.getAttribute("img");
+	String brand = (String) request.getAttribute("brand");
 	String big_category = (String) request.getAttribute("big_category");
 	String img_num = big_category + "/" + img + ".jpg";
 	%>
@@ -130,8 +131,10 @@ ul {
 		<div class="product-detail">
 
 			<img src=<%=img_num%> width=300 height=300 alt="" align="left"
-				style="margin-left: 50px; padding: 0px 30px 0px 0px" /> <br> <br>
+				style="margin-left: 50px; padding: 0px 30px 0px 0px" /> 
 			<div id="display-text">
+				<h2><<%=brand %>></h2>
+				<br>
 				<h2><%=productname%></h2>
 				<h3><%=price%>원</h3>
 			</div>
@@ -212,6 +215,7 @@ ul {
 				String re_big_category = null;
 				String re_img = null;
 				String img_li = null;
+				String re_brand = null;
 				int count = 0;
 				int c = 0;
 				if (rs != null) {
@@ -224,6 +228,7 @@ ul {
 									re_price = rs.getString("price");
 									//re_big_category = rs.getString("big_category");
 									re_img = rs.getString("img");
+									re_brand = rs.getString("brand");
 									count++;
 									img_li = big_category + "/" + re_img + ".jpg";
 									c++;
@@ -241,7 +246,8 @@ ul {
 						<div class="recommend" style="position:relative; left:-120px; padding:20px; left-margin:-20px;">
 							<img class="recommend_img" src="<%=img_li%>" alt="" style="width:220px; height:220px">
 							<div class="recommended">
-								<strong><%=re_productname%></strong>
+								<p><strong><<%=re_brand %>></strong></p>
+								<p><strong><%=re_productname%></strong></p>
 								<p><%=re_price%>원
 								</p>
 							</div>

@@ -66,6 +66,7 @@ public class DoDetailProduct extends HttpServlet {
 		String img = null;
 		String big_category = null;
 		String small_category = null;
+		String brand = null;
 		if (rs != null) {
 			try {
 				if (rs.next()) { // existing user
@@ -74,11 +75,13 @@ public class DoDetailProduct extends HttpServlet {
 					img = rs.getString("img");
 					big_category = rs.getString("big_category");
 					small_category = rs.getString("small_category");
+					brand = rs.getString("brand");
 					request.setAttribute("productid", productid);
 					request.setAttribute("productname", productname);
 					request.setAttribute("price", price);
 					request.setAttribute("img", img);
 					request.setAttribute("big_category", big_category);
+					request.setAttribute("brand", brand);
 					//request.setAttribute("small_category", small_category);
 				}
 			} catch (SQLException e) {

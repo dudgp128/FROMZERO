@@ -7,6 +7,8 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.util.Properties"%>
+<%@page import="model.*"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,9 +17,42 @@
 <meta charset="UTF-8">
 <title>From zero</title>
 <%
-	ResultSet rs = (ResultSet) request.getAttribute("rs");
+	//ResultSet rs = (ResultSet) request.getAttribute("rs");
+	ArrayList<Product> data = (ArrayList<Product>)request.getAttribute("data");
 	String search_result = (String) request.getAttribute("search_result");
 %>
+<script>
+function check(){
+	statement="";
+        var check_count = document.getElementsByName("smallCategory").length;
+		var check_count2 = document.getElementsByName("brandName").length; 
+        
+		for (var i=0; i<check_count; i++) {
+            if (document.getElementsByName("smallCategory")[i].checked == true) 
+            	statement+=" #"+document.getElementsByName("smallCategory")[i].value+"  ";
+           }
+
+		for (var i=0; i<check_count2; i++) {
+            if (document.getElementsByName("brandName")[i].checked == true) 
+               	statement+=" #"+document.getElementsByName("brandName")[i].value+"  "; 
+           }
+
+   		 var price=document.getElementsByName("price").length;
+		for(var i=0; i<price; i++){
+			if(document.getElementsByName("price")[i].checked)
+				statement+=" #"+document.getElementsByName("price")[i].value+"  ";
+		}
+		
+		
+		 var sort=document.getElementsByName("sorted").length;
+		for(var i=0; i<sort; i++){
+			if(document.getElementsByName("sorted")[i].checked==true) 
+				statement+=" #"+document.getElementsByName("sorted")[i].value+"  ";
+		}
+
+		document.getElementById("search-statement").value=statement;
+}
+</script>
 </head>
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp" %>
@@ -59,6 +94,22 @@
 				<td><input type="radio" onClick="check()" name="price"
 					value="50000" id="five"><label for="five"> ~5만원</label></td>
 			</tr>
+			
+			<tr>
+				<th>정렬</th>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="브랜드순" id="sortBrand"><label for="sortBrand">
+						브랜드순</label></td>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="이름순" id="sortName"><label for="sortName">
+						이름순</label></td>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="가격 낮은순" id="sortLowPrice"><label for="sortLowPrice">
+						가격 낮은순</label></td>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="가격 높은순" id="sortHighPrice"><label
+					for="sortHighPrice"> 가격 높은순</label></td>
+			</tr>
 
 			<tr>
 				<td />
@@ -77,36 +128,32 @@
 		<h2 class="big-category-text">BATHROOM</h2>
 		<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
-				<%
-				String img = null;
-	            String img_li = null;
-	            String productname = null;
-	            String price = null;
-	            String productid = null;
-				while (rs.next()) {
-					productid = rs.getString("productid");
-					productname = rs.getString("productname");
-					price = rs.getString("price");
-					img = rs.getString("img");
-					img_li = "bathroom/" + img + ".jpg";
-				%>
+				<% 
+               for(int i=0; i < data.size(); i++) {
+               %>
 				<form method="post" action="doDetailProduct">
-	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid %>>
-	            <li id="li-living-item-box">
-	                  <div class="div-display-living-box" style="margin-left:0">
-	                     <img class="img-display-box" src="<%=img_li%>" alt="" >
-	                     <div class="display-text">
-	                        <strong><%=productname%></strong>
-	                        <p><%=price%>원
-	                        </p>
-	                     </div>
-	                  </div>
-	                  
-	            </a></li>
-	            
-	            <%
-	               }
-	            %>
+					<button style="border: 0; outline: 0; background-color: white"
+						name="productid" value=<%= data.get(i).getProductid() %>>
+						<li id="li-living-item-box">
+							<div class="div-display-living-box" style="margin-left: 0">
+								<img class="img-display-box" src="<%=data.get(i).getImg()%>"
+									alt="">
+								<div class="display-text">
+									<p>
+										<strong><<%=data.get(i).getBrand()%>></strong>
+									</p>
+									<p>
+										<strong><%=data.get(i).getProductname()%></strong>
+									</p>
+									<p><%=data.get(i).getPrice()%>원
+									</p>
+								</div>
+							</div>
+						</li>
+
+						<%
+							}
+						%>
 	            </button>
 	         </ul>
 	         </form>
