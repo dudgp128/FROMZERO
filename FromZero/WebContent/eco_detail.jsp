@@ -246,9 +246,9 @@
 		});
 		slideWrapper.addEventListener('mouseleave', function() {
 			this.classList.remove('active');
-			autoSlider = setInterval(function() {
-				plusSlides(1);
-			}, 3000);
+			//autoSlider = setInterval(function() {
+			//	plusSlides(1);
+			//}, 3000);
 		});
 
 		function plusSlides(n) {
@@ -288,9 +288,9 @@
 		}
 
 		pagination();
-		var autoSlider = setInterval(function() {
-			plusSlides(1);
-		}, 3000);
+		//var autoSlider = setInterval(function() {
+		//	plusSlides(1);
+		//}, 3000);
 	</script>
 
 

@@ -450,4 +450,4 @@ INSERT INTO `eco_tip` VALUES ('cotton_pad', 10, '화장솜 아직도 일회용 �
 INSERT INTO `eco_tip` VALUES ('no_plastic', 9, '플라스틱 쓰레기 없는 손 세정제?');
 INSERT INTO `eco_tip` VALUES ('photo', 10, '버리는 종이컵으로 사진 뽑기?');
 INSERT INTO `eco_tip` VALUES ('santa', 10, '친환경 산타의 선물?');
-INSERT INTO `eco_tip` VALUES ('shampoo', 10, '샴푸를 어떻게 버리셨나요?');
+INSERT INTO `eco_tip` VALUES ('shampoo', 7, '샴푸를 어떻게 버리셨나요?');
