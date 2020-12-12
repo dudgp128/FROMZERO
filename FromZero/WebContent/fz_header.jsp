@@ -51,7 +51,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="notice.jsp" class="submenuLink">NOTICE</a></li>
 					<li><a href="FAQ.jsp" class="submenuLink">FAQ</a></li>
-					<li><a href="qna.jsp" class="submenuLink">QNA</a></li>
+					<li><a href="QnA.jsp" class="submenuLink">QNA</a></li>
 				</ul></li>
 		</ul>
 	</nav>
