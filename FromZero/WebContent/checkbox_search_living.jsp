@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
@@ -9,22 +8,19 @@
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.util.Properties"%>
 <%@page import="model.*"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <script src="./search-checkbox.js"></script>
+<meta charset="UTF-8">
 <title>From zero</title>
-
 <%
 	//ResultSet rs = (ResultSet) request.getAttribute("rs");
 	ArrayList<Product> data = (ArrayList<Product>)request.getAttribute("data");
-%>
-<%
 	String search_result = (String) request.getAttribute("search_result");
 %>
-
 <script>
 function check(){
 	statement="";
@@ -61,8 +57,8 @@ function check(){
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp"%>
 	<!-- 체크박스 -->
-
-	<form method="post" action="doLiving">
+	<br />
+	<form method="post" action="doBathroom">
 		<table>
 			<tr>
 				<th>소분류</th>
@@ -121,18 +117,19 @@ function check(){
 			<tr>
 				<td />
 				<td />
-				<td colspan="4" style="text-align: right;"><input
-					name="search_result" type="text"
-					style="width: 500px; height: 30px;" id="search-statement"
-					readonly="readonly" value="<%=search_result%>" /></td>
+				<td colspan="4" style="text-align: right;"><input type="text"
+					name="search_result" style="width: 500px; height: 30px;"
+					id="search-statement" readonly="readonly"
+					value="<%=search_result%>" /></td>
 				<td style="text-align: left"><button type="reset">초기화</button></td>
 				<td style="text-align: left"><input type="submit" value="검색" />
 			</tr>
 		</table>
 	</form>
 
+
 	<div class="big-shop-grid">
-		<h2 class="big-category-text">LIVING</h2>
+		<h2 class="big-category-text">BATHROOM</h2>
 		<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
 				<% 
@@ -162,9 +159,8 @@ function check(){
 							}
 						%>
 					</button>
-				</form>
 			</ul>
-
+			</form>
 		</div>
 	</div>
 </body>

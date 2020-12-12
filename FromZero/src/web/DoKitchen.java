@@ -101,7 +101,7 @@ public class DoKitchen extends HttpServlet {
 					small_category = rs.getString("small_category");
 					img_li = rs.getString("img");
 
-					img = "bathroom/" + img_li + ".jpg";
+					img = "kitchen/" + img_li + ".jpg";
 					data.add(new Product(productid, productname, brand, pprice, big_category, small_category, img));
 				}
 

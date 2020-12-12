@@ -11,6 +11,38 @@
 <html>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
+<script>
+function check(){
+	statement="";
+        var check_count = document.getElementsByName("smallCategory").length;
+		var check_count2 = document.getElementsByName("brandName").length; 
+        
+		for (var i=0; i<check_count; i++) {
+            if (document.getElementsByName("smallCategory")[i].checked == true) 
+            	statement+=" #"+document.getElementsByName("smallCategory")[i].value+"  ";
+           }
+
+		for (var i=0; i<check_count2; i++) {
+            if (document.getElementsByName("brandName")[i].checked == true) 
+               	statement+=" #"+document.getElementsByName("brandName")[i].value+"  "; 
+           }
+
+   		 var price=document.getElementsByName("price").length;
+		for(var i=0; i<price; i++){
+			if(document.getElementsByName("price")[i].checked)
+				statement+=" #"+document.getElementsByName("price")[i].value+"  ";
+		}
+		
+		
+		 var sort=document.getElementsByName("sorted").length;
+		for(var i=0; i<sort; i++){
+			if(document.getElementsByName("sorted")[i].checked==true) 
+				statement+=" #"+document.getElementsByName("sorted")[i].value+"  ";
+		}
+
+		document.getElementById("search-statement").value=statement;
+}
+</script>
 <meta charset="UTF-8">
 <title>From zero</title>
 </head>
@@ -54,11 +86,13 @@
 			            int img_count = 0;
 			            String img_li = null;
 			            String productid = null;
+			            String brand = null;
 
 			            while (rset.next()) {
 			               productname = rset.getString("productname");
 			               price = rset.getString("price");
 			               productid = rset.getString("productid");
+			               brand = rset.getString("brand");
 			               img_count++;
 			               img_li = "kit/" + img_count + ".jpg";
 			            %>
@@ -68,9 +102,14 @@
 			                  <div class="div-display-living-box">
 			                     <img class="img-display-box" src="<%=img_li%>" alt="">
 			                     <div class="display-text">
-			                        <strong><%=productname%></strong>
-			                        <p><%=price%>원
-			                        </p>
+			                        <p>
+										<strong><<%=brand%>></strong>
+									</p>
+									<p>
+										<strong><%=productname%></strong>
+									</p>
+									<p><%=price%>원
+									</p>
 			                     </div>
 			                  </div>
 			                  

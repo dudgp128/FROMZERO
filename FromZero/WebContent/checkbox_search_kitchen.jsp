@@ -55,9 +55,9 @@ function check(){
 </script>
 </head>
 <body style="overflow-x: hidden">
-	<%@ include file="./fz_header.jsp" %>
-
+	<%@ include file="./fz_header.jsp"%>
 	<!-- 체크박스 -->
+	<br />
 	<form method="post" action="doKitchen">
 		<table>
 			<tr>
@@ -95,7 +95,7 @@ function check(){
 				<td><input type="radio" onClick="check()" name="price"
 					value="50000" id="five"><label for="five"> ~5만원</label></td>
 			</tr>
-			
+
 			<tr>
 				<th>정렬</th>
 				<td><input type="radio" onClick="check()" name="sorted"
@@ -117,12 +117,14 @@ function check(){
 				<td />
 				<td colspan="4" style="text-align: right;"><input type="text"
 					name="search_result" style="width: 500px; height: 30px;"
-					id="search-statement" readonly="readonly" value="<%=search_result%>" /></td>
+					id="search-statement" readonly="readonly"
+					value="<%=search_result%>" /></td>
 				<td style="text-align: left"><button type="reset">초기화</button></td>
 				<td style="text-align: left"><input type="submit" value="검색" />
 			</tr>
 		</table>
 	</form>
+
 
 	<div class="big-shop-grid">
 		<h2 class="big-category-text">KITCHEN</h2>
@@ -154,9 +156,9 @@ function check(){
 						<%
 							}
 						%>
-		            </button>
-		         </ul>
-		         </form>
+					</button>
+			</ul>
+			</form>
 		</div>
 	</div>
 </body>
