@@ -64,6 +64,17 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 			<li><a href="login.html">LOGIN</a></li>
 			<li><a href="join.html">JOIN</a></li>
 			<%
+				} else if (user_name.equals("알맹상점") || user_name.equals("지구샵") || user_name.equals("더피커") || user_name.equals("라마홈") || user_name.equals("송포얼스")
+					|| user_name.equals("디어얼스")) {
+			%>
+			<li><a href="myPage.jsp"> <img src="images/mypage.png"
+					width=25 height=20>
+			</a></li>
+			<li><%=user_name%>님 환영합니다!</li>
+			<li><a href="cart.jsp">CART</a></li>
+			<li><a href="./doLogout">LOGOUT</a></li>
+			<li><a href="admin-main.jsp">내 상점 관리하기</a></li>
+			<%
 				} else {
 			%>
 			<li><a href="myPage.jsp"> <img src="images/mypage.png"

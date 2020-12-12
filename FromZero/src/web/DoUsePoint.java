@@ -46,15 +46,15 @@ public class DoUsePoint extends HttpServlet {
 		System.out.println("포인트 : " + point);
 		System.out.println("고객아이디 : " + custid);
 
-		/*
+		
 		try {
 				DBUtil.usePoint(conn, custid, point);
-				RequestDispatcher view = request.getRequestDispatcher("give_point.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("admin_point.jsp");
 			    view.forward(request, response);
 	        } catch (SQLException e) {
 	           e.printStackTrace();
 	        }
-	        */
+	        
 	}
 
 	/**
