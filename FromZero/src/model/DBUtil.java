@@ -438,37 +438,96 @@ public class DBUtil {
 		}
 	}
 
-	public static void insertQnA(Connection conn, int board_id, String custid, String board_title, String board_content)
+	public static void insertQnA(Connection conn, int board_id, String custid, String board_title, String board_content, String password)
 			throws SQLException {
-		PreparedStatement pstmt = null;
-		try {
-			conn.setAutoCommit(false);
+			PreparedStatement pstmt = null;
+			try {
+				conn.setAutoCommit(false);
 
-			pstmt = conn.prepareStatement("INSERT INTO qna VALUES(?,?,?,?,?)");
-			pstmt.setInt(1, board_id);
-			pstmt.setString(2, custid);
-			pstmt.setString(3, board_title);
-			pstmt.setString(4, board_content);
+				pstmt = conn.prepareStatement("INSERT INTO qna VALUES(?,?,?,?,?,?)");
+				pstmt.setInt(1, board_id);
+				pstmt.setString(2, custid);
+				pstmt.setString(3, board_title);
+				pstmt.setString(4, board_content);
+				
+				java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+				String stringDate = sdf.format(new java.util.Date());
+				java.sql.Date date = java.sql.Date.valueOf(stringDate);
+				pstmt.setDate(5, date);
+				pstmt.setString(6, password);
+				
+				pstmt.executeUpdate();
 
-			java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-			String stringDate = sdf.format(new java.util.Date());
-			java.sql.Date date = java.sql.Date.valueOf(stringDate);
-			pstmt.setDate(5, date);
-
-			pstmt.executeUpdate();
-
-			conn.commit();
-			conn.setAutoCommit(true);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			if (pstmt != null) {
-				// conn.close();
-				// pstmt.close();
+				conn.commit();
+				conn.setAutoCommit(true);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				if (pstmt != null) {
+					//conn.close();
+					//pstmt.close();
+				}
 			}
 		}
+	
+	public static void insertQnAComment(Connection conn, int comment_id, String custid, int board_id, String comment)
+			throws SQLException {
+			PreparedStatement pstmt = null;
+			try {
+				conn.setAutoCommit(false);
+
+				pstmt = conn.prepareStatement("INSERT INTO qna_comment VALUES(?,?,?,?)");
+				pstmt.setInt(1, comment_id);
+				pstmt.setString(2, custid);
+				pstmt.setInt(3, board_id);
+				pstmt.setString(4, comment);
+				
+				pstmt.executeUpdate();
+
+				conn.commit();
+				conn.setAutoCommit(true);
+				
+			} catch (SQLException e) {
+				e.printStackTrace();
+			} finally {
+				if (pstmt != null) {
+					//conn.close();
+					//pstmt.close();
+				}
+			}
+		}
+	
+	public static ResultSet comparePW(Connection con, String board_id) {
+		String sqlSt = "SELECT password FROM qna WHERE board_id=";
+		Statement st;
+		try {
+			st = con.createStatement();
+			if (st.execute(sqlSt + "'" + board_id + "'")) {
+				return st.getResultSet();
+			}
+			//con.close();
+			//st.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
+	
+	public static ResultSet findReserve(Connection con) { 
+		Statement st;
+		try {
+			st = con.createStatement();
+			if (st.execute("SELECT * FROM offline_order_items")) {
+				return st.getResultSet();
+			}
+			// con.close();
+			// st.close();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+	}	
 
 	public static ResultSet findReserve(Connection con) {
 		Statement st;

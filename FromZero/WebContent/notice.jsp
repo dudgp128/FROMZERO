@@ -13,7 +13,7 @@
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>NOTICE</title>
+<title>From zero</title>
 
 <style>
 

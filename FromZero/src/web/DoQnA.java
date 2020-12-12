@@ -32,9 +32,9 @@ public class DoQnA extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 	    String board_id = request.getParameter("boardID");
-	      
+	    
 	    request.setAttribute("board_id", board_id);
-	    RequestDispatcher view = request.getRequestDispatcher("qna_board.jsp");
+	    RequestDispatcher view = request.getRequestDispatcher("compare_password.jsp");
 	    view.forward(request, response);
 	}
 

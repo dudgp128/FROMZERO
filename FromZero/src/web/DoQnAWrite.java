@@ -42,13 +42,14 @@ public class DoQnAWrite extends HttpServlet {
 		String custid = (String) session.getAttribute("user_id");
 		String board_title = request.getParameter("title");
 		String board_content = request.getParameter("memo");
+		String password = request.getParameter("password");
 	
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 		ResultSet rs = DBUtil.getOnlineOrder(conn);
 		
 		try {
-			DBUtil.insertQnA(conn, board_id, custid, board_title, board_content);
+			DBUtil.insertQnA(conn, board_id, custid, board_title, board_content, password);
 			
 			RequestDispatcher view = request.getRequestDispatcher("QnA.jsp");
 			view.forward(request, response);

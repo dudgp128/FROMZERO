@@ -7,13 +7,14 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.util.Properties"%>
+<%@page import="java.io.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>QnA</title>
+<title>From zero</title>
 
 <style>
 table {
@@ -53,8 +54,9 @@ table {
    	int board_id_2 = 1;
    	
    	if (user_id == null) {
-		RequestDispatcher view = request.getRequestDispatcher("login.html");
-	    view.forward(request, response);
+		response.setContentType("text/html; charset=UTF-8");
+        PrintWriter pout = response.getWriter();
+        out.println("<script>alert('로그인 하세요.'); location.href='QnA.jsp';</script>");
 	}
    	
    	if ( board_id == null )
@@ -108,7 +110,7 @@ table {
 			<th>작성일</th>
             <td><%= stringDate %></td>
         </tr>
-           
+        
         <tr>
             <th>제목</th>
             <td colspan="5"><input name="title" maxlength="100" style="width:700px"></td>
@@ -117,6 +119,11 @@ table {
         <tr>
             <th style="height:500px">글 내용</th>
             <td colspan="5"><textarea name="memo" style="width:700px; height:500px"></textarea></td>
+        </tr>
+        
+        <tr>
+            <th>글 비밀번호</th>
+            <td colspan="5"><input name="password" maxlength="10" style="width:700px"></td>
         </tr>
 		</table>
 		

@@ -13,7 +13,7 @@
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>QnA</title>
+<title>From zero</title>
 
 <style>
 table {
@@ -48,7 +48,7 @@ table {
 	<%@ include file="./fz_header.jsp" %>
    	<%
    	String board_id = (String)request.getAttribute("board_id");
-
+    
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
 	Connection conn = null;
@@ -124,31 +124,78 @@ table {
             <td colspan="5"><%= board_content %></td>
         </tr>
 		</table>
+		<br />
 
+		<%
+			try {
+				
+				String sqlSt = "select * from qna_comment where board_id='" + board_id 
+						+ "' order by comment_id, custid, comment";
+				pstmt = conn.prepareStatement(sqlSt);				
+				rset = pstmt.executeQuery();
+				} 
+			catch (SQLException e) {				
+				e.printStackTrace();
+			}
+		
+			String comment_id = null;
+			String comment_custid = null;
+			String comment = null;
+
+			while (rset.next()) {
+				comment_id = rset.getString("comment_id");
+				comment_custid = rset.getString("custid");
+				comment = rset.getString("comment");
+		%>
 		<div>
 			<table class="board" border="1" cellspacing="0">
 				<tr>
-					<th style="height: 150px">댓글</th>
-					<td colspan="5"><%= board_content %></td>
+					<th>댓글번호</th>
+					<td><%=comment_id%></td>
+					<th>댓글 작성자</th>
+					<td><%=comment_custid%></td>
+				</tr>
+				<tr>
+					<th style="height: 100px">댓글</th>
+					<td colspan="3"><%= comment %></td>
 				</tr>
 			</table>
 		</div>
+		<%
+		}
+		//comment_id = comment_id+1;
+		int comment_id_2 = 1;
+		if ( comment_id == null )
+			comment_id_2 = 1;
+	   	else if (Integer.parseInt(comment_id) > 0)
+	   		comment_id_2 = Integer.parseInt(comment_id) +1;
+	
+		%>
 		<br /><br /><br />
-		
 		<form method="post" action="doQnAComment">
 		<div>
-			<table class="board" border="1" cellspacing="0">
+			<table class="board" border="1" cellspacing="0" style=" width:900px">
 				<tr>
-					<th style="height: 150px">댓글 작성</th>
-					<td colspan="5"><textarea name="comment"
-							style="width: 700px; height: 150px"></textarea></td>
+					<th>댓글번호</th>
+					<td colspan="3"><%=comment_id_2%></td>
+				</tr>
+				<tr>
+					<th style="height: 100px">댓글 작성</th>
+					<td colspan="3"><textarea name="comment"
+							style="width: 600px; height: 100px"></textarea></td>
 				</tr>
 			</table>
-		</div>
+		</div><br />
+		
 		<div class="save" align="right">
 			<button type="submit">댓글 작성</button>
 		</div>
 		</form>
+		<%
+			
+		session.setAttribute("comment_id", comment_id_2);
+		session.setAttribute("board_id", board_id);
+		%>
 	</div>
 </body>
 </html>

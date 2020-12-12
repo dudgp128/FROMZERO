@@ -7,13 +7,14 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.util.Properties"%>
+<%@page import="java.io.*"%>
 <!DOCTYPE html>
 <html>
 <head>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>FAQ</title>
+<title>From zero</title>
 
 <style>
 table {
@@ -52,11 +53,16 @@ table {
    	String board_id = (String)session.getAttribute("board_id");
 	int board_id_2 = 1;
 	
-	if (user_id == null) {
-		RequestDispatcher view = request.getRequestDispatcher("login.html");
-	    view.forward(request, response);
-	}
-		
+	response.setContentType("text/html; charset=UTF-8");
+    PrintWriter pout = response.getWriter();
+    
+	if (user_id == null) 
+        out.println("<script>alert('로그인 하세요.'); location.href='notice.jsp';</script>");
+	else if (!user_id.equals("admin"))
+        out.println("<script>alert('글 작성 권한이 없습니다.'); location.href='notice.jsp';</script>");
+
+	pout.flush();
+	
    	if (board_id == null)
    		board_id_2 = 1;
    	else if (Integer.parseInt(board_id) > 0)
