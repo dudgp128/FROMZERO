@@ -10,9 +10,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%
+	String user_id = (String) session.getAttribute("user_id");
+String user_name = (String) session.getAttribute("user_name");
+%>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>Admin Page</title>
+<title>From zero</title>
 </head>
 <body style="overflow-x: hidden">
 	<%
@@ -37,7 +41,9 @@
 	String offlineproduct_id = null;
 	%>
 	<header>
-		<h1>From zero</h1>
+		<h1>
+			<a href="main.jsp">From zero</a>
+		</h1>
 		<div style="font-size: 13pt">Admin Page for Offline Shop</div>
 	</header>
 	<nav id="topMenu">
@@ -48,18 +54,23 @@
 			<li class="topMenuLi"><a href="update_stock.jsp"
 				class="menuLink" href="">재고 변경</a></li>
 			<li>|</li>
-			<li class="topMenuLi"><a href="give_point.jsp" class="menuLink" href="">고객 포인트 지급</a>
-			</li>
+			<li class="topMenuLi"><a href="give_point.jsp" class="menuLink"
+				href="">고객 포인트 차감</a></li>
 
 		</ul>
 	</nav>
+
+
 	<ul class="loginarea">
-		<li><a>logout</a></li>
+		<li><a><%=user_name%> 관리자님, 안녕하세요!</a>
+		<li><a href="./doLogout">logout</a></li>
 	</ul>
+
 
 	<div class="title">
 		<h2 style="text-align: center">상품 재고 변경</h2>
 	</div>
+
 
 	<div class="question_box">
 		<table>
@@ -71,53 +82,69 @@
 				<td><h3>재고</td>
 			</tr>
 			<form method="post" action="doUpdateStock">
+
 				<%
 					try {
-					conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-					String sqlSt = "select * from offline_product where storeid=1";
+					conn = DriverManager.getConnection(DBUrl, connectionProps);
+					String sqlSt = null;
+					if (user_id.equals("off_admin1")) {
+						sqlSt = "select * from offline_product where storeid=1";
+					} else if (user_id.equals("off_admin2")) {
+						sqlSt = "select * from offline_product where storeid=2";
+					} else if (user_id.equals("off_admin3")) {
+						sqlSt = "select * from offline_product where storeid=3";
+					} else if (user_id.equals("off_admin4")) {
+						sqlSt = "select * from offline_product where storeid=4";
+					} else if (user_id.equals("off_admin5")) {
+						sqlSt = "select * from offline_product where storeid=5";
+					} else if (user_id.equals("off_admin6")) {
+						sqlSt = "select * from offline_product where storeid=6";
+					}
+					System.out.println(sqlSt);
 					pstmt = conn.prepareStatement(sqlSt);
 					rset = pstmt.executeQuery();
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				//String img = null;
 				while (rset.next()) {
-					//img = rset.getString("img");
 					offlineproduct_name = rset.getString("offlineproduct_name");
 					offlineproduct_price = rset.getString("offlineproduct_price");
 					offlineproduct_num = rset.getString("offlineproduct_num");
 					offlineproduct_id = rset.getString("offlineproduct_id");
 				%>
-			
-			<tr>
-				<!-- <td></td> -->
-				<td><input type="text" value="<%=offlineproduct_id%>"
-					id="productID" name="product_id" readonly="readonly"
-					style="border: none; background: transparent; pointer-events: none; text-align: center; width: 100px; height: 20px;" /></td>
-				<td><%=offlineproduct_name%></td>
-				<td><%=offlineproduct_price%>원</td>
-				<td><input id="productNum" type="number" name="product_num"
-					min="0" step="1" value=<%=offlineproduct_num%>
-					onchange="javascript: document.getElementById('productNum').value = this.value;
-							  javascript: document.getElementById('productID').value = <%=offlineproduct_id%>" /></td>
-				<td><button type="submit">UPDATE</button></td>
-			</tr>
-			<%
-				}
-			%>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+
+				<tr>
+					<!-- <td></td> -->
+					<td><input type="text" value="<%=offlineproduct_id%>"
+						id="offlineproduct_id" name="offlineproduct_id"
+						readonly="readonly"
+						style="border: none; background: transparent; pointer-events: none; text-align: center; width: 100px; height: 20px;" /></td>
+					<td><%=offlineproduct_name%></td>
+					<td><%=offlineproduct_price%>원</td>
+					<td><input id="offlineproduct_num" type="number"
+						name="offlineproduct_num" min="0" step="1"
+						value=<%=offlineproduct_num%>
+						onchange="javascript: document.getElementById('offlineproduct_num').value = this.value;
+							  javascript: document.getElementById('offlineproduct_id').value = <%=offlineproduct_id%>" /></td>
+					<td><button type="submit">UPDATE</button></td>
+				</tr>
+				<%
+					}
+				%>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
 			</form>
 		</table>
 
 
 
 	</div>
+
 
 </body>
 </html>

@@ -41,15 +41,15 @@ public class DoUpdateStock extends HttpServlet {
 		ServletContext sc = getServletContext();
 		Connection conn= (Connection) sc.getAttribute("DBconnection");
 		
-		String product_num = request.getParameter("product_num");
-		String product_id = request.getParameter("product_id");
+		String offlineproduct_num = request.getParameter("offlineproduct_num");
+		String offlineproduct_id = request.getParameter("offlineproduct_id");
 		
-		System.out.println("재고 : " + product_num);
-		System.out.println("상품번호 : " + product_id);
+		System.out.println("재고 : " + offlineproduct_num);
+		System.out.println("상품번호 : " + offlineproduct_id);
 
 		
 		try {
-				DBUtil.updateStock(conn, product_id, product_num);
+				DBUtil.updateStock(conn, offlineproduct_id, offlineproduct_num);
 				RequestDispatcher view = request.getRequestDispatcher("update_stock.jsp");
 			    view.forward(request, response);
 	        } catch (SQLException e) {

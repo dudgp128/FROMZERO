@@ -17,7 +17,7 @@ import model.DBUtil;
 /**
  * Servlet implementation class DoUsePoint
  */
-@WebServlet("/DoUsePoint")
+@WebServlet("/doUsePoint")
 public class DoUsePoint extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -49,7 +49,7 @@ public class DoUsePoint extends HttpServlet {
 		
 		try {
 				DBUtil.usePoint(conn, custid, point);
-				RequestDispatcher view = request.getRequestDispatcher("use_point.jsp");
+				RequestDispatcher view = request.getRequestDispatcher("give_point.jsp");
 			    view.forward(request, response);
 	        } catch (SQLException e) {
 	           e.printStackTrace();

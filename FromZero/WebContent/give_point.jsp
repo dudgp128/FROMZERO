@@ -10,9 +10,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+<%
+	String user_id = (String) session.getAttribute("user_id");
+String user_name = (String) session.getAttribute("user_name");
+%>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>Admin Page</title>
+<title>From zero</title>
 </head>
 <body style="overflow-x: hidden">
 	<%
@@ -29,15 +33,16 @@
 	connectionProps.put("user", DBuser);
 	connectionProps.put("password", DBpasswd);
 	connectionProps.put("serverTimezone", DBTimeZone);
-	String name = null;
 
-	String offlineproduct_name = null;
-	String offlineproduct_num = null;
-	String offlineproduct_price = null;
-	String offlineproduct_id = null;
+	String name = null;
+	String custid = null;
+	String phone = null;
+	String point = null;
 	%>
 	<header>
-		<h1>From zero</h1>
+		<h1>
+			<a href="main.jsp">From zero</a>
+		</h1>
 		<div style="font-size: 13pt">Admin Page for Offline Shop</div>
 	</header>
 	<nav id="topMenu">
@@ -48,76 +53,80 @@
 			<li class="topMenuLi"><a href="update_stock.jsp"
 				class="menuLink" href="">재고 변경</a></li>
 			<li>|</li>
-			<li class="topMenuLi"><a href="give_point.jsp" class="menuLink" href="">고객 포인트 지급</a>
-			</li>
+			<li class="topMenuLi"><a href="give_point.jsp" class="menuLink"
+				href="">고객 포인트 차감</a></li>
 
 		</ul>
 	</nav>
+
 	<ul class="loginarea">
-		<li><a>logout</a></li>
+		<li><a><%=user_name%> 관리자님, 안녕하세요!</a>
+		<li><a href="./doLogout">logout</a></li>
 	</ul>
 
 	<div class="title">
-		<h2 style="text-align: center">고객 포인트 지급</h2>
+		<h2 style="text-align: center">고객 포인트 차감</h2>
 	</div>
 
 	<div class="question_box">
 		<table>
 			<tr>
 				<!-- <td>사진</td> -->
-				<td><h3>상품번호</h3>
-				<td><h3>상품명</td>
-				<td><h3>상품가격</td>
-				<td><h3>재고</td>
+				<td><h3>고객아이디</h3>
+				<td><h3>이름</td>
+				<td><h3>전화번호</td>
+				<td><h3>포인트</td>
 			</tr>
-			<form method="post" action="doUpdateStock">
+			<form method="post" action="doUsePoint">
 				<%
 					try {
 					conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-					String sqlSt = "select * from offline_product where storeid=1";
+					String sqlSt = "select customer.custid, customer.name, customer.phone, bottle.point from customer, bottle where customer.custid = bottle.custid";
 					pstmt = conn.prepareStatement(sqlSt);
 					rset = pstmt.executeQuery();
+
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
 				//String img = null;
 				while (rset.next()) {
 					//img = rset.getString("img");
-					offlineproduct_name = rset.getString("offlineproduct_name");
-					offlineproduct_price = rset.getString("offlineproduct_price");
-					offlineproduct_num = rset.getString("offlineproduct_num");
-					offlineproduct_id = rset.getString("offlineproduct_id");
+					custid = rset.getString("custid");
+					name = rset.getString("name");
+					phone = rset.getString("phone");
+					point = rset.getString("point");
 				%>
-			
-			<tr>
-				<!-- <td></td> -->
-				<td><input type="text" value="<%=offlineproduct_id%>"
-					id="productID" name="product_id" readonly="readonly"
-					style="border: none; background: transparent; pointer-events: none; text-align: center; width: 100px; height: 20px;" /></td>
-				<td><%=offlineproduct_name%></td>
-				<td><%=offlineproduct_price%>원</td>
-				<td><input id="productNum" type="number" name="product_num"
-					min="0" step="1" value=<%=offlineproduct_num%>
-					onchange="javascript: document.getElementById('productNum').value = this.value;
-							  javascript: document.getElementById('productID').value = <%=offlineproduct_id%>" /></td>
-				<td><button type="submit">UPDATE</button></td>
-			</tr>
-			<%
-				}
-			%>
-			<tr>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
+
+				<tr>
+					<!-- <td></td> -->
+					<td><input type="text" value="<%=custid%>" id="custid"
+						name="custid" readonly="readonly"
+						style="border: none; background: transparent; pointer-events: none; text-align: center; width: 100px; height: 20px;" /></td>
+					<td><%=name%></td>
+					<td><%=phone%></td>
+					<td><input id="point" type="number" name="point" min="0"
+						step="1" value=<%=point%>
+						onchange="javascript: document.getElementById('point').value = this.value;
+							  javascript: document.getElementById('custid').value = <%=custid%>" /></td>
+					<td><button type="submit">UPDATE</button></td>
+				</tr>
+				<%
+					}
+				%>
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
 			</form>
 		</table>
 
 
 
 	</div>
+
 
 </body>
 </html>
