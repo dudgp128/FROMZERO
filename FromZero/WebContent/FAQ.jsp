@@ -175,7 +175,7 @@ ul {
 			try {
 				conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-				String sqlSt = "select * from faq order by board_id, custid, board_title, board_date";
+				String sqlSt = "select * from faq order by board_id";
 				pstmt = conn.prepareStatement(sqlSt);				
 				rset = pstmt.executeQuery();
 				} 

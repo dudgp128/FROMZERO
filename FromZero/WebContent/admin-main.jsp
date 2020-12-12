@@ -73,11 +73,34 @@
 		<td>주문날짜</td>
 	</tr>
 	<%
-		try {
+	
+	System.out.println(user_name);
+	
+	// storeid 알아내기
+	try {
+		conn = DriverManager.getConnection(DBUrl, connectionProps);
+		
+		String sqlSt = "select storeid from offline_store where storename='" + user_name +"'";
+		pstmt = conn.prepareStatement(sqlSt);
+		rset = pstmt.executeQuery();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+
+	String storeid = null;
+	while (rset.next()) {
+		storeid = rset.getString("storeid");
+	}
+	
+	System.out.println(storeid);
+	
+	// 모든 정보 불러오기
+	try {
 		conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-		String sqlSt = "select * from offline_order order by orderid, custid, allprice, orderdate";
-		//where big_category='living' order by binary(big_category), binary(brand), price, productid";
+		
+		String sqlSt = "select * from offline_order order by orderid where storeid='" + storeid +"'";
+		
 		pstmt = conn.prepareStatement(sqlSt);
 		rset = pstmt.executeQuery();
 	} catch (SQLException e) {
