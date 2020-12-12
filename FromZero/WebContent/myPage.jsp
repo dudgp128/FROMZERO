@@ -144,6 +144,57 @@ td, tr {
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp"%>
 
+	<%
+		PreparedStatement pstmt = null;
+	ResultSet rset = null;
+	Connection conn = null;
+	Properties connectionProps = new Properties();
+
+	String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
+	String DBuser = "fz_webapp";
+	String DBpasswd = "fz_webapp";
+	String DBTimeZone = "UTC";
+
+	connectionProps.put("user", DBuser);
+	connectionProps.put("password", DBpasswd);
+	connectionProps.put("serverTimezone", DBTimeZone);
+	String name = null;
+	PreparedStatement pst = null;
+	ResultSet rs = null;
+	try {
+		conn = DriverManager.getConnection(DBUrl, connectionProps);
+
+		String sqlSt = "select * from customer where custid = '" + user_id + "'";
+		pstmt = conn.prepareStatement(sqlSt);
+		rset = pstmt.executeQuery();
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	String level = null;
+	if (rset.next())
+		level = rset.getString("level");
+
+	if (level == null)
+		level = "테스트하고 레벨 알아보기!";
+	
+	try {
+		String sqlSt = "select * from online_order where custid='" + user_id + "'";
+		pst = conn.prepareStatement(sqlSt);
+		rs = pst.executeQuery();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	int all_price = 0;
+	int tmp = 0;
+	while (rs.next()) {
+		tmp = rs.getInt("allprice");
+		all_price += tmp;
+	}
+	
+	//String sqlSt = "select * from online_order where custid='" + user_id + "'";
+	%>
+
 	<div class="inside">
 		<div id="menu" style="float: left;">
 			<ul class="leftMenu">
@@ -157,8 +208,8 @@ td, tr {
 				<div style='font-weight: bold; font-size: 26px; padding: 10px;'>
 					<%=user_name%>님, 안녕하세요.
 				</div>
-				<div class="total-price" style='font-size: 16px; padding: 10px;'>누적구매금액:
-					0원</div>
+				<div class="total-price" style='font-size: 16px; padding: 10px; font-size:larger'>누적 구매금액 :
+					<%=all_price %>원</div>
 			</div>
 
 			<div class="point-view">
@@ -170,38 +221,7 @@ td, tr {
 				</a>
 			</div>
 
-			<%
-				PreparedStatement pstmt = null;
-			ResultSet rset = null;
-			Connection conn = null;
-			Properties connectionProps = new Properties();
 
-			String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
-			String DBuser = "fz_webapp";
-			String DBpasswd = "fz_webapp";
-			String DBTimeZone = "UTC";
-
-			connectionProps.put("user", DBuser);
-			connectionProps.put("password", DBpasswd);
-			connectionProps.put("serverTimezone", DBTimeZone);
-			String name = null;
-			try {
-				conn = DriverManager.getConnection(DBUrl, connectionProps);
-
-				String sqlSt = "select * from customer where custid = '" + user_id + "'";
-				pstmt = conn.prepareStatement(sqlSt);
-				rset = pstmt.executeQuery();
-
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-			String level = null;
-			if (rset.next())
-				level = rset.getString("level");
-
-			if (level == null)
-				level = "테스트하고 레벨 알아보기!";
-			%>
 
 			<div class="point-view">
 				<a href="test.jsp">
@@ -220,7 +240,7 @@ td, tr {
 						name="tabmenu" id="tabmenu1"> <label for="tabmenu1">ONLINE
 							ORDER</label>
 
-						<div style="width:100%"class="tabCon">
+						<div style="width: 100%" class="tabCon">
 							<table>
 								<tr>
 									<%
@@ -239,7 +259,7 @@ td, tr {
 									int count = 0;
 									int online_price = 0;
 									int online_productid = 0;
-									String img="";
+									String img = "";
 									String img_li = "";
 									String big_category = "";
 									while (rset.next()) {
@@ -247,7 +267,7 @@ td, tr {
 										productname = rset.getString(2);
 										count = rset.getInt(3);
 										online_price = rset.getInt(4);
-										img=rset.getString("img");
+										img = rset.getString("img");
 										big_category = rset.getString("big_category");
 
 										img_li = big_category + "/" + img + ".jpg";
