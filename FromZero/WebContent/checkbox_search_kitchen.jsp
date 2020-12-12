@@ -68,15 +68,13 @@
 				<td />
 				<td colspan="4" style="text-align: right;"><input type="text"
 					name="search_result" style="width: 500px; height: 30px;"
-					id="search-statement" readonly="readonly" /></td>
+					id="search-statement" readonly="readonly" value="<%=search_result%>" /></td>
 				<td style="text-align: left"><button type="reset">초기화</button></td>
 				<td style="text-align: left"><input type="submit" value="검색" />
 			</tr>
 		</table>
 	</form>
 
-	<h3 style="float: left">
-		<%=search_result%></h3>
 	<div class="big-shop-grid">
 		<h2 class="big-category-text">KITCHEN</h2>
 		<div class="div-shop-grid">
