@@ -1,6 +1,7 @@
 package web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -37,7 +38,6 @@ public class DoBuying extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 
@@ -48,6 +48,14 @@ public class DoBuying extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		String user_id = (String) session.getAttribute("user_id");
+		if(user_id==null) {
+			System.out.println("세션null이다..!");
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter pout = response.getWriter();
+			pout.println("<script>alert('로그인이 필요합니다.'); location.href='login.html';</script>");
+			pout.flush();
+	}
+	else {
 		int product_id = Integer.parseInt((String) session.getAttribute("product_id"));
 
 		ServletContext sc = getServletContext();
@@ -75,7 +83,7 @@ public class DoBuying extends HttpServlet {
 			view.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
+		}}
 	}
 
 	/**

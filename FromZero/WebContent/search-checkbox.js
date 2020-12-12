@@ -5,7 +5,8 @@ function check(){
         
 		for (var i=0; i<check_count; i++) {
             if (document.getElementsByName("smallCategory")[i].checked == true) 
-               	statement+=" #"+document.getElementsByName("smallCategory")[i].value+"  "; 
+;
+               	/*statement+=" #"+document.getElementsByName("smallCategory")[i].value+"  "; */
            }
 
 		for (var i=0; i<check_count2; i++) {
@@ -18,6 +19,15 @@ function check(){
 			if(document.getElementsByName("price")[i].checked)
 				statement+=" #"+document.getElementsByName("price")[i].value+"  ";
 		}
+		
+		
+		 var sort=document.getElementsByName("sorted").length;
+		for(var i=0; i<sort; i++){
+			if(document.getElementsByName("sorted")[i].checked==true) 
+				statement+=" #"+document.getElementsByName("sorted")[i].value+"  ";
+		}
+		
+		
 		
 		document.getElementById("search-statement").value=statement;
 }

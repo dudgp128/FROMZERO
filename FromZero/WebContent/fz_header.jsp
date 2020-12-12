@@ -43,7 +43,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 					DIARY</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="aboutZW.jsp" class="submenuLink">ABOUT ZW</a></li>
-					<li><a href="ecoTip.jsp" class="submenuLink">ECO TIP</a></li>
+					<li><a href="eco_tip.jsp" class="submenuLink">ECO TIP</a></li>
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="notice.jsp">GREEN
@@ -57,7 +57,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 	</nav>
 
 	<ul class="loginarea">
-		<form method="post" action="logout.jsp">
+		<form method="post" action="doSearch">
 			<%
 				if (user_name == null) {
 			%>
@@ -70,7 +70,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 					width=25 height=20>
 			</a></li>
 			<li><%=user_name%>님 환영합니다!</li>
-			<li><a href="cart.html">CART</a></li>
+			<li><a href="cart.jsp">CART</a></li>
 			<li><a href="./doLogout">LOGOUT</a></li>
 			<%
 				}

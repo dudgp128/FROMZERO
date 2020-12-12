@@ -11,6 +11,38 @@
 <html>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
+<script>
+function check(){
+	statement="";
+        var check_count = document.getElementsByName("smallCategory").length;
+		var check_count2 = document.getElementsByName("brandName").length; 
+        
+		for (var i=0; i<check_count; i++) {
+            if (document.getElementsByName("smallCategory")[i].checked == true) 
+            	statement+=" #"+document.getElementsByName("smallCategory")[i].value+"  ";
+           }
+
+		for (var i=0; i<check_count2; i++) {
+            if (document.getElementsByName("brandName")[i].checked == true) 
+               	statement+=" #"+document.getElementsByName("brandName")[i].value+"  "; 
+           }
+
+   		 var price=document.getElementsByName("price").length;
+		for(var i=0; i<price; i++){
+			if(document.getElementsByName("price")[i].checked)
+				statement+=" #"+document.getElementsByName("price")[i].value+"  ";
+		}
+		
+		
+		 var sort=document.getElementsByName("sorted").length;
+		for(var i=0; i<sort; i++){
+			if(document.getElementsByName("sorted")[i].checked==true) 
+				statement+=" #"+document.getElementsByName("sorted")[i].value+"  ";
+		}
+
+		document.getElementById("search-statement").value=statement;
+}
+</script>
 <meta charset="UTF-8">
 <title>From zero</title>
 </head>
@@ -20,65 +52,7 @@
 		<div class="div-shop-grid">
 			<!-- 체크박스 -->
 			<br />
-			<!-- 
-			<form>
-				<table>
-					<tr>
-						<th>상세검색</th>
-						<td />
-						<td />
-						<td />
-						<td />
-					</tr>
-					<tr>
-						<th>소분류</th>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="straw" id="straw"> 빨대</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="tumblr" id="tumblr"> 텀블러</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="carrier" id="carrier"> 장바구니</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="pouch" id="pouch"> 파우치</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="strawPouch" id="strawPouch">
-								빨대 주머니</label></td>
-					</tr>
-					<tr>
-						<th>브랜드</th>
-						<td><label><input type="checkbox" onClick="check()"
-								name="brandName" value="더피커" id="brand1"> 더피커</label></td>
-						<td><label><input type="checkbox" onClick="check()"
-								name="brandName" value="지구샵" id="brand2"> 지구샵</label></td>
-						<td><label><input type="checkbox" onClick="check()"
-								name="brandName" value="제로웨이스트샵" id="brand3"> 제로웨이스트샵</label></td>
-						<td><label><input type="checkbox" onClick="check()"
-								name="brandName" value="지구살림e" id="brand4"> 지구살림e</label></td>
-						<td />
-					</tr>
-
-
-					<tr>
-						<th>가격</th>
-						<td><input type="radio" onClick="check()" name="price"
-							value="10000" id="one"><label for="one"> ~1만원</label></td>
-						<td><input type="radio" onClick="check()" name="price"
-							value="30000" id="three"><label for="three"> ~3만원</label></td>
-						<td><input type="radio" onClick="check()" name="price"
-							value="50000" id="five"><label for="five"> ~5만원</label></td>
-					</tr>
-
-					<tr>
-						<td />
-						<td />
-						<td colspan="4" style="text-align: right;"><input type="text"
-							style="width: 500px; height: 30px;" id="search-statement" /></td>
-						<td style="text-align: left"><button type="reset">초기화</button></td>
-						<td style="text-align: left"><input type="submit" value="검색" />
-					</tr>
-				</table>
-			</form>
--->
+			
 			<div class="big-shop-grid">
 				<h2 class="big-category-text">KIT</h2>
 				<div class="div-shop-grid">
@@ -112,11 +86,13 @@
 			            int img_count = 0;
 			            String img_li = null;
 			            String productid = null;
+			            String brand = null;
 
 			            while (rset.next()) {
 			               productname = rset.getString("productname");
 			               price = rset.getString("price");
 			               productid = rset.getString("productid");
+			               brand = rset.getString("brand");
 			               img_count++;
 			               img_li = "kit/" + img_count + ".jpg";
 			            %>
@@ -126,9 +102,14 @@
 			                  <div class="div-display-living-box">
 			                     <img class="img-display-box" src="<%=img_li%>" alt="">
 			                     <div class="display-text">
-			                        <strong><%=productname%></strong>
-			                        <p><%=price%>원
-			                        </p>
+			                        <p>
+										<strong><<%=brand%>></strong>
+									</p>
+									<p>
+										<strong><%=productname%></strong>
+									</p>
+									<p><%=price%>원
+									</p>
 			                     </div>
 			                  </div>
 			                  

@@ -2,6 +2,7 @@ package web;
 
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
@@ -51,20 +52,33 @@ public class DoBuyingSpinner extends HttpServlet {
 		String product_id = (String) session.getAttribute("productid");
 		int productid = Integer.parseInt(product_id);
 		int count = Integer.parseInt(product_count);
+		String sqlSt = "select * from cart_items where custid='" + cust_id + "' and productid= " + product_id;
 
 		String fname = null;
-		if (btn.equals("BUY")) {
-			fname = "buying.jsp";
-		} else if (btn.equals("CART")) {
-			try {
-				DBUtil.insertCartItems(conn, cust_id, productid, count);
-				fname = "after_cart.jsp";
-			} catch (SQLException e) {
-				e.printStackTrace();
+		String real_null = null;
+		if (cust_id == null) {
+			fname = "no_login.jsp";
+		} else {
+			if (btn.equals("BUY")) {
+				fname = "buying.jsp";
+			} else if (btn.equals("CART")) {
+				try {
+					ResultSet rs = DBUtil.findProduct(conn, sqlSt);
+					if (rs.next()) {
+						fname = "already_cart.jsp";
+					} else {
+						DBUtil.insertCartItems(conn, cust_id, productid, count);
+						fname = "after_cart.jsp";
+					}
+
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
 			}
 		}
 		RequestDispatcher view = request.getRequestDispatcher(fname);
 		view.forward(request, response);
+
 	}
 
 	/**

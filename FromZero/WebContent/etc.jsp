@@ -110,11 +110,13 @@
 			            int img_count = 0;
 			            String img_li = null;
 			            String productid = null;
+			            String brand=null;
 
 			            while (rset.next()) {
 			               productname = rset.getString("productname");
 			               price = rset.getString("price");
 			               productid = rset.getString("productid");
+			               brand = rset.getString("brand");
 			               img_count++;
 			               img_li = "etc/" + img_count + ".jpg";
 			            %>
@@ -124,7 +126,8 @@
 			                  <div class="div-display-living-box">
 			                     <img class="img-display-box" src="<%=img_li%>" alt="">
 			                     <div class="display-text">
-			                        <strong><%=productname%></strong>
+			                     <p><strong><<%=brand%>></strong></p>
+			                        <p><strong><%=productname%></strong></p>
 			                        <p><%=price%>원
 			                        </p>
 			                     </div>

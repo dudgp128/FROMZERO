@@ -14,9 +14,41 @@
 <script src="./search-checkbox.js"></script>
 <meta charset="UTF-8">
 <title>From zero</title>
+<script>
+function check(){
+	statement="";
+        var check_count = document.getElementsByName("smallCategory").length;
+		var check_count2 = document.getElementsByName("brandName").length; 
+        
+		for (var i=0; i<check_count; i++) {
+            if (document.getElementsByName("smallCategory")[i].checked == true) 
+            	statement+=" #"+document.getElementsByName("smallCategory")[i].value+"  ";
+           }
+
+		for (var i=0; i<check_count2; i++) {
+            if (document.getElementsByName("brandName")[i].checked == true) 
+               	statement+=" #"+document.getElementsByName("brandName")[i].value+"  "; 
+           }
+
+   		 var price=document.getElementsByName("price").length;
+		for(var i=0; i<price; i++){
+			if(document.getElementsByName("price")[i].checked)
+				statement+=" #"+document.getElementsByName("price")[i].value+"  ";
+		}
+		
+		
+		 var sort=document.getElementsByName("sorted").length;
+		for(var i=0; i<sort; i++){
+			if(document.getElementsByName("sorted")[i].checked==true) 
+				statement+=" #"+document.getElementsByName("sorted")[i].value+"  ";
+		}
+
+		document.getElementById("search-statement").value=statement;
+}
+</script>
 </head>
 <body style="overflow-x: hidden">
-	<%@ include file="./fz_header.jsp" %>
+	<%@ include file="./fz_header.jsp"%>
 
 	<!-- 체크박스 -->
 	<br />
@@ -56,11 +88,27 @@
 			</tr>
 
 			<tr>
+				<th>정렬</th>
+				<td><input type="radio" name="sorted" onClick="check()"
+					value="브랜드순" id="sortBrand"><label for="sortBrand">
+						브랜드순</label></td>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="이름순" id="sortName"><label for="sortName">
+						이름순</label></td>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="가격 낮은순" id="sortLowPrice"><label for="sortLowPrice">
+						가격 낮은순</label></td>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="가격 높은순" id="sortHighPrice"><label
+					for="sortHighPrice"> 가격 높은순</label></td>
+			</tr>
+
+			<tr>
 				<td />
 				<td />
 				<td colspan="4" style="text-align: right;"><input type="text"
 					name="search_result" style="width: 500px; height: 30px;"
-					id="search-statement" readonly="readonly"/></td>
+					id="search-statement" readonly="readonly" /></td>
 				<td style="text-align: left"><button type="reset">초기화</button></td>
 				<td style="text-align: left"><input type="submit" value="검색" />
 			</tr>
@@ -99,34 +147,40 @@
 				int img_count = 0;
 				String img_li = null;
 				String productid = null;
-
+				String brand = null;
 				while (rset.next()) {
 					productname = rset.getString("productname");
 					price = rset.getString("price");
 					productid = rset.getString("productid");
+					brand = rset.getString("brand");
 					img_count++;
 					img_li = "bathroom/" + img_count + ".jpg";
 				%>
 				<form method="post" action="doDetailProduct">
-            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
-            <li id="li-living-item-box">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="<%=img_li%>" alt="">
-                     <div class="display-text">
-                        <strong><%=productname%></strong>
-                        <p><%=price%>원
-                        </p>
-                     </div>
-                  </div>
-                  
-            </a></li>
-            
-            <%
-               }
-            %>
-            </button>
-         </ul>
-         </form>
+					<button style="border: 0; outline: 0; background-color: white"
+						name="productid" value=<%= productid%>>
+						<li id="li-living-item-box">
+							<div class="div-display-living-box">
+								<img class="img-display-box" src="<%=img_li%>" alt="">
+								<div class="display-text">
+									<p>
+										<strong><<%=brand%>></strong>
+									</p>
+									<p>
+										<strong><%=productname%></strong>
+									</p>
+									<p><%=price%>원
+									</p>
+								</div>
+							</div> </a>
+						</li>
+
+						<%
+							}
+						%>
+					</button>
+			</ul>
+			</form>
 		</div>
 	</div>
 	</div>

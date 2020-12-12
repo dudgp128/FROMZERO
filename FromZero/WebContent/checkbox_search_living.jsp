@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.ResultSet"%>
@@ -8,33 +7,70 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.util.Properties"%>
+<%@page import="model.*"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <script src="./search-checkbox.js"></script>
+<meta charset="UTF-8">
 <title>From zero</title>
-
 <%
-	ResultSet rs = (ResultSet) request.getAttribute("rs");
-%>
-<%
+	//ResultSet rs = (ResultSet) request.getAttribute("rs");
+	ArrayList<Product> data = (ArrayList<Product>)request.getAttribute("data");
 	String search_result = (String) request.getAttribute("search_result");
 %>
+<script>
+function check(){
+	statement="";
+        var check_count = document.getElementsByName("smallCategory").length;
+		var check_count2 = document.getElementsByName("brandName").length; 
+        
+		for (var i=0; i<check_count; i++) {
+            if (document.getElementsByName("smallCategory")[i].checked == true) 
+            	statement+=" #"+document.getElementsByName("smallCategory")[i].value+"  ";
+           }
+
+		for (var i=0; i<check_count2; i++) {
+            if (document.getElementsByName("brandName")[i].checked == true) 
+               	statement+=" #"+document.getElementsByName("brandName")[i].value+"  "; 
+           }
+
+   		 var price=document.getElementsByName("price").length;
+		for(var i=0; i<price; i++){
+			if(document.getElementsByName("price")[i].checked)
+				statement+=" #"+document.getElementsByName("price")[i].value+"  ";
+		}
+		
+		
+		 var sort=document.getElementsByName("sorted").length;
+		for(var i=0; i<sort; i++){
+			if(document.getElementsByName("sorted")[i].checked==true) 
+				statement+=" #"+document.getElementsByName("sorted")[i].value+"  ";
+		}
+
+		document.getElementById("search-statement").value=statement;
+}
+</script>
 </head>
 <body style="overflow-x: hidden">
-	<%@ include file="./fz_header.jsp" %>
+	<%@ include file="./fz_header.jsp"%>
 	<!-- 체크박스 -->
-
-	<form method="post" action="doLiving">
+	<br />
+	<form method="post" action="doBathroom">
 		<table>
 			<tr>
 				<th>소분류</th>
-				<td><label><input type="checkbox" onClick="check()"name="smallCategory" value="빨대" id="smallCategory1"> 빨대</label></td>
-				<td><label><input type="checkbox" onClick="check()"name="smallCategory" value="주머니/가방" id="smallCategory2">주머니/가방</label></td>
-				<td><label><input type="checkbox" onClick="check()" name="smallCategory" value="집게" id="smallCategory3">집게</label></td>
-				<td><label><input type="checkbox" onClick="check()" name="smallCategory" value="책/노트" id="smallCategory4"> 책/노트</label></td>
+				<td><label><input type="checkbox" onClick="check()"
+						name="smallCategory" value="빨대" id="smallCategory1"> 빨대</label></td>
+				<td><label><input type="checkbox" onClick="check()"
+						name="smallCategory" value="주머니/가방" id="smallCategory2">주머니/가방</label></td>
+				<td><label><input type="checkbox" onClick="check()"
+						name="smallCategory" value="집게" id="smallCategory3">집게</label></td>
+				<td><label><input type="checkbox" onClick="check()"
+						name="smallCategory" value="책/노트" id="smallCategory4">
+						책/노트</label></td>
 			</tr>
 
 
@@ -63,58 +99,68 @@
 			</tr>
 
 			<tr>
+				<th>정렬</th>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="브랜드순" id="sortBrand"><label for="sortBrand">
+						브랜드순</label></td>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="이름순" id="sortName"><label for="sortName">
+						이름순</label></td>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="가격 낮은순" id="sortLowPrice"><label for="sortLowPrice">
+						가격 낮은순</label></td>
+				<td><input type="radio" onClick="check()" name="sorted"
+					value="가격 높은순" id="sortHighPrice"><label
+					for="sortHighPrice"> 가격 높은순</label></td>
+			</tr>
+
+			<tr>
 				<td />
 				<td />
-				<td colspan="4" style="text-align: right;"><input
-					name="search_result" type="text"
-					style="width: 500px; height: 30px;" id="search-statement" readonly="readonly" /></td>
+				<td colspan="4" style="text-align: right;"><input type="text"
+					name="search_result" style="width: 500px; height: 30px;"
+					id="search-statement" readonly="readonly"
+					value="<%=search_result%>" /></td>
 				<td style="text-align: left"><button type="reset">초기화</button></td>
 				<td style="text-align: left"><input type="submit" value="검색" />
 			</tr>
 		</table>
 	</form>
 
-	<h3 style="float: left">
-		<%=search_result%></h3>
+
 	<div class="big-shop-grid">
-		<h2 class="big-category-text">LIVING</h2>
+		<h2 class="big-category-text">BATHROOM</h2>
 		<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
-				<%
-				String img = null;
-	            String img_li = null;
-	            String productname = null;
-	            String price = null;
-	            String productid = null;
-	            while (rs.next()) {
-	               productid = rs.getString("productid");
-	               productname = rs.getString("productname");
-	               price = rs.getString("price");
-	               img = rs.getString("img");
-	               img_li = "living/" + img + ".jpg";
+				<% 
+               for(int i=0; i < data.size(); i++) {
+               %>
+				<form method="post" action="doDetailProduct">
+					<button style="border: 0; outline: 0; background-color: white"
+						name="productid" value=<%= data.get(i).getProductid() %>>
+						<li id="li-living-item-box">
+							<div class="div-display-living-box" style="margin-left: 0">
+								<img class="img-display-box" src="<%=data.get(i).getImg()%>"
+									alt="">
+								<div class="display-text">
+									<p>
+										<strong><<%=data.get(i).getBrand()%>></strong>
+									</p>
+									<p>
+										<strong><%=data.get(i).getProductname()%></strong>
+									</p>
+									<p><%=data.get(i).getPrice()%>원
+									</p>
+								</div>
+							</div>
+						</li>
 
-	               //System.out.println(productname);
-	            %>
-	            <form method="post" action="doDetailProduct">
-		            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid %>>
-		            <li id="li-living-item-box">
-		                  <div class="div-display-living-box" style="margin-left:0">
-		                     <img class="img-display-box" src="<%=img_li%>" alt="" >
-		                     <div class="display-text">
-		                        <strong><%=productname%></strong>
-		                        <p><%=price%>원
-		                        </p>
-		                     </div>
-		                  </div>
-		                  
-		            </a></li>
-		            
-		            <%
-		               }
-		            %>
-		            </button>
-		         </ul>
-		         </form>
+						<%
+							}
+						%>
+					</button>
+			</ul>
+			</form>
 		</div>
 	</div>
 </body>
