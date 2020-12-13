@@ -19,8 +19,8 @@
 		<h2>pick up 에코마일리지</h2>
 		<p>
 			집에 있는 공병, 폐지, 등 재활용품을 모아 보내면 사이트의 포인트로 교환해드립니다!<br /> <br />
-		<div class=div-grid>
-			<form method="post" action="doPoint">
+		<div class=div-grid style="width:80%;">
+			<form style="margin-right:50px;" method="post" action="doPoint">
 				<ul class="row_ul">
 					<li class="row_li">
 						<div>
