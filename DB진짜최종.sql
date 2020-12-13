@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 8.0.22, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.21, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: fz_webapp
 -- ------------------------------------------------------
--- Server version	8.0.22
+-- Server version	8.0.21
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -181,6 +181,7 @@ CREATE TABLE `notice` (
 
 LOCK TABLES `notice` WRITE;
 /*!40000 ALTER TABLE `notice` DISABLE KEYS */;
+INSERT INTO `notice` VALUES (1,'admin','연말 기간 배송 공지','연말 물류 급증으로 인해 배송이 7일 이상 걸릴 것으로 예상합니다. 이 점 감안하고 주문해 주세요 ~\r\n','2020-12-13');
 /*!40000 ALTER TABLE `notice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -257,7 +258,8 @@ CREATE TABLE `offline_product` (
   `offlineproduct_num` int DEFAULT NULL,
   `offlineproduct_price` int DEFAULT NULL,
   PRIMARY KEY (`offlineproduct_id`),
-  KEY `storeid_idx` (`storeid`)
+  KEY `storeid_idx` (`storeid`),
+  CONSTRAINT `offline_product_ibfk_1` FOREIGN KEY (`storeid`) REFERENCES `offline_store` (`storeid`)
 ) ENGINE=InnoDB AUTO_INCREMENT=607 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -479,6 +481,10 @@ LOCK TABLES `review` WRITE;
 INSERT INTO `review` VALUES (1,'khhong',17,'ddd',2,'2020-12-13',3);
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'fz_webapp'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -489,4 +495,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-13 15:24:20
+-- Dump completed on 2020-12-13 15:51:21
