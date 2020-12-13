@@ -199,7 +199,7 @@ td, tr {
 					}
 					%>
 					
-					아이디 <input id="custid" type="text" value="<%=user_id%>"name="custid" required /><br />
+					아이디 <input id="custid" type="text" value="<%=user_id%>"name="custid" readonly /><br />
 					비밀번호 <input id="passwd" type="password" placeholder="PASSWORD"
 						name="passwd" required /><br /> 이름 <input id="name"
 						type="text" name="name" placeholder="NAME" required /><br /> 주소
