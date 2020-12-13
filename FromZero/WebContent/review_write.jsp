@@ -47,7 +47,7 @@ String db_review_content=(String)request.getAttribute("db_review_content");
 									<td><label><img
 											style="width: 30px; margin: auto 10px"
 											src="images/rating3.png" alt="" /><br /> <input type="radio"
-											name="rating" value="3" /></label></td>
+											name="rating" value="3" checked="checked"/></label></td>
 									<td><label><img
 											style="width: 30px; margin: auto 10px"
 											src="images/rating2.png" alt="" /><br /> <input type="radio"

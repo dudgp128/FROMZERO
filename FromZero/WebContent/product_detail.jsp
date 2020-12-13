@@ -108,6 +108,22 @@ ul {
 	String brand = (String) request.getAttribute("brand");
 	String big_category = (String) request.getAttribute("big_category");
 	String img_num = big_category + "/" + img + ".jpg";
+	String detail_img="online_productid/"+detail_productid+".jpg";
+	
+
+	PreparedStatement pstmt = null;
+ResultSet rset = null;
+Connection conn = null;
+Properties connectionProps = new Properties();
+
+String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
+String DBuser = "fz_webapp";
+String DBpasswd = "fz_webapp";
+String DBTimeZone = "UTC";
+
+connectionProps.put("user", DBuser);
+connectionProps.put("password", DBpasswd);
+connectionProps.put("serverTimezone", DBTimeZone);
 	%>
 
 
@@ -238,8 +254,8 @@ ul {
 		<ul>
 			<li id="tab1" class="btnCon"><input type="radio" checked
 				name="tabmenu" id="tabmenu1"> <label for="tabmenu1">DETAIL</label>
-				<div class="tabCon">
-					<img src="images/YH.jpg" />
+				<div style="width:100%; margin:0 auto; "class="tabCon">
+					<img src="<%=detail_img%>" style="width:100%; height:auto" />
 				</div></li>
 			<li id="tab2" class="btnCon"><input type="radio" name="tabmenu"
 				id="tabmenu2"> <label for="tabmenu2">REVIEW</label>
@@ -247,20 +263,6 @@ ul {
 					<table style="background-color: #FFFFFF">
 						<tr>
 							<%
-								PreparedStatement pstmt = null;
-							ResultSet rset = null;
-							Connection conn = null;
-							Properties connectionProps = new Properties();
-
-							String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
-							String DBuser = "fz_webapp";
-							String DBpasswd = "fz_webapp";
-							String DBTimeZone = "UTC";
-
-							connectionProps.put("user", DBuser);
-							connectionProps.put("password", DBpasswd);
-							connectionProps.put("serverTimezone", DBTimeZone);
-
 							try {
 								conn = DriverManager.getConnection(DBUrl, connectionProps);
 
@@ -282,7 +284,7 @@ ul {
 								db_review_content = rset.getString("review_content");
 
 								img_score = "images/rating" + db_review_score + ".png";
-							}
+							
 							%>
 							<td style="border-bottom: 1px solid #444444;">
 								<table style="background-color: #FFFFFF; text-align:left">
@@ -300,6 +302,9 @@ ul {
 								</table>
 							</td>
 						</tr>
+						<%
+						}
+						%>
 					</table>
 				</div></li>
 			<li id="tab3" class="btnCon"><input type="radio" name="tabmenu"
