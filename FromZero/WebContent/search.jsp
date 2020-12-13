@@ -26,7 +26,7 @@
 
    <%@ include file="./fz_header.jsp" %>
 
-   <div class="big-shop-grid">
+   <div style="margin-left:150px"class="big-shop-grid">
       <h2 class="big-category-text"></h2>
       <div class="div-shop-grid">
          <ul class="ul-shop-grid">

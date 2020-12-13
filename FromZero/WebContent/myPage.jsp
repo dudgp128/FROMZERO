@@ -192,6 +192,19 @@ td, tr {
 		all_price += tmp;
 	}
 	
+	PreparedStatement pstmtt = null;
+	   ResultSet rsett = null;
+	   String point = null;
+	   try {
+	      String sqlSt = "select * from bottle where custid='" + user_id + "'";
+	      pstmtt = conn.prepareStatement(sqlSt);
+	      rsett = pstmtt.executeQuery();
+	   } catch (SQLException e) {
+	      e.printStackTrace();
+	   }
+	   if (rsett.next())
+	      point = rsett.getString("point");
+	
 	//String sqlSt = "select * from online_order where custid='" + user_id + "'";
 	%>
 
@@ -216,7 +229,7 @@ td, tr {
 				<a href="point.html"> <!-- 공병 개수 보여주는거 어떻게 할것인지 결정하기  -->
 					<ul>
 						<li>포인트</li>
-						<li style='font-size: 23px'>0</li>
+						<li style='font-size: 23px'><%=point%></li>
 					</ul>
 				</a>
 			</div>
@@ -227,8 +240,6 @@ td, tr {
 				<a href="test.jsp">
 					<ul>
 						<li>레 벨</li>
-						<!-- 레벨 디비 저장해서 가져오는거 구현하기 -->
-
 						<li style='font-size: 23px'><%=level%></li>
 					</ul>
 				</a>
@@ -247,8 +258,8 @@ td, tr {
 										try {
 										conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-										String osqlSt = "select online_product.productid,productname, count, price, img,big_category from online_product, order_items where online_product.productid=order_items.productid and custid="
-										+ "'" + user_id + "'";
+										String osqlSt = "select online_product.productid,productname, count, price, img,big_category,orderid from online_product, order_items where online_product.productid=order_items.productid and custid="
+										+ "'" + user_id + "' order by orderid desc";
 										pstmt = conn.prepareStatement(osqlSt);
 										rset = pstmt.executeQuery();
 
@@ -262,6 +273,7 @@ td, tr {
 									String img = "";
 									String img_li = "";
 									String big_category = "";
+									int orderid=0;
 									while (rset.next()) {
 										online_productid = rset.getInt(1);
 										productname = rset.getString(2);
@@ -269,30 +281,38 @@ td, tr {
 										online_price = rset.getInt(4);
 										img = rset.getString("img");
 										big_category = rset.getString("big_category");
+										orderid=rset.getInt("orderid");
 
 										img_li = big_category + "/" + img + ".jpg";
 									%>
 									<td style="border-bottom: 1px solid #444444">
-										<table style="width: 50%; text-algin: left">
+										<table style="width: 55%; text-algin: left">
+										<form method="post" action="doReview">
+				
 											<tr>
-
 												<td rowspan="2"><img
 													style="width: 130px; height: 130px;"
 													class="img-display-box" src="<%=img_li%>" alt=""></td>
 
-												<td style="text-align: left; width: 100%"><strong><%=productname%></strong>
-													<br />
+												<td style="text-align: left; width: 100%; padding-right:0px"><strong><p><%=productname%></p></strong>
 													<p style="font-size: 12px">
 														수량 :
 														<%=count%>개 /
 														<%=online_price%>원
 													</p></td>
-												<td />
 												<td>
-													<button style="width: 40px" type="button">후기작성</button>
+												<input type="hidden" name="productname" value="<%=productname%>">
+												<input type="hidden" name="count" value="<%=count%>">
+												<input type="hidden" name="price" value="<%=online_price%>">
+												<input type="hidden" name="online_productid" value="<%=online_productid%>">
+												<input type="hidden" name="orderid" value="<%=orderid %>"> 
+												</td>
+												<td>
+													<button style="width: 40px" type="submit">후기작성</button>
 												</td>
 											</tr>
 											<tr />
+											</form>
 										</table>
 									</td>
 								</tr>
@@ -313,7 +333,7 @@ td, tr {
 										conn = DriverManager.getConnection(DBUrl, connectionProps);
 
 										String sqlSt = "select productid, offlineproduct_name, count, offlineproduct_price from offline_order_items, offline_product where offline_order_items.productid=offline_product.offlineproduct_id and offline_order_items.storeid=offline_product.storeid and custid="
-										+ "'" + user_id + "'";
+										+ "'" + user_id + "' order by orderid desc";
 										pstmt = conn.prepareStatement(sqlSt);
 										rset = pstmt.executeQuery();
 
@@ -335,14 +355,14 @@ td, tr {
 										img_li = "offline_store_img/Store" + storeid + "/" + productid + ".jpg";
 									%>
 									<td style="border-bottom: 1px solid #444444">
-										<table style="width: 50%; text-algin: left">
+										<table style="width: 55%; text-algin: left">
 											<tr>
 
 												<td rowspan="2"><img
 													style="width: 130px; height: 130px;"
 													class="img-display-box" src="<%=img_li%>" alt=""></td>
 
-												<td style="text-align: left; width: 100%"><strong><%=offlineproduct_name%></strong>
+												<td style="text-align: left; width: 100%; padding-right:0px"><strong><%=offlineproduct_name%></strong>
 													<br />
 													<p style="font-size: 12px">
 														수량 :

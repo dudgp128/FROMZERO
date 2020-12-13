@@ -66,20 +66,24 @@ public class Reserve_Offline extends HttpServlet {
 		int offline_product_id=0;
 		
 		ResultSet find_reserve=DBUtil.findReserve(con);
-		String reservecustid;
 		int order_id=0;
 		
 		if(find_reserve!=null) {
+			int db_orderid=0;
 			try {
-				while(find_reserve.next()) {
-					reservecustid=find_reserve.getString("custid");
-					System.out.println("DB 저장 : "+ reservecustid);
-					System.out.println("세션 id : "+user_id);
-					if(user_id.equals(reservecustid))
-						System.out.println("reserve=user같다");
-						order_id=find_reserve.getInt("orderid");
-					}
-				 order_id=order_id+1;
+					while(find_reserve.next()) {
+					db_orderid=find_reserve.getInt(1);
+					order_id=db_orderid+1;
+						}
+					
+					//reservecustid=find_reserve.getString("custid");
+					//System.out.println("DB 저장 : "+ reservecustid);
+					//System.out.println("세션 id : "+user_id);
+					//if(user_id.equals(reservecustid))
+					//	System.out.println("reserve=user같다");
+					//	order_id=find_reserve.getInt("orderid");
+					//}
+				 //order_id=order_id+1;
 			}catch(Exception e) {
 					e.printStackTrace();
 				}
@@ -103,6 +107,7 @@ public class Reserve_Offline extends HttpServlet {
 					if(count!=0) {
 							noting_reserve++;
 							DBUtil.insertReserve(con,order_id,offline_product_id,user_id,i,count);
+							DBUtil.modifystock(con, offline_product_id, count);
 							all_price=all_price+(offline_price*count);
 						} 	
 						}

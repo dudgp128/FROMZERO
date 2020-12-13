@@ -1,6 +1,7 @@
 package web;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -42,7 +43,11 @@ public class DoCartBuying extends HttpServlet {
 		String btn = request.getParameter("action");
 		// int productid = Integer.parseInt(request.getParameter("productID"));
 		String[] scart = request.getParameterValues("cart");
+		
+		HttpSession session = request.getSession();
+		String user_id = (String) session.getAttribute("user_id");
 
+	
 		int len = scart.length;
 		String[] scount = new String[len];
 		String[] sprice = new String[len];
@@ -74,9 +79,7 @@ public class DoCartBuying extends HttpServlet {
 		// System.out.println(allPrice);
 		int order_id = 0;
 
-		HttpSession session = request.getSession();
-		String user_id = (String) session.getAttribute("user_id");
-
+		
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 
@@ -123,7 +126,6 @@ public class DoCartBuying extends HttpServlet {
 			RequestDispatcher view = request.getRequestDispatcher("cart.jsp");
 			view.forward(request, response);
 		}
-
 	}
 
 	/**

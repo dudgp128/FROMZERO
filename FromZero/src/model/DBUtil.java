@@ -40,7 +40,7 @@ public class DBUtil {
 		}
 		return null;
 	}
-
+	
 	public static void modifyUser(Connection conn, String nmid, String npasswd, String nname, String naddress,
 			String nphone, String nemail) throws SQLException {
 
@@ -67,7 +67,7 @@ public class DBUtil {
 			}
 		}
 	}
-
+	
 	public static void modifyPoint(Connection conn, String user_id, int soju, int beer, int milk, int water, int point)
 			throws SQLException {
 		Statement stmt = null;
@@ -477,12 +477,16 @@ public class DBUtil {
 			try {
 				conn.setAutoCommit(false);
 
-				pstmt = conn.prepareStatement("INSERT INTO qna_comment VALUES(?,?,?,?)");
+				pstmt = conn.prepareStatement("INSERT INTO qna_comment VALUES(?,?,?,?,?)");
 				pstmt.setInt(1, comment_id);
 				pstmt.setString(2, custid);
 				pstmt.setInt(3, board_id);
 				pstmt.setString(4, comment);
 				
+				java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	            String stringDate = sdf.format(new java.util.Date());
+	            java.sql.Date comment_date = java.sql.Date.valueOf(stringDate);
+	            pstmt.setDate(5, comment_date);
 				pstmt.executeUpdate();
 
 				conn.commit();
@@ -514,36 +518,6 @@ public class DBUtil {
 		return null;
 	}
 	
-	public static ResultSet findReserve(Connection con) { 
-		Statement st;
-		try {
-			st = con.createStatement();
-			if (st.execute("SELECT * FROM offline_order_items")) {
-				return st.getResultSet();
-			}
-			// con.close();
-			// st.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}	
-
-	public static ResultSet findReserve(Connection con) {
-		Statement st;
-		try {
-			st = con.createStatement();
-			if (st.execute("SELECT * FROM offline_order_items")) {
-				return st.getResultSet();
-			}
-			// con.close();
-			// st.close();
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
 	public static void insertReserve(Connection conn, int orderid, int productid, String custid, int storeid, int count)
 			throws SQLException {
 		PreparedStatement pstmt = null;
@@ -655,4 +629,131 @@ public class DBUtil {
 			e.printStackTrace();
 		}
 	}
+
+public static ResultSet findReserve(Connection con) { 
+	Statement st;
+	String stmt="select * from offline_order_items order by orderid desc limit 1";
+	try {
+		st = con.createStatement();
+		if (st.execute(stmt)) {
+			return st.getResultSet();
+		}
+		// con.close();
+		// st.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return null;
+}	
+public static ResultSet findReviewid(Connection con) {
+	String sqlSt = "select * from review";
+	Statement st;
+	try {
+		st = con.createStatement();
+		if (st.execute(sqlSt)) {
+			return st.getResultSet();
+		}
+		//con.close();
+		//st.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return null;
 }
+public static ResultSet findReview(Connection con, String user_id, int productid, int orderid) {
+	String sqlSt = "SELECT * FROM review WHERE custid=";
+	Statement st;
+	try {
+		st = con.createStatement();
+		if (st.execute(sqlSt + "'" + user_id + "' AND productid="+productid+" AND order_id="+orderid)); {
+			return st.getResultSet();
+		}
+		//con.close();
+		//st.close();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	return null;
+}
+public static void modifyReview(Connection conn, String review_content, String user_id, int productid, int orderid) throws SQLException {
+
+	Statement stmt = null;
+	try {
+		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		ResultSet uprs = stmt.executeQuery("SELECT * FROM review WHERE " + "custid=" + "'" + user_id + "'AND productid="+productid+" AND order_id="+orderid);
+
+		while (uprs.next()) {
+			uprs.updateString("review_content", review_content);
+			uprs.updateRow();
+		}
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		if (stmt != null) {
+			//conn.close();
+			//stmt.close();
+		}
+	}
+}
+public static void insertReview(Connection conn,int reviewid, String custid, int productid, String review_content, int review_score, int orderid)
+		throws SQLException {
+	PreparedStatement pstmt = null;
+	try {
+		conn.setAutoCommit(false);
+
+		pstmt = conn.prepareStatement("INSERT INTO review VALUES(?,?,?,?,?,?,?)");
+		pstmt.setInt(1,reviewid);
+		pstmt.setString(2, custid);
+		pstmt.setInt(3, productid);
+		pstmt.setString(4, review_content);
+		pstmt.setInt(5, review_score);
+		
+		java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // format
+		String stringDate = sdf.format(new java.util.Date());
+		java.sql.Date date = java.sql.Date.valueOf(stringDate);
+		pstmt.setDate(6, date);
+		pstmt.setInt(7, orderid);
+
+
+		pstmt.executeUpdate();
+
+		conn.commit();
+		conn.setAutoCommit(true);
+
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		if (pstmt != null) {
+			// conn.close();
+			// pstmt.close();
+		}
+
+	}
+}
+
+public static void modifystock(Connection conn, int productid, int count)
+		throws SQLException {
+	Statement stmt = null;
+	try {
+		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		ResultSet uprs = stmt.executeQuery("SELECT * FROM offline_product WHERE offlineproduct_id="+productid);
+
+		int db_productcount=0;
+
+		while (uprs.next()) {
+			db_productcount = uprs.getInt("offlineproduct_num");
+			
+			uprs.updateInt("offlineproduct_num", db_productcount-count);
+			
+			uprs.updateRow();
+		}
+		System.out.println("되나요?");
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		if (stmt != null) {
+			// conn.close();
+			// stmt.close();
+		}
+	}}}

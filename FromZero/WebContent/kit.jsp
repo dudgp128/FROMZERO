@@ -96,7 +96,7 @@ function check(){
 			               img_count++;
 			               img_li = "kit/" + img_count + ".jpg";
 			            %>
-							<form method="post" action="doDetailProduct">
+							<form style="margin-left:100px" method="post" action="doDetailProduct">
 			            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
 			            <li id="li-living-item-box">
 			                  <div class="div-display-living-box">

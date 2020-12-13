@@ -113,17 +113,17 @@ table {
         
         <tr>
             <th>제목</th>
-            <td colspan="5"><input name="title" maxlength="100" style="width:700px"></td>
+            <td colspan="5"><input name="title" maxlength="100" style="width:700px" required></td>
         </tr>
          
         <tr>
             <th style="height:500px">글 내용</th>
-            <td colspan="5"><textarea name="memo" style="width:700px; height:500px"></textarea></td>
+            <td colspan="5"><textarea name="memo" style="width:700px; height:500px" required></textarea></td>
         </tr>
         
         <tr>
             <th>글 비밀번호</th>
-            <td colspan="5"><input name="password" maxlength="10" style="width:700px"></td>
+            <td colspan="5"><input name="password" maxlength="10" style="width:700px" required></td>
         </tr>
 		</table>
 		
