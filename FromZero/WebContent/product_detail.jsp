@@ -101,6 +101,7 @@ ul {
 
 	<%
 	String productid = (String) request.getAttribute("productid");
+	String detail_productid=(String)request.getAttribute("productid");
 	String productname = (String) request.getAttribute("productname");
 	String price = (String) request.getAttribute("price");
 	String img = (String) request.getAttribute("img");
@@ -110,7 +111,7 @@ ul {
 	%>
 
 
-	
+
 	<div>
 		<h1 id="bigCategory"
 			style="text-align: center; margin-top: 20px; text-transform: uppercase;"><%=big_category%></h1>
@@ -131,21 +132,24 @@ ul {
 		<div class="product-detail">
 
 			<img src=<%=img_num%> width=300 height=300 alt="" align="left"
-				style="margin-left: 50px; padding: 0px 30px 0px 0px" /> 
+				style="margin-left: 50px; padding: 0px 30px 0px 0px" />
 			<div id="display-text">
-				<h2><<%=brand %>></h2>
+				<h2>
+					<<%=brand %>>
+				</h2>
 				<br>
 				<h2><%=productname%></h2>
-				<h3><%=price%>원</h3>
+				<h3><%=price%>원
+				</h3>
 			</div>
 			<br> <br> <br> <br> <br>
 			<form method="post" action="doBuyingSpinner">
-			<p>
-				수량 <input id="product_count" type="number" name="product_count"
-					min="1" max="10" step="1" value="1" />
-			</p>
-				<input id="buy" name="action" type="submit" value="BUY" />
-				<input id="cart" name="action" type="submit" value="CART" />
+				<p>
+					수량 <input id="product_count" type="number" name="product_count"
+						min="1" max="10" step="1" value="1" />
+				</p>
+				<input id="buy" name="action" type="submit" value="BUY" /> <input
+					id="cart" name="action" type="submit" value="CART" />
 			</form>
 			<br> <br> <br>
 			<%
@@ -155,12 +159,13 @@ ul {
 			session.setAttribute("img_num", img_num);
 			//session.setAttribute("count", product_count);
 			%>
-			<div style="clear: both; margin-left:280px; left: 330px; top: 1000px;">
-				
-			<div class="div-shop-grid">
-			<ul class="ul-shop-grid">
-				<br>
-				<%
+			<div
+				style="clear: both; margin-left: 280px; left: 330px; top: 1000px;">
+
+				<div class="div-shop-grid">
+					<ul class="ul-shop-grid">
+						<br>
+						<%
 				String re_productid = null;
 				String re_productname = null;
 				String re_price = null;
@@ -186,75 +191,133 @@ ul {
 									c++;
 									if(c == 1) {
 				%>
-				<div>
-				<br>
-				<h3>추천 상품</h3>
-				<br>
-				<%} 
+						<div>
+							<br>
+							<h3>추천 상품</h3>
+							<br>
+							<%} 
 				%>
-				<form style="margin-left:100px" method="post" action="doDetailProduct">
-	            <button style="clear:both; border:0; outline:0; background-color:white" name="productid" value=<%= re_productid%>>
-				<li><a href="product_detail.jsp">
-						<div class="recommend" style="position:relative; left:-120px; padding:20px; left-margin:-20px;">
-							<img class="recommend_img" src="<%=img_li%>" alt="" style="width:220px; height:220px">
-							<div class="recommended">
-								<p><strong><<%=re_brand %>></strong></p>
-								<p><strong><%=re_productname%></strong></p>
-								<p><%=re_price%>원
-								</p>
-							</div>
-						</div>
-				</a></li>
-				<%
-					}
-				}
-				}
-				}
-				}
-				%>
-				</button>
-				</ul>
-	         </form>
-	         </div>
-		</div>
+							<form style="margin-left: 100px" method="post"
+								action="doDetailProduct">
+								<button
+									style="clear: both; border: 0; outline: 0; background-color: white"
+									name="productid" value=<%= re_productid%>>
+									<li><a href="product_detail.jsp">
+											<div class="recommend"
+												style="position: relative; left: -120px; padding: 20px; left-margin: -20px;">
+												<img class="recommend_img" src="<%=img_li%>" alt=""
+													style="width: 220px; height: 220px">
+												<div class="recommended">
+													<p>
+														<strong><<%=re_brand %>></strong>
+													</p>
+													<p>
+														<strong><%=re_productname%></strong>
+													</p>
+													<p><%=re_price%>원
+													</p>
+												</div>
+											</div>
+									</a></li>
+									<%
+										}
+									}
+									}
+									}
+									}
+									%>
+								</button>
+					</ul>
+					</form>
+				</div>
 			</div>
-			
 		</div>
-		<div class="tabmenu">
-				<ul>
-					<li id="tab1" class="btnCon"><input type="radio" checked
-						name="tabmenu" id="tabmenu1"> <label for="tabmenu1">DETAIL</label>
-						<div class="tabCon"><img src="images/YH.jpg"/></div></li>
-					<li id="tab2" class="btnCon"><input type="radio"
-						name="tabmenu" id="tabmenu2"> <label for="tabmenu2">REVIEW</label>
-						<div class="tabCon">REVIEW 페이지 _ It is a long established
-							fact that a reader will be distracted by the readable content of
-							a page when looking at its layout. The point of using Lorem Ipsum
-							is that it has a more-or-less normal distribution of letters, as
-							opposed to using 'Content here, content here', making it look
-							like readable English. Many desktop publishing packages and web
-							page editors now use Lorem Ipsum as their default model text, and
-							a search for 'lorem ipsum' will uncover many web sites still in
-							their infancy. Various versions have evolved over the years,
-							sometimes by accident, sometimes on purpose (injected humour and
-							the like).</div></li>
-					<li id="tab3" class="btnCon"><input type="radio"
-						name="tabmenu" id="tabmenu3"> <label for="tabmenu3">Q&A</label>
 
-						<div class="tabCon">QNA 페이지 _ There are many variations of
-							passages of Lorem Ipsum available, but the majority have suffered
-							alteration in some form, by injected humour, or randomised words
-							which don't look even slightly believable. If you are going to
-							use a passage of Lorem Ipsum, you need to be sure there isn't
-							anything embarrassing hidden in the middle of text. All the Lorem
-							Ipsum generators on the Internet tend to repeat predefined chunks
-							as necessary, making this the first true generator on the
-							Internet. It uses a dictionary of over 200 Latin words, combined
-							with a handful of model sentence structures, to generate Lorem
-							Ipsum which looks reasonable. The generated Lorem Ipsum is
-							therefore always free from repetition, injected humour, or
-							non-characteristic words etc.</div></li>
-				</ul>
-			</div>
+	</div>
+	<div class="tabmenu">
+		<ul>
+			<li id="tab1" class="btnCon"><input type="radio" checked
+				name="tabmenu" id="tabmenu1"> <label for="tabmenu1">DETAIL</label>
+				<div class="tabCon">
+					<img src="images/YH.jpg" />
+				</div></li>
+			<li id="tab2" class="btnCon"><input type="radio" name="tabmenu"
+				id="tabmenu2"> <label for="tabmenu2">REVIEW</label>
+				<div style="width: 100%" class="tabCon">
+					<table style="background-color: #FFFFFF">
+						<tr>
+							<%
+								PreparedStatement pstmt = null;
+							ResultSet rset = null;
+							Connection conn = null;
+							Properties connectionProps = new Properties();
+
+							String DBUrl = "jdbc:mysql://localhost:3306/fz_webapp";
+							String DBuser = "fz_webapp";
+							String DBpasswd = "fz_webapp";
+							String DBTimeZone = "UTC";
+
+							connectionProps.put("user", DBuser);
+							connectionProps.put("password", DBpasswd);
+							connectionProps.put("serverTimezone", DBTimeZone);
+
+							try {
+								conn = DriverManager.getConnection(DBUrl, connectionProps);
+
+								String reviewSql = "select * from review where productid=" + detail_productid;
+								pstmt = conn.prepareStatement(reviewSql);
+								rset = pstmt.executeQuery();
+							} catch (SQLException e) {
+								e.printStackTrace();
+							}
+							int db_review_score = 0;
+							String review_date = null;
+							String db_custid = "";
+							String db_review_content = "";
+							String img_score = "";
+							while (rset.next()) {
+								db_review_score = rset.getInt("review_score");
+								review_date = rset.getString("review_date");
+								db_custid = rset.getString("custid");
+								db_review_content = rset.getString("review_content");
+
+								img_score = "images/rating" + db_review_score + ".png";
+							}
+							%>
+							<td style="border-bottom: 1px solid #444444;">
+								<table style="background-color: #FFFFFF; text-align:left">
+									<tr>
+										<td style="padding-right:0; margin-right:0">
+											<p>
+												<img style="width: 40px" src="<%=img_score%>" alt="" />
+										<br/>
+										<%=review_date%><br/>
+										<strong><%=db_custid%></strong></td>
+										<td colspan="3">
+											<p><%=db_review_content%></p>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div></li>
+			<li id="tab3" class="btnCon"><input type="radio" name="tabmenu"
+				id="tabmenu3"> <label for="tabmenu3">Q&A</label>
+
+				<div class="tabCon">QNA 페이지 _ There are many variations of
+					passages of Lorem Ipsum available, but the majority have suffered
+					alteration in some form, by injected humour, or randomised words
+					which don't look even slightly believable. If you are going to use
+					a passage of Lorem Ipsum, you need to be sure there isn't anything
+					embarrassing hidden in the middle of text. All the Lorem Ipsum
+					generators on the Internet tend to repeat predefined chunks as
+					necessary, making this the first true generator on the Internet. It
+					uses a dictionary of over 200 Latin words, combined with a handful
+					of model sentence structures, to generate Lorem Ipsum which looks
+					reasonable. The generated Lorem Ipsum is therefore always free from
+					repetition, injected humour, or non-characteristic words etc.</div></li>
+		</ul>
+	</div>
 </body>
 </html>

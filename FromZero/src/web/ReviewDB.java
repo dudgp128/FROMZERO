@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -59,7 +60,6 @@ public class ReviewDB extends HttpServlet {
 					last_reviewid = find_reviewid.getInt(1);
 					reviewid=last_reviewid+1;
 				}
-				reviewid=1;
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
@@ -72,7 +72,6 @@ public class ReviewDB extends HttpServlet {
 		ResultSet rs=DBUtil.findReview(conn,user_id,productid,orderid);
 		
 		if(rs!=null) {
-			System.out.println("1");
 			try {
 				if(rs.next()) {
 					System.out.println("2");
@@ -82,21 +81,19 @@ public class ReviewDB extends HttpServlet {
 					
 					if(user_id.equals(custid) && productid==db_productid && orderid==db_orderid) {
 						DBUtil.modifyReview(conn,review_content,user_id,productid,orderid );
+						RequestDispatcher view = request.getRequestDispatcher("myPage.jsp");
+				    	view.forward(request, response);
 					}
-					else {
+				}else {
 						DBUtil.insertReview(conn, reviewid,user_id, productid, review_content, review_score, orderid);
+						RequestDispatcher view = request.getRequestDispatcher("myPage.jsp");
+				    	view.forward(request, response);
 					}
-				}
-				else {
-					DBUtil.insertReview(conn, reviewid,user_id, productid, review_content, review_score, orderid);
-				}
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
-		else {
-			System.out.println("난 이게 뭔지 모르겠어");}
 	}
 
 	/**

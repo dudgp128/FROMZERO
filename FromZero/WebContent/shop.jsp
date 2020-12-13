@@ -13,7 +13,11 @@
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
 <title>From zero</title>
+<style>
+	.
+</style>
 </head>
+
 <body style="overflow-x: hidden">
 	<%
 		PreparedStatement pstmt = null;
@@ -33,10 +37,9 @@
 	%>
 	<%@ include file="./fz_header.jsp" %>
 
-	<div class="all-shop-grid">
-		<div class="div-shop-grid">
-			<a href="living.jsp"><h2 class="big-category-text">LIVING ></h2></a>
-			<ul class="ul-shop-grid">
+		<div style="margin-left:120px" class="div-shop-grid">
+			<ul class="ul-shop-grid" style="margin-right:0">
+			<a href="living.jsp"><h2 style="margin-left:0" class="big-category-text">LIVING ></h2></a>
 				<%
 					try {
 					conn = DriverManager.getConnection(DBUrl, connectionProps);
@@ -60,7 +63,7 @@
 					img_count++;
 					img_li = "living/" + img_count + ".jpg";
 				%>
-				<form style="width:100%" method="post" action="doDetailProduct">
+				<form style="margin-right:0; width:100%" method="post" action="doDetailProduct" >
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
 	            <li id="li-living-item-box">
 	                  <div class="div-display-living-box">
@@ -80,9 +83,10 @@
 	            </button>
 	         </ul>
 	         </form>
-			<a href="bathroom.jsp"><h2 class="big-category-text">BATHROOM
+			
+			<ul class="ul-shop-grid" style="margin-right:0">
+			<a href="bathroom.jsp"><h2 style="margin-left:0" class="big-category-text">BATHROOM
 					></h2></a>
-			<ul class="ul-shop-grid">
 				<%
 					try {
 					conn = DriverManager.getConnection(DBUrl, connectionProps);
@@ -106,7 +110,7 @@
 					img_count++;
 					img_li = "bathroom/" + img_count + ".jpg";
 				%>
-				<form method="post" action="doDetailProduct">
+				<form method="post" action="doDetailProduct" style="margin-right:0; width:100%">
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
 	            <li id="li-living-item-box">
 	                  <div class="div-display-living-box">
@@ -126,9 +130,10 @@
 	            </button>
 	         </ul>
 	         </form>
-			<a href="kitchen.jsp"><h2 class="big-category-text">KITCHEN
+			
+			<ul class="ul-shop-grid"  style="margin-right:0">
+			<a href="kitchen.jsp"><h2 style="margin-left:0" class="big-category-text">KITCHEN
 					></h2></a>
-			<ul class="ul-shop-grid">
 				<%
 					try {
 					conn = DriverManager.getConnection(DBUrl, connectionProps);
@@ -152,7 +157,7 @@
 					img_count++;
 					img_li = "kitchen/" + img_count + ".jpg";
 				%>
-				<form method="post" action="doDetailProduct">
+				<form method="post" action="doDetailProduct" style="margin-right:0; width:100%">
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
 	            <li id="li-living-item-box">
 	                  <div class="div-display-living-box">
@@ -172,8 +177,9 @@
 	            </button>
 	         </ul>
 	         </form>
-			<a href="kit.jsp"><h2 class="big-category-text">KIT ></h2></a>
-			<ul class="ul-shop-grid">
+			
+			<ul class="ul-shop-grid"  style="margin-right:0">
+			<a href="kit.jsp"><h2 style="margin-left:0" class="big-category-text">KIT ></h2></a>
 				<%
 					try {
 					conn = DriverManager.getConnection(DBUrl, connectionProps);
@@ -197,7 +203,7 @@
 					img_count++;
 					img_li = "kit/" + img_count + ".jpg";
 				%>
-				<form method="post" action="doDetailProduct">
+				<form method="post" action="doDetailProduct" style="margin-right:0; width:100%">
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
 	            <li id="li-living-item-box">
 	                  <div class="div-display-living-box">
@@ -217,8 +223,9 @@
 	            </button>
 	         </ul>
 	         </form>
-			<a href="etc.jsp"><h2 class="big-category-text">ETC ></h2></a>
-			<ul class="ul-shop-grid">
+			
+			<ul class="ul-shop-grid"  style="margin-right:0">
+			<a href="etc.jsp"><h2 style="margin-left:0" class="big-category-text">ETC ></h2></a>
 				<%
 					try {
 					conn = DriverManager.getConnection(DBUrl, connectionProps);
@@ -242,7 +249,7 @@
 					productid = rset.getString("productid");
 					img_li = "etc/" + img_count + ".jpg";
 				%>
-				<form method="post" action="doDetailProduct">
+				<form method="post" action="doDetailProduct" style="margin-right:0; width:100%">
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
 	            <li id="li-living-item-box">
 	                  <div class="div-display-living-box">
@@ -263,7 +270,7 @@
 	         </ul>
 	         </form>
 		</div>
-	</div>
+
 
 </body>
 </html>
