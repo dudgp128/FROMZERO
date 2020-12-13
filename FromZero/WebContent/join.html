@@ -8,7 +8,7 @@
 <body>
    <header>
       <h1>
-         <a href='main.html'>From zero</a>
+         <a href='main.jsp'>From zero</a>
       </h1>
    </header>
    <nav id="topMenu">
@@ -51,16 +51,20 @@
 
    <br />
 
-   <h1 align=center>Join HERE</h1>
+   <div class="title">
+		<h1 style="text-align: center">JOIN</h1>
+	</div>
    <div style="text-align: center">
-      <form method="post" action="doJoin">
+      <form method="post" action="doJoin" style="margin-left:30px;">
+      	<div class="question_box" style="text-align: center">
          아이디 <input id="join_input" type="text" name="nmid" placeholder="ID" required /> <br /> 
          비밀번호 <input id="join_input" type="password" placeholder="PASSWORD" name="npasswd" required /><br /> 
          이름 <input id="join_input" type="text" name="nname" placeholder="NAME" required /><br />
          주소 <input id="join_input" type="text" placeholder="ADDRESS" name="naddress" /><br /> 
          전화번호 <input id="join_input" type="text" placeholder="PHONE_NUMBER" name="nphone" /><br /> 
          이메일 <input id="join_input" type="text" placeholder="EMAIL_ADDRESS" name="nemail" /><br /> 
-            <input type="submit" style="margin-top: 20px" value="JOIN" /> <br /> <br />
+            <input type="submit" style="margin-top: 20px" value="JOIN" class="test-result-button"/> <br /> <br />
+      	</div>
       </form>
    </div>
 
