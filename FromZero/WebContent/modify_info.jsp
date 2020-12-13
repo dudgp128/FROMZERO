@@ -170,9 +170,9 @@ td, tr {
 				<li><a href="modify_info.jsp" class="submenuLink">회원정보수정</a></li>
 			</ul>
 		</div>
-		<div class="info">
+		<div class="question_box" style="text-align: center">
 			<br />
-			<h1 align=center>Modify my information</h1>
+			<h1 style="text-align:center">Modify my information</h1>
 			<br /> <br />
 
 			<div style="text-align: center">
@@ -198,6 +198,7 @@ td, tr {
 						email = rset.getString("email");
 					}
 					%>
+					
 					아이디 <input id="custid" type="text" value="<%=user_id%>"name="custid" required /><br />
 					비밀번호 <input id="passwd" type="password" placeholder="PASSWORD"
 						name="passwd" required /><br /> 이름 <input id="name"
@@ -206,7 +207,7 @@ td, tr {
 						name="address" /><br /> 전화번호 <input id="phone" type="text"
 						placeholder="PHONE_NUMBER" name="phone" /><br /> 이메일 <input
 						id="email" type="text" placeholder="EMAIL" name="email" /><br />
-					<input type="submit" style="margin-top: 20px" value="정보수정" /> <br />
+					<input type="submit" style="margin-top: 20px" class="test-result-button" value="정보수정" /> <br />
 					<br />
 
 				</form>
