@@ -517,6 +517,30 @@ public class DBUtil {
 		}
 		return null;
 	}
+
+	public static void deleteFAQ(Connection conn, int board_id)
+		throws SQLException {
+		Statement st = null;
+		String sqlSt = "DELETE FROM faq WHERE board_id="+ board_id;
+		try {
+			st = conn.createStatement();
+			st.execute(sqlSt);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void deleteNotice(Connection conn, int board_id)
+			throws SQLException {
+			Statement st = null;
+			String sqlSt = "DELETE FROM notice WHERE board_id="+ board_id;
+			try {
+				st = conn.createStatement();
+				st.execute(sqlSt);
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
 	
 	public static void insertReserve(Connection conn, int orderid, int productid, String custid, int storeid, int count)
 			throws SQLException {
