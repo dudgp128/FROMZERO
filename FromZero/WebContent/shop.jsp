@@ -55,6 +55,7 @@
 	            int img_count = 0;
 	            String img_li = null;
 	            String productid = null;
+	            String brand = null;
 
 				while (rset.next() && img_count < 5) {
 					productname = rset.getString("productname");
@@ -62,6 +63,7 @@
 					productid = rset.getString("productid");
 					img_count++;
 					img_li = "living/" + img_count + ".jpg";
+					brand = rset.getString("brand");
 				%>
 				<form style="margin-right:0; width:100%" method="post" action="doDetailProduct" >
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
@@ -69,7 +71,12 @@
 	                  <div class="div-display-living-box">
 	                     <img class="img-display-box" src="<%=img_li%>" alt="">
 	                     <div class="display-text">
-	                        <strong><%=productname%></strong>
+	                        <p>
+									<strong><<%=brand%>></strong>
+								</p>
+								<p>
+									<strong><%=productname%></strong>
+								</p>
 	                        <p><%=price%>원
 	                        </p>
 	                     </div>
@@ -102,6 +109,7 @@
 				productid = null;
 				img_count = 0;
 				img_li = null;
+				
 
 				while (rset.next() && img_count < 5) {
 					productname = rset.getString("productname");
@@ -109,6 +117,8 @@
 					productid = rset.getString("productid");
 					img_count++;
 					img_li = "bathroom/" + img_count + ".jpg";
+					brand = rset.getString("brand");
+
 				%>
 				<form method="post" action="doDetailProduct" style="margin-right:0; width:100%">
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
@@ -116,7 +126,12 @@
 	                  <div class="div-display-living-box">
 	                     <img class="img-display-box" src="<%=img_li%>" alt="">
 	                     <div class="display-text">
-	                        <strong><%=productname%></strong>
+	                        <p>
+									<strong><<%=brand%>></strong>
+								</p>
+								<p>
+									<strong><%=productname%></strong>
+								</p>
 	                        <p><%=price%>원
 	                        </p>
 	                     </div>
@@ -156,6 +171,8 @@
 					productid = rset.getString("productid");
 					img_count++;
 					img_li = "kitchen/" + img_count + ".jpg";
+					brand = rset.getString("brand");
+
 				%>
 				<form method="post" action="doDetailProduct" style="margin-right:0; width:100%">
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
@@ -163,7 +180,12 @@
 	                  <div class="div-display-living-box">
 	                     <img class="img-display-box" src="<%=img_li%>" alt="">
 	                     <div class="display-text">
-	                        <strong><%=productname%></strong>
+	                        <p>
+									<strong><<%=brand%>></strong>
+								</p>
+								<p>
+									<strong><%=productname%></strong>
+								</p>
 	                        <p><%=price%>원
 	                        </p>
 	                     </div>
@@ -202,6 +224,7 @@
 					productid = rset.getString("productid");
 					img_count++;
 					img_li = "kit/" + img_count + ".jpg";
+					brand = rset.getString("brand");
 				%>
 				<form method="post" action="doDetailProduct" style="margin-right:0; width:100%">
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
@@ -209,7 +232,12 @@
 	                  <div class="div-display-living-box">
 	                     <img class="img-display-box" src="<%=img_li%>" alt="">
 	                     <div class="display-text">
-	                        <strong><%=productname%></strong>
+	                        <p>
+									<strong><<%=brand%>></strong>
+								</p>
+								<p>
+									<strong><%=productname%></strong>
+								</p>
 	                        <p><%=price%>원
 	                        </p>
 	                     </div>
@@ -248,6 +276,7 @@
 					img_count++;
 					productid = rset.getString("productid");
 					img_li = "etc/" + img_count + ".jpg";
+					brand = rset.getString("brand");
 				%>
 				<form method="post" action="doDetailProduct" style="margin-right:0; width:100%">
 	            <button style="border:0; outline:0; background-color:white" name="productid" value=<%= productid%>>
@@ -255,7 +284,12 @@
 	                  <div class="div-display-living-box">
 	                     <img class="img-display-box" src="<%=img_li%>" alt="">
 	                     <div class="display-text">
-	                        <strong><%=productname%></strong>
+	                        <p>
+									<strong><<%=brand%>></strong>
+								</p>
+								<p>
+									<strong><%=productname%></strong>
+								</p>
 	                        <p><%=price%>원
 	                        </p>
 	                     </div>

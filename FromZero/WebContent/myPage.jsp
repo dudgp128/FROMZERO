@@ -177,7 +177,7 @@ td, tr {
 
 	if (level == null)
 		level = "테스트하고 레벨 알아보기!";
-	
+
 	try {
 		String sqlSt = "select * from online_order where custid='" + user_id + "'";
 		pst = conn.prepareStatement(sqlSt);
@@ -191,20 +191,20 @@ td, tr {
 		tmp = rs.getInt("allprice");
 		all_price += tmp;
 	}
-	
+
 	PreparedStatement pstmtt = null;
-	   ResultSet rsett = null;
-	   String point = null;
-	   try {
-	      String sqlSt = "select * from bottle where custid='" + user_id + "'";
-	      pstmtt = conn.prepareStatement(sqlSt);
-	      rsett = pstmtt.executeQuery();
-	   } catch (SQLException e) {
-	      e.printStackTrace();
-	   }
-	   if (rsett.next())
-	      point = rsett.getString("point");
-	
+	ResultSet rsett = null;
+	String point = null;
+	try {
+		String sqlSt = "select * from bottle where custid='" + user_id + "'";
+		pstmtt = conn.prepareStatement(sqlSt);
+		rsett = pstmtt.executeQuery();
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
+	if (rsett.next())
+		point = rsett.getString("point");
+
 	//String sqlSt = "select * from online_order where custid='" + user_id + "'";
 	%>
 
@@ -221,8 +221,16 @@ td, tr {
 				<div style='font-weight: bold; font-size: 26px; padding: 10px;'>
 					<%=user_name%>님, 안녕하세요.
 				</div>
-				<div class="total-price" style='font-size: 16px; padding: 10px; font-size:larger'>누적 구매금액 :
-					<%=all_price %>원</div>
+				<div class="total-price"
+					style='font-size: 16px; padding: 10px; font-size: larger'>
+					<p>
+						누적 구매금액 :
+						<%=all_price%>원
+					</p>
+					<p style="font-size: smaller; color: green;">
+						<strong>*누적 구매금액은 온라인 구매 상품에 대해서만 적용됩니다.</strong>
+					</p>
+				</div>
 			</div>
 
 			<div class="point-view">
@@ -273,7 +281,7 @@ td, tr {
 									String img = "";
 									String img_li = "";
 									String big_category = "";
-									int orderid=0;
+									int orderid = 0;
 									while (rset.next()) {
 										online_productid = rset.getInt(1);
 										productname = rset.getString(2);
@@ -281,37 +289,39 @@ td, tr {
 										online_price = rset.getInt(4);
 										img = rset.getString("img");
 										big_category = rset.getString("big_category");
-										orderid=rset.getInt("orderid");
+										orderid = rset.getInt("orderid");
 
 										img_li = big_category + "/" + img + ".jpg";
 									%>
 									<td style="border-bottom: 1px solid #444444">
 										<table style="width: 55%; text-algin: left">
-										<form method="post" action="doReview">
-				
-											<tr>
-												<td rowspan="2"><img
-													style="width: 130px; height: 130px;"
-													class="img-display-box" src="<%=img_li%>" alt=""></td>
+											<form method="post" action="doReview">
 
-												<td style="text-align: left; width: 100%; padding-right:0px"><strong><p><%=productname%></p></strong>
-													<p style="font-size: 12px">
-														수량 :
-														<%=count%>개 /
-														<%=online_price%>원
-													</p></td>
-												<td>
-												<input type="hidden" name="productname" value="<%=productname%>">
-												<input type="hidden" name="count" value="<%=count%>">
-												<input type="hidden" name="price" value="<%=online_price%>">
-												<input type="hidden" name="online_productid" value="<%=online_productid%>">
-												<input type="hidden" name="orderid" value="<%=orderid %>"> 
-												</td>
-												<td>
-													<button style="width: 40px" type="submit">후기작성</button>
-												</td>
-											</tr>
-											<tr />
+												<tr>
+													<td rowspan="2"><img
+														style="width: 130px; height: 130px;"
+														class="img-display-box" src="<%=img_li%>" alt=""></td>
+
+													<td
+														style="text-align: left; width: 100%; padding-right: 0px"><strong><p><%=productname%></p></strong>
+														<p style="font-size: 12px">
+															수량 :
+															<%=count%>개 /
+															<%=online_price%>원
+														</p></td>
+													<td><input type="hidden" name="productname"
+														value="<%=productname%>"> <input type="hidden"
+														name="count" value="<%=count%>"> <input
+														type="hidden" name="price" value="<%=online_price%>">
+														<input type="hidden" name="online_productid"
+														value="<%=online_productid%>"> <input
+														type="hidden" name="orderid" value="<%=orderid%>">
+													</td>
+													<td>
+														<button style="width: 40px" type="submit">후기작성</button>
+													</td>
+												</tr>
+												<tr />
 											</form>
 										</table>
 									</td>
@@ -362,7 +372,8 @@ td, tr {
 													style="width: 130px; height: 130px;"
 													class="img-display-box" src="<%=img_li%>" alt=""></td>
 
-												<td style="text-align: left; width: 100%; padding-right:0px"><strong><%=offlineproduct_name%></strong>
+												<td
+													style="text-align: left; width: 100%; padding-right: 0px"><strong><%=offlineproduct_name%></strong>
 													<br />
 													<p style="font-size: 12px">
 														수량 :
@@ -370,8 +381,8 @@ td, tr {
 														<%=offline_price%>원
 													</p></td>
 												<td />
-												
-												<td/>
+
+												<td />
 											</tr>
 											<tr />
 										</table>

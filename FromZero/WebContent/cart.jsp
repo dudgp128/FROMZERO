@@ -56,7 +56,7 @@
 			try {
 			conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-			String sqlSt = "select * from cart_items";
+			String sqlSt = "select * from cart_items where custid = '" + user_id + "'";
 			pstmt = conn.prepareStatement(sqlSt);
 			rset = pstmt.executeQuery();
 		} catch (SQLException e) {
@@ -84,6 +84,7 @@
 				count = rset.getInt("count");
 
 				String sql = "select * from online_product where productid = '" + productid + "'";
+				System.out.println("확인 sql : " + sql);
 				pPstmt = conn.prepareStatement(sql);
 				pRset = pPstmt.executeQuery();
 				if (pRset.next()) {
