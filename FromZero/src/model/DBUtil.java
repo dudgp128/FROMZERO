@@ -41,20 +41,20 @@ public class DBUtil {
 		return null;
 	}
 	
-	public static void modifyUser(Connection conn, String nmid, String npasswd, String nname, String naddress,
-			String nphone, String nemail) throws SQLException {
+	public static void modifyUser(Connection conn, String custid, String passwd, String name, String address,
+			String phone, String email) throws SQLException {
 
 		Statement stmt = null;
 		try {
 			stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-			ResultSet uprs = stmt.executeQuery("SELECT * FROM customer WHERE " + "custid=" + "'" + nmid + "'");
+			ResultSet uprs = stmt.executeQuery("SELECT * FROM customer WHERE " + "custid=" + "'" + custid + "'");
 
 			while (uprs.next()) {
-				uprs.updateString("passwd", npasswd);
-				uprs.updateString("name", nname);
-				uprs.updateString("address", naddress);
-				uprs.updateString("phone", nphone);
-				uprs.updateString("email", nemail);
+				uprs.updateString("passwd", passwd);
+				uprs.updateString("name", name);
+				uprs.updateString("address", address);
+				uprs.updateString("phone", phone);
+				uprs.updateString("email", email);
 				uprs.updateRow();
 			}
 

@@ -41,12 +41,12 @@ public class DoUpdateInfo extends HttpServlet {
 
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
-		String custid = request.getParameter("nmid");
-		String passwd = request.getParameter("npasswd");
-		String name = request.getParameter("nname");
-		String address = request.getParameter("naddress");
-		String phone = request.getParameter("nphone");
-		String email = request.getParameter("nemail");
+		String custid = request.getParameter("custid");
+		String passwd = request.getParameter("passwd");
+		String name = request.getParameter("name");
+		String address = request.getParameter("address");
+		String phone = request.getParameter("phone");
+		String email = request.getParameter("email");
 		System.out.println("phone : " + phone);
 		System.out.println("고객pw : " + passwd);
 

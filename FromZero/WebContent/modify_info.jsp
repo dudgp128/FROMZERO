@@ -176,7 +176,7 @@ td, tr {
 			<br /> <br />
 
 			<div style="text-align: center">
-				<form method="post" action="doUpadateInfo">
+				<form method="post" action="doUpdateInfo">
 					<%
 						try {
 
@@ -198,7 +198,7 @@ td, tr {
 						email = rset.getString("email");
 					}
 					%>
-					아이디 <input id="custid" type="text" name="custid" required /><br />
+					아이디 <input id="custid" type="text" value="<%=user_id%>"name="custid" required /><br />
 					비밀번호 <input id="passwd" type="password" placeholder="PASSWORD"
 						name="passwd" required /><br /> 이름 <input id="name"
 						type="text" name="name" placeholder="NAME" required /><br /> 주소
