@@ -98,7 +98,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('admin','1234','관리자','얏호','01082828282',NULL,NULL,1),('khhong','1111','홍기형','충남','02-920-7525',NULL,'나무',0),('off_admin1','1234','알맹상점',NULL,NULL,NULL,NULL,1),('off_admin2','1234','지구샵',NULL,NULL,NULL,NULL,1),('off_admin3','1234','더피커',NULL,NULL,NULL,NULL,1),('off_admin4','1234','라마홈',NULL,NULL,NULL,NULL,1),('off_admin5','1234','송포얼스',NULL,NULL,NULL,NULL,1),('off_admin6','1234','디어얼스',NULL,NULL,NULL,NULL,1);
+INSERT INTO `customer` VALUES ('admin','1234','관리자',NULL,'01082828282',NULL,NULL,1),('khhong','1111','홍기형','성신여대미정관','82828282','khhong@sungshin.ac.kr','나무',0),('off_admin1','1234','알맹상점',NULL,NULL,NULL,NULL,1),('off_admin2','1234','지구샵',NULL,NULL,NULL,NULL,1),('off_admin3','1234','더피커',NULL,NULL,NULL,NULL,1),('off_admin4','1234','라마홈',NULL,NULL,NULL,NULL,1),('off_admin5','1234','송포얼스',NULL,NULL,NULL,NULL,1),('off_admin6','1234','디어얼스',NULL,NULL,NULL,NULL,1);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,7 +412,7 @@ CREATE TABLE `qna` (
 
 LOCK TABLES `qna` WRITE;
 /*!40000 ALTER TABLE `qna` DISABLE KEYS */;
-INSERT INTO `qna` VALUES (1,'khhong','배송문의','이번주 내에 배송 되나요?','2020-12-13','0128'),(2,'khhong','전공추가','ㅇ','2020-12-13','');
+INSERT INTO `qna` VALUES (1,'khhong','배송문의','이번주 내에 배송 되나요?','2020-12-13','0128');
 /*!40000 ALTER TABLE `qna` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -443,7 +443,7 @@ CREATE TABLE `qna_comment` (
 
 LOCK TABLES `qna_comment` WRITE;
 /*!40000 ALTER TABLE `qna_comment` DISABLE KEYS */;
-INSERT INTO `qna_comment` VALUES (1,'khhong',1,'dpd','2020-12-13');
+INSERT INTO `qna_comment` VALUES (1,'admin',1,'14일(내일) 출고 예정입니다.','2020-12-13');
 /*!40000 ALTER TABLE `qna_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -495,4 +495,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-13 15:51:21
+-- Dump completed on 2020-12-13 23:26:29
