@@ -16,7 +16,7 @@
 <title>From zero</title>
 
 <%
-   ResultSet rs = (ResultSet) request.getAttribute("rs");
+   ResultSet rset = (ResultSet) request.getAttribute("rs");
 %>
 <%
    String search_text = (String) request.getAttribute("search_text");
@@ -26,40 +26,52 @@
 
    <%@ include file="./fz_header.jsp" %>
 
-   <div style="margin-left:150px"class="big-shop-grid">
-      <h2 class="big-category-text"></h2>
-      <div class="div-shop-grid">
-         <ul class="ul-shop-grid">
-            <%
-               String img;
-            String img_li = null;
-            String big_category = null;
-            while (rs.next()) {
-               String productname = null;
-               String price = null;
-               productname = rs.getString("productname");
-               big_category = rs.getString("big_category");
-               price = rs.getString("price");
-               img = rs.getString("img");
-               img_li = big_category + "/" + img + ".jpg";
+	<div class="big-shop-grid" style="text-align:center; margin-top: 30px;">
+	<h2>[<%=search_text %>] 검색 결과</h2>
+		<div class="div-shop-grid" style="margin-top: 40px;">
+			<ul class="ul-shop-grid">
+				<%
+				String productname = null;
+				String price = null;
+				String img = null;
+				String img_li = null;
+				String productid = null;
+				String brand = null;
+				String big_category = null;
+				while (rset.next()) {
+					productname = rset.getString("productname");
+					price = rset.getString("price");
+					productid = rset.getString("productid");
+					img = rset.getString("img");
+					brand = rset.getString("brand");
+					big_category = rset.getString("big_category");
+					img_li = big_category + "/" + img + ".jpg";
+				%>
+				<form style="margin-left:100px" method="post" action="doDetailProduct">
+					<button style="border: 0; outline: 0; background-color: white"
+						name="productid" value=<%= productid%>>
+						<li id="li-living-item-box">
+							<div class="div-display-living-box">
+								<img class="img-display-box" src="<%=img_li%>" alt="">
+								<div class="display-text">
+									<p>
+										<strong><<%=brand%>></strong>
+									</p>
+									<p>
+										<strong><%=productname%></strong>
+									</p>
+									<p><%=price%>원
+									</p>
+								</div>
+							</div> </a>
+						</li>
 
-               System.out.println(productname);
-            %>
-            <li id="li-living-item-box"><a href="living-item1.html">
-                  <div class="div-display-living-box">
-                     <img class="img-display-box" src="<%=img_li%>" alt="">
-                     <div class="display-text">
-                        <strong><%=productname%></strong>
-                        <p><%=price%>원
-                        </p>
-                     </div>
-                  </div>
-            </a></li>
-            <%
-               }
-            %>
-         </ul>
-      </div>
+						<%
+							}
+						%>
+					</button>
+			</ul>
+			</form>
    </div>
 </body>
 </html>

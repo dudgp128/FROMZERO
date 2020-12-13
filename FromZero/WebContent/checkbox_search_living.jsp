@@ -58,7 +58,7 @@ function check(){
 	<%@ include file="./fz_header.jsp"%>
 	<!-- 체크박스 -->
 	<br />
-	<form style="margin-left:100px" method="post" action="doBathroom">
+	<form style="margin-left:100px" method="post" action="doLiving">
 		<table>
 			<tr>
 				<th>소분류</th>
@@ -129,7 +129,7 @@ function check(){
 
 
 	<div class="big-shop-grid">
-		<h2 class="big-category-text">BATHROOM</h2>
+		<h2 class="big-category-text">LIVING</h2>
 		<div class="div-shop-grid">
 			<ul class="ul-shop-grid">
 				<% 
