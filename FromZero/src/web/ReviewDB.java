@@ -56,7 +56,7 @@ public class ReviewDB extends HttpServlet {
 		if(find_reviewid!=null){
 			int last_reviewid=0;
 			try {
-				if(find_reviewid.next()) {
+				while(find_reviewid.next()) {
 					last_reviewid = find_reviewid.getInt(1);
 					reviewid=last_reviewid+1;
 				}
@@ -64,7 +64,7 @@ public class ReviewDB extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else {
+		else{
 			reviewid=1;
 		}
 		System.out.println("->"+reviewid);

@@ -287,7 +287,7 @@ ul {
 							<td style="border-bottom: 1px solid #444444;">
 								<table style="background-color: #FFFFFF; text-align:left">
 									<tr>
-										<td style="padding-right:0; margin-right:0">
+										<td style="width:30%">
 											<p>
 												<img style="width: 40px" src="<%=img_score%>" alt="" />
 										<br/>

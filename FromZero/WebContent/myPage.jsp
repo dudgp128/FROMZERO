@@ -370,9 +370,8 @@ td, tr {
 														<%=offline_price%>원
 													</p></td>
 												<td />
-												<td>
-													<button style="width: 40px" type="button">후기작성</button>
-												</td>
+												
+												<td/>
 											</tr>
 											<tr />
 										</table>
