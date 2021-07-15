@@ -40,7 +40,6 @@ CREATE TABLE `bottle` (
 
 LOCK TABLES `bottle` WRITE;
 /*!40000 ALTER TABLE `bottle` DISABLE KEYS */;
-INSERT INTO `bottle` VALUES ('khhong',2,0,0,1,200);
 /*!40000 ALTER TABLE `bottle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,7 +67,6 @@ CREATE TABLE `cart_items` (
 
 LOCK TABLES `cart_items` WRITE;
 /*!40000 ALTER TABLE `cart_items` DISABLE KEYS */;
-INSERT INTO `cart_items` VALUES ('khhong',26,3),('khhong',39,1),('khhong',47,1);
 /*!40000 ALTER TABLE `cart_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -211,7 +209,6 @@ CREATE TABLE `offline_order` (
 
 LOCK TABLES `offline_order` WRITE;
 /*!40000 ALTER TABLE `offline_order` DISABLE KEYS */;
-INSERT INTO `offline_order` VALUES (1,'admin',1,22000,'2020-12-06'),(2,'khhong',3,27000,'2020-12-13'),(3,'khhong',4,22000,'2020-12-13'),(4,'khhong',4,3000,'2020-12-13'),(5,'khhong',4,2000,'2020-12-13'),(6,'khhong',4,20000,'2020-12-13'),(7,'khhong',4,20000,'2020-12-13'),(8,'khhong',4,20000,'2020-12-13'),(9,'khhong',4,55000,'2020-12-13');
 /*!40000 ALTER TABLE `offline_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -240,7 +237,6 @@ CREATE TABLE `offline_order_items` (
 
 LOCK TABLES `offline_order_items` WRITE;
 /*!40000 ALTER TABLE `offline_order_items` DISABLE KEYS */;
-INSERT INTO `offline_order_items` VALUES (1,100,'admin',1,2),(2,302,'khhong',3,2),(2,303,'khhong',3,1),(3,401,'khhong',4,1),(3,403,'khhong',4,1),(3,405,'khhong',4,1),(3,407,'khhong',4,1),(4,400,'khhong',4,3),(5,400,'khhong',4,2),(6,401,'khhong',4,2),(7,401,'khhong',4,2),(8,401,'khhong',4,2),(9,403,'khhong',4,5),(9,406,'khhong',4,3);
 /*!40000 ALTER TABLE `offline_order_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +265,7 @@ CREATE TABLE `offline_product` (
 
 LOCK TABLES `offline_product` WRITE;
 /*!40000 ALTER TABLE `offline_product` DISABLE KEYS */;
-INSERT INTO `offline_product` VALUES (100,1,'소프넛',100,11000),(101,1,'플레이니스트(빨래, 설거지)',100,9000),(102,1,'에코띠크 세탁세제',100,3500),(103,1,'에코띠크 섬유유연제',100,3500),(104,1,'구연산',100,2000),(105,1,'탄산수소나트륨(베이킹소다)',100,2000),(106,1,'과탄산소다(빨래)',100,2500),(107,1,'생활공작소(주방세제)',100,2500),(108,1,'바이오 크린콜',100,3500),(200,2,'설거지 비누',NULL,6500),(201,2,'천연수세미3개입',NULL,9900),(202,2,'브라질넛',NULL,50),(203,2,'헤이즐넛',NULL,35),(204,2,'캐슈넛',NULL,35),(205,2,'통밀쿠키(비건)',NULL,400),(206,2,'초코호두(비건)',NULL,600),(300,3,'자연분해 일회용 접시',NULL,1500),(301,3,'재사용 소창 화장지',NULL,25000),(302,3,'재사용 휴대용 소창와압스',NULL,10000),(303,3,'소창 바게트 주머니',NULL,7000),(304,3,'천연 실크 치실',NULL,7000),(305,3,'A5 크라프트 무지노트',NULL,1500),(306,3,'병아리콩',NULL,4000),(307,3,'유기농 국산 햇귀리',NULL,7500),(308,3,'쌀 파스타(펜네)',NULL,8500),(309,3,'브라운 렌틸콩',NULL,3000),(400,4,'친환경 노트',15,1000),(401,4,'삼베수세미',13,10000),(402,4,'손수건',NULL,3500),(403,4,'밀랍초',-5,5000),(404,4,'소프넛',NULL,11000),(405,4,'천 마스크',NULL,5000),(406,4,'빨대키트',-3,10000),(407,4,'대나무 칫솔',NULL,2000),(500,5,'칫솔 파우치',NULL,3000),(501,5,'혀클리너',NULL,7000),(502,5,'닥터노아 어린이 칫솔',NULL,3700),(503,5,'수세미 병솔(납작형)',NULL,7000),(504,5,'설거지 수세미 S',NULL,4000),(505,5,'다용도 집게',NULL,1000),(506,5,'고체치약',NULL,14000),(600,6,'삼베 주머니',NULL,2400),(601,6,'고체치약(120정)',NULL,13900),(602,6,'팜프리 비누',NULL,6800),(603,6,'비즈왁스랩(밀랍랩)',NULL,4500),(604,6,'다회용 소창 티백',NULL,3500);
+INSERT INTO `offline_product` VALUES (100,1,'소프넛',NULL,11000),(101,1,'플레이니스트(빨래, 설거지)',NULL,9000),(102,1,'에코띠크 세탁세제',NULL,3500),(103,1,'에코띠크 섬유유연제',NULL,3500),(104,1,'구연산',NULL,2000),(105,1,'탄산수소나트륨(베이킹소다)',NULL,2000),(106,1,'과탄산소다(빨래)',NULL,2500),(107,1,'생활공작소(주방세제)',NULL,2500),(108,1,'바이오 크린콜',NULL,3500),(200,2,'설거지 비누',NULL,6500),(201,2,'천연수세미3개입',NULL,9900),(202,2,'브라질넛',NULL,50),(203,2,'헤이즐넛',NULL,35),(204,2,'캐슈넛',NULL,35),(205,2,'통밀쿠키(비건)',NULL,400),(206,2,'초코호두(비건)',NULL,600),(300,3,'자연분해 일회용 접시',NULL,1500),(301,3,'재사용 소창 화장지',NULL,25000),(302,3,'재사용 휴대용 소창와압스',NULL,10000),(303,3,'소창 바게트 주머니',NULL,7000),(304,3,'천연 실크 치실',NULL,7000),(305,3,'A5 크라프트 무지노트',NULL,1500),(306,3,'병아리콩',NULL,4000),(307,3,'유기농 국산 햇귀리',NULL,7500),(308,3,'쌀 파스타(펜네)',NULL,8500),(309,3,'브라운 렌틸콩',NULL,3000),(400,4,'친환경 노트',NULL,1000),(401,4,'삼베수세미',NULL,10000),(402,4,'손수건',NULL,3500),(403,4,'밀랍초',NULL,5000),(404,4,'소프넛',NULL,11000),(405,4,'천 마스크',NULL,5000),(406,4,'빨대키트',NULL,10000),(407,4,'대나무 칫솔',NULL,2000),(500,5,'칫솔 파우치',NULL,3000),(501,5,'혀클리너',NULL,7000),(502,5,'닥터노아 어린이 칫솔',NULL,3700),(503,5,'수세미 병솔(납작형)',NULL,7000),(504,5,'설거지 수세미 S',NULL,4000),(505,5,'다용도 집게',NULL,1000),(506,5,'고체치약',NULL,14000),(600,6,'삼베 주머니',NULL,2400),(601,6,'고체치약(120정)',NULL,13900),(602,6,'팜프리 비누',NULL,6800),(603,6,'비즈왁스랩(밀랍랩)',NULL,4500),(604,6,'다회용 소창 티백',NULL,3500);
 /*!40000 ALTER TABLE `offline_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -324,7 +320,6 @@ CREATE TABLE `online_order` (
 
 LOCK TABLES `online_order` WRITE;
 /*!40000 ALTER TABLE `online_order` DISABLE KEYS */;
-INSERT INTO `online_order` VALUES (1,'khhong',6000,'2020-12-13'),(2,'khhong',9000,'2020-12-13'),(3,'khhong',7000,'2020-12-13');
 /*!40000 ALTER TABLE `online_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -481,10 +476,6 @@ LOCK TABLES `review` WRITE;
 INSERT INTO `review` VALUES (1,'khhong',17,'ddd',2,'2020-12-13',3);
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'fz_webapp'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -495,4 +486,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-12-13 23:26:29
+-- Dump completed on 2021-07-15 16:48:04
