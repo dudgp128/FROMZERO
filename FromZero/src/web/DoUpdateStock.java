@@ -43,9 +43,7 @@ public class DoUpdateStock extends HttpServlet {
 		
 		String offlineproduct_num = request.getParameter("offlineproduct_num");
 		String offlineproduct_id = request.getParameter("offlineproduct_id");
-		
-		System.out.println("재고 : " + offlineproduct_num);
-		System.out.println("상품번호 : " + offlineproduct_id);
+	
 
 		
 		try {

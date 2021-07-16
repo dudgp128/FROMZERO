@@ -81,7 +81,7 @@ String user_name = (String) session.getAttribute("user_name");
 				<td><h3>상품가격</td>
 				<td><h3>재고</td>
 			</tr>
-			<form method="post" action="doUpdateStock">
+			
 
 				<%
 					try {
@@ -101,7 +101,6 @@ String user_name = (String) session.getAttribute("user_name");
 					} else if (user_id.equals("off_admin6")) {
 						sqlSt = "select * from offline_product where storeid=6";
 					}
-					System.out.println(sqlSt);
 					pstmt = conn.prepareStatement(sqlSt);
 					rset = pstmt.executeQuery();
 				} catch (SQLException e) {
@@ -113,7 +112,7 @@ String user_name = (String) session.getAttribute("user_name");
 					offlineproduct_num = rset.getString("offlineproduct_num");
 					offlineproduct_id = rset.getString("offlineproduct_id");
 				%>
-
+				<form method="post" action="doUpdateStock">
 				<tr>
 					<!-- <td></td> -->
 					<td><input type="text" value="<%=offlineproduct_id%>"
@@ -122,13 +121,14 @@ String user_name = (String) session.getAttribute("user_name");
 						style="border: none; background: transparent; pointer-events: none; text-align: center; width: 100px; height: 20px;" /></td>
 					<td><%=offlineproduct_name%></td>
 					<td><%=offlineproduct_price%>원</td>
-					<td><input id="offlineproduct_num" type="number"
+					<td><input id="offlineproduct_id %>" type="number"
 						name="offlineproduct_num" min="0" step="1"
 						value=<%=offlineproduct_num%>
-						onchange="javascript: document.getElementById('offlineproduct_num').value = this.value;
-							  javascript: document.getElementById('offlineproduct_id').value = <%=offlineproduct_id%>" /></td>
+						onchange="javascript: document.getElementById('offlineproduct_num').value = this.value,
+						javascript: document.getElementById('<%=offlineproduct_id%>').value = <%=offlineproduct_id%>" /></td>
 					<td><button type="submit">UPDATE</button></td>
 				</tr>
+				</form>
 				<%
 					}
 				%>
@@ -138,7 +138,6 @@ String user_name = (String) session.getAttribute("user_name");
 					<td></td>
 					<td></td>
 				</tr>
-			</form>
 		</table>
 
 
