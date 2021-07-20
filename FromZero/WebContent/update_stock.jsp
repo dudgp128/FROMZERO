@@ -69,10 +69,17 @@ String user_name = (String) session.getAttribute("user_name");
 
 	<div class="title">
 		<h2 style="text-align: center">상품 재고 변경</h2>
+		<div style="margin-left:800px">
+		<button class="test-result-button" type="button" onclick="location.href='new_offline_stock.jsp'"> 
+			<a href='new_offline_stock.jsp'>    +     </a>
+		</button>
+		<h5> 제품 추가하기 </h5>
+		</div>
 	</div>
 
 
 	<div class="question_box">
+	
 		<table>
 			<tr>
 				<!-- <td>사진</td> -->
