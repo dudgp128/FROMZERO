@@ -20,7 +20,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 	</header>
 	<nav id="topMenu">
 		<ul>
-			<li class="topMenuLi"><a class="menuLink" href="introduce.jsp">OUR
+			<li class="topMenuLi"><a class="menuLink" href="./Atest/thing_recog.jsp">OUR
 					STORY</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="introduce.jsp" class="submenuLink">사이트 소개</a></li>
