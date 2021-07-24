@@ -52,21 +52,13 @@ ul {
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp"%>
 
-	<div>
-		<h1 id="bigCategory"
-			style="text-align: center; margin-top: 20px; text-transform: uppercase;">ECO
-			TIP</h1>
-	</div>
-	<br>
-	<div id="menu" style="float: left;">
-		<ul class="leftMenu">
-			<li><a href="aboutZW.jsp" class="submenuLink">ABOUT ZW</a></li>
-			<li><a href="eco_tip.jsp" class="submenuLink">ECO TIP</a></li>
-		</ul>
+	<div class="title">
+		<h2 style="text-align: center">에코 뉴스</h2>
 	</div>
 	
+	<div style="text-align: center;">
 	<br><br>
-	<div id="content" style="float: left; width: 1200px; padding:10px">
+	<div id="content" style="display: inline-block; width: 1200px; padding:10px">
 		<ul class="ul-shop-grid">
 			<%
 				PreparedStatement pstmt = null;
@@ -124,7 +116,7 @@ ul {
 		</form>
 
 	</div>
-
+	</div>
 
 
 

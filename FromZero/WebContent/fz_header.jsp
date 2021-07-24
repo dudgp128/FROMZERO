@@ -20,14 +20,11 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 	</header>
 	<nav id="topMenu">
 		<ul>
-			<li class="topMenuLi"><a class="menuLink" href="./Atest/thing_recog.jsp">OUR
-					STORY</a>
+			<li class="topMenuLi"><a class="menuLink" href="introduce.jsp">INTRODUCE</a>
 				<ul class="submenu" style="white-space: normal">
-					<li><a href="introduce.jsp" class="submenuLink">사이트 소개</a></li>
-					<li><a href="guide.jsp" class="submenuLink">이용 안내</a></li>
 				</ul></li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="shop.jsp">SHOP</a>
+			<li class="topMenuLi"><a class="menuLink" href="shop.jsp">ONLINE SHOP</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="living.jsp" class="submenuLink">LIVING</a></li>
 					<li><a href="bathroom.jsp" class="submenuLink">BATHROOM</a></li>
@@ -37,13 +34,14 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink"
-				href="offline_store.jsp">OFFLINE</a></li>
+				href="offline_store.jsp">OFFLINE SHOP</a></li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="aboutZW.jsp">ECO
-					DIARY</a>
+			<li class="topMenuLi"><a class="menuLink" href="aboutZW.jsp">ECO DIARY</a>
 				<ul class="submenu" style="white-space: normal">
-					<li><a href="aboutZW.jsp" class="submenuLink">ABOUT ZW</a></li>
 					<li><a href="eco_tip.jsp" class="submenuLink">ECO TIP</a></li>
+					<li><a href="exchange.jsp" class="submenuLink">ECO POINT</a></li>
+					<li><a href="test.jsp" class="submenuLink">ECO LEVEL TEST</a></li>
+					<li><a href="recycling_method.jsp" class="submenuLink">RECYCLING METHOD</a></li>
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="notice.jsp">GREEN
@@ -96,9 +94,11 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 
 	</ul>
 
+	<!--
 	<ul class="service">
 		<li><a href="exchange.jsp"> <img src="images/exchange.png"
 				width=40 height=50></a></li>
 		<li><a href="test.jsp"><img src="images/test.png" width=40
 				height=50></a></li>
 	</ul>
+	-->
