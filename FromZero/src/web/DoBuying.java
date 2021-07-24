@@ -79,7 +79,7 @@ public class DoBuying extends HttpServlet {
 			request.setAttribute("all_price", all_price);
 			request.setAttribute("count", count);
 			//response.sendRedirect("./buying_result.jsp");
-			RequestDispatcher view = request.getRequestDispatcher("buying_result.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("payment.jsp");
 			view.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();

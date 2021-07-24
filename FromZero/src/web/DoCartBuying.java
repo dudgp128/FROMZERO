@@ -116,7 +116,7 @@ public class DoCartBuying extends HttpServlet {
 					request.setAttribute("img", img);
 					request.setAttribute("price", price);
 
-					RequestDispatcher view = request.getRequestDispatcher("cart_buying_result.jsp");
+					RequestDispatcher view = request.getRequestDispatcher("payment.jsp");
 					view.forward(request, response);
 				} catch (Exception e) {
 					e.printStackTrace();

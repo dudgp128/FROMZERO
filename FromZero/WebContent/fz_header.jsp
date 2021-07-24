@@ -20,7 +20,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 	</header>
 	<nav id="topMenu">
 		<ul>
-			<li class="topMenuLi"><a class="menuLink" href="introduce.jsp">INTRODUCE</a>
+			<li class="topMenuLi"><a class="menuLink" href="ntroduce.jsp">INTRODUCE</a>
 				<ul class="submenu" style="white-space: normal">
 				</ul></li>
 			<li>|</li>

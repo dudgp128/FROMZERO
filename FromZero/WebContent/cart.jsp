@@ -99,7 +99,7 @@
 			<div class="product-detail">
 				<div style="margin-left: 50px;">
 					<input type="checkbox" onClick="" name="cart"
-						value="<%=productid%>" id="cart">
+						value="<%=productid%>" id="cart" checked="checked">
 				</div>
 				<img src="<%=img_li%>" width=200 height=200 alt="" align="left"
 					style="margin-left: 50px; padding: 0px 30px 0px 30px;" />
