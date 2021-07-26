@@ -15,9 +15,11 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 <body style="overflow-x: hidden">
 	<header>
 		<h1>
-			<a href='main.jsp'>From zero</a>
+			<!-- <a href='main.jsp'>From zero</a>-->
+			<img src="./토끼제로로고.png" width="200px" alt="My Image">
 		</h1>
 	</header>
+
 	<nav id="topMenu">
 		<ul>
 			<li class="topMenuLi"><a class="menuLink" href="ntroduce.jsp">INTRODUCE</a>

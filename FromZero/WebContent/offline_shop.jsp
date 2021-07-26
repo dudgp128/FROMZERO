@@ -15,9 +15,9 @@
 <%
 	ResultSet rs = (ResultSet) request.getAttribute("rs");
 	String storename = (String) request.getAttribute("storename");
-	int offline_storeid = (int) request.getAttribute("offline_storeid");
-String store_img = null;
-	store_img = "images/offline_store-" + offline_storeid + ".jpg";
+	int storeid = (int) request.getAttribute("offline_storeid");
+	String store_img = null;
+	store_img = "images/offline_store-" + storeid + ".jpg";
 %>
 <title>From zero</title>
 </head>
@@ -35,8 +35,10 @@ String store_img = null;
 					<br/>
 					<br/>
 					<%
-					String img;
+					String img=null;
+					String filerealname=null;
 					String img_li = null;
+					String directory = null;
 					while (rs.next()) {
 					int productid = 0;
 					String productname = null;
@@ -44,10 +46,13 @@ String store_img = null;
 					productid = rs.getInt(1);
 					productname = rs.getString("offlineproduct_name");
 					price = rs.getString("offlineproduct_price");
-					img = rs.getString("offlineproduct_id");
-					img_li = "offline_store_img/Store" + offline_storeid + "/" + img + ".jpg";
-					System.out.println(img_li);
-					System.out.println(productname);
+					filerealname = rs.getString(2);
+					
+					if (filerealname != null)
+						img_li = "offline_store_img/Store" + storeid + "/"+filerealname;
+					else
+						img_li = "offline_store_img/Store" + storeid + "/" +productid + ".jpg";
+					System.out.println("조회 경로 > "+img_li);
 					%>
 					<li id="li-living-item-box">
 						<div class="div-display-living-box">
@@ -69,7 +74,7 @@ String store_img = null;
 					%><p>
 						
 					</p>
-					<input type="hidden", name="offline_storeid" value=<%=offline_storeid%>>
+					<input type="hidden", name="offline_storeid" value=<%=storeid%>>
 				</form>
 			</ul>
 		</div>

@@ -14,6 +14,13 @@
 	String user_id = (String) session.getAttribute("user_id");
 String user_name = (String) session.getAttribute("user_name");
 %>
+<style>
+th, td {
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #D3D3D3;
+	padding: 10px;
+}
+</style>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
 <title>From zero</title>
@@ -33,12 +40,12 @@ String user_name = (String) session.getAttribute("user_name");
 	connectionProps.put("user", DBuser);
 	connectionProps.put("password", DBpasswd);
 	connectionProps.put("serverTimezone", DBTimeZone);
-	String name = null;
 
-	String offlineproduct_name = null;
-	String offlineproduct_num = null;
-	String offlineproduct_price = null;
-	String offlineproduct_id = null;
+	String store_id = null;
+	String name = null;
+	String num = null;
+	String price = null;
+	String product_id = null;
 	%>
 	<header>
 		<h1>
@@ -69,32 +76,34 @@ String user_name = (String) session.getAttribute("user_name");
 
 	<div class="title">
 		<h2 style="text-align: center">상품 재고 변경</h2>
-		<div style="margin-left:800px">
-		<button class="test-result-button" type="button" onclick="location.href='new_offline_stock.jsp'"> 
-			<a href='new_offline_stock.jsp'>    +     </a>
-		</button>
-		<h5> 제품 추가하기 </h5>
+		<div style="margin-left: 800px">
+			<button class="test-result-button" type="button"
+				onclick="location.href='new_offline_stock.jsp'">
+				<a href='new_offline_stock.jsp'> + </a>
+			</button>
+			<h5>제품 추가하기</h5>
 		</div>
 	</div>
 
 
-	<div class="question_box">
-	
-		<table>
-			<tr>
-				<!-- <td>사진</td> -->
-				<td><h3>상품번호</h3>
-				<td><h3>상품명</td>
-				<td><h3>상품가격</td>
-				<td><h3>재고</td>
-			</tr>
-			
+	<div style="text-align: center">
+		<div style="display: inline-block;">
+			<table style="width: 900px">
+				<tr>
+					<!-- <td>사진</td> -->
+					<td style="text-size: 15px;">상품번호
+					<td style="text-size: 15px;">상품명</td>
+					<td style="text-size: 15px;">상품가격</td>
+					<td style="text-size: 15px;">재고</td>
+					<td></td>
+				</tr>
+
 
 				<%
 					try {
-
 					conn = DriverManager.getConnection(DBUrl, connectionProps);
 					String sqlSt = null;
+
 					if (user_id.equals("off_admin1")) {
 						sqlSt = "select * from offline_product where storeid=1";
 					} else if (user_id.equals("off_admin2")) {
@@ -113,44 +122,55 @@ String user_name = (String) session.getAttribute("user_name");
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
+				String img_li = null;
+				String file_name = null;
+				String path =null;
+				String directory = null;
 				while (rset.next()) {
-					offlineproduct_name = rset.getString("offlineproduct_name");
-					offlineproduct_price = rset.getString("offlineproduct_price");
-					offlineproduct_num = rset.getString("offlineproduct_num");
-					offlineproduct_id = rset.getString("offlineproduct_id");
+					store_id = rset.getString("storeid");
+					name = rset.getString("offlineproduct_name");
+					price = rset.getString("offlineproduct_price");
+					num = rset.getString("offlineproduct_num");
+					product_id = rset.getString("offlineproduct_id");
+					file_name = rset.getString(2);
+					if (file_name != null) //새로 추가한 파일
+						img_li = "offline_store_img/Store" + store_id + "/"+file_name;
+					else
+						img_li = "offline_store_img/Store" + store_id + "/"+product_id + ".jpg";
+					
 				%>
 				<form method="post" action="doUpdateStock">
-				<tr>
-					<!-- <td></td> -->
-					<td><input type="text" value="<%=offlineproduct_id%>"
-						id="offlineproduct_id" name="offlineproduct_id"
-						readonly="readonly"
-						style="border: none; background: transparent; pointer-events: none; text-align: center; width: 100px; height: 20px;" /></td>
-					<td><%=offlineproduct_name%></td>
-					<td><%=offlineproduct_price%>원</td>
-					<td><input id="offlineproduct_id %>" type="number"
-						name="offlineproduct_num" min="0" step="1"
-						value=<%=offlineproduct_num%>
-						onchange="javascript: document.getElementById('offlineproduct_num').value = this.value,
-						javascript: document.getElementById('<%=offlineproduct_id%>').value = <%=offlineproduct_id%>" /></td>
-					<td><button type="submit">UPDATE</button></td>
-				</tr>
+					<tr>
+						<!-- <td></td> -->
+						<td><input type="text" value="<%=product_id%>"
+							id="offlineproduct_id" name="offlineproduct_id"
+							readonly="readonly"
+							style="border: none; background: transparent; pointer-events: none; text-align: center; width: 50px; height: 20px;" /></td>
+						<td><div>
+								<img src="<%=img_li%>" alt="" style="width: 80px"> <br />
+								<%=name%>
+							</div></td>
+						<td><%=price%>원</td>
+						<td><input id="offlineproduct_id %>" type="number"
+							name="offlineproduct_num" min="0" step="1"
+							value=<%=num%> style="width: 35px"
+							onchange="javascript: document.getElementById('offlineproduct_num').value = this.value,
+						javascript: document.getElementById('<%=product_id%>').value = <%=product_id%>" /></td>
+						<td><button type="submit">UPDATE</button></td>
+					</tr>
 				</form>
 				<%
-					}
+					session.setAttribute("store_id", store_id);
+				}
 				%>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-		</table>
 
-
-
+			</table>
+		</div>
 	</div>
-
-
+	<br />
+	<br />
+	<br />
+	<br />
+	<br />
 </body>
 </html>
