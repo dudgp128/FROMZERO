@@ -13,20 +13,23 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 <title>From zero</title>
 </head>
 <body style="overflow-x: hidden">
+<br/><br/>
 	<header>
-		<h1>
-			<!-- <a href='main.jsp'>From zero</a>-->
-			<img src="./토끼제로로고.png" width="200px" alt="My Image">
-		</h1>
+			
+			<a href="main.jsp"> <img src="./토끼제로로고.png" width="200px"
+				alt="My Image">
+			</a>
+		
 	</header>
-
+<br/>
 	<nav id="topMenu">
 		<ul>
-			<li class="topMenuLi"><a class="menuLink" href="ntroduce.jsp">INTRODUCE</a>
+			<li class="topMenuLi"><a class="menuLink" href="introduce.jsp">INTRODUCE</a>
 				<ul class="submenu" style="white-space: normal">
 				</ul></li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="shop.jsp">ONLINE SHOP</a>
+			<li class="topMenuLi"><a class="menuLink" href="shop.jsp">ONLINE
+					SHOP</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="living.jsp" class="submenuLink">LIVING</a></li>
 					<li><a href="bathroom.jsp" class="submenuLink">BATHROOM</a></li>
@@ -38,12 +41,14 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 			<li class="topMenuLi"><a class="menuLink"
 				href="offline_store.jsp">OFFLINE SHOP</a></li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="aboutZW.jsp">ECO DIARY</a>
+			<li class="topMenuLi"><a class="menuLink" href="aboutZW.jsp">ECO
+					DIARY</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="eco_tip.jsp" class="submenuLink">ECO TIP</a></li>
 					<li><a href="exchange.jsp" class="submenuLink">ECO POINT</a></li>
 					<li><a href="test.jsp" class="submenuLink">ECO LEVEL TEST</a></li>
-					<li><a href="recycling_method.jsp" class="submenuLink">RECYCLING METHOD</a></li>
+					<li><a href="recycling_method.jsp" class="submenuLink">RECYCLING
+							METHOD</a></li>
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="notice.jsp">GREEN
@@ -57,7 +62,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 	</nav>
 
 	<ul class="loginarea">
-		<form style="margin-left:100px" method="post" action="doSearch">
+		<form style="margin-left: 100px" method="post" action="doSearch">
 			<%
 				if (user_name == null) {
 			%>
@@ -95,12 +100,3 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 		</form>
 
 	</ul>
-
-	<!--
-	<ul class="service">
-		<li><a href="exchange.jsp"> <img src="images/exchange.png"
-				width=40 height=50></a></li>
-		<li><a href="test.jsp"><img src="images/test.png" width=40
-				height=50></a></li>
-	</ul>
-	-->

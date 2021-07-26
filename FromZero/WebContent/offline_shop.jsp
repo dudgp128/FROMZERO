@@ -16,6 +16,7 @@
 	ResultSet rs = (ResultSet) request.getAttribute("rs");
 	String storename = (String) request.getAttribute("storename");
 	int storeid = (int) request.getAttribute("offline_storeid");
+	int num=0;
 	String store_img = null;
 	store_img = "images/offline_store-" + storeid + ".jpg";
 %>
@@ -46,13 +47,18 @@
 					productid = rs.getInt(1);
 					productname = rs.getString("offlineproduct_name");
 					price = rs.getString("offlineproduct_price");
+					num=rs.getInt("offlineproduct_num");
 					filerealname = rs.getString(2);
+					
+					if(num==-1){ //매장 관리자가 제품을 삭제한 것
+						continue;
+					}
 					
 					if (filerealname != null)
 						img_li = "offline_store_img/Store" + storeid + "/"+filerealname;
 					else
 						img_li = "offline_store_img/Store" + storeid + "/" +productid + ".jpg";
-					System.out.println("조회 경로 > "+img_li);
+					
 					%>
 					<li id="li-living-item-box">
 						<div class="div-display-living-box">

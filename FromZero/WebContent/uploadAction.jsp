@@ -15,6 +15,10 @@
 <title>From zero</title>
 </head>
 <body style="overflow-x: hidden">
+<script>
+	alert("제품을 등록하였습니다.")
+	location.href="update_stock.jsp"; 
+</script>
 <%@ include file="./fz_header.jsp" %>
 	<%
 	//DB연결하기
@@ -80,7 +84,7 @@
 	} catch (Exception e) {
 		e.printStackTrace();
 	}
-	out.write("파일명:"+fileName);
+	
 	%>
 </body>
 </html>

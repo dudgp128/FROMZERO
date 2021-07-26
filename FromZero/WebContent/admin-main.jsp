@@ -47,11 +47,15 @@ th, td {
    connectionProps.put("serverTimezone", DBTimeZone);
    String name = null;
    %>
-
+<br/>
    <header>
-      <h1><a href="main.jsp">From zero</a></h1>
+   
+      <a href="main.jsp"> <img src="./토끼제로로고.png" width="200px"
+				alt="My Image">
+			</a>
       <div style="font-size: 13pt">Admin Page for Offline Shop</div>
    </header>
+  
    <nav id="topMenu">
       <ul>
          <li class="topMenuLi"><a href="admin-main.jsp" class="menuLink"

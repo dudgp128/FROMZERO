@@ -26,6 +26,8 @@ th, td {
 <title>From zero</title>
 </head>
 <body style="overflow-x: hidden">
+
+
 	<%
 		PreparedStatement pstmt = null;
 	ResultSet rset = null;
@@ -47,12 +49,17 @@ th, td {
 	String price = null;
 	String product_id = null;
 	%>
+	<br/>
+
 	<header>
 		<h1>
-			<a href="main.jsp">From zero</a>
+			<a href="main.jsp"> <img src="./토끼제로로고.png" width="200px"
+				alt="My Image">
+			</a>
 		</h1>
 		<div style="font-size: 13pt">Admin Page for Offline Shop</div>
 	</header>
+	
 	<nav id="topMenu">
 		<ul>
 			<li class="topMenuLi"><a href="admin-main.jsp" class="menuLink"
@@ -90,6 +97,10 @@ th, td {
 		<div style="display: inline-block;">
 			<table style="width: 900px">
 				<tr>
+					<td colspan=5 style="text-algin: center">제품 삭제하는 방법 : 수량을 -1로
+						설정해주세요!</td>
+				</tr>
+				<tr>
 					<!-- <td>사진</td> -->
 					<td style="text-size: 15px;">상품번호
 					<td style="text-size: 15px;">상품명</td>
@@ -124,7 +135,7 @@ th, td {
 				}
 				String img_li = null;
 				String file_name = null;
-				String path =null;
+				String path = null;
 				String directory = null;
 				while (rset.next()) {
 					store_id = rset.getString("storeid");
@@ -134,10 +145,9 @@ th, td {
 					product_id = rset.getString("offlineproduct_id");
 					file_name = rset.getString(2);
 					if (file_name != null) //새로 추가한 파일
-						img_li = "offline_store_img/Store" + store_id + "/"+file_name;
+						img_li = "offline_store_img/Store" + store_id + "/" + file_name;
 					else
-						img_li = "offline_store_img/Store" + store_id + "/"+product_id + ".jpg";
-					
+						img_li = "offline_store_img/Store" + store_id + "/" + product_id + ".jpg";
 				%>
 				<form method="post" action="doUpdateStock">
 					<tr>
@@ -152,8 +162,8 @@ th, td {
 							</div></td>
 						<td><%=price%>원</td>
 						<td><input id="offlineproduct_id %>" type="number"
-							name="offlineproduct_num" min="0" step="1"
-							value=<%=num%> style="width: 35px"
+							name="offlineproduct_num" min="-1" step="1" value=<%=num%>
+							style="width: 35px"
 							onchange="javascript: document.getElementById('offlineproduct_num').value = this.value,
 						javascript: document.getElementById('<%=product_id%>').value = <%=product_id%>" /></td>
 						<td><button type="submit">UPDATE</button></td>
