@@ -16,7 +16,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 <br/><br/>
 	<header>
 			
-			<a href="main.jsp"> <img src="./토끼제로로고.png" width="200px"
+			<a href="main.jsp"> <img src="./농부제로로고.png" width="200px"
 				alt="My Image">
 			</a>
 		
@@ -41,7 +41,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 			<li class="topMenuLi"><a class="menuLink"
 				href="offline_store.jsp">OFFLINE SHOP</a></li>
 			<li>|</li>
-			<li class="topMenuLi"><a class="menuLink" href="aboutZW.jsp">ECO
+			<li class="topMenuLi"><a class="menuLink" href="eco_tip.jsp">ECO
 					DIARY</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="eco_tip.jsp" class="submenuLink">ECO TIP</a></li>
@@ -66,8 +66,8 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 			<%
 				if (user_name == null) {
 			%>
-			<li><a href="login.html">LOGIN</a></li>
-			<li><a href="join.html">JOIN</a></li>
+			<li><a href="login.jsp">LOGIN</a></li>
+			<li><a href="join.jsp">JOIN</a></li>
 			<%
 				} else if (user_name.equals("알맹상점") || user_name.equals("지구샵") || user_name.equals("더피커") || user_name.equals("라마홈")
 					|| user_name.equals("송포얼스") || user_name.equals("디어얼스")) {

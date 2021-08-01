@@ -61,7 +61,7 @@ ul {
 	<div id="content" style="display: inline-block; width: 1200px; padding:10px">
 		<ul class="ul-shop-grid">
 			<%
-				PreparedStatement pstmt = null;
+			PreparedStatement pstmt = null;
 			ResultSet rset = null;
 			Connection conn = null;
 			Properties connectionProps = new Properties();

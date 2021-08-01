@@ -33,7 +33,7 @@ public class DoLogout extends HttpServlet {
 		HttpSession session = request.getSession();
 		session.invalidate();
 		
-		response.sendRedirect("./login.html");
+		response.sendRedirect("./login.jsp");
 	}
 
 	/**

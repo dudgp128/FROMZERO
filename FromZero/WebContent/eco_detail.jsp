@@ -165,7 +165,7 @@
 	<%@ include file="./fz_header.jsp"%>
 
 	<%
-		String name = (String) request.getAttribute("name");
+	String name = (String) request.getAttribute("name");
 	int count = (int) request.getAttribute("count");
 	String title = (String) request.getAttribute("title");
 	//int real_count = Integer.parseInt(count);
@@ -173,12 +173,11 @@
 	int i = 1;
 	%>
 
-	<div>
-		<h2 id="bigCategory"
-			style="text-align: center; margin-top: 20px; text-transform: uppercase;">ECO TIP</h2>
-			<br>
-		<h3 style="text-align: center">"<%=title %>"</h3>
+	<div class="title">
+			<h2 style="text-align: center">에코 뉴스</h2>
 	</div>
+	<h3 style="text-align: center">"<%=title %>"</h3>
+	
 
 	<div id="slider-wrap">
 		<ul id="slider">

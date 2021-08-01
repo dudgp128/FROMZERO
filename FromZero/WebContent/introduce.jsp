@@ -3,75 +3,186 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link rel="stylesheet" href="./fromzero.css" type="text/css">
+<!--<link rel="stylesheet" href="./fromzero.css" type="text/css">-->
 <meta charset="UTF-8">
 <title>From zero</title>
 <style>
-.img_profile {
-	width: 300px;
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
 }
 
-.row_li {
-	margin: 10px;
+#slider-wrap {
+	width: 400px;
+	height: 800px; /*dot 위치 확인*/
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
 }
 
-.clear {
-	clear: both;
+#slider-wrap ul#slider {
+	height: 100%;
+	position: absolute;
+	top: 70px; /*내비바와 이미지 슬라이드 간 거리*/
+	left: 0;
+}
+
+#slider-wrap ul#slider li {
+	float: left;
+	position: relative;
+	width: 600px;
+	height: 400px;
+}
+
+#slider-wrap ul#slider li>div {
+	position: absolute;
+	top: 20px;
+	left: 35px;
+}
+
+#slider-wrap ul#slider li>div h3 {
+	font-size: 36px;
+	text-transform: uppercase;
+}
+
+#slider-wrap ul#slider li>div span {
+	font-size: 21px;
+}
+
+#slider-wrap ul#slider li img {
+	display: block;
+	width: 85%;
+	height: 100%;
+}
+
+/*btns*/
+.slider-btns {
+	position: absolute;
+	width: 50px;
+	height: 60px;
+	top: 50%;
+	margin-top: -25px;
+	line-height: 57px;
+	text-align: center;
+	cursor: pointer;
+	background: rgba(0, 0, 0, 0.1);
+	z-index: 100;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-ms-user-select: none;
+	-webkit-transition: all 0.1s ease;
+	-o-transition: all 0.1s ease;
+	transition: all 0.1s ease;
+}
+
+.slider-btns:hover {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+#next {
+	right: -50px;
+	border-radius: 7px 0px 0px 7px;
+	color: #eee;
+}
+
+#previous {
+	left: -50px;
+	border-radius: 0px 7px 7px 7px;
+	color: #eee;
+}
+
+#slider-wrap.active #next {
+	right: 0px;
+}
+
+#slider-wrap.active #previous {
+	left: 0px;
+}
+
+/*bar*/
+#slider-pagination-wrap {
+	min-width: 20px;
+	margin-top: 350px;
+	margin-left: auto;
+	margin-right: auto;
+	height: 15px;
+	position: relative;
+	text-align: center;
+}
+
+#slider-pagination-wrap ul {
+	width: 100%;
+}
+
+#slider-pagination-wrap ul li {
+	margin: 0 4px;
+	display: inline-block;
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background: #fff;
+	opacity: 0.5;
+	position: relative;
+	top: 0;
+}
+
+#slider-pagination-wrap ul li.active {
+	width: 12px;
+	height: 12px;
+	top: 3px;
+	opacity: 1;
+	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
+	box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
+}
+
+#slider-wrap img {
+	display: block;
+	margin: 0px auto;
+	z-index: 2;
+}
+
+/*ANIMATION*/
+#slider-wrap ul, #slider-pagination-wrap ul li {
+	-webkit-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+	-o-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
+	transition: all 0.3s cubic-bezier(1, .01, .32, 1);
 }
 </style>
 </head>
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp"%>
-	<div class="big-grid">
-		<br /> <br /> <br />
-		<div class=div-grid
-			style="border: solid 1px green; background-color: white; padding: 50px;">
-			<h1 style='color: green;'>WELCOME TO FROMZERO</h1>
-			<br /> <br /> <br />
 
-			<ul class="row_ul">
-				<li class="row_li">
-					<div>
-						<img class="img_profile" src="images/YH.jpg"> <br />
-						<h3>배유하</h3>
-					</div>
-				</li>
-				<li class="row_li">
-					<div>
-						<img class="img_profile" src="images/MS.jpg"> <br />
-						<h3>유민서</h3>
-					</div>
-				</li>
-				<li class="row_li">
-					<div>
-						<img class="img_profile" src="images/SH.jpg"> <br />
-						<h3>이소희</h3>
-					</div>
-				</li>
-				<li class="row_li">
-					<div>
-						<img class="img_profile" src="images/YHY.jpg"> <br />
-						<h3>조영혜</h3>
-					</div>
-				</li>
-			</ul>
-			<br />
-			<br /> <br /> <br />
-			<div class=clear>
-			<h3 style="position: relative;">
-				 <br /> <br /> <br /> '프롬제로'에 오신 것을 환영합니다! 저희는 개발자 배유하,
-				유민서, 이소희, 조영혜 입니다.<br /> <br /> <br /> <br /> 제로웨이스트란 ‘0’의 zero와
-				‘쓰레기’의 waste의 합성어로, 쓰레기가 배출 되지 않는 것을 의미합니다.<br /> <br /> <br />
-				미래세대를 위해 지속가능한 지구를 물려주는 것은 현 세대가 실천해야하는 필수불가결한 것이라고 생각했습니다.<br /> <br />
-				동물 보호와 환경 보호를 할 수 있는 비건도 많아지고 있을 뿐더러, 제로웨이스트 또한 이러한 환경 보호를 실천하는
-				선두주자로 떠오르고 있습니다.<br /> <br /> <br /> <br /> <br /> 따라서 제로웨이스트
-				운동 장려를 통한 환경 보호를 위해 온 오프라인 제로웨이스트 플랫폼, 'From zero'를 만들게 되었습니다.<br />
-				<br />
-			</h3>
-			<br /> <br /> <br />
-			</div>
+	<div id="slider-wrap">
+		<ul id="slider">
+			<li>
+				<div></div> <img src="images/introduce01.jpg">
+			</li>
+
+			<li>
+				<div></div> <img src="images/introduce02.jpg">
+			</li>
+
+			<li>
+				<div></div> <img src="images/introduce03.jpg">
+			</li>
+		</ul>
+
+		<div class="slider-btns" id="next">
+			<span>▶</span>
 		</div>
-		<br /> <br />
+		<div class="slider-btns" id="previous">
+			<span>◀</span>
+		</div>
+
+		<div id="slider-pagination-wrap">
+			<ul>
+			</ul>
+		</div>
 	</div>
+
+
 </body>
 </html>
