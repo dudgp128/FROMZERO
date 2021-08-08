@@ -39,7 +39,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 				</ul></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink"
-				href="maptest.jsp">OFFLINE SHOP</a></li>
+				href="map.jsp">OFFLINE SHOP</a></li>
 			<li>|</li>
 			<li class="topMenuLi"><a class="menuLink" href="eco_tip.jsp">ECO
 					DIARY</a>
