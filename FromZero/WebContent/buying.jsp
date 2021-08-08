@@ -23,7 +23,7 @@
 	//session.setAttribute("user_id", user_id);
 %>
 <meta charset="UTF-8">
-<title>상품 구매</title>
+<title>From zero</title>
 
 <style>
 	.img-display-box {
@@ -87,7 +87,7 @@
       <p><input type="text" name = "product_price" value="<%=product_price%>" id="allPrice" readonly="readonly" 
       	style="border: none; background: transparent; pointer-events: none; text-align:right; width:100px; height:20px; font-size:larger" />
  		원</p>
-      <button type="submit"> BUY </button>
+      <button type="submit" class="test-result-button" style="margin-top:10px"> BUY </button>
    </div>
    
    </form>

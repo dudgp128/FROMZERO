@@ -221,7 +221,7 @@
 </head>
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp"%>
-
+	
 	<div class="big-shop-grid">
 		<div class="div-shop-grid">
 			<h2 style="margin-top: 50px">오프라인 제로웨이스트샵</h2>

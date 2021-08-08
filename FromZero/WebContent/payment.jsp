@@ -64,10 +64,10 @@
                 //성공시 이동할 페이지
                 location.href='<%=request.getContextPath()%>/myPage.jsp';
             } else {
-                msg = '결제에 실패하였습니다.';
+                msg = '결제에 실패하였습니다.\n';
                 msg += '에러내용 : ' + rsp.error_msg;
                 //실패시 이동할 페이지
-                location.href="<%=request.getContextPath()%>/order/payFail";
+                location.href="<%=request.getContextPath()%>/shop.jsp";
                 alert(msg);
                 
                 //request.getContextPath() 함수 = 프로젝트 Path만 가져옵니다.

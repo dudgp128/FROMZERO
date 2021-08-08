@@ -49,10 +49,9 @@ public class DoBuying extends HttpServlet {
 		HttpSession session = request.getSession();
 		String user_id = (String) session.getAttribute("user_id");
 		if(user_id==null) {
-			System.out.println("세션null이다..!");
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter pout = response.getWriter();
-			pout.println("<script>alert('로그인이 필요합니다.'); location.href='login.html';</script>");
+			pout.println("<script>alert('로그인이 필요합니다.'); location.href='login.jsp';</script>");
 			pout.flush();
 	}
 	else {

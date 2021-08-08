@@ -127,8 +127,12 @@ table {
         </tr>
 		</table>
 		
-		<div class="save" align="right">
-			<button type="submit">글 작성</button>
+		</br>
+		</br>
+		
+		
+		<div class="save" align="center">
+			<button type="submit" class="test-result-button" style="text-align:center">글 작성</button>
 		</div>
 		</form>
 	</div>

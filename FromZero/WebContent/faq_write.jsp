@@ -122,7 +122,7 @@ table {
 		</table>
 		
 		<div class="save" align="right">
-			<button type="submit">글 작성</button>
+			<button type="submit" class="test-result-button">글 작성</button>
 		</div>
 		</form>
 	</div>

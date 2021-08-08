@@ -161,11 +161,11 @@ connectionProps.put("serverTimezone", DBTimeZone);
 			<br> <br> <br> <br> <br>
 			<form method="post" action="doBuyingSpinner">
 				<p>
-					수량 <input id="product_count" type="number" name="product_count"
+					수량 <input id="product_count" type="number" name="product_count" style="height:20px"
 						min="1" max="10" step="1" value="1" />
 				</p>
-				<input id="buy" name="action" type="submit" value="BUY" /> <input
-					id="cart" name="action" type="submit" value="CART" />
+				<input id="buy" name="action" type="submit" class="test-result-button" style="margin-top:20px" value="BUY" /> <input
+					id="cart" name="action" type="submit" class="test-result-button" style="margin-top:20px" value="CART" />
 			</form>
 			<br> <br> <br>
 			<%

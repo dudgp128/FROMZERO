@@ -135,11 +135,11 @@ ul {
 	
    <div>
 		<h1 id="bigCategory"
-			style="text-align: center; margin-top: 20px; text-transform: uppercase;">QnA</h1>
+			style="text-align: center; margin-top: 30px; text-transform: uppercase;">QnA</h1>
 	</div>
 	
 	<div class="write" align="right">
-		<button onclick="location.href='qna_write.jsp'">글쓰기</button>
+		<button onclick="location.href='qna_write.jsp'" class="test-result-button">글쓰기</button>
 	</div>
 	
    <div id="menu" style="float: left;">

@@ -12,7 +12,7 @@
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>장바구니</title>
+<title>From zero</title>
 
 <style>
 .product-detail {
@@ -24,7 +24,7 @@
 }
 
 .buy-button {
-	padding: 7%;
+	padding: 1%;
 }
 </style>
 </head>
@@ -46,6 +46,8 @@
 	String name = null;
 	%>
 	<%@ include file="./fz_header.jsp"%>
+	
+	</br>
 
 	<div>
 		<h2 id="bigCategory" style="text-align: center; margin-top: 20px;">장바구니</h2>
@@ -106,7 +108,7 @@
 
 				<div id="display-text">
 
-					<strong><%=productname%></strong>
+					<strong style="font-size:23px"><%=productname%></strong>
 					<p>
 						<input type="text" name="<%=productid%>P" value="<%=price%>"
 							readonly="readonly"
@@ -121,7 +123,7 @@
 					<br><br>
 				<p>
 					수량 <input id="product_count" type="number" name="<%=productid%>"
-						min="0" step="1" value="<%=count%>" />
+						min="0" step="1" style="height:20px" value="<%=count%>" />
 				</p>
 				<br>
 				
@@ -130,14 +132,13 @@
 				}
 			if (c == 0) {
 			%>
-			<br> <br>
 			<h3 style="text-align: center">장바구니에 상품이 없습니다.</h3>
 			<%
 				} else {
 			%>
 			<div class="buy-button" align="right">
-				<input id="buy" type="submit" name="action" value="BUY" /> <input
-					id="delete" type="submit" name="action" value="DELETE" />
+				<input id="buy" type="submit" name="action" class="test-result-button" value="BUY" /> <input
+					id="delete" type="submit" name="action" class="test-result-button" value="DELETE" />
 			</div>
 		</form>
 		<%
