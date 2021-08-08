@@ -13,16 +13,17 @@
 }
 
 #slider-wrap {
-	width: 100%;
-	height: 400px; /*dot 위치 확인*/
+	width: 600px;
+	height: 600px; /*dot 위치 확인*/
 	position: relative;
 	overflow: hidden;
+	margin : 0 auto;
 }
 
 #slider-wrap ul#slider {
 	height: 100%;
 	position: absolute;
-	top: 70px; /*내비바와 이미지 슬라이드 간 거리*/
+	/*top: 13px; 내비바와 이미지 슬라이드 간 거리*/
 	left: 0;
 }
 
@@ -30,7 +31,6 @@
 	float: left;
 	position: relative;
 	width: 600px;
-	height: 400px;
 }
 
 #slider-wrap ul#slider li>div {
@@ -50,7 +50,7 @@
 
 #slider-wrap ul#slider li img {
 	display: block;
-	width: 85%;
+	width: 100%;
 	height: 100%;
 }
 
@@ -123,13 +123,13 @@
 	background: #fff;
 	opacity: 0.5;
 	position: relative;
-	top: 0;
+	top: 200px;
 }
 
 #slider-pagination-wrap ul li.active {
 	width: 12px;
 	height: 12px;
-	top: 3px;
+	top: 200px;
 	opacity: 1;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
 	box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
@@ -147,54 +147,78 @@
 	-o-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
 	transition: all 0.3s cubic-bezier(1, .01, .32, 1);
 }
+div, table
+{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	
+}
 </style>
 <meta charset="UTF-8">
 <title>From zero</title>
 </head>
 <body style="overflow-x: hidden">
-	<%@ include file="./fz_header.jsp" %>
+	<%@ include file="./fz_header.jsp"%>
+	<div>
+		<div style="margin-left:10%; width:70%; margin-top:15px">
+			<div id="slider-wrap" style="float:left">
+				<ul id="slider">
+					<li>
+						<div></div><a href="eco_tip.jsp"><img src="card_news/bangle (1).jpg"></a>
+					</li>
+
+					<li>
+						<div></div> <img src="card_news/cotton_pad (1).jpg">
+					</li>
+
+					<li>
+						<div></div> <img src="card_news/food (1).jpg">
+					</li>
+
+					<li>
+						<div></div> <img src="card_news/hand_washing (1).jpg">
+					</li>
+
+					<li>
+						<div></div> <img src="card_news/mask (1).jpg">
+					</li>
+				</ul>
+
+				<div class="slider-btns" id="next">
+					<span>▶</span>
+				</div>
+				<div class="slider-btns" id="previous">
+					<span>◀</span>
+				</div>
+
+				<div id="slider-pagination-wrap">
+					<ul>
+					</ul>
+				</div>
+			</div>
+			
+			<div style=" float:left; width:30%; margin-left:30px">
+			<table style="width:600px; background-color:white">
+				<tr>
+					<td style="padding:0"><a href="test.jsp"><img style="display: block; width: 100%; margin: 0"
+						src="big_category_img/ECO_LEVELTEST.jpg"></a></td>
+					<td style="padding:0"><a href="exchange.jsp"><img style="display: block; width: 100%; margin: 0"
+						src="big_category_img/ECO_POINT.jpg"></a></td>
+				<tr>
+					<td style="padding:0"><a href="recycling_method.jsp"><img style="display: block; width: 100%; margin: 0"
+						src="big_category_img/RECYCLE_METHOD.jpg"></a></td>
+					<td style="padding:0"><a href="eco_tip.jsp"><img style="display: block; width: 100%; margin: 0"
+						src="big_category_img/ECO_TIPS.jpg"></a></td>
+				</tr>
+			</table>
+			</div>
+		</div>
 	
-	<div id="slider-wrap">
-		<ul id="slider">
-			<li>
-				<div></div> <img src="images/img01.jpg">
-			</li>
-
-			<li>
-				<div></div> <img src="images/img02.jpg">
-			</li>
-
-			<li>
-				<div></div> <img src="images/img03.jpg">
-			</li>
-
-			<li>
-				<div></div> <img src="images/img04.jpg">
-			</li>
-
-			<li>
-				<div></div> <img src="images/img05.jpg">
-			</li>
-		</ul>
-
-		<div class="slider-btns" id="next">
-			<span>▶</span>
-		</div>
-		<div class="slider-btns" id="previous">
-			<span>◀</span>
-		</div>
-
-		<div id="slider-pagination-wrap">
-			<ul>
-			</ul>
-		</div>
-	</div>
-	<br></br>
-	<br></br>
-	<br></br>
-
-
-	<div doz_type="widget" id="w20200430557f107c8695a">
+	<div doz_type="widget" id="w20200430557f107c8695a" style="position:absoulte; top:90%; margin-left:10%; width:81%; text-aling:center">
 		<div class="_widget_data " data-widget-name="갤러리"
 			data-widget-type="gallery2" data-widget-anim="none"
 			data-widget-anim-duration="0.7" data-widget-anim-delay="0"
@@ -505,12 +529,12 @@
 							<div class="slide_overlay"></div>
 						</div>
 					</div>
-					
-						<div class="dummy_col item_gallary _item _dummy_item"></div>
-					</div>
+
+					<div class="dummy_col item_gallary _item _dummy_item"></div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 
 

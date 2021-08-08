@@ -14,7 +14,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/msyou/Desktop/새 폴더/cos-20.08/lib/cos.jar">
+	<classpathentry kind="lib" path="C:/Users/user/Documents/FROMZERO/cos-20.08/lib/cos.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
