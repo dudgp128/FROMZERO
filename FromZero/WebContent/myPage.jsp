@@ -204,6 +204,9 @@ td, tr {
 	}
 	if (rsett.next())
 		point = rsett.getString("point");
+	
+	if (point == null)
+		point = "0";
 
 	//String sqlSt = "select * from online_order where custid='" + user_id + "'";
 	%>

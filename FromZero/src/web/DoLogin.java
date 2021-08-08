@@ -75,13 +75,13 @@ public class DoLogin extends HttpServlet {
 					} else {// wrong passwd
 						response.setContentType("text/html; charset=UTF-8");
 						PrintWriter pout = response.getWriter();
-						pout.println("<script>alert('잘못된 비밀번호입니다.'); location.href='login.html';</script>");
+						pout.println("<script>alert('잘못된 비밀번호입니다.'); location.href='login.jsp';</script>");
 						pout.flush();
 					}
 				} else { // invalid user
 					response.setContentType("text/html; charset=UTF-8");
 					PrintWriter pout = response.getWriter();
-					pout.println("<script>alert('가입되지 않은 아이디입니다.'); location.href='login.html';</script>");
+					pout.println("<script>alert('가입되지 않은 아이디입니다.'); location.href='login.jsp';</script>");
 					pout.flush();
 				}
 			} catch (SQLException e) {
