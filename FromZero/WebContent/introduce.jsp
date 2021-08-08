@@ -14,12 +14,11 @@
 }
 
 #slider-wrap {
-	width: 400px;
-	height: 800px; /*dot 위치 확인*/
+	width: 602px;	/*이미지 크기 70%*/
+	height: 770px; /*dot 위치 확인*/
 	position: relative;
 	overflow: hidden;
-	width: 100%;
-	height: 100%;
+	margin: 0 auto;
 }
 
 #slider-wrap ul#slider {
@@ -33,7 +32,6 @@
 	float: left;
 	position: relative;
 	width: 600px;
-	height: 400px;
 }
 
 #slider-wrap ul#slider li>div {
@@ -126,13 +124,13 @@
 	background: #fff;
 	opacity: 0.5;
 	position: relative;
-	top: 0;
+	top: -270px;	/* dot 위치 조절 top으로 */
 }
 
 #slider-pagination-wrap ul li.active {
 	width: 12px;
 	height: 12px;
-	top: 3px;
+	top: -270px;
 	opacity: 1;
 	-webkit-box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
 	box-shadow: rgba(0, 0, 0, 0.1) 1px 1px 0px;
@@ -183,6 +181,98 @@
 		</div>
 	</div>
 
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
+	<script>
+		//slide-wrap
+		var slideWrapper = document.getElementById('slider-wrap');
+		//current slideIndexition
+		var slideIndex = 0;
+		//items
+		var slides = document.querySelectorAll('#slider-wrap ul li');
+		//number of slides
+		var totalSlides = slides.length;
+		//get the slide width
+		var sliderWidth = slideWrapper.clientWidth;
+		//set width of items
+		slides.forEach(function(element) {
+			element.style.width = sliderWidth + 'px';
+		})
+		//set width to be 'x' times the number of slides
+		var slider = document.querySelector('#slider-wrap ul#slider');
+		slider.style.width = sliderWidth * totalSlides + 'px';
 
+		// next, prev
+		var nextBtn = document.getElementById('next');
+		var prevBtn = document.getElementById('previous');
+		nextBtn.addEventListener('click', function() {
+			plusSlides(1);
+		});
+		prevBtn.addEventListener('click', function() {
+			plusSlides(-1);
+		});
+
+		// hover
+		slideWrapper.addEventListener('mouseover', function() {
+			this.classList.add('active');
+			clearInterval(autoSlider);
+		});
+		slideWrapper.addEventListener('mouseleave', function() {
+			this.classList.remove('active');
+			autoSlider = setInterval(function() {
+				plusSlides(1);
+			}, 3000);
+		});
+
+		function plusSlides(n) {
+			showSlides(slideIndex += n);
+		}
+
+		function currentSlides(n) {
+			showSlides(slideIndex = n);
+		}
+
+		function showSlides(n) {
+			slideIndex = n;
+			if (slideIndex == -1) {
+				slideIndex = totalSlides - 1;
+			} else if (slideIndex === totalSlides) {
+				slideIndex = 0;
+			}
+
+			slider.style.left = -(sliderWidth * slideIndex) + 'px';
+			pagination();
+		}
+
+		//pagination
+		slides.forEach(function() {
+			var li = document.createElement('li');
+			document.querySelector('#slider-pagination-wrap ul')
+					.appendChild(li);
+		})
+
+		function pagination() {
+			var dots = document
+					.querySelectorAll('#slider-pagination-wrap ul li');
+			dots.forEach(function(element) {
+				element.classList.remove('active');
+			});
+			dots[slideIndex].classList.add('active');
+		}
+
+		pagination();
+		var autoSlider = setInterval(function() {
+			plusSlides(1);
+		}, 3000);
+		
+		var scrollingElement = (document.scrollingElement || document.body);
+		scrollingElement.scrollTop = scrollingElement.scrollHeight;
+		
+		function gotoBottom(id){
+			   var element = document.getElementById(id);
+			   element.scrollTop = element.scrollHeight - element.clientHeight;
+			}
+	</script>
+	
 </body>
 </html>
