@@ -152,7 +152,7 @@
 </head>
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp"%>
-
+	
 	<div id="slider-wrap">
 		<ul id="slider">
 			<li>
