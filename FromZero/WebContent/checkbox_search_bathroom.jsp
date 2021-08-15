@@ -13,6 +13,17 @@
 <html>
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
+<style>
+table {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+</style>
 <script src="./search-checkbox.js"></script>
 <meta charset="UTF-8">
 <title>From zero</title>
@@ -55,11 +66,11 @@ function check(){
 </script>
 </head>
 <body style="overflow-x: hidden">
-	<%@ include file="./fz_header.jsp" %>
+	<%@ include file="./fz_header.jsp"%>
 	<!-- 체크박스 -->
 	<br />
-	<form style="margin-left:100px" method="post" action="doBathroom">
-		<table>
+	<form style="margin: 0 auto" method="post" action="doBathroom">
+		<table style="margin: 0 auto; width: 80%">
 			<tr>
 				<th>소분류</th>
 				<td><label><input type="checkbox" name="smallCategory"
@@ -68,7 +79,7 @@ function check(){
 						onClick="check()" value="샤워" id="smallCategory2"> 샤워</label></td>
 				<td><label><input type="checkbox" name="smallCategory"
 						onClick="check()" value="타월" id="smallCategory3"> 타월</label></td>
-
+				<td />
 			</tr>
 
 			<tr>
@@ -81,7 +92,7 @@ function check(){
 						name="brandName" value="제로웨이스트샵" id="brand3"> 제로웨이스트샵</label></td>
 				<td><label><input type="checkbox" onClick="check()"
 						name="brandName" value="지구살림e" id="brand4"> 지구살림e</label></td>
-				<td />
+
 			</tr>
 
 
@@ -93,8 +104,9 @@ function check(){
 					value="30000" id="three"><label for="three"> ~3만원</label></td>
 				<td><input type="radio" onClick="check()" name="price"
 					value="50000" id="five"><label for="five"> ~5만원</label></td>
+				<td />
 			</tr>
-			
+
 			<tr>
 				<th>정렬</th>
 				<td><input type="radio" onClick="check()" name="sorted"
@@ -113,17 +125,19 @@ function check(){
 
 			<tr>
 				<td />
-				<td />
-				<td colspan="4" style="text-align: right;"><input type="text"
+
+				<td colspan="3" style="text-align: right;"><input type="text"
 					name="search_result" style="width: 500px; height: 30px;"
-					id="search-statement" readonly="readonly" value="<%=search_result%>" /></td>
-				<td style="text-align: left"><button type="reset">초기화</button></td>
-				<td style="text-align: left"><input type="submit" value="검색" />
+					id="search-statement" readonly="readonly"
+					value="<%=search_result%>" /></td>
+				<td style="text-align: left"><button type="reset"
+						class="test-result-button">초기화</button> <input type="submit"
+					class="test-result-button" value="검색" />
 			</tr>
 		</table>
 	</form>
 
-	
+
 	<div class="big-shop-grid">
 		<h2 class="big-category-text">BATHROOM</h2>
 		<div class="div-shop-grid">
@@ -131,7 +145,8 @@ function check(){
 				<% 
                for(int i=0; i < data.size(); i++) {
                %>
-				<form style="margin-left:100px" method="post" action="doDetailProduct">
+				<form style="margin-left: 100px" method="post"
+					action="doDetailProduct">
 					<button style="border: 0; outline: 0; background-color: white"
 						name="productid" value=<%= data.get(i).getProductid() %>>
 						<li id="li-living-item-box">
@@ -154,9 +169,9 @@ function check(){
 						<%
 							}
 						%>
-	            </button>
-	         </ul>
-	         </form>
+					</button>
+			</ul>
+			</form>
 		</div>
 	</div>
 </body>

@@ -41,8 +41,17 @@ public class DoLevel extends HttpServlet {
 	      // TODO Auto-generated method stub
 	      request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
 	      response.setCharacterEncoding("UTF-8");
-
+	      
 	      int q1 = Integer.parseInt(request.getParameter("q1"));
+	      for(int i=2; i<=8; i++) {
+	    	if(request.getParameter("q"+i)==null) {
+	    		response.setContentType("text/html; charset=UTF-8");
+				PrintWriter writer = response.getWriter();
+				writer.println("<script>alert('입력하지 않은 항목이 존재합니다.'); history.go(-1);</script>");
+				writer.close();
+	    		break;
+	    	}
+	      }
 	      int q2 = Integer.parseInt(request.getParameter("q2"));
 	      int q3 = Integer.parseInt(request.getParameter("q3"));
 	      int q4 = Integer.parseInt(request.getParameter("q4"));
@@ -54,7 +63,7 @@ public class DoLevel extends HttpServlet {
 	      int result_int = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8;
 	      String level = "s";
 	      // System.out.println(result_int)
-
+	    
 		if (result_int <= 12)
 			level = "새싹";
 		else if (result_int > 12 && result_int <= 20)

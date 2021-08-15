@@ -80,7 +80,7 @@ tr {
 							style="display: block; width: 100%; max-height: 100%;" required></td>
 					</tr>
 				</table>				
-				<button type="submit" style="margin-top: 20px">등록하기</button>
+				<button class="test-result-button" type="submit" style="margin-top: 20px">등록하기</button>
 			</form>
 		</div>
 	</div>

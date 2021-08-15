@@ -53,7 +53,6 @@
 	MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxSize, encoding,
 			new DefaultFileRenamePolicy());
 	
-	
 	String fileName = multipartRequest.getOriginalFileName("file");
 	String name = multipartRequest.getParameter("name");
 	int price = Integer.parseInt(multipartRequest.getParameter("price"));

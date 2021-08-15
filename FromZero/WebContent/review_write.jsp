@@ -67,7 +67,7 @@ String db_review_content=(String)request.getAttribute("db_review_content");
 						<td />
 					</tr>
 					<tr>
-						<td><button style="width: 100%" type="submit">리뷰
+						<td><button class="test-result-button"style="width: 100%" type="submit">리뷰
 								작성하기</button>
 					</tr>
 				</table>

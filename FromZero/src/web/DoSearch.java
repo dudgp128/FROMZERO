@@ -40,26 +40,33 @@ public class DoSearch extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 
 		String search_text = request.getParameter("search_text");
+		if (search_text == "") {
+			response.setContentType("text/html; charset=UTF-8");
+			PrintWriter writer = response.getWriter();
+			writer.println("<script>alert('검색어가 없습니다.'); history.go(-1);</script>");
+			writer.close();
 
-		ServletContext sc = getServletContext();
-		Connection conn = (Connection) sc.getAttribute("DBconnection");
+		} else {
+			ServletContext sc = getServletContext();
+			Connection conn = (Connection) sc.getAttribute("DBconnection");
 
-		String sqlSt = "SELECT * FROM online_product WHERE productname LIKE ";
-		sqlSt=sqlSt+"'%"+search_text+"%'";
-		ResultSet rs = DBUtil.findText(conn, sqlSt);
-		PrintWriter out = response.getWriter();
-		if (rs != null) {
-			try {
-				request.setAttribute("rs", rs);
-				request.setAttribute("search_text", search_text);
-				RequestDispatcher view = request.getRequestDispatcher("search.jsp");
-				view.forward(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
+			String sqlSt = "SELECT * FROM online_product WHERE productname LIKE ";
+			sqlSt = sqlSt + "'%" + search_text + "%'";
+			ResultSet rs = DBUtil.findText(conn, sqlSt);
+			PrintWriter out = response.getWriter();
+			if (rs != null) {
+				try {
+					request.setAttribute("rs", rs);
+					request.setAttribute("search_text", search_text);
+					RequestDispatcher view = request.getRequestDispatcher("search.jsp");
+					view.forward(request, response);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			}
-		}
-		System.out.println(sqlSt);
+			System.out.println(sqlSt);
 
+		}
 	}
 
 	/**

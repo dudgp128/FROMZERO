@@ -115,9 +115,9 @@ form{
 	<form method="post" action="doComparePW" style="text-align: center;">
 			<input type="hidden", name="board_id" value="<%=board_id%>">
 			<br/>
-			 <input type="password" name="comparePW" placeholder="PASSWORD" required
+			 <input type="password" name="comparePW" required
 				style="text-align: center; width: 300px; margin-left:80px" /> 
-			<button style="text-align: center;"id="comparePW_button" type="submit">확인</button>
+			<button style="text-align: center;"id="comparePW_button" class="test-result-button" type="submit">확인</button>
 	</form>
 	</div>
 

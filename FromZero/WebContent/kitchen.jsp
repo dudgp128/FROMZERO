@@ -92,7 +92,9 @@ table {
 				<td colspan="3" style="text-align: right;"><input type="text"
 					name="search_result" style="width: 500px; height: 30px;"
 					id="search-statement" readonly="readonly" /></td>
-				<td style="text-align: left"><button type="reset" class="test-result-button">초기화</button> <input type="submit" class="test-result-button" value="검색" />
+				<td style="text-align: left"><button type="reset"
+						class="test-result-button">초기화</button> <input type="submit"
+					class="test-result-button" value="검색" />
 			</tr>
 		</table>
 	</form>

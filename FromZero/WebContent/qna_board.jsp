@@ -142,10 +142,11 @@ th, td {
 					<td style="width: 100%; padding: 200px 10px;"><%=board_content%></td>
 				</tr>
 			</table>
-			<br/>
-		
-			<div style="text-align:right; margin-right:100px">
-				<button style="width: 10%" type="submit">삭제하기</button>
+			<br />
+
+			<div style="text-align: right; margin-right: 100px">
+				<button class="test-result-button" style="width: 10%; color: red"
+					type="submit">삭제하기</button>
 			</div>
 		</form>
 		<br />
@@ -170,7 +171,7 @@ th, td {
 			comment = rset.getString("comment");
 		%>
 		<div>
-			<table class="board" style="margin-right:100px">
+			<table class="board" style="margin-right: 100px">
 				<tr>
 					<th>댓글번호</th>
 					<td><%=comment_id%></td>
@@ -195,23 +196,23 @@ th, td {
 		<br /> <br /> <br />
 		<form method="post" action="doQnAComment">
 			<div>
-				<table class="board" style="text-align:left">
+				<table class="board" style="text-align: left">
 					<tr>
 						<th>댓글번호</th>
 						<td colspan="3"><%=comment_id_2%></td>
 					</tr>
 					<tr>
 						<th style="height: 100px">댓글 작성</th>
-						<td colspan="3"><textarea name="comment"
+						<td colspan="2"><textarea name="comment"
 								style="width: 100%; height: 100px"></textarea></td>
+						<td><button class="test-result-button" type="submit">댓글
+								작성</button></td>
 					</tr>
 				</table>
 			</div>
 			<br />
 
-			<div class="save" align="right">
-				<button type="submit">댓글 작성</button>
-			</div>
+			<div class="save" align="right"></div>
 		</form>
 		<%
 			session.setAttribute("comment_id", comment_id_2);
