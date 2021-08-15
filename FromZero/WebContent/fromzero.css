@@ -72,7 +72,7 @@ nav {
 }
 
 .topMenuLi:hover .menuLink { /* 상위 메뉴의 li에 마우스오버 되었을 때 스타일 설정 */
-	color: red;
+	color: #d7ab29;
 }
 
 .submenuLink { /* 하위 메뉴의 a 태그 스타일 설정 */
@@ -95,7 +95,7 @@ nav {
 }
 
 .submenuLink:hover { /* 하위 메뉴의 a 태그의 마우스 오버 스타일 설정 */
-	color: red;
+	color: #d7ab29;
 	background-color: #dddddd;
 }
 
