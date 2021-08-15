@@ -141,8 +141,9 @@ td,th{
 	%>
 	
    <div>
-		<h1 id="bigCategory"
-			style="text-align: center; margin-top: 30px; text-transform: uppercase;">NOTICE</h1>
+   		<br /> <br />
+		<h2 id="bigCategory"
+			style="text-align: center; margin-top: 30px;">NOTICE</h2>
 	</div>
 	
 	<div class="write" align="right">

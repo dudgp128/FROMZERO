@@ -217,9 +217,8 @@ table {
 	width: 90%;
 	height: 150px;
 	text-align: center;
-	background-color: #E6E6E6;
-	
 }
+
 th, td {
 	padding: 13px;
 }
@@ -255,7 +254,6 @@ div.title {
 
 div.question_box {
 	text-align: center;
-	background-color: #E6E6E6;
 	margin: 0% 20% 2% 20%;
 	padding: 2% 0% 2% 0%;
 }
@@ -298,7 +296,6 @@ div.question {
 
 .question_box-div {
 	text-align: center;
-	background-color: #E6E6E6;
 	margin: 0% 20% 2% 20%;
 	padding: 2% 0% 2% 0%;
 }

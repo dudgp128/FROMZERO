@@ -156,8 +156,9 @@ th, td {
 	%>
 	
    <div>
-		<h1 id="bigCategory"
-			style="text-align: center; margin-top: 30px; text-transform: uppercase;">FAQ</h1>
+		<br /> <br />
+		<h2 id="bigCategory"
+			style="text-align: center; margin-top: 30px;">FAQ</h2>
 	</div>
 	
 	<div class="write" align="right">

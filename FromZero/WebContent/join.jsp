@@ -16,7 +16,6 @@ table.joinTable {
 	margin: 0 auto;
 	width: 35%;
 	text-align: center;
-	background-color: #E6E6E6;
 }
 </style>
 

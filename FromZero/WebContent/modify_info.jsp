@@ -26,7 +26,6 @@
 }
 
 .info {
-	background-color: #e2e2e2;
 	width: 1100px;
 	height: 300px;
 	float: left;
@@ -136,6 +135,13 @@ td, tr {
 	margin: 0;
 	padding: 0;
 }
+
+table.editTable {
+	margin: 0 auto;
+	width: 35%;
+	text-align: center;
+}
+
 </style>
 </head>
 <body style="overflow-x: hidden">
@@ -160,21 +166,22 @@ td, tr {
 	String name = null;
 	String phone = null;
 	String address = null;
-	String email=null;
+	String email = null;
 	%>
 
+	<br /> <br /> <br />
+		<h2 style="text-align: center">회원 정보 수정</h2>
+		<br />
+		
 	<div class="inside">
 		<div id="menu" style="float: left;">
 			<ul class="leftMenu">
-				<li><a href="myorder.jsp" class="submenuLink">주문조회</a></li>
+				<li><a href="myPage.jsp" class="submenuLink">주문조회</a></li>
 				<li><a href="modify_info.jsp" class="submenuLink">회원정보수정</a></li>
 			</ul>
 		</div>
+		
 		<div class="question_box" style="text-align: center">
-			<br />
-			<h1 style="text-align:center">Modify my information</h1>
-			<br /> <br />
-
 			<div style="text-align: center">
 				<form method="post" action="doUpdateInfo">
 					<%
@@ -198,17 +205,38 @@ td, tr {
 						email = rset.getString("email");
 					}
 					%>
-					
-					아이디 <input id="custid" type="text" value="<%=user_id%>"name="custid" readonly /><br />
-					비밀번호 <input id="passwd" type="password" placeholder="PASSWORD"
-						name="passwd" required /><br /> 이름 <input id="name"
-						type="text" name="name" placeholder="NAME" required /><br /> 주소
-					<input id="address" type="text" placeholder="ADDRESS"
-						name="address" /><br /> 전화번호 <input id="phone" type="text"
-						placeholder="PHONE_NUMBER" name="phone" /><br /> 이메일 <input
-						id="email" type="text" placeholder="EMAIL" name="email" /><br />
-					<input type="submit" style="margin-top: 20px" class="test-result-button" value="정보수정" /> <br />
-					<br />
+
+					<table class="editTable" border="0">
+						<tr>
+							<td>아이디</td>
+							<td><input id="custid" type="text" value="<%=user_id%>"
+								name="custid" readonly /></td>
+						</tr>
+						<tr>
+							<td>비밀번호</td>
+							<td><input id="passwd" type="password" name="passwd"
+								required /></td>
+						</tr>
+						<tr>
+							<td>이름</td>
+							<td><input id="name" type="text" name="name" required /></td>
+						</tr>
+						<tr>
+							<td>주소</td>
+							<td><input id="address" type="text" name="address" /></td>
+						</tr>
+						<tr>
+							<td>전화번호</td>
+							<td><input id="phone" type="text" name="phone" /></td>
+						</tr>
+						<tr>
+							<td>이메일</td>
+							<td><input id="email" type="text" name="email" /></td>
+						</tr>
+					</table>
+					<br>
+					<input type="submit" style="margin-top: 20px"
+						class="test-result-button" value="정보수정" /> <br /> <br />
 
 				</form>
 			</div>

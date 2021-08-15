@@ -168,8 +168,9 @@ th, td {
 	%>
 
 	<div>
-		<h1 id="bigCategory"
-			style="text-align: center; margin-top: 30px; text-transform: uppercase;">QnA</h1>
+		<br /> <br />
+		<h2 id="bigCategory"
+			style="text-align: center; margin-top: 30px;">QnA</h2>
 	</div>
 
 	<div class="write" align="right">
