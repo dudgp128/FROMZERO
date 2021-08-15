@@ -72,8 +72,8 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 				} else if (user_name.equals("알맹상점") || user_name.equals("지구샵") || user_name.equals("더피커") || user_name.equals("라마홈")
 					|| user_name.equals("송포얼스") || user_name.equals("디어얼스")) {
 			%>
-			<li><a href="myPage.jsp"> <img src="images/mypage.png"
-					width=25 height=20>
+			<li><a href="myPage.jsp"><img src="images/mypage.png"
+					width=25>
 			</a></li>
 			<li><%=user_name%>님 환영합니다!</li>
 			<li><a href="cart.jsp">CART</a></li>
@@ -83,7 +83,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 				} else {
 			%>
 			<li><a href="myPage.jsp"> <img src="images/mypage.png"
-					width=25 height=20>
+					width=25>
 			</a></li>
 			<li><%=user_name%>님 환영합니다!</li>
 			<li><a href="cart.jsp">CART</a></li>
@@ -94,7 +94,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 			<li><input type="text" name="search_text"></li>
 			<li style='top: 100px; padding: 0 0px;'>
 				<button type="submit">
-					<img src="images/magnifying-glass.png" width=20 height=20>
+					<img src="images/magnifying-glass.png" width=20>
 				</button>
 			</li>
 		</form>
