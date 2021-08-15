@@ -1,1 +1,1 @@
-{"tfjsVersion":"1.3.1","tmVersion":"2.4.1","packageVersion":"0.8.4-alpha","packageName":"@teachablemachine/image","timeStamp":"2021-07-20T13:06:40.393Z","userMetadata":{},"modelName":"tm-my-image-model","labels":["캔들","리뉴통","리뉴통(소)","맥주캔(사실 클로렐라)","빈 화면"],"imageSize":224}
+{"tfjsVersion":"1.3.1","tmVersion":"2.4.4","packageVersion":"0.8.4-alpha2","packageName":"@teachablemachine/image","timeStamp":"2021-08-15T11:23:00.992Z","userMetadata":{},"modelName":"tm-my-image-model","labels":["플라스틱류","비닐류","유리류","캔류","종이류","종이팩","건전지","폐가전류","일반쓰레기","예외"],"imageSize":224}
