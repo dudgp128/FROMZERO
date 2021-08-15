@@ -265,13 +265,6 @@
 			plusSlides(1);
 		}, 3000);
 		
-		var scrollingElement = (document.scrollingElement || document.body);
-		scrollingElement.scrollTop = scrollingElement.scrollHeight;
-		
-		function gotoBottom(id){
-			   var element = document.getElementById(id);
-			   element.scrollTop = element.scrollHeight - element.clientHeight;
-			}
 	</script>
 	
 </body>

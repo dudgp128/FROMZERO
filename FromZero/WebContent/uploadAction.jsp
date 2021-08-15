@@ -6,7 +6,7 @@
 <%@page import="model.DBUtil"%>
 <%@page import="java.io.File"%>
 <%@page import="com.oreilly.servlet.multipart.*"%>
-<%@page import="com.oreilly.servlet.MultipartRequest"%>
+<%@page import="com.oreilly.servlet.*"%>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,10 +15,7 @@
 <title>From zero</title>
 </head>
 <body style="overflow-x: hidden">
-<script>
-	alert("제품을 등록하였습니다.")
-	location.href="update_stock.jsp"; 
-</script>
+
 <%@ include file="./fz_header.jsp" %>
 	<%
 	//DB연결하기
@@ -49,13 +46,14 @@
 	String encoding = "UTF-8";
 
 	//파일 넣기
+	// 새로운 상품(파일=이미지, 이름, 가격, 수량)
+	// 이전 jsp에서 <form enctype="multipart/form-data">으로 데이터를 받았기때문에
+	// request->multiparReqeust로 바꾸어야한다.
 	
 	MultipartRequest multipartRequest = new MultipartRequest(request, directory, maxSize, encoding,
 			new DefaultFileRenamePolicy());
 	
-	//새로운 상품(파일=이미지, 이름, 가격, 수량)
-	//이전 jsp에서 <form enctype="multipart/form-data">으로 데이터를 받았기때문에
-	// request->multiparReqeust로 바꾸어야한다.
+	
 	String fileName = multipartRequest.getOriginalFileName("file");
 	String name = multipartRequest.getParameter("name");
 	int price = Integer.parseInt(multipartRequest.getParameter("price"));
@@ -87,4 +85,8 @@
 	
 	%>
 </body>
+<script>
+	alert("제품을 등록하였습니다.")
+	location.href="update_stock.jsp"; 
+</script>
 </html>
