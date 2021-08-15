@@ -168,6 +168,14 @@ div, table {
 	font: inherit;
 	vertical-align: baseline;
 }
+#slider-wrap form {
+	width:100%;
+}
+#slider-wrap button{
+	border:0;
+	outline:0;
+}
+
 </style>
 <meta charset="UTF-8">
 <title>From zero</title>
@@ -218,11 +226,11 @@ div, table {
 
 
 					<li>
-						<div></div>
-						<form method="post" action="doCardNews">
+						
+						<form method="post" action="doCardNews" style="width:100%">
 							<button type="hidden" value="bangle" name="name">
 							<div style="text-align:center">
-								<img src="card_news/bangle (1).jpg" ></div>
+								<img src="card_news/bangle (1).jpg"></div>
 							</button>
 						</form>
 					</li>
@@ -231,7 +239,7 @@ div, table {
 
 					<li>
 
-						<div></div>
+						
 						<form method="post" action="doCardNews">
 							<button type="hidden" value="cotton_pad" name="name">
 								<img src="card_news/cotton_pad (1).jpg">
@@ -242,7 +250,7 @@ div, table {
 
 
 					<li>
-						<div></div>
+						
 						<form method="post" action="doCardNews">
 							<button type="hidden" value="food" name="name">
 								<img src="card_news/food (1).jpg">
@@ -251,7 +259,6 @@ div, table {
 					</li>
 
 					<li>
-						<div></div>
 						<form method="post" action="doCardNews">
 							<button type="hidden" value="hand_washing" name="name">
 								<img src="card_news/hand_washing (1).jpg">
@@ -260,7 +267,6 @@ div, table {
 					</li>
 
 					<li>
-						<div></div>
 						<form method="post" action="doCardNews">
 							<button type="hidden" value="mask" name="name">
 								<img src="card_news/mask (1).jpg">

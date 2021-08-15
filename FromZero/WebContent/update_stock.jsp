@@ -20,6 +20,13 @@ th, td {
 	border-bottom: 1px solid #D3D3D3;
 	padding: 10px;
 }
+
+table {
+	border-top: 1px solid #444444;
+	margin: auto;
+	text-align: center;
+	background-color: #FFFFFF;
+}
 </style>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
@@ -49,17 +56,17 @@ th, td {
 	String price = null;
 	String product_id = null;
 	%>
-	<br/>
+	<br />
 
 	<header>
 		<h1>
-			<a href="main.jsp"> <img src="./토끼제로로고.png" width="200px"
+			<a href="admin_point.jsp"> <img src="./농부제로로고.png" width="200px"
 				alt="My Image">
 			</a>
 		</h1>
-		<div style="font-size: 13pt">Admin Page for Offline Shop</div>
 	</header>
-	
+	</br>
+
 	<nav id="topMenu">
 		<ul>
 			<li class="topMenuLi"><a href="admin-main.jsp" class="menuLink"
@@ -78,6 +85,7 @@ th, td {
 	<ul class="loginarea">
 		<li><a><%=user_name%> 관리자님, 안녕하세요!</a>
 		<li><a href="./doLogout">logout</a></li>
+		<li><a href="main.jsp">home</a></li>
 	</ul>
 
 
@@ -95,18 +103,18 @@ th, td {
 
 	<div style="text-align: center">
 		<div style="display: inline-block;">
-			<table style="width: 900px">
+			<table style="width: 900px; border-collapse:collapse;">
 				<tr>
-					<td colspan=5 style="text-algin: center">제품 삭제하는 방법 : 수량을 -1로
+					<td colspan=5 style="border-bottom:0; text-algin: center; ">제품 삭제하는 방법 : 수량을 -1로
 						설정해주세요!</td>
 				</tr>
 				<tr>
 					<!-- <td>사진</td> -->
-					<td style="text-size: 15px;">상품번호
-					<td style="text-size: 15px;">상품명</td>
-					<td style="text-size: 15px;">상품가격</td>
-					<td style="text-size: 15px;">재고</td>
-					<td></td>
+					<td style="text-size: 15px; border-bottom: 1px solid #444444;"><b>상품번호</b></td>
+					<td style="text-size: 15px; border-bottom: 1px solid #444444;"><b>상품명</b></td>
+					<td style="text-size: 15px; border-bottom: 1px solid #444444;"><b>상품가격</b></td>
+					<td style="text-size: 15px; border-bottom: 1px solid #444444;"><b>재고</b></td>
+					<td style="border-bottom: 1px solid #444444;"></td>
 				</tr>
 
 

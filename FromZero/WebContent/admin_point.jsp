@@ -17,6 +17,22 @@ String user_name = (String) session.getAttribute("user_name");
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
 <title>From zero</title>
+<style>
+table {
+	border-top: 1px solid #444444;
+	margin: auto;
+	text-align: center;
+	background-color: #FFFFFF;
+}
+
+th, td {
+	background-color: #FFFFFF;
+	border-bottom: 1px solid #D3D3D3;
+	padding: 10px;
+}
+
+
+</style>
 </head>
 <body style="overflow-x: hidden">
 	<%
@@ -39,15 +55,16 @@ String user_name = (String) session.getAttribute("user_name");
 	String phone = null;
 	String point = null;
 	%>
-	<br/>
+	<br />
 	<header>
-		<h1><a href="main.jsp"> <img src="./토끼제로로고.png" width="200px"
+		<h1>
+			<a href="admin_point.jsp"> <img src="./농부제로로고.png" width="200px"
 				alt="My Image">
 			</a>
 		</h1>
-		<div style="font-size: 13pt">Admin Page for Offline Shop</div>
 	</header>
-	
+	</br>
+
 	<nav id="topMenu">
 		<ul>
 			<li class="topMenuLi"><a href="admin-main.jsp" class="menuLink"
@@ -65,20 +82,22 @@ String user_name = (String) session.getAttribute("user_name");
 	<ul class="loginarea">
 		<li><a><%=user_name%> 관리자님, 안녕하세요!</a>
 		<li><a href="./doLogout">logout</a></li>
+		<li><a href="main.jsp">home</a></li>
 	</ul>
 
 	<div class="title">
 		<h2 style="text-align: center">고객 포인트 차감</h2>
 	</div>
 
-	<div class="question_box">
+	<div class="question_box" style="background-color: #FFFFFF">
 		<table>
 			<tr>
 				<!-- <td>사진</td> -->
-				<td><h3>고객아이디</h3>
-				<td><h3>이름</td>
-				<td><h3>전화번호</td>
-				<td><h3>포인트</td>
+				<th style="border-bottom: 1px solid #444444;">고객아이디</th>
+				<th style="border-bottom: 1px solid #444444;">이름</th>
+				<th style="border-bottom: 1px solid #444444;">전화번호</th>
+				<th style="border-bottom: 1px solid #444444;">포인트</th>
+				<th style="border-bottom: 1px solid #444444;"></th>
 			</tr>
 			<form method="post" action="doUsePoint">
 				<%
@@ -112,17 +131,12 @@ String user_name = (String) session.getAttribute("user_name");
 						step="1" value=<%=point%>
 						onchange="javascript: document.getElementById('point').value = this.value;
 							  javascript: document.getElementById('custid').value = <%=custid%>" /></td>
-					<td><button type="submit">UPDATE</button></td>
+					<td><button type="submit" class="test-result-button">UPDATE</button></td>
 				</tr>
 				<%
 					}
 				%>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+				
 			</form>
 		</table>
 
