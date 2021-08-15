@@ -61,8 +61,8 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 		</ul>
 	</nav>
 
-	<ul class="loginarea">
-		<form style="margin-left: 100px" method="post" action="doSearch">
+	<ul class="loginarea" style="height:50px">
+		<form style="margin-left: 100px;" method="post" action="doSearch">
 			<%
 				if (user_name == null) {
 			%>
@@ -93,7 +93,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 			%>
 			<li><input type="text" name="search_text"></li>
 			<li style='top: 100px; padding: 0 0px;'>
-				<button type="submit">
+				<button type="submit" style="border:0; background-color:white">
 					<img src="images/magnifying-glass.png" width=20>
 				</button>
 			</li>

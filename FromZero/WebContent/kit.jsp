@@ -10,6 +10,17 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+table {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+</style>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <script>
 function check(){

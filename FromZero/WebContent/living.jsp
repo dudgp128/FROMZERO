@@ -17,6 +17,17 @@
 <head>
 
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
+<style>
+table {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+</style>
 <script src="./search-checkbox.js"></script>
 <script>
 function check(){
@@ -60,8 +71,8 @@ function check(){
 	<!-- 체크박스 -->
 	</br>
 
-	<form style="margin-left:100px" method="post" action="doLiving">
-		<table>
+	<form style="margin: 0 auto" method="post" action="doLiving">
+		<table style="margin: 0 auto; width: 80%">
 			<tr>
 				<th>소분류</th>
 				<td><label><input type="checkbox" onClick="check()"
@@ -87,7 +98,7 @@ function check(){
 						name="brandName" value="제로웨이스트샵" id="brand3"> 제로웨이스트샵</label></td>
 				<td><label><input type="checkbox" onClick="check()"
 						name="brandName" value="지구살림e" id="brand4"> 지구살림e</label></td>
-				<td />
+
 			</tr>
 
 
@@ -99,12 +110,13 @@ function check(){
 					value="30000" id="three"><label for="three"> ~3만원</label></td>
 				<td><input type="radio" onClick="check()" name="price"
 					value="50000" id="five"><label for="five"> ~5만원</label></td>
+				<td />
 			</tr>
 
 
 			<tr>
 				<th>정렬</th>
-				<td><input type="radio" name="sorted" onClick="check()" 
+				<td><input type="radio" name="sorted" onClick="check()"
 					value="브랜드순" id="sortBrand"><label for="sortBrand">
 						브랜드순</label></td>
 				<td><input type="radio" onClick="check()" name="sorted"
@@ -120,12 +132,12 @@ function check(){
 
 			<tr>
 				<td />
-				<td />
-				<td colspan="4" style="text-align: right;"><input type="text"
+
+				<td colspan="3" style="text-align: right;"><input type="text"
 					name="search_result" style="width: 500px; height: 30px;"
 					id="search-statement" readonly="readonly" /></td>
-				<td style="text-align: left"><button type="reset">초기화</button></td>
-				<td style="text-align: left"><input type="submit" value="검색" />
+				<td><button type="reset" class="test-result-button">초기화</button>
+					<input type="submit" class="test-result-button" value="검색" /></td>
 			</tr>
 		</table>
 	</form>
@@ -174,7 +186,8 @@ function check(){
 					img_count++;
 					img_li = "living/" + img_count + ".jpg";
 				%>
-				<form style="margin-left:100px" method="post" action="doDetailProduct">
+				<form style="margin-left: 100px" method="post"
+					action="doDetailProduct">
 					<button style="border: 0; outline: 0; background-color: white"
 						name="productid" value=<%=productid%>>
 						<li id="li-living-item-box">

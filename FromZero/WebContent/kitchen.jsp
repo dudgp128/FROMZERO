@@ -12,6 +12,17 @@
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <script src="./search-checkbox.js"></script>
+<style>
+table {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+</style>
 <meta charset="UTF-8">
 <title>From zero</title>
 </head>
@@ -20,8 +31,8 @@
 
 	<!-- 체크박스 -->
 	</br>
-	<form style="margin-left:100px" method="post" action="doKitchen">
-		<table>
+	<form style="margin: 0 auto" method="post" action="doKitchen">
+		<table style="margin: 0 auto; width: 80%">
 			<tr>
 				<th>소분류</th>
 				<td><label><input type="checkbox" onClick="check()"
@@ -44,7 +55,7 @@
 						name="brandName" value="제로웨이스트샵" id="brand3"> 제로웨이스트샵</label></td>
 				<td><label><input type="checkbox" onClick="check()"
 						name="brandName" value="지구살림e" id="brand4"> 지구살림e</label></td>
-				<td />
+
 			</tr>
 
 
@@ -56,6 +67,7 @@
 					value="30000" id="three"><label for="three"> ~3만원</label></td>
 				<td><input type="radio" onClick="check()" name="price"
 					value="50000" id="five"><label for="five"> ~5만원</label></td>
+				<td />
 			</tr>
 
 			<tr>
@@ -76,12 +88,11 @@
 
 			<tr>
 				<td />
-				<td />
-				<td colspan="4" style="text-align: right;"><input type="text"
+
+				<td colspan="3" style="text-align: right;"><input type="text"
 					name="search_result" style="width: 500px; height: 30px;"
 					id="search-statement" readonly="readonly" /></td>
-				<td style="text-align: left"><button type="reset">초기화</button></td>
-				<td style="text-align: left"><input type="submit" value="검색" />
+				<td style="text-align: left"><button type="reset" class="test-result-button">초기화</button> <input type="submit" class="test-result-button" value="검색" />
 			</tr>
 		</table>
 	</form>
@@ -132,7 +143,8 @@
 					img_count++;
 					img_li = "kitchen/" + img_count + ".jpg";
 				%>
-				<form style="margin-left:100px" method="post" action="doDetailProduct">
+				<form style="margin-left: 100px" method="post"
+					action="doDetailProduct">
 					<button style="border: 0; outline: 0; background-color: white"
 						name="productid" value=<%= productid%>>
 						<li id="li-living-item-box">
