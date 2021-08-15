@@ -67,7 +67,6 @@ CREATE TABLE `cart_items` (
 
 LOCK TABLES `cart_items` WRITE;
 /*!40000 ALTER TABLE `cart_items` DISABLE KEYS */;
-INSERT INTO `cart_items` VALUES ('khhong',52,1);
 /*!40000 ALTER TABLE `cart_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -97,7 +96,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('admin','1234','관리자',NULL,'01082828282',NULL,NULL,1),('khhong','1111','홍기형','성신여대미정관','82828282','khhong@sungshin.ac.kr','나무',0),('off_admin1','1234','알맹상점',NULL,NULL,NULL,NULL,1),('off_admin2','1234','지구샵',NULL,NULL,NULL,NULL,1),('off_admin3','1234','더피커',NULL,NULL,NULL,NULL,1),('off_admin4','1234','라마홈',NULL,NULL,NULL,NULL,1),('off_admin5','1234','송포얼스',NULL,NULL,NULL,NULL,1),('off_admin6','1234','디어얼스',NULL,NULL,NULL,NULL,1);
+INSERT INTO `customer` VALUES ('20181048','1111','조영혜','서울특별시 성북구','01095052726','20181048@sungshin.ac.kr',NULL,NULL),('admin','1234','관리자',NULL,NULL,NULL,NULL,1),('msyou99','1111','유민서','서울특별시 성북구 보문로26길 71-7','01072937923','20180926@sungshin.ac.kr',NULL,NULL),('off_admin1','1234','알맹상점',NULL,NULL,NULL,NULL,1),('off_admin2','1234','지구샵',NULL,NULL,NULL,NULL,1),('off_admin3','1234','더피커',NULL,NULL,NULL,NULL,1),('off_admin4','1234','라마홈',NULL,NULL,NULL,NULL,1),('off_admin5','1234','송포얼스',NULL,NULL,NULL,NULL,1),('off_admin6','1234','디어얼스',NULL,NULL,NULL,NULL,1),('yuha','1111','배유하','경기도 안양시 동안구 동안로 75','01028133880','20181027@sungshin.ac.kr',NULL,NULL);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -180,7 +179,7 @@ CREATE TABLE `notice` (
 
 LOCK TABLES `notice` WRITE;
 /*!40000 ALTER TABLE `notice` DISABLE KEYS */;
-INSERT INTO `notice` VALUES (1,'admin','연말 기간 배송 공지','연말 물류 급증으로 인해 배송이 7일 이상 걸릴 것으로 예상합니다. 이 점 감안하고 주문해 주세요 ~\r\n','2020-12-13');
+INSERT INTO `notice` VALUES (1,'admin','연말 기간 배송 공지','연말 물류 급증으로 인해 배송이 7일 이상 걸릴 것으로 예상합니다. 이 점 감안하고 주문해 주세요 ~\r\n','2020-12-13'),(2,'admin','8월 휴가 공지','8월 20일부터 23일까지 여름 휴가 기간을 가지게 되었습니다. 이 기간동안 모든 cs업무가 중단되오니 양해 부탁드립니다. 감사합니다.','2021-08-15');
 /*!40000 ALTER TABLE `notice` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -267,7 +266,7 @@ CREATE TABLE `offline_product` (
 
 LOCK TABLES `offline_product` WRITE;
 /*!40000 ALTER TABLE `offline_product` DISABLE KEYS */;
-INSERT INTO `offline_product` VALUES (100,NULL,1,'소프넛',NULL,11000),(101,NULL,1,'플레이니스트(빨래, 설거지)',NULL,9000),(102,NULL,1,'에코띠크 세탁세제',NULL,3500),(103,NULL,1,'에코띠크 섬유유연제',NULL,3500),(104,NULL,1,'구연산',NULL,2000),(105,NULL,1,'탄산수소나트륨(베이킹소다)',NULL,2000),(106,NULL,1,'과탄산소다(빨래)',NULL,2500),(107,NULL,1,'생활공작소(주방세제)',NULL,2500),(108,NULL,1,'바이오 크린콜',NULL,3500),(109,'조영혜.jpg',1,'ss',7,6),(200,NULL,2,'설거지 비누',NULL,6500),(201,NULL,2,'천연수세미3개입',NULL,9900),(202,NULL,2,'브라질넛',NULL,50),(203,NULL,2,'헤이즐넛',NULL,35),(204,NULL,2,'캐슈넛',NULL,35),(205,NULL,2,'통밀쿠키(비건)',NULL,400),(206,NULL,2,'초코호두(비건)',NULL,600),(300,NULL,3,'자연분해 일회용 접시',NULL,1500),(301,NULL,3,'재사용 소창 화장지',NULL,25000),(302,NULL,3,'재사용 휴대용 소창와압스',NULL,10000),(303,NULL,3,'소창 바게트 주머니',NULL,7000),(304,NULL,3,'천연 실크 치실',NULL,7000),(305,NULL,3,'A5 크라프트 무지노트',NULL,1500),(306,NULL,3,'병아리콩',NULL,4000),(307,NULL,3,'유기농 국산 햇귀리',NULL,7500),(308,NULL,3,'쌀 파스타(펜네)',NULL,8500),(309,NULL,3,'브라운 렌틸콩',NULL,3000),(400,NULL,4,'친환경 노트',NULL,1000),(401,NULL,4,'삼베수세미',NULL,10000),(402,NULL,4,'손수건',NULL,3500),(403,NULL,4,'밀랍초',NULL,5000),(404,NULL,4,'소프넛',NULL,11000),(405,NULL,4,'천 마스크',NULL,5000),(406,NULL,4,'빨대키트',NULL,10000),(407,NULL,4,'대나무 칫솔',NULL,2000),(500,NULL,5,'칫솔 파우치',NULL,3000),(501,NULL,5,'혀클리너',NULL,7000),(502,NULL,5,'닥터노아 어린이 칫솔',NULL,3700),(503,NULL,5,'수세미 병솔(납작형)',NULL,7000),(504,NULL,5,'설거지 수세미 S',NULL,4000),(505,NULL,5,'다용도 집게',NULL,1000),(506,NULL,5,'고체치약',NULL,14000),(600,NULL,6,'삼베 주머니',NULL,2400),(601,NULL,6,'고체치약(120정)',NULL,13900),(602,NULL,6,'팜프리 비누',NULL,6800),(603,NULL,6,'비즈왁스랩(밀랍랩)',NULL,4500),(604,NULL,6,'다회용 소창 티백',NULL,3500);
+INSERT INTO `offline_product` VALUES (100,NULL,1,'소프넛',NULL,11000),(101,NULL,1,'플레이니스트(빨래, 설거지)',NULL,9000),(102,NULL,1,'에코띠크 세탁세제',NULL,3500),(103,NULL,1,'에코띠크 섬유유연제',NULL,3500),(104,NULL,1,'구연산',NULL,2000),(105,NULL,1,'탄산수소나트륨(베이킹소다)',NULL,2000),(106,NULL,1,'과탄산소다(빨래)',NULL,2500),(107,NULL,1,'생활공작소(주방세제)',NULL,2500),(108,NULL,1,'바이오 크린콜',NULL,3500),(200,NULL,2,'설거지 비누',NULL,6500),(201,NULL,2,'천연수세미3개입',NULL,9900),(202,NULL,2,'브라질넛',NULL,50),(203,NULL,2,'헤이즐넛',NULL,35),(204,NULL,2,'캐슈넛',NULL,35),(205,NULL,2,'통밀쿠키(비건)',NULL,400),(206,NULL,2,'초코호두(비건)',NULL,600),(300,NULL,3,'자연분해 일회용 접시',NULL,1500),(301,NULL,3,'재사용 소창 화장지',NULL,25000),(302,NULL,3,'재사용 휴대용 소창와압스',NULL,10000),(303,NULL,3,'소창 바게트 주머니',NULL,7000),(304,NULL,3,'천연 실크 치실',NULL,7000),(305,NULL,3,'A5 크라프트 무지노트',NULL,1500),(306,NULL,3,'병아리콩',NULL,4000),(307,NULL,3,'유기농 국산 햇귀리',NULL,7500),(308,NULL,3,'쌀 파스타(펜네)',NULL,8500),(309,NULL,3,'브라운 렌틸콩',NULL,3000),(400,NULL,4,'친환경 노트',NULL,1000),(401,NULL,4,'삼베수세미',NULL,10000),(402,NULL,4,'손수건',NULL,3500),(403,NULL,4,'밀랍초',NULL,5000),(404,NULL,4,'소프넛',NULL,11000),(405,NULL,4,'천 마스크',NULL,5000),(406,NULL,4,'빨대키트',NULL,10000),(407,NULL,4,'대나무 칫솔',NULL,2000),(500,NULL,5,'칫솔 파우치',NULL,3000),(501,NULL,5,'혀클리너',NULL,7000),(502,NULL,5,'닥터노아 어린이 칫솔',NULL,3700),(503,NULL,5,'수세미 병솔(납작형)',NULL,7000),(504,NULL,5,'설거지 수세미 S',NULL,4000),(505,NULL,5,'다용도 집게',NULL,1000),(506,NULL,5,'고체치약',NULL,14000),(600,NULL,6,'삼베 주머니',NULL,2400),(601,NULL,6,'고체치약(120정)',NULL,13900),(602,NULL,6,'팜프리 비누',NULL,6800),(603,NULL,6,'비즈왁스랩(밀랍랩)',NULL,4500),(604,NULL,6,'다회용 소창 티백',NULL,3500);
 /*!40000 ALTER TABLE `offline_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,7 +321,6 @@ CREATE TABLE `online_order` (
 
 LOCK TABLES `online_order` WRITE;
 /*!40000 ALTER TABLE `online_order` DISABLE KEYS */;
-INSERT INTO `online_order` VALUES (1,'khhong',2000,'2021-07-25'),(2,'khhong',3000,'2021-07-25'),(3,'khhong',2000,'2021-07-25');
 /*!40000 ALTER TABLE `online_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -380,7 +378,6 @@ CREATE TABLE `order_items` (
 
 LOCK TABLES `order_items` WRITE;
 /*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
-INSERT INTO `order_items` VALUES (1,26,'khhong',1),(2,9,'khhong',1),(3,39,'khhong',1);
 /*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -410,7 +407,6 @@ CREATE TABLE `qna` (
 
 LOCK TABLES `qna` WRITE;
 /*!40000 ALTER TABLE `qna` DISABLE KEYS */;
-INSERT INTO `qna` VALUES (1,'khhong','배송문의','이번주 내에 배송 되나요?','2020-12-13','0128'),(2,'off_admin1','배송문의','d','2021-07-24','0128');
 /*!40000 ALTER TABLE `qna` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -441,7 +437,6 @@ CREATE TABLE `qna_comment` (
 
 LOCK TABLES `qna_comment` WRITE;
 /*!40000 ALTER TABLE `qna_comment` DISABLE KEYS */;
-INSERT INTO `qna_comment` VALUES (1,'admin',1,'14일(내일) 출고 예정입니다.','2020-12-13');
 /*!40000 ALTER TABLE `qna_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -478,6 +473,10 @@ LOCK TABLES `review` WRITE;
 /*!40000 ALTER TABLE `review` DISABLE KEYS */;
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'fz_webapp'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -488,4 +487,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-07-26 14:40:46
+-- Dump completed on 2021-08-15 18:15:34

@@ -7,7 +7,7 @@
 }
 
 * {
-   font-family: 'GmarketSansMedium';
+   font-family: 'GmarketSansMedium' !important;
 }
 
 header {
@@ -62,9 +62,8 @@ nav {
 	text-decoration: none;
 	display: block; /* a 태그의 클릭 범위를 넓힘 */
 	width: 200px;
-	font-size: 14px;
+	font-size: 12px;
 	font-weight: bold;
-	font-family: "Trebuchet MS", Dotum;
 }
 
 .menuLink { /* 상위 메뉴의 글씨색을 설정 */
