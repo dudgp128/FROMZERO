@@ -55,7 +55,7 @@ public class Reserve_Offline extends HttpServlet {
 
 		String storeid=request.getParameter("offline_storeid");
 		int i=Integer.parseInt(storeid);
-		System.out.println("int변환 : "+ storeid);
+		//System.out.println("int변환 : "+ storeid);
 		
 		
 		ServletContext sc=getServletContext();
@@ -99,11 +99,14 @@ public class Reserve_Offline extends HttpServlet {
 				while(rs.next()) {
 					offline_product_id=rs.getInt(1);
 					//System.out.println("offline_product_id : "+offline_product_id);
-					String offline_count=Integer.toString(offline_product_id);
+					String s_offline_id=Integer.toString(offline_product_id);
 					offline_price=rs.getInt("offlineproduct_price");
 					//System.out.println(soffline_product_id)
 					//System.out.println("offline_product_name : "+offline_product_name);
-					int count=Integer.parseInt(request.getParameter(offline_count));
+					if(request.getParameter(s_offline_id)==null)
+						continue;
+					int count=Integer.parseInt(request.getParameter(s_offline_id));
+					System.out.println("count = " +count);
 					if(count!=0) {
 							noting_reserve++;
 							DBUtil.insertReserve(con,order_id,offline_product_id,user_id,i,count);

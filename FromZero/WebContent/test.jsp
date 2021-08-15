@@ -74,8 +74,8 @@ input[type=radio]:checked+label {
 			알아보자!</h4>
 	</div>
 
-	<form method="post" name="question" action="doLevel">
-		<div class="question_box">
+	<form method="post" name="question" action="doLevel" style=" margin:0 auto; background-color:white">
+		<div class="question_box" style="background-image: url(images/test-background.jpg); background-size:100% 100%; background-repeat:no-repeat; background-color:white">
 			<div class="question">
 				<h4>Q1</h4>
 				<h5>나는 카페에서 음료를 마실 때 플라스틱 컵 대신 텀블러를 이용한다.</h5>
@@ -85,7 +85,7 @@ input[type=radio]:checked+label {
 				<input type="radio" id="q1a4" name="q1" value="1"><label for="q1a4">전혀</label>
 			</div>
 
-			<div class="question">
+			<div class="question" background-color:white">
 				<h4>Q2</h4>
 				<h5>나는 카페에서 음료를 마실 때 플라스틱 컵 대신 텀블러를 이용한다.</h5>
 				<input type="radio" id="q2a1" name="q2" value="4"><label for="q2a1">항상</label> 
@@ -94,7 +94,7 @@ input[type=radio]:checked+label {
 				<input type="radio" id="q2a4" name="q2" value="1"><label for="q2a4">전혀</label>
 			</div>
 
-			<div class="question">
+			<div class="question" >
 				<h4>Q3</h4>
 				<h5>나는 쇼핑할 때 장바구니를 이용한다.</h5>
 				<input type="radio" id="q3a1" name="q3" value="4"><label for="q3a1">항상</label> 

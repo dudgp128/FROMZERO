@@ -59,7 +59,7 @@ ul {
 	<div style="text-align: center;">
 	<br><br>
 	<div id="content" style="display: inline-block; width: 1200px; padding:10px">
-		<ul class="ul-shop-grid">
+		<ul class="ul-shop-grid" style="margin:0 auto">
 			<%
 			PreparedStatement pstmt = null;
 			ResultSet rset = null;
@@ -96,7 +96,7 @@ ul {
 				//count = rset.getString("price");
 				img_path = "card_news/" + name + " (1).jpg";
 			%>
-			<form method="post" action="doCardNews">
+			<form method="post" action="doCardNews" style="margin: 0 auto">
 				<button style="border: 0; outline: 0; background-color: white"
 					name="name" value=<%=name%>>
 					<li id="li-living-item-box">

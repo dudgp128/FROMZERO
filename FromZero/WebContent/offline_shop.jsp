@@ -32,8 +32,9 @@
 			<img style="padding-top:0px" id="img_td" src=<%=store_img%> height="185px" />
 				<form style="margin-left: 150px; width: 90%" method="post"
 					action="reserve_Offline">
-					<button style="float:right; margin-right:100px" type="submit">예약하기</button>
+					<button class="test-result-button"style="float:right; margin-right:100px" type="submit">예약하기</button>
 					<br/>
+					<br/><br/>
 					<br/>
 					<%
 					String img=null;
@@ -60,6 +61,7 @@
 						img_li = "offline_store_img/Store" + storeid + "/" +productid + ".jpg";
 					
 					%>
+					
 					<li id="li-living-item-box">
 						<div class="div-display-living-box">
 							<img class="img-display-box" src="
