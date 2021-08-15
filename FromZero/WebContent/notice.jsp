@@ -17,6 +17,7 @@
 
 <style>
 
+
 .write {
 	padding-right:250px;
 }
@@ -124,6 +125,8 @@ td,th{
 <body style="overflow-x: hidden">
    <%@ include file="./fz_header.jsp" %>
    <%
+  	user_name = (String) session.getAttribute("user_name");
+
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
 	Connection conn = null;
@@ -138,6 +141,12 @@ td,th{
 	connectionProps.put("password", DBpasswd);
 	connectionProps.put("serverTimezone", DBTimeZone);
 	String name = null;
+	
+	
+	String b="display:none";
+	if(user_name.equals("관리자")){
+		b="";
+	}
 	%>
 	
    <div>
@@ -146,7 +155,7 @@ td,th{
 			style="text-align: center; margin-top: 30px;">NOTICE</h2>
 	</div>
 	
-	<div class="write" align="right">
+	<div class="write" align="right" style="<%=b%>">
 		<button onclick="location.href='notice_write.jsp'" class="test-result-button">글쓰기</button>
 	</div>
 	

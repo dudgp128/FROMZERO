@@ -16,23 +16,32 @@
 <title>From zero</title>
 
 <style>
-.deleteBoard {
-	padding-right:300px;
-}
-
 table {
-	width:1500px;
+	width: 1500px;
 	table-layout: fixed;
 	font-size: 14px;
-	border-bottom: 1px solid #999;
 	color: #666;
+	border: 0;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	border-top: 1px solid #444444;
+	border-bottom: 1px solid #444444;
+	border-collapse: collapse;
+}
+
+th, td {
+	background-color: white;
+	border-bottom: 1px solid #444444;
+	padding: 10px;
 }
 
 #menu, #content {
 	margin: 50px;
 }
-
-
 
 <!-- 왼쪽 네비게이션 -->
 .leftMenu {
@@ -70,6 +79,7 @@ table {
 	connectionProps.put("password", DBpasswd);
 	connectionProps.put("serverTimezone", DBTimeZone);
 	String name = null;
+	
 	%>
 	
    <div>
@@ -77,23 +87,11 @@ table {
 			style="text-align: center; margin-top: 20px; text-transform: uppercase;">FAQ</h1>
 	</div>
 	
-	<%
-	if (user_name == null) {
-	%>
-	<input type="hidden">
-	<%
-	}
-	else if (user_name.equals("관리자")) {
-		session.setAttribute("board_id", board_id);
-	%>
 	<div class="deleteBoard" align="right">
 	<form method="post" action="doDeleteWriting">
-		<button type="submit">삭제</button>
 	</form>
 	</div>
-	<%
-	}
-	%>
+	
 	
    <div id="menu" style="float: left;">
 		<ul class="leftMenu">
@@ -104,7 +102,9 @@ table {
 	</div>
 
 	<div id="content" style="float: left; width:1000px">
-		<table class="board" border="1" cellspacing="0">
+	<form method="post" action="doDeleteWriting">
+		<table class="board"
+				style="text-align: left; background-color: white">
 		<%
 			try {
 				conn = DriverManager.getConnection(DBUrl, connectionProps);
@@ -129,27 +129,46 @@ table {
 				board_content = rset.getString("board_content");
 				board_date = rset.getString("board_date");
 			}
+			String b="display:none";
+			if(user_name.equals("관리자")){
+				b="";
+			}
 			%>
         <tr>
-            <th>글번호</th>
-            <td id="board_id"><%= board_id %></td>
-            <th>작성자</th>
-            <td id="cust_id"><%= custid %></td>
-			<th>작성일</th>
-            <td><%= board_date %></td>
-        </tr>
-           
-        <tr>
-            <th>제목</th>
-            <td colspan="5"><%= board_title %></td>
-        </tr>
-         
-        <tr>
-            <th style="height:500px">글 내용</th>
-            <td colspan="5"><%= board_content %></td>
-        </tr>
-		</table>
-	</div>
+					<th style="width: 10%">글번호</th>
+					<td style="width: 90%"><%=board_id%></td>
+				</tr>
+				<tr>
+					<th>작성자</th>
+					<td><%=custid%></td>
+				</tr>
+				<tr>
+					<th>작성일</th>
+					<td><%=board_date%></td>
+				</tr>
+
+				<tr>
+					<th>제목</th>
+					<td colspan="4"><%=board_title%></td>
+				</tr>
+
+				<tr>
+					<td colspan="5" style="width: 100%; padding: 200px 10px;"><%=board_content%></td>
+				</tr>
+			</table>
+			<br />
+
+			<div style="text-align: right; margin-right: 100px">
+				<button class="test-result-button" style="width:10%; color: red; <%=b%>"
+					type="submit">삭제하기</button>
+			</div>
+		</form>
+		<%
+		session.setAttribute("board_id", board_id);
+		session.setAttribute("cust_id", custid);
+		session.setAttribute("page","faq");
+		%>
+		</div>
 
 </body>
 </html>

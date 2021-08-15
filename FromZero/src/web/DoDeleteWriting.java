@@ -38,31 +38,37 @@ public class DoDeleteWriting extends HttpServlet {
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-		
+
 		HttpSession session = request.getSession();
 		String board_id = (String) session.getAttribute("board_id");
 		System.out.println("doget()>board_id=" + board_id);
 		String cust_id = (String) session.getAttribute("cust_id");
-
+		String page = (String) session.getAttribute("page");
+		System.out.println("cust_id===>" + cust_id);
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 		RequestDispatcher view = null;
 
-		if (cust_id == "admin") {
-			try {
-				DBUtil.deleteFAQ(conn, board_id);
-				view = request.getRequestDispatcher("FAQ.jsp");
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+		try {
+			if (cust_id.equals("admin")) {
+				if (page.equals("faq")) {
+					DBUtil.deleteFAQ(conn, board_id);
+					view = request.getRequestDispatcher("FAQ.jsp");
+					view.forward(request, response);
+				} else if (page.equals("notice")) {
+					DBUtil.deleteNotice(conn, board_id);
+					view = request.getRequestDispatcher("notice.jsp");
+					view.forward(request, response);
+				}
+			} else {
+				System.out.println("doDelete>board_id=" + board_id);
+				DBUtil.deleteQNA(conn, board_id);
+				view = request.getRequestDispatcher("QnA.jsp");
+				view.forward(request, response);
 			}
-		} else {
-			System.out.println("doDelete>board_id=" + board_id);
-			DBUtil.deleteQNA(conn, board_id);
-			view = request.getRequestDispatcher("QnA.jsp");
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
-		view.forward(request, response);
-
 	}
 
 	/**

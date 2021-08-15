@@ -139,6 +139,8 @@ th, td {
 <body style="overflow-x: hidden">
    <%@ include file="./fz_header.jsp" %>
    <%
+ 	user_name = (String) session.getAttribute("user_name");
+
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
 	Connection conn = null;
@@ -153,6 +155,11 @@ th, td {
 	connectionProps.put("password", DBpasswd);
 	connectionProps.put("serverTimezone", DBTimeZone);
 	String name = null;
+	
+	String b="display:none";
+	if(user_name.equals("관리자")){
+		b="";
+	}
 	%>
 	
    <div>
@@ -161,7 +168,7 @@ th, td {
 			style="text-align: center; margin-top: 30px;">FAQ</h2>
 	</div>
 	
-	<div class="write" align="right">
+	<div class="write" align="right" style="<%=b%>">
 		<button onclick="location.href='faq_write.jsp'" class="test-result-button">글쓰기</button>
 	</div>
 	

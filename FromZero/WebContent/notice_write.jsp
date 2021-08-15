@@ -24,6 +24,9 @@ table {
 	border-bottom: 1px solid #999;
 	color: #666;
 }
+table, tr, td, th{
+	border:0px
+}
 
 #menu, #content {
 	margin: 50px;
@@ -105,16 +108,6 @@ table {
 		<table class="board" border="1" cellspacing="0"; style="background-color:white">
 			<form method="post" action="doNoticeWrite">
 				<tr>
-					<th>글번호</th>
-					<td><%=board_id_2%></td>
-
-					<th>작성자</th>
-					<td><%=user_id%></td>
-					<th>작성일</th>
-					<td><%=stringDate%></td>
-				</tr>
-
-				<tr>
 					<th>제목</th>
 					<td colspan="5"><input name="title" maxlength="100"
 						style="width: 700px"></td>
@@ -126,15 +119,13 @@ table {
 							style="width: 700px; height: 500px"></textarea></td>
 				</tr>
 				<tr>
-					<td colspan="5" style="border:0"></td>
-					<td style="border:0">
+					<td colspan="5" ></td>
+					<td>
 						<button class="test-result-button" type="submit">글 작성</button>
 					</td>
 				</tr>
-		</table>
-
-		<!--<div class="save" align="right"></div>  -->
-		</form>
+			</form>
+			</table>
 	</div>
 
 

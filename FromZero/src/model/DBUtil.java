@@ -529,7 +529,7 @@ public class DBUtil {
 		}
 	}
 
-	public static void deleteNotice(Connection conn, int board_id) throws SQLException {
+	public static void deleteNotice(Connection conn, String board_id) throws SQLException {
 		Statement st = null;
 		String sqlSt = "DELETE FROM notice WHERE board_id=" + board_id;
 		try {

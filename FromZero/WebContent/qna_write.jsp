@@ -18,11 +18,15 @@
 
 <style>
 table {
-	width:1500px;
+	width: 1500px;
 	table-layout: fixed;
 	font-size: 14px;
 	border-bottom: 1px solid #999;
 	color: #666;
+}
+table, tr, td, th{
+	border:0px;
+	background-color:white
 }
 
 #menu, #content {
@@ -101,16 +105,7 @@ table {
 	<div id="content" style="float: left; width:1000px">
 		<table class="board" border="1" cellspacing="0">
 		<form method="post" action="doQnAWrite">
-        <tr>
-            <th>글번호</th>
-            <td><%=board_id_2 %></td>
-            
-            <th>작성자</th>
-            <td><%= user_id %></td>
-			<th>작성일</th>
-            <td><%= stringDate %></td>
-        </tr>
-        
+     
         <tr>
             <th>제목</th>
             <td colspan="5"><input name="title" maxlength="100" style="width:700px" required></td>
@@ -125,15 +120,14 @@ table {
             <th>글 비밀번호</th>
             <td colspan="5"><input name="password" maxlength="10" style="width:700px" required></td>
         </tr>
+       <tr>
+					<td colspan="5" ></td>
+					<td>
+						<button class="test-result-button" type="submit">글 작성</button>
+					</td>
+				</tr>
 		</table>
 		
-		</br>
-		</br>
-		
-		
-		<div class="save" align="center">
-			<button type="submit" class="test-result-button" style="text-align:center">글 작성</button>
-		</div>
 		</form>
 	</div>
 

@@ -139,7 +139,7 @@ th, td {
 				</tr>
 
 				<tr>
-					<td style="width: 100%; padding: 200px 10px;"><%=board_content%></td>
+					<td colspan="5" style="width: 100%; padding: 200px 10px;"><%=board_content%></td>
 				</tr>
 			</table>
 			<br />
