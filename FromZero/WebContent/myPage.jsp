@@ -21,6 +21,10 @@
 <meta charset="UTF-8">
 <title>From zero</title>
 <style>
+table {
+	margin-right: 0px;
+}
+
 .inside {
 	padding: 10px;
 	margin-top: 20px;
@@ -29,13 +33,12 @@
 }
 
 .info {
-	background-color: #e2e2e2;
+	background-color: white;
 	width: 1100px;
 	height: 100px;
 	float: left;
 	padding: 20px;
 	display: inline-block;
-	margin-top: 48px;
 	margin-left: 20px;
 }
 
@@ -124,7 +127,7 @@ ul {
 	position: absolute;
 	left: 0;
 	box-sizing: border-box;
-	border: 5px solid #f9f9f9;
+	border: 5px solid #CEF6CE;
 }
 
 .tabmenu input:checked ~ label {
@@ -138,6 +141,13 @@ ul {
 td, tr {
 	margin: 0;
 	padding: 0;
+	background-color: white;
+	border: 0;
+}
+
+table {
+	border-collapse: collapse;
+	width:100%;
 }
 </style>
 </head>
@@ -204,7 +214,7 @@ td, tr {
 	}
 	if (rsett.next())
 		point = rsett.getString("point");
-	
+
 	if (point == null)
 		point = "0";
 
@@ -214,7 +224,7 @@ td, tr {
 	<div class="inside">
 		<div id="menu" style="float: left;">
 			<ul class="leftMenu">
-				<li><a href="myorder.jsp" class="submenuLink">주문조회</a></li>
+				<li><a href="myPage.jsp" class="submenuLink">주문조회</a></li>
 				<li><a href="modify_info.jsp" class="submenuLink">회원정보수정</a></li>
 			</ul>
 		</div>
@@ -237,16 +247,13 @@ td, tr {
 			</div>
 
 			<div class="point-view">
-				<a href="point.html"> <!-- 공병 개수 보여주는거 어떻게 할것인지 결정하기  -->
+				<a href="point.jsp"> <!-- 공병 개수 보여주는거 어떻게 할것인지 결정하기  -->
 					<ul>
 						<li>포인트</li>
 						<li style='font-size: 23px'><%=point%></li>
 					</ul>
 				</a>
 			</div>
-
-
-
 			<div class="point-view">
 				<a href="test.jsp">
 					<ul>
@@ -263,14 +270,14 @@ td, tr {
 							ORDER</label>
 
 						<div style="width: 100%" class="tabCon">
-							<table>
+							<table style="border: 0;" >
 								<tr>
 									<%
 										try {
 										conn = DriverManager.getConnection(DBUrl, connectionProps);
-
-										String osqlSt = "select online_product.productid,productname, count, price, img,big_category,orderid from online_product, order_items where online_product.productid=order_items.productid and custid="
+										String osqlSt = "select online_product.productid,productname, count, price, img,big_category,online_order.orderid,orderdate from online_product, order_items,online_order where online_product.productid=order_items.productid and order_items.orderid=online_order.orderid and online_order.custid="
 										+ "'" + user_id + "' order by orderid desc";
+
 										pstmt = conn.prepareStatement(osqlSt);
 										rset = pstmt.executeQuery();
 
@@ -285,6 +292,7 @@ td, tr {
 									String img_li = "";
 									String big_category = "";
 									int orderid = 0;
+									String orderdate = "";
 									while (rset.next()) {
 										online_productid = rset.getInt(1);
 										productname = rset.getString(2);
@@ -293,11 +301,12 @@ td, tr {
 										img = rset.getString("img");
 										big_category = rset.getString("big_category");
 										orderid = rset.getInt("orderid");
+										orderdate = rset.getString("orderdate");
 
 										img_li = big_category + "/" + img + ".jpg";
 									%>
-									<td style="border-bottom: 1px solid #444444">
-										<table style="width: 55%; text-algin: left">
+									<td style="border-bottom: 1px solid #e2e2e2">
+										<table style="margin-right:0px">
 											<form method="post" action="doReview">
 
 												<tr>
@@ -306,11 +315,14 @@ td, tr {
 														class="img-display-box" src="<%=img_li%>" alt=""></td>
 
 													<td
-														style="text-align: left; width: 100%; padding-right: 0px"><strong><p><%=productname%></p></strong>
-														<p style="font-size: 12px">
+														style="text-align: left; width: 100%; padding-right: 0px; font-size:17px;"><strong><p><%=productname%></p></strong>
+														<p style="font-size: 13px">
 															수량 :
 															<%=count%>개 /
 															<%=online_price%>원
+														</p>
+														<p style="font-size: 13px">
+															<%=orderdate%>
 														</p></td>
 													<td><input type="hidden" name="productname"
 														value="<%=productname%>"> <input type="hidden"
@@ -320,11 +332,12 @@ td, tr {
 														value="<%=online_productid%>"> <input
 														type="hidden" name="orderid" value="<%=orderid%>">
 													</td>
-													<td>
-														<button style="width: 40px" type="submit">후기작성</button>
+													<td style='text-align: right'>
+														<button style="width: 100px;" type="submit"
+															class="test-result-button">후기작성</button>
 													</td>
 												</tr>
-												<tr />
+
 											</form>
 										</table>
 									</td>
@@ -345,7 +358,7 @@ td, tr {
 										try {
 										conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-										String sqlSt = "select productid, offlineproduct_name, count, offlineproduct_price from offline_order_items, offline_product where offline_order_items.productid=offline_product.offlineproduct_id and offline_order_items.storeid=offline_product.storeid and custid="
+										String sqlSt = "select productid, offlineproduct_name, count, offlineproduct_price, storename from offline_order_items, offline_product, offline_store where offline_order_items.productid=offline_product.offlineproduct_id and offline_order_items.storeid=offline_product.storeid and offline_order_items.storeid = offline_store.storeid and custid="
 										+ "'" + user_id + "' order by orderid desc";
 										pstmt = conn.prepareStatement(sqlSt);
 										rset = pstmt.executeQuery();
@@ -358,6 +371,7 @@ td, tr {
 									int offline_price = 0;
 									int productid = 0;
 									int storeid = 0;
+									String storename = "";
 									//String img_li = "";
 									while (rset.next()) {
 										productid = rset.getInt(1);
@@ -366,8 +380,9 @@ td, tr {
 										count = rset.getInt(3);
 										offline_price = rset.getInt(4);
 										img_li = "offline_store_img/Store" + storeid + "/" + productid + ".jpg";
+										storename = rset.getString(5);
 									%>
-									<td style="border-bottom: 1px solid #444444">
+									<td style="border-bottom: 1px solid #e2e2e2">
 										<table style="width: 55%; text-algin: left">
 											<tr>
 
@@ -376,13 +391,15 @@ td, tr {
 													class="img-display-box" src="<%=img_li%>" alt=""></td>
 
 												<td
-													style="text-align: left; width: 100%; padding-right: 0px"><strong><%=offlineproduct_name%></strong>
+													style="text-align: left; width: 100%; padding-right: 0px; font-size:17px;"><strong>[<%=storename%>] <%=offlineproduct_name%></strong>
 													<br />
-													<p style="font-size: 12px">
+													<p style="font-size: 13px">
 														수량 :
 														<%=count%>개 /
 														<%=offline_price%>원
 													</p></td>
+												<td />
+
 												<td />
 
 												<td />
