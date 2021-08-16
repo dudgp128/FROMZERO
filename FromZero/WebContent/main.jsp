@@ -329,6 +329,7 @@ div, table {
 								data-org="S2017101059dc82fe9c146/e535a7276e76f.png">
 								<div id="caption_3884542" style="display: none">
 									<h4></h4>
+									<br />
 									<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">ALL
 										PRODUCT</h6>
 									<h5 style="margin: 0; line-height: 1.6;">
@@ -346,7 +347,9 @@ div, table {
 								<a class="item_container _item_container _fade_link "
 									href="shop.jsp" style="display: block">
 									<div class="img_wrap _img_wrap " id="gal_item_"
-										style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200502/1812d3ebea70c.png&quot;); min-height: 305px;"
+										style="background-image: url(https://post-phinf.pstatic.net/MjAyMDA2MTFfMTA3/MDAxNTkxODYzMjE5NDI2.P2mnQSNdHqEljR_3FXElm_d0NAR0CdkRQMgKOzSuXCAg.EfTy0pcdv0cCp32jQFt90wvaD_48mzw7KKu5PdsVaBMg.JPEG/%EB%A9%94%EC%9D%B8_1980.jpg?type=w1200;); 
+										min-height: 270px;
+										background-size: contain;"
 										data-bg="url(https://cdn.imweb.me/thumbnail/20200502/1812d3ebea70c.png)"
 										data-src="https://cdn.imweb.me/thumbnail/20200502/76f65282799e2.png"
 										data-sub-html="#caption_3884542" data-no="0"></div>
@@ -357,6 +360,7 @@ div, table {
 									<a class="item_container _item_container _fade_link "
 										href="all.html" style="display: block">
 										<p class="title"></p>
+										<br />
 										<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">ALL
 											PRODUCT</h6>
 										<h5 style="margin: 0; line-height: 1.6;">
@@ -396,7 +400,9 @@ div, table {
 								<a class="item_container _item_container _fade_link "
 									href="living.jsp" style="display: block">
 									<div class="img_wrap _img_wrap " id="gal_item_"
-										style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/ca2f5493f3604.jpg&quot;); min-height: 305px;"
+										style="background-image: url(https://lh3.googleusercontent.com/proxy/3f9P2Hhf8fsGZ3VnvIHZwqynDqs-Fe9EIf3Gyf-P79OCBa6GGR0SwQYjPIcpLN-7vFWPKIl7MKNvEtL5l91uCJMRKGcjqSsiKZXDKQbuxr1urKecaVv4ADftkw;); 
+										min-height: 270px;
+										background-size: contain;"
 										data-bg="url(https://cdn.imweb.me/thumbnail/20200521/ca2f5493f3604.jpg)"
 										data-src="https://cdn.imweb.me/thumbnail/20200521/77694d969bc9a.jpg"
 										data-sub-html="#caption_3838152" data-no="1"></div>
@@ -407,6 +413,7 @@ div, table {
 									<a class="item_container _item_container _fade_link "
 										href="living.jsp" style="display: block">
 										<p class="title"></p>
+										<br />
 										<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">LIVING</h6>
 										<h5 style="margin: 0; line-height: 1.6;">
 											<strong>일상에서.</strong>
@@ -446,7 +453,9 @@ div, table {
 								<a class="item_container _item_container _fade_link "
 									href="bathroom.jsp" style="display: block">
 									<div class="img_wrap _img_wrap " id="gal_item_"
-										style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/06038cc8092a7.jpg&quot;); min-height: 305px;"
+										style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/884887fbae7da.jpg&quot;); 
+										min-height: 270px;
+										background-size: contain;"
 										data-bg="url(https://cdn.imweb.me/thumbnail/20200521/06038cc8092a7.jpg)"
 										data-src="https://cdn.imweb.me/thumbnail/20200521/0ff49d3b24d1d.jpg"
 										data-sub-html="#caption_3838093" data-no="2"></div>
@@ -457,6 +466,7 @@ div, table {
 									<a class="item_container _item_container _fade_link "
 										href="bathroom.jsp" style="display: block">
 										<p class="title"></p>
+										<br />
 										<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">BATHROOM
 										</h6>
 										<h5 style="margin: 0; line-height: 1.6;">
@@ -498,7 +508,9 @@ div, table {
 								<a class="item_container _item_container _fade_link "
 									href="kitchen.jsp" style="display: block">
 									<div class="img_wrap _img_wrap " id="gal_item_"
-										style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/35dab18b68bc3.jpg&quot;); min-height: 305px;"
+										style="background-image: url(https://post-phinf.pstatic.net/MjAyMDA2MTJfMTQy/MDAxNTkxOTQ5ODcwNDgw.XWHTxq56-cHHogt2mD5_A1UPAe59vBTemqcIy4Wy0M8g.XKo2Lm3Ol36dQDuU3NbDjYqfMV6IcO94Zf28f8aAI4kg.JPEG/Zero_Waste.jpg?type=w1200;); 
+										min-height: 270px;
+										background-size: contain;"
 										data-bg="url(https://cdn.imweb.me/thumbnail/20200521/35dab18b68bc3.jpg)"
 										data-src="https://cdn.imweb.me/thumbnail/20200521/db2e758a70105.jpg"
 										data-sub-html="#caption_3838142" data-no="3"></div>
@@ -509,6 +521,7 @@ div, table {
 									<a class="item_container _item_container _fade_link "
 										href="kithen.jsp" style="display: block">
 										<p class="title"></p>
+										<br />
 										<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">KITCHEN</h6>
 										<h5 style="margin: 0; line-height: 1.6;">
 											<strong>부엌에서.</strong>
@@ -547,9 +560,11 @@ div, table {
 								<a class="item_container _item_container _fade_link "
 									href="kit.jsp" style="display: block">
 									<div class="img_wrap _img_wrap " id="gal_item_"
-										style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200502/75743900a9ff6.png&quot;); min-height: 305px;"
-										data-bg="url(https://cdn.imweb.me/thumbnail/20200502/75743900a9ff6.png)"
-										data-src="https://cdn.imweb.me/thumbnail/20200502/12e77bd028f3c.png"
+										style="background-image: url(https://tumblbug-pci.imgix.net/8047a90aa1bf9936012f741d35e13f6ef3f80c24/39e21856949716787891eeef2c246ef751f78b0e/d0ea5938ea140147d732b060f8b0aec188d70cfb/9dd81feb-66b2-4e24-bb89-bacad9d35998.jpeg?ixlib=rb-1.1.0&w=1240&h=930&auto=format%2Ccompress&lossless=true&fit=crop&s=b4228c49a7a31f9771260ef46a371d6f;); 
+										min-height: 270px;
+										background-size: cover;"
+										data-bg="url(https://cdn.imweb.me/thumbnail/20200502/75743900a9ff6.pnghttp://localhost:8080/WebappLogin/kit/5.jpg)"
+										data-src="http://localhost:8080/WebappLogin/kit/5.jpg"
 										data-sub-html="#caption_3838094" data-no="4"></div>
 								</a>
 								<div class="text_wrap _text_wrap " id="gal_item_"
@@ -558,6 +573,7 @@ div, table {
 									<a class="item_container _item_container _fade_link "
 										href="kit.jsp" style="display: block">
 										<p class="title"></p>
+										<br />
 										<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">KIT</h6>
 										<h5 style="margin: 0; line-height: 1.6;">
 											<strong>다양한 키트.</strong>
@@ -596,7 +612,9 @@ div, table {
 								<a class="item_container _item_container _fade_link "
 									href="etc.jsp" style="display: block">
 									<div class="img_wrap _img_wrap " id="gal_item_"
-										style="background-image: url(&quot;https://cdn.imweb.me/thumbnail/20200521/884887fbae7da.jpg&quot;); min-height: 305px;"
+										style="background-image: url(https://northumberlandhoney.co.uk/wp-content/uploads/2021/02/Honey21-020-scaled.jpg;); 
+										min-height: 270px;
+										background-size: cover;"
 										data-bg="url(https://cdn.imweb.me/thumbnail/20200521/884887fbae7da.jpg)"
 										data-src="https://cdn.imweb.me/thumbnail/20200521/6b6c8e53b2830.jpg"
 										data-sub-html="#caption_3838108" data-no="5"></div>
@@ -607,6 +625,7 @@ div, table {
 									<a class="item_container _item_container _fade_link "
 										href="etc.jsp" style="display: block">
 										<p class="title"></p>
+										<br />
 										<h6 style="margin: 0; line-height: 1.6; font-weight: 600;">ETC</h6>
 										<h5 style="margin: 0; line-height: 1.6;">
 											<strong>그 외의 것들.</strong>

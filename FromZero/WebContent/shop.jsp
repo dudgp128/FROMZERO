@@ -37,7 +37,7 @@
 	%>
 	<%@ include file="./fz_header.jsp" %>
 
-		<div style="margin-left:120px" class="div-shop-grid">
+		<div style="margin-left: 150px" class="div-shop-grid">
 			<ul class="ul-shop-grid" style="margin-right:0">
 			<a href="living.jsp"><h2 style="margin-left:0" class="big-category-text">LIVING ></h2></a>
 				<%
