@@ -16,26 +16,16 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class DoUpdateStock
- */
 @WebServlet("/doUpdateStock")
 public class DoUpdateStock extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public DoUpdateStock() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
+		request.setCharacterEncoding("UTF-8"); 
 		response.setCharacterEncoding("UTF-8");
 		
 		ServletContext sc = getServletContext();
@@ -43,9 +33,7 @@ public class DoUpdateStock extends HttpServlet {
 		
 		String offlineproduct_num = request.getParameter("offlineproduct_num");
 		String offlineproduct_id = request.getParameter("offlineproduct_id");
-	
 
-		
 		try {
 				DBUtil.updateStock(conn, offlineproduct_id, offlineproduct_num);
 				RequestDispatcher view = request.getRequestDispatcher("update_stock.jsp");
@@ -56,11 +44,7 @@ public class DoUpdateStock extends HttpServlet {
 	        
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

@@ -18,34 +18,13 @@ import javax.servlet.http.HttpSession;
 import model.DBUtil;
 import model.User;
 
-/**
- * Servlet implementation class DoDetailProduct
- */
 @WebServlet("/doDetailProduct")
 public class DoDetailProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public DoDetailProduct() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	/*
-	public void recommend(HttpServletRequest request, HttpServletResponse response, String sqlSt) {
-		ServletContext sc = getServletContext();
-		Connection conn = (Connection) sc.getAttribute("DBconnection");
-		
-		ResultSet res = DBUtil.findProduct(conn, sqlSt);
-		request.setAttribute("rs", res);
-	}
-	*/
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -67,9 +46,10 @@ public class DoDetailProduct extends HttpServlet {
 		String big_category = null;
 		String small_category = null;
 		String brand = null;
+		
 		if (rs != null) {
 			try {
-				if (rs.next()) { // existing user
+				if (rs.next()) { 
 					productname = rs.getString("productname");
 					price = rs.getString("price");
 					img = rs.getString("img");
@@ -82,11 +62,10 @@ public class DoDetailProduct extends HttpServlet {
 					request.setAttribute("img", img);
 					request.setAttribute("big_category", big_category);
 					request.setAttribute("brand", brand);
-					//request.setAttribute("small_category", small_category);
 				}
 			} catch (SQLException e) {
 				e.printStackTrace();
-			} // try end
+			} 
 		}
 		
 		String recommend = "select * from online_product where (big_category='" + big_category + "') and (small_category='"
@@ -94,21 +73,13 @@ public class DoDetailProduct extends HttpServlet {
 		ResultSet res = DBUtil.findProduct(conn, recommend);
 		request.setAttribute("rs", res);
 		
-		
-		//recommend(request, response, sqlSt);
-		
 		RequestDispatcher view = request.getRequestDispatcher("product_detail.jsp");
 		view.forward(request, response);
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
 		response.setCharacterEncoding("UTF-8");
 		doGet(request, response);

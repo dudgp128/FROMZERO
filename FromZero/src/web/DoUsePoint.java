@@ -14,38 +14,21 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class DoUsePoint
- */
 @WebServlet("/doUsePoint")
 public class DoUsePoint extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public DoUsePoint() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
+		request.setCharacterEncoding("UTF-8"); 
 		response.setCharacterEncoding("UTF-8");
-		
 		ServletContext sc = getServletContext();
 		Connection conn= (Connection) sc.getAttribute("DBconnection");
-		
 		String point = request.getParameter("point");
 		String custid = request.getParameter("custid");
-		
-		System.out.println("포인트 : " + point);
-		System.out.println("고객아이디 : " + custid);
-
 		
 		try {
 				DBUtil.usePoint(conn, custid, point);
@@ -57,11 +40,7 @@ public class DoUsePoint extends HttpServlet {
 	        
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

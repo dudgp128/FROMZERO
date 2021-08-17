@@ -15,27 +15,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class doJoin
- */
 @WebServlet("/doJoin")
 public class doJoin extends HttpServlet {
    private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public doJoin() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-   /**
-    * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-    */
    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      // TODO Auto-generated method stub
-      request.setCharacterEncoding("UTF-8");    //한글깨짐 방지
+      request.setCharacterEncoding("UTF-8");  
       response.setCharacterEncoding("UTF-8");
       String nmid = request.getParameter("nmid");
       String npasswd = request.getParameter("npasswd");
@@ -53,12 +42,11 @@ public class doJoin extends HttpServlet {
          try {
             if(rs.next()) {
                if(nmid.equals(rs.getString(1))) {
-                  response.sendRedirect("./join.html");
+                  response.sendRedirect("./join.jsp");
                   DBUtil.modifyUser(conn, nmid, npasswd, nname, naddress, nphone,nemail);
-                   //     Ѵ .
                }
             }else {
-               response.sendRedirect("./login.html");
+               response.sendRedirect("./login.jsp");
                DBUtil.insertWithParam(conn, nmid, npasswd, nname, naddress, nphone,nemail);
                
             }
@@ -68,13 +56,8 @@ public class doJoin extends HttpServlet {
       }
       }
             
-
-   /**
-    * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-    */
    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-      // TODO Auto-generated method stub
-      request.setCharacterEncoding("UTF-8");    //한글깨짐 방지
+      request.setCharacterEncoding("UTF-8");   
       response.setCharacterEncoding("UTF-8");
       doGet(request, response);
    }

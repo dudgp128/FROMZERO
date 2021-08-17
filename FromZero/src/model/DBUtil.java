@@ -220,8 +220,7 @@ public class DBUtil {
 			if (uprs != null) {
 				if (uprs.next()) {
 					uprs.updateString("level", level);
-					// System.out.print("데베 레벨 확인 : ");
-					// System.out.println(level);
+				
 					uprs.updateRow();
 				}
 			}
@@ -260,7 +259,6 @@ public class DBUtil {
 
 			conn.commit();
 			conn.setAutoCommit(true);
-			// System.out.println("insertBuying");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -288,7 +286,6 @@ public class DBUtil {
 
 			conn.commit();
 			conn.setAutoCommit(true);
-			// System.out.println("insertItems");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -353,8 +350,6 @@ public class DBUtil {
 			if (uprs != null) {
 				if (uprs.next()) {
 					uprs.updateString("point", point);
-					System.out.print("포인트 확인 : ");
-					System.out.println(point);
 					uprs.updateRow();
 				}
 			}
@@ -614,7 +609,6 @@ public class DBUtil {
 
 			conn.commit();
 			conn.setAutoCommit(true);
-			// System.out.println("insertItems");
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -776,7 +770,6 @@ public class DBUtil {
 
 				uprs.updateRow();
 			}
-			System.out.println("되나요?");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -820,7 +813,6 @@ public class DBUtil {
 		Statement st = null;
 		String sqlSt1 = "DELETE FROM qna_comment WHERE board_id = "+ board_id;
 		String sqlSt2 = "DELETE FROM qna WHERE board_id = "+ board_id;
-		System.out.println(sqlSt1);
 		try {
 			st = conn.createStatement();
 			st.execute(sqlSt1);

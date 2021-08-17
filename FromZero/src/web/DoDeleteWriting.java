@@ -15,25 +15,14 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class doDeleteQnA
- */
 @WebServlet("/doDeleteWriting")
 public class DoDeleteWriting extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public DoDeleteWriting() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -41,10 +30,8 @@ public class DoDeleteWriting extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		String board_id = (String) session.getAttribute("board_id");
-		System.out.println("doget()>board_id=" + board_id);
 		String cust_id = (String) session.getAttribute("cust_id");
 		String page = (String) session.getAttribute("page");
-		System.out.println("cust_id===>" + cust_id);
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 		RequestDispatcher view = null;
@@ -61,7 +48,6 @@ public class DoDeleteWriting extends HttpServlet {
 					view.forward(request, response);
 				}
 			} else {
-				System.out.println("doDelete>board_id=" + board_id);
 				DBUtil.deleteQNA(conn, board_id);
 				view = request.getRequestDispatcher("QnA.jsp");
 				view.forward(request, response);
@@ -71,10 +57,6 @@ public class DoDeleteWriting extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub

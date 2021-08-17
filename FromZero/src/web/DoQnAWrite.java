@@ -15,24 +15,14 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class DoQnAWrite
- */
 @WebServlet("/doQnAWrite")
 public class DoQnAWrite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public DoQnAWrite() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -50,7 +40,6 @@ public class DoQnAWrite extends HttpServlet {
 		
 		try {
 			DBUtil.insertQnA(conn, board_id, custid, board_title, board_content, password);
-			
 			RequestDispatcher view = request.getRequestDispatcher("QnA.jsp");
 			view.forward(request, response);
 		} catch (Exception e) {
@@ -58,11 +47,7 @@ public class DoQnAWrite extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

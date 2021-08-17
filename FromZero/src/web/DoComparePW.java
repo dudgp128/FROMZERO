@@ -20,32 +20,17 @@ import javax.servlet.http.HttpSession;
 import model.DBUtil;
 import model.User;
 
-/**
- * Servlet implementation class DoComaparePW
- */
 @WebServlet("/doComparePW")
 public class DoComparePW extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public DoComparePW() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-	      
-		//HttpSession session = request.getSession();
-		//int board_id = (int)session.getAttribute("board_id");
-		
-		//int board_id = Integer.parseInt(request.getParameter("board_id"));
 		String board_id = request.getParameter("board_id");
 		String comparePW = request.getParameter("comparePW");
 		
@@ -78,11 +63,7 @@ public class DoComparePW extends HttpServlet {
 		
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

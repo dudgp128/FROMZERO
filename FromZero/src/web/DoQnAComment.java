@@ -15,24 +15,14 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class DoQnAComment
- */
 @WebServlet("/doQnAComment")
 public class DoQnAComment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public DoQnAComment() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
@@ -49,7 +39,6 @@ public class DoQnAComment extends HttpServlet {
 		
 		try {
 			DBUtil.insertQnAComment(conn, comment_id, custid, board_id, comment);
-			
 			String board_id_string = Integer.toString(board_id);
 			request.setAttribute("board_id", board_id_string);
 			RequestDispatcher view = request.getRequestDispatcher("qna_board.jsp");
@@ -60,11 +49,7 @@ public class DoQnAComment extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

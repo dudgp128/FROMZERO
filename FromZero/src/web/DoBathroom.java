@@ -22,24 +22,14 @@ import model.PriceAscending;
 import model.PriceDescending;
 import model.Product;
 
-/**
- * Servlet implementation class DoBathroom
- */
 @WebServlet("/doBathroom")
 public class DoBathroom extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
     public DoBathroom() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
 		response.setCharacterEncoding("UTF-8");
@@ -53,6 +43,7 @@ public class DoBathroom extends HttpServlet {
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 		
 		String sqlSt = "select * from online_product where (big_category='bathroom') ";
+		
 		if (request.getParameter("smallCategory") != null) {
 			for (int i = 0; i < categoryCheck.length; i++) {
 				if (i == 0)
@@ -64,6 +55,7 @@ public class DoBathroom extends HttpServlet {
 					sqlSt += " or ";
 			}
 		}
+		
 		if (request.getParameter("brandName") != null) {
 			for (int i = 0; i < brandCheck.length; i++) {
 				if (i == 0)
@@ -75,12 +67,14 @@ public class DoBathroom extends HttpServlet {
 					sqlSt += " or ";
 			}
 		}
+		
 		if(price != null)
 			sqlSt += "and (price <= " + price + ") ";
 		
 		sqlSt += "order by binary(big_category), binary(brand), price, productid";
 		ResultSet rs = DBUtil.findProduct(conn, sqlSt);
 		PrintWriter out = response.getWriter();
+		
 		if (rs != null) {
 			try {
 				ArrayList<Product> data = new ArrayList<Product>();
@@ -92,6 +86,7 @@ public class DoBathroom extends HttpServlet {
 				String big_category = null;
 				String small_category = null;
 				String img = null;
+				
 				while (rs.next()) {
 					productid = rs.getString("productid");
 					productname = rs.getString("productname");
@@ -120,24 +115,19 @@ public class DoBathroom extends HttpServlet {
 						Collections.sort(data, priceDescending);
 					}
 				}
-
-				//request.setAttribute("rs", rs);
+				
 				request.setAttribute("data", data);
 				request.setAttribute("search_result", search_result);
 				RequestDispatcher view = request.getRequestDispatcher("checkbox_search_bathroom.jsp");
 				view.forward(request, response);
+				
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(sqlSt);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
 		response.setCharacterEncoding("UTF-8");
 		doGet(request, response);

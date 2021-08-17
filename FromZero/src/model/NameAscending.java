@@ -12,6 +12,5 @@ public class NameAscending implements Comparator<Product> {
         String temp2 = b.getProductname();
         
         return temp1.compareTo(temp2);
-        /*return a.getName().compareTo(b.getName());*/
     }
 }

@@ -14,25 +14,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class DoOffline
- */
 @WebServlet("/doOffline")
 public class DoOffline extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public DoOffline() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -45,7 +34,6 @@ public class DoOffline extends HttpServlet {
 
 		String store_sqlSt = "SELECT * FROM offline_store WHERE storename LIKE ";
 		store_sqlSt = store_sqlSt + "'%" + offline_store + "%'";
-		System.out.println(store_sqlSt);
 
 		ResultSet store_rs = DBUtil.findStore(con, store_sqlSt);
 		int i = 0;
@@ -60,7 +48,6 @@ public class DoOffline extends HttpServlet {
 			}
 
 			String product_sqlSt = "SELECT * FROM offline_product WHERE storeid=" + i;
-			System.out.println(product_sqlSt);
 			ResultSet rs = DBUtil.findProduct(con, product_sqlSt);
 
 			if (rs != null) {
@@ -76,10 +63,6 @@ public class DoOffline extends HttpServlet {
 			}
 		}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub

@@ -17,31 +17,19 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class DoCartBuying
- */
 @WebServlet("/doCartBuying")
 public class DoCartBuying extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public DoCartBuying() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
 		String btn = request.getParameter("action");
-		// int productid = Integer.parseInt(request.getParameter("productID"));
 		String[] scart = request.getParameterValues("cart");
 
 		HttpSession session = request.getSession();
@@ -64,7 +52,6 @@ public class DoCartBuying extends HttpServlet {
 				img[i] = request.getParameter(scart[i] + "I");
 			}
 
-			// System.out.println(name[0]);
 			int[] cart = new int[len];
 			int[] count = new int[len];
 			int[] price = new int[len];
@@ -78,8 +65,7 @@ public class DoCartBuying extends HttpServlet {
 			for (int i = 0; i < len; i++) {
 				all_price += count[i] * price[i];
 			}
-
-			// System.out.println(allPrice);
+	
 			int order_id = 0;
 
 			ServletContext sc = getServletContext();
@@ -99,7 +85,6 @@ public class DoCartBuying extends HttpServlet {
 				} else {
 					order_id = 1;
 				}
-				// System.out.println("가져온 주문 번호 : " + order_id);
 
 				try {
 					for (int i = 0; i < len; i++)
@@ -131,10 +116,6 @@ public class DoCartBuying extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		doGet(request, response);

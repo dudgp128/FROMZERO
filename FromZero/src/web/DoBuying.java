@@ -17,25 +17,15 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class DoBuying
- */
+
 @WebServlet("/doBuying")
 public class DoBuying extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public DoBuying() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
@@ -48,6 +38,7 @@ public class DoBuying extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		String user_id = (String) session.getAttribute("user_id");
+		
 		if(user_id==null) {
 			response.setContentType("text/html; charset=UTF-8");
 			PrintWriter pout = response.getWriter();
@@ -60,6 +51,7 @@ public class DoBuying extends HttpServlet {
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 		ResultSet rs = DBUtil.getOnlineOrder(conn);
+		
 		if (rs != null) {
 			try {
 				while (rs.next()) {
@@ -77,7 +69,6 @@ public class DoBuying extends HttpServlet {
 			DBUtil.insertBuying(conn, order_id, user_id, all_price);
 			request.setAttribute("all_price", all_price);
 			request.setAttribute("count", count);
-			//response.sendRedirect("./buying_result.jsp");
 			RequestDispatcher view = request.getRequestDispatcher("payment.jsp");
 			view.forward(request, response);
 		} catch (Exception e) {
@@ -85,13 +76,9 @@ public class DoBuying extends HttpServlet {
 		}}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
 

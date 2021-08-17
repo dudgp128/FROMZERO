@@ -17,32 +17,21 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-/**
- * Servlet implementation class DoLevel
- */
 @WebServlet("/doLevel")
 public class DoLevel extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#HttpServlet()
-	 */
 	public DoLevel() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	         throws ServletException, IOException {
-	      // TODO Auto-generated method stub
-	      request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
+	      request.setCharacterEncoding("UTF-8");
 	      response.setCharacterEncoding("UTF-8");
 	      
 	      int q1 = Integer.parseInt(request.getParameter("q1"));
+	      
 	      for(int i=2; i<=8; i++) {
 	    	if(request.getParameter("q"+i)==null) {
 	    		response.setContentType("text/html; charset=UTF-8");
@@ -62,7 +51,6 @@ public class DoLevel extends HttpServlet {
 
 	      int result_int = q1 + q2 + q3 + q4 + q5 + q6 + q7 + q8;
 	      String level = "s";
-	      // System.out.println(result_int)
 	    
 		if (result_int <= 12)
 			level = "새싹";
@@ -75,15 +63,12 @@ public class DoLevel extends HttpServlet {
 
 		System.out.println(level);
 		HttpSession session = request.getSession(); // 세션 반환 (세선 ㅇ-반환, 세션x-생성)
-		// session.setAttribute("user_level", level);
 		String user_id = (String) session.getAttribute("user_id"); // 세션 값 불러오기
-		// System.out.println(user_id);
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 
 		try {
 			DBUtil.updateLevel(conn, user_id, level);
-			// request.setAttribute("level", level);
 			RequestDispatcher view = request.getRequestDispatcher("test-result.jsp");
 			view.forward(request, response);
 		} catch (SQLException e) {
@@ -91,13 +76,8 @@ public class DoLevel extends HttpServlet {
 		}
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
 		response.setCharacterEncoding("UTF-8");
 		doGet(request, response);
