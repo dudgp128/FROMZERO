@@ -3,7 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<!--<link rel="stylesheet" href="./fromzero.css" type="text/css">-->
 <meta charset="UTF-8">
 <title>From zero</title>
 <style>
@@ -14,8 +13,8 @@
 }
 
 #slider-wrap {
-	width: 602px;	/*이미지 크기 70%*/
-	height: 770px; /*dot 위치 확인*/
+	width: 602px;	
+	height: 770px; 
 	position: relative;
 	overflow: hidden;
 	margin: 0 auto;
@@ -24,7 +23,7 @@
 #slider-wrap ul#slider {
 	height: 100%;
 	position: absolute;
-	top: 70px; /*내비바와 이미지 슬라이드 간 거리*/
+	top: 70px;
 	left: 0;
 }
 
@@ -54,8 +53,6 @@
 	width: 85%;
 	height: 100%;
 }
-
-/*btns*/
 .slider-btns {
 	position: absolute;
 	width: 50px;
@@ -100,7 +97,6 @@
 	left: 0px;
 }
 
-/*bar*/
 #slider-pagination-wrap {
 	min-width: 20px;
 	margin-top: 350px;
@@ -124,7 +120,7 @@
 	background: #fff;
 	opacity: 0.5;
 	position: relative;
-	top: -270px;	/* dot 위치 조절 top으로 */
+	top: -270px;
 }
 
 #slider-pagination-wrap ul li.active {
@@ -142,7 +138,6 @@
 	z-index: 2;
 }
 
-/*ANIMATION*/
 #slider-wrap ul, #slider-pagination-wrap ul li {
 	-webkit-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
 	-o-transition: all 0.3s cubic-bezier(1, .01, .32, 1);
@@ -184,25 +179,24 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.5.1/js/swiper.min.js"></script>
 	<script>
-		//slide-wrap
+
 		var slideWrapper = document.getElementById('slider-wrap');
-		//current slideIndexition
+
 		var slideIndex = 0;
-		//items
+
 		var slides = document.querySelectorAll('#slider-wrap ul li');
-		//number of slides
+
 		var totalSlides = slides.length;
-		//get the slide width
+
 		var sliderWidth = slideWrapper.clientWidth;
-		//set width of items
+
 		slides.forEach(function(element) {
 			element.style.width = sliderWidth + 'px';
 		})
-		//set width to be 'x' times the number of slides
+
 		var slider = document.querySelector('#slider-wrap ul#slider');
 		slider.style.width = sliderWidth * totalSlides + 'px';
 
-		// next, prev
 		var nextBtn = document.getElementById('next');
 		var prevBtn = document.getElementById('previous');
 		nextBtn.addEventListener('click', function() {
@@ -212,7 +206,6 @@
 			plusSlides(-1);
 		});
 
-		// hover
 		slideWrapper.addEventListener('mouseover', function() {
 			this.classList.add('active');
 			clearInterval(autoSlider);
@@ -244,7 +237,6 @@
 			pagination();
 		}
 
-		//pagination
 		slides.forEach(function() {
 			var li = document.createElement('li');
 			document.querySelector('#slider-pagination-wrap ul')

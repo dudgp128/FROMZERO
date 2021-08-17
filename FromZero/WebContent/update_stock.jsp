@@ -109,7 +109,6 @@ table {
 						설정해주세요!</td>
 				</tr>
 				<tr>
-					<!-- <td>사진</td> -->
 					<td style="text-size: 15px; border-bottom: 1px solid #444444;"><b>상품번호</b></td>
 					<td style="text-size: 15px; border-bottom: 1px solid #444444;"><b>상품명</b></td>
 					<td style="text-size: 15px; border-bottom: 1px solid #444444;"><b>상품가격</b></td>
@@ -152,7 +151,7 @@ table {
 					num = rset.getString("offlineproduct_num");
 					product_id = rset.getString("offlineproduct_id");
 					file_name = rset.getString(2);
-					if (file_name != null) //새로 추가한 파일
+					if (file_name != null) 
 						img_li = "offline_store_img/Store" + store_id + "/" + file_name;
 					else
 						img_li = "offline_store_img/Store" + store_id + "/" + product_id + ".jpg";

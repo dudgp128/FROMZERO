@@ -16,8 +16,6 @@
 <title>From zero</title>
 
 <style>
-
-
 .write {
 	padding-right:250px;
 }
@@ -26,16 +24,9 @@
 	margin: 50px;
 }
 
-<!-- 게시판 리스트 -->
 ul {
 	list-style: none;
 }
-
-/*
-.sub_news, .sub_news th, .sub_news td {
-   border: 0
-}
-*/
 
 .sub_news a {
    color: #383838;
@@ -99,7 +90,6 @@ ul {
    background: url(첨부파일/ic_reply.png) 0 1px no-repeat
 }
 
-<!-- 왼쪽 네비게이션 -->
 .leftMenu {
 	margin-top: 50px;
 	margin-left: 50px;
@@ -234,7 +224,7 @@ td,th{
 			%>
 			</tbody>
 		</table>
-		<!-- 리스트 게시판 끝-->
+
 	</div>
 
 </body>

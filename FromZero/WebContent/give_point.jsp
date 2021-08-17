@@ -81,9 +81,7 @@
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				//String img = null;
 				while (rset.next()) {
-					//img = rset.getString("img");
 					offlineproduct_name = rset.getString("offlineproduct_name");
 					offlineproduct_price = rset.getString("offlineproduct_price");
 					offlineproduct_num = rset.getString("offlineproduct_num");
@@ -91,7 +89,6 @@
 				%>
 			
 			<tr>
-				<!-- <td></td> -->
 				<td><input type="text" value="<%=offlineproduct_id%>"
 					id="productID" name="product_id" readonly="readonly"
 					style="border: none; background: transparent; pointer-events: none; text-align: center; width: 100px; height: 20px;" /></td>

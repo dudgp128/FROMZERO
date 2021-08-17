@@ -86,7 +86,6 @@ ul {
 .content {
 	float: left;
 	background-color: #dddddd;
-	/*width: 1200px;*/
 }
 </style>
 <meta charset="UTF-8">
@@ -173,7 +172,6 @@ connectionProps.put("serverTimezone", DBTimeZone);
 			session.setAttribute("productname", productname);
 			session.setAttribute("price", price);
 			session.setAttribute("img_num", img_num);
-			//session.setAttribute("count", product_count);
 			%>
 			<div
 				style="clear: both; margin-left: 280px; left: 330px; top: 1000px;">
@@ -199,7 +197,6 @@ connectionProps.put("serverTimezone", DBTimeZone);
 								if (re_productid != productid) {
 									re_productname = rs.getString("productname");
 									re_price = rs.getString("price");
-									//re_big_category = rs.getString("big_category");
 									re_img = rs.getString("img");
 									re_brand = rs.getString("brand");
 									count++;
@@ -282,7 +279,6 @@ connectionProps.put("serverTimezone", DBTimeZone);
 								review_date = rset.getString("review_date");
 								db_custid = rset.getString("custid");
 								db_review_content = rset.getString("review_content");
-
 								img_score = "images/rating" + db_review_score + ".png";
 							
 							%>

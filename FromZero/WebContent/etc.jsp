@@ -16,67 +16,8 @@
 </head>
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp" %>
-	<!-- 체크박스 -->
 	<div class="big-shop-grid">
-		<div class="div-shop-grid">
-
 			<br />
-			<!-- 
-			<form>
-				<table>
-					<tr>
-						<th>상세검색</th>
-						<td />
-						<td />
-						<td />
-						<td />
-					</tr>
-					<tr>
-						<th>소분류</th>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="straw" id="straw"> 빨대</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="tumblr" id="tumblr"> 텀블러</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="carrier" id="carrier"> 장바구니</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="pouch" id="pouch"> 파우치</label></td>
-						<td><label><input type="checkbox"
-								name="smallCategory" value="strawPouch" id="strawPouch">
-								빨대 주머니</label></td>
-					</tr>
-
-
-					<tr>
-						<th>브랜드</th>
-						<td><label><input type="checkbox" name="brandName"
-								value="thepicker" id="thepicker"> 더피커</label></td>
-						<td><label><input type="checkbox" name="brandName"
-								value="jigushop" id="jigushop"> 지구샵</label></td>
-						<td><label><input type="checkbox" name="brandName"
-								value="zwshop" id="zwshop"> 제로웨이스트샵</label></td>
-						<td><label><input type="checkbox" name="brandName"
-								value="jigusalimi" id="jigusalimi"> 지구살림e</label></td>
-						<td />
-					</tr>
-
-
-					<tr>
-						<th>가격</th>
-						<td><label><input type="checkbox" name="price"
-								value="one" id="one"> ~1만원</label></td>
-						<td><label><input type="checkbox" name="price"
-								value="three" id="three"> ~3만원</label></td>
-						<td><label><input type="checkbox" name="price"
-								value="five" id="five"> ~5만원</label></td>
-						<td />
-						<td style="text-align: right;"><input type="submit"
-							value="검색" />
-						<td />
-					</tr>
-				</table>
-			</form>
-			 -->
 			<div class="big-shop-grid">
 				<h2 class="big-category-text">ETC</h2>
 				<div class="div-shop-grid">

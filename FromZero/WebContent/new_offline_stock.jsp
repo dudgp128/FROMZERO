@@ -3,9 +3,7 @@
 
 <!DOCTYPE html>
 <html>
-
 <head>
-
 <%
 String store_id = (String) session.getAttribute("store_id");
 session.setAttribute("store_id", store_id);
@@ -46,7 +44,6 @@ tr {
 	<div style="text-align: center">
 		<div style="display: inline-block;">
 		
-			<!--파일-이미지, 상품명 , 가격, 수량  -->
 			<form method="post" action="uploadAction.jsp" enctype="multipart/form-data" style="width: 300px">
 				<input type="file" name="file" id="image" accept="image/*"
 					onchange="setThumbnail(event);" /> 
@@ -54,7 +51,9 @@ tr {
 					style="width: 300px; margin-top: 10px; border: dashed #D3D3D3;"
 					id="preview-image"
 					src="https://dummyimage.com/500x500/ffffff/000000.png&text=preview+image">
-				<script> //이미지 미리보기 기능 
+					
+					
+				<script> 
 					function setThumbnail(event) {
 						var reader = new FileReader();
 						reader.onload = function(event) {
@@ -64,6 +63,7 @@ tr {
 						reader.readAsDataURL(event.target.files[0]);
 					}
 				</script>
+				
 				<table style="width: 300px;">
 					<tr>
 						<th>제품</th>

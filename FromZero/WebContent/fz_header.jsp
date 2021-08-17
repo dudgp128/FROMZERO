@@ -4,9 +4,8 @@
 <html>
 <head>
 <%
-	//buying, exchange, myPage 확인
 String user_id = (String) session.getAttribute("user_id");
-String user_name = (String) session.getAttribute("user_name"); //세션 값 불러오기
+String user_name = (String) session.getAttribute("user_name");
 %>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">

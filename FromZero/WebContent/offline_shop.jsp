@@ -51,7 +51,7 @@
 					num=rs.getInt("offlineproduct_num");
 					filerealname = rs.getString(2);
 					
-					if(num==-1){ //매장 관리자가 제품을 삭제한 것
+					if(num==-1){ 
 						continue;
 					}
 					

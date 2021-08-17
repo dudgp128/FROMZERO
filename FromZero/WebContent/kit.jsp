@@ -61,7 +61,6 @@ function check(){
 	<%@ include file="./fz_header.jsp" %>
 	<div class="big-shop-grid">
 		<div class="div-shop-grid">
-			<!-- 체크박스 -->
 			<br />
 			
 			<div class="big-shop-grid">

@@ -24,16 +24,10 @@
 	margin: 50px;
 }
 
-<!--
-게시판 리스트 -->ul {
+ul {
 	list-style: none;
 }
 
-/*
-.sub_news, .sub_news th, .sub_news td {
-   border: 0
-}
-*/
 .sub_news a {
 	color: #383838;
 	text-decoration: none
@@ -96,8 +90,7 @@
 	background: url(첨부파일/ic_reply.png) 0 1px no-repeat
 }
 
-<!--
-왼쪽 네비게이션 -->.leftMenu {
+.leftMenu {
 	margin-top: 50px;
 	margin-left: 50px;
 	float: left;
@@ -187,7 +180,6 @@ th, td {
 	</div>
 
 	<div id="content" style="float: left; width: 1000px;">
-		<!-- 리스트 게시판 시작-->
 		<table class="sub_news" summary="게시판의 글제목 리스트"
 			style="font-size: 14px;">
 			<caption>게시판 리스트</caption>

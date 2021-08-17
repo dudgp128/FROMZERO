@@ -37,7 +37,6 @@ function doSort(select_value) {
 
 	<%@ include file="./fz_header.jsp"%>
 
-	<!-- 체크박스 -->
 	</br>
 
 	<form method="post" action="doLiving">
@@ -140,17 +139,10 @@ function doSort(select_value) {
 	               big_category = rset.getString("big_category");
 	               small_category = rset.getString("small_category");
 	               img_li = rset.getString("img");
-	               
-	               //img_count++;
-	               //img_li = "living/" + img_count + ".jpg";
-	               
 	               p_name.add(productname);
-	               //p_price.add(price);
 	               img = "living/" + img_li + ".jpg";
 	               data.add(new Product(productid, productname,brand,price, big_category, small_category, img));
-	               
-	               //System.out.println((k+1)+"번쨰 : " + data.get(k).getProductname());
-	               //k++;
+
 	            }
 	            %>
 
@@ -200,17 +192,7 @@ function doSort(select_value) {
 
 						<%
 							}
-						Collections.sort(p_name); //정렬
-						//System.out.println(p_name);
-
-						
-						//for(int i = 0; i < data.size(); i++) 
-						//	data.get(i).getProductname().replaceAll(System.getProperty("line.separator"), " ");
-						//for(int i = 0; i < data.size(); i++) 
-						//	System.out.println((i+1)+"번쨰 : " + data.get(i).getProductname());
-
-						//for (int i = 0; i < data.size(); i++)
-						//System.out.println((i + 1) + "번쨰 : " + data.get(i).getProductname() + ", 가격  : " + data.get(i).getPrice());
+						Collections.sort(p_name); 
 						%>
 					</button>
 			</ul>

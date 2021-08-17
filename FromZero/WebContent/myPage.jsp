@@ -14,9 +14,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<%
-   //String user_id = (String) session.getAttribute("user_id"); //세션 값 불러오기
-%>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
 <title>From zero</title>
@@ -217,8 +214,6 @@ table {
 
    if (point == null)
       point = "0";
-
-   //String sqlSt = "select * from online_order where custid='" + user_id + "'";
    %>
 
    <div class="inside">
@@ -247,7 +242,7 @@ table {
          </div>
 
          <div class="point-view">
-            <a href="point.jsp"> <!-- 공병 개수 보여주는거 어떻게 할것인지 결정하기  -->
+            <a href="point.jsp"> 
                <ul>
                   <li>포인트</li>
                   <li style='font-size: 23px'><%=point%></li>
@@ -293,6 +288,7 @@ table {
                            String big_category = "";
                            int orderid = 0;
                            String orderdate = "";
+                           
                            while (rset.next()) {
                               online_productid = rset.getInt(1);
                               productname = rset.getString(2);
@@ -367,12 +363,10 @@ table {
                               e.printStackTrace();
                            }
                            String offlineproduct_name = "";
-                           //int count = 0;
                            int offline_price = 0;
                            int productid = 0;
                            int storeid = 0;
                            String storename = "";
-                           //String img_li = "";
                            while (rset.next()) {
                               productid = rset.getInt(1);
                               storeid = productid / 100;
@@ -417,8 +411,6 @@ table {
          </div>
       </div>
 
-
-      <!-- 오프라인구매내역/온라인구매내역으로 나눠서 테이블에서 가져오기 -->
    </div>
 </body>
 </html>

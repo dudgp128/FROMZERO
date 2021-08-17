@@ -86,14 +86,12 @@ ul {
 			}
 
 			String eco_name = null;
-			//String count = null;
 			String title = null;
 			String img_path = null;
 
 			while (rset.next()) {
 				name = rset.getString("name");
 				title = rset.getString("title");
-				//count = rset.getString("price");
 				img_path = "card_news/" + name + " (1).jpg";
 			%>
 			<form method="post" action="doCardNews" style="margin: 0 auto">

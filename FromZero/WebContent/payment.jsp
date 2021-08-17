@@ -2,13 +2,6 @@
     pageEncoding="UTF-8"%>
 <%
     String[] name = (String[])request.getAttribute("name");
-    //String email = (String)request.getAttribute("email");
-    //String phone = (String)request.getAttribute("phone");
-    //String address = (String)request.getAttribute("address");
-    //int[] count = (int[]) request.getAttribute("count");
-   //int[] price = (int[]) request.getAttribute("price");
-   //String[] img = (String[]) request.getAttribute("img");
-   //int len = name.length;
     int all_price = (int)request.getAttribute("all_price");
 %>
 <!DOCTYPE html>

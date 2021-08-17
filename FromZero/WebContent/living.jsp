@@ -65,10 +65,8 @@ function check(){
 <title>From zero</title>
 </head>
 <body style="overflow-x: hidden">
-
 	<%@ include file="./fz_header.jsp"%>
 
-	<!-- 체크박스 -->
 	</br>
 
 	<form style="margin: 0 auto" method="post" action="doLiving">

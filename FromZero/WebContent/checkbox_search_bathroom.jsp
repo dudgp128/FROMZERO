@@ -28,7 +28,6 @@ table {
 <meta charset="UTF-8">
 <title>From zero</title>
 <%
-	//ResultSet rs = (ResultSet) request.getAttribute("rs");
 	ArrayList<Product> data = (ArrayList<Product>)request.getAttribute("data");
 	String search_result = (String) request.getAttribute("search_result");
 %>
@@ -54,7 +53,6 @@ function check(){
 				statement+=" #"+document.getElementsByName("price")[i].value+"  ";
 		}
 		
-		
 		 var sort=document.getElementsByName("sorted").length;
 		for(var i=0; i<sort; i++){
 			if(document.getElementsByName("sorted")[i].checked==true) 
@@ -67,7 +65,6 @@ function check(){
 </head>
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp"%>
-	<!-- 체크박스 -->
 	<br />
 	<form style="margin: 0 auto" method="post" action="doBathroom">
 		<table style="margin: 0 auto; width: 80%">

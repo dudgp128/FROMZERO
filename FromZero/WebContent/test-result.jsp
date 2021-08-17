@@ -11,7 +11,6 @@
 <body style="overflow-x: hidden" onload="show();">
 	<%@ include file="./fz_header.jsp" %>
 
-	<!-- 테스트 페이지 본문 -->
 
 	<div class="title">
 		<h2 style="text-align: center">레벨 테스트</h2>

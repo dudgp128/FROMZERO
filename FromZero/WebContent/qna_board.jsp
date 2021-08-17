@@ -43,8 +43,7 @@ th, td {
 	margin: 50px;
 }
 
-<!--
-왼쪽 네비게이션 -->.leftMenu {
+.leftMenu {
 	margin-top: 50px;
 	margin-left: 50px;
 	float: left;
@@ -186,7 +185,6 @@ th, td {
 		</div>
 		<%
 			}
-		//comment_id = comment_id+1;
 		int comment_id_2 = 1;
 		if (comment_id == null)
 		comment_id_2 = 1;

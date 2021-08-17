@@ -111,9 +111,7 @@ th, td {
 				} catch (SQLException e) {
 					e.printStackTrace();
 				}
-				//String img = null;
 				while (rset.next()) {
-					//img = rset.getString("img");
 					custid = rset.getString("custid");
 					name = rset.getString("name");
 					phone = rset.getString("phone");

@@ -18,8 +18,7 @@
 
 <%@ include file="./fz_header.jsp" %>
 	<%
-	//DB연결하기
-	request.setCharacterEncoding("UTF-8"); // 한글깨짐 방지
+	request.setCharacterEncoding("UTF-8"); 
 	response.setCharacterEncoding("UTF-8");
 	
 	PreparedStatement pstmt = null;
@@ -74,7 +73,7 @@
 	product_id = rset.getInt("LAST_VALUE(offlineproduct_id) OVER (ORDER BY offlineproduct_id DESC)") + 1; 
 	}
 	
-	//storeid가 string으로 DB에 들어가려면 int형이어야한다.
+	//storeid가 string으로 DB에 들어가려면 int형 이어야 함
 	int storeid=product_id/100;
 	try {
 		DBUtil.insertOfflineStock(conn, product_id, storeid, name, price, num, fileName);

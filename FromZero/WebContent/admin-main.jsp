@@ -96,7 +96,6 @@ th, td {
 			<%
 				System.out.println(user_name);
 
-			// storeid 알아내기
 			try {
 				conn = DriverManager.getConnection(DBUrl, connectionProps);
 
@@ -108,13 +107,13 @@ th, td {
 			}
 
 			String storeid = null;
+			
 			while (rset.next()) {
 				storeid = rset.getString("storeid");
 			}
 
 			System.out.println(storeid);
 
-			// 모든 정보 불러오기
 			try {
 				conn = DriverManager.getConnection(DBUrl, connectionProps);
 

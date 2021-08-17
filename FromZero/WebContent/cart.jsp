@@ -46,7 +46,7 @@
 	String name = null;
 	%>
 	<%@ include file="./fz_header.jsp"%>
-	
+
 	</br>
 
 	<div>
@@ -74,7 +74,6 @@
 		String img = null;
 
 		String img_li = null;
-
 		PreparedStatement pPstmt = null;
 		ResultSet pRset = null;
 		int c = 0;
@@ -86,15 +85,14 @@
 				count = rset.getInt("count");
 
 				String sql = "select * from online_product where productid = '" + productid + "'";
-				System.out.println("확인 sql : " + sql);
 				pPstmt = conn.prepareStatement(sql);
 				pRset = pPstmt.executeQuery();
 				if (pRset.next()) {
-			productname = pRset.getString("productname");
-			price = pRset.getInt("price");
-			big_category = pRset.getString("big_category");
-			img = pRset.getString("img");
-			img_li = big_category + "/" + img + ".jpg";
+					productname = pRset.getString("productname");
+					price = pRset.getInt("price");
+					big_category = pRset.getString("big_category");
+					img = pRset.getString("img");
+					img_li = big_category + "/" + img + ".jpg";
 				}
 		%>
 		<form method="post" action="doCartBuying">
@@ -108,7 +106,7 @@
 
 				<div id="display-text">
 
-					<strong style="font-size:23px"><%=productname%></strong>
+					<strong style="font-size: 23px"><%=productname%></strong>
 					<p>
 						<input type="text" name="<%=productid%>P" value="<%=price%>"
 							readonly="readonly"
@@ -119,14 +117,13 @@
 					style="height: 3px" /> <input type="hidden" name="<%=productid%>N"
 					value="<%=productname%>" style="height: 3px" /> <input
 					type="hidden" name="<%=productid%>I" value="<%=img_li%>"
-					style="height: 3px" />
-					<br><br>
+					style="height: 3px" /> <br> <br>
 				<p>
 					수량 <input id="product_count" type="number" name="<%=productid%>"
-						min="0" step="1" style="height:20px" value="<%=count%>" />
+						min="0" step="1" style="height: 20px" value="<%=count%>" />
 				</p>
 				<br>
-				
+
 			</div>
 			<%
 				}
@@ -137,8 +134,10 @@
 				} else {
 			%>
 			<div class="buy-button" align="right">
-				<input id="buy" type="submit" name="action" class="test-result-button" value="BUY" /> <input
-					id="delete" type="submit" name="action" class="test-result-button" value="DELETE" />
+				<input id="buy" type="submit" name="action"
+					class="test-result-button" value="BUY" /> <input id="delete"
+					type="submit" name="action" class="test-result-button"
+					value="DELETE" />
 			</div>
 		</form>
 		<%

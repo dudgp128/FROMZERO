@@ -12,15 +12,11 @@
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <% 
-	//String user_id=(String)session.getAttribute("user_id");
 	String productid =  (String) session.getAttribute("productid");
 	String productname = (String) session.getAttribute("productname");
 	String price =  (String) session.getAttribute("price");
 	String img_num =  (String) session.getAttribute("img_num");
-	
-	//System.out.println("buying - productname : " + productname);
 	session.setAttribute("product_id", productid);
-	//session.setAttribute("user_id", user_id);
 %>
 <meta charset="UTF-8">
 <title>From zero</title>
@@ -70,9 +66,7 @@
             <strong><%=productname%></strong>
             <p id=onePrice><%=price%>원</p>
          </div><br>
-      
          <p>수량
-
          <input id="productCount" type="number" name="product_count" min="1" max="10" step="1" value=<%=product_count %>
           onchange="javascript: document.getElementById('allPrice').value = this.value * <%= price%>"/>
          </p>

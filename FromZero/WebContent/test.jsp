@@ -66,8 +66,6 @@ input[type=radio]:checked+label {
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp"%>
 
-	<!-- 테스트 페이지 본문 -->
-
 	<div class="title">
 		<h2 style="text-align: center">레벨 테스트</h2>
 		<h4 style="text-align: center">나는 제로웨이스트 입문자? 고수? 내 제로웨이스트 레벨을
@@ -87,7 +85,7 @@ input[type=radio]:checked+label {
 
 			<div class="question" background-color:white">
 				<h4>Q2</h4>
-				<h5>나는 카페에서 음료를 마실 때 플라스틱 컵 대신 텀블러를 이용한다.</h5>
+				<h5>나는 제로웨이스트가 무엇인지 알고 있고, 평소 실천하는 편이다.</h5>
 				<input type="radio" id="q2a1" name="q2" value="4"><label for="q2a1">항상</label> 
 				<input type="radio" id="q2a2" name="q2" value="3"><label for="q2a2">자주</label> 
 				<input type="radio" id="q2a3" name="q2" value="2"><label for="q2a3">가끔</label>
@@ -150,7 +148,6 @@ input[type=radio]:checked+label {
 		</div>
 
 		<div class="button">
-			<!-- <button class="test-result-button" id="button" type="button" onclick="call()">결과 보기</button> -->
 			<input type="submit" class="test-result-button" id="button" onclick="call()" value="결과 보기" />
 		</div>
 	</form>

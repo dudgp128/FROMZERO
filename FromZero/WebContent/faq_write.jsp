@@ -34,8 +34,7 @@ table, tr, td, th {
 	margin: 50px;
 }
 
-<!--
-왼쪽 네비게이션 -->.leftMenu {
+.leftMenu {
 	margin-top: 50px;
 	margin-left: 50px;
 	float: left;

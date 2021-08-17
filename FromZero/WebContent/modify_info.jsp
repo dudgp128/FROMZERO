@@ -189,8 +189,6 @@ table.editTable {
 
 						conn = DriverManager.getConnection(DBUrl, connectionProps);
 						String sqlSt = "select * from customer";
-
-						//System.out.println(sqlSt);
 						pstmt = conn.prepareStatement(sqlSt);
 						rset = pstmt.executeQuery();
 					} catch (SQLException e) {

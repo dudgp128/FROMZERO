@@ -5,7 +5,7 @@
 <head>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
-<title>결제 내역</title>
+<title>From zero</title>
 </head>
 <body style="overflow-x: hidden">
 	<%@ include file="./fz_header.jsp"%>
@@ -19,7 +19,6 @@
 	int[] price = (int[]) request.getAttribute("price");
 	String[] img = (String[]) request.getAttribute("img");
 	int all_price = (int) request.getAttribute("all_price");
-
 	int len = name.length;
 	%>
 

@@ -21,7 +21,7 @@
 
 #slider-wrap {
 	width: 400px;
-	height: 400px; /*dot 위치 확인*/
+	height: 400px; 
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -32,7 +32,7 @@
 	height: 100%;
 	width: 100%;
 	position: absolute;
-	top: 0; /*내비바와 이미지 슬라이드 간 거리*/
+	top: 0;
 	left: 0;
 }
 
@@ -62,8 +62,6 @@
 	display: block;
 	width: 100%;
 }
-
-/*btns*/
 .slider-btns {
 	position: absolute;
 	width: 50px;
@@ -99,18 +97,6 @@
 	border-radius: 7px 7px 7px 7px;
 	color: #eee;
 }
-
-/*
-#slider-wrap.active #next {
-	right: 460px;
-}
-
-#slider-wrap.active #previous {
-	left: 460px;
-}
-*/
-
-/*bar*/
 #slider-pagination-wrap {
 	min-width: 20px;
 	margin-top: 350px;
@@ -168,7 +154,6 @@
 	String name = (String) request.getAttribute("name");
 	int count = (int) request.getAttribute("count");
 	String title = (String) request.getAttribute("title");
-	//int real_count = Integer.parseInt(count);
 	String img_path = "card_news/" + name;
 	int i = 1;
 	%>
@@ -210,25 +195,25 @@
 
 	</div>
 	<script>
-		//slide-wrap
+
 		var slideWrapper = document.getElementById('slider-wrap');
-		//current slideIndexition
+
 		var slideIndex = 0;
-		//items
+
 		var slides = document.querySelectorAll('#slider-wrap ul li');
-		//number of slides
+
 		var totalSlides = slides.length;
-		//get the slide width
+
 		var sliderWidth = slideWrapper.clientWidth;
-		//set width of items
+
 		slides.forEach(function(element) {
 			element.style.width = sliderWidth + 'px';
 		})
-		//set width to be 'x' times the number of slides
+
 		var slider = document.querySelector('#slider-wrap ul#slider');
 		slider.style.width = sliderWidth * totalSlides + 'px';
 
-		// next, prev
+
 		var nextBtn = document.getElementById('next');
 		var prevBtn = document.getElementById('previous');
 		nextBtn.addEventListener('click', function() {
@@ -238,16 +223,13 @@
 			plusSlides(-1);
 		});
 
-		// hover
+
 		slideWrapper.addEventListener('mouseover', function() {
 			this.classList.add('active');
 			clearInterval(autoSlider);
 		});
 		slideWrapper.addEventListener('mouseleave', function() {
 			this.classList.remove('active');
-			//autoSlider = setInterval(function() {
-			//	plusSlides(1);
-			//}, 3000);
 		});
 
 		function plusSlides(n) {
@@ -270,7 +252,7 @@
 			pagination();
 		}
 
-		//pagination
+
 		slides.forEach(function() {
 			var li = document.createElement('li');
 			document.querySelector('#slider-pagination-wrap ul')
@@ -287,9 +269,7 @@
 		}
 
 		pagination();
-		//var autoSlider = setInterval(function() {
-		//	plusSlides(1);
-		//}, 3000);
+
 	</script>
 
 

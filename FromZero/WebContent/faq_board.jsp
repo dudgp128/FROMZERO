@@ -43,7 +43,6 @@ th, td {
 	margin: 50px;
 }
 
-<!-- 왼쪽 네비게이션 -->
 .leftMenu {
 	margin-top: 50px;
 	margin-left: 50px;
