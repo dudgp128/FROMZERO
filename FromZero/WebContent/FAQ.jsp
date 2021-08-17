@@ -175,9 +175,9 @@ th, td {
 		</ul>
 	</div>
 
-	<div id="content" style="float: left; width:1000px;">
+	<div id="content" style="float: left; width:50%">
 		<table class="sub_news" border="1" cellspacing="0"
-			summary="게시판의 글제목 리스트" style="font-size: 14px;">
+			summary="게시판의 글제목 리스트" style="font-size: 14px;" >
 			<caption>게시판 리스트</caption>
 			<colgroup>
 				<col width="80">
