@@ -142,11 +142,15 @@ td,th{
 	connectionProps.put("serverTimezone", DBTimeZone);
 	String name = null;
 	
-	
 	String b="display:none";
-	if(user_name.equals("관리자")){
-		b="";
+	String access_user="";
+	if(user_name!=null){
+		access_user=user_name;
+		if(access_user.equals("관리자")){
+			b="";
+		}
 	}
+	
 	%>
 	
    <div>

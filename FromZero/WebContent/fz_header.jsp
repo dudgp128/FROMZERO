@@ -91,7 +91,7 @@ String user_name = (String) session.getAttribute("user_name"); //세션 값 불�
 			<%
 				}
 			%>
-			<li><input type="text" name="search_text"></li>
+			<li><input type="text" name="search_text" required></li>
 			<li style='top: 100px; padding: 0 0px;'>
 				<button type="submit" style="border:0; background-color:white">
 					<img src="images/magnifying-glass.png" width=20>
