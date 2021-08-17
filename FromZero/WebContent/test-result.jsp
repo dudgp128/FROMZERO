@@ -8,7 +8,7 @@
 <title>From zero</title>
 <script src="level-calculate.js"></script>
 </head>
-<body style="overflow-x: hidden" onload="show();">
+<body style="overflow-x: hidden; text-align: center;" onload="show();">
 	<%@ include file="./fz_header.jsp" %>
 
 
@@ -18,8 +18,8 @@
 			알아보자!</h4>
 	</div>
 
-	<form name="question">
-		<div class="question_box">
+	<form name="question" style="margin:0 auto">
+		<div style="margin:0 auto">
 
 			<br />
 			<br /> <img id="img" src="" border="0" width="250px"> <br />

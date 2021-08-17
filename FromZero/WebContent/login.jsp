@@ -41,8 +41,8 @@ table.loginTable {
 			</tr>
 		</table> 
 		<br />
-			<input class="test-result-button" type="submit"  value="LOGIN" />
-			<button class="test-result-button"><a href="join.jsp"> JOIN </a></button>
+			<input style="height:40px"class="test-result-button" type="submit"  value="LOGIN" />
+			<button style="height:40px" class="test-result-button"><a href="join.jsp"> JOIN </a></button>
 			
 		</div>
 		</form>

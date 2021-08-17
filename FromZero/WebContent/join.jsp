@@ -33,7 +33,7 @@ table.joinTable {
 		
 		<div class="question_box">
 		
-		<table class="joinTable" border="0" >
+		<table class="joinTable" border="0" style="width:40%">
 			<tr>
 			    <td>아이디</td>
 			    <td><input id="join_input" type="text" name="nmid" required /></td>
@@ -69,22 +69,7 @@ table.joinTable {
 		</form>
 	</div>
 
-	<form method="post" action="doSearch">
-		<ul class="loginarea">
-			<!-- <li><a href="login.html"> <img src="images/mypage.png"
-               width=25 height=20>
-         </a></li>
-         <li><a href="login.html">cart</a></li> -->
-			<li><a href="login.jsp">login</a></li>
-			<li><a href="join.jsp">join</a></li>
-			<li><input type="text" name="search_text"></li>
-			<li style='top: 100px; padding: 0 0px;'>
-				<button type="submit">
-					<img src="images/magnifying-glass.png" width=20 height=20>
-				</button>
-			</li>
-		</ul>
-	</form>
+
 </div>
 </body>
 </html>

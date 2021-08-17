@@ -204,7 +204,7 @@ table.editTable {
 					}
 					%>
 
-					<table class="editTable" border="0">
+					<table class="editTable" border="0" style="width:40%">
 						<tr>
 							<td>아이디</td>
 							<td><input id="custid" type="text" value="<%=user_id%>"
