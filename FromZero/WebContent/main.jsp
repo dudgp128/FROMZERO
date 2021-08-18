@@ -393,10 +393,10 @@ div, table {
 								<a class="item_container _item_container _fade_link "
 									href="living.jsp" style="display: block">
 									<div class="img_wrap _img_wrap " id="gal_item_"
-										style="background-image: /BD.26107985.1.jpg; 
+										style="background-image: url(https://tumblbug-pci.imgix.net/ed20e46c8042780d76af2e556c713104e934fe29/77f1f632125ddea92714a670d08c5bd9536c9c89/e7808840b57ca6e9d1f2768557a56619c5fb04ae/1b0d3243-8712-4ef9-b92c-008d8c7fd958.jpg?ixlib=rb-1.1.0&w=1240&h=930&auto=format%2Ccompress&lossless=true&fit=crop&s=b37f9a352cb5de643e5092536a51aeca;); 
 										background-repeat: no-repeat;
 										min-height: 270px;
-										background-size: contain;"
+										background-size: cover;"
 										data-bg="url(https://cdn.imweb.me/thumbnail/20200521/ca2f5493f3604.jpg)"
 										data-src="https://cdn.imweb.me/thumbnail/20200521/77694d969bc9a.jpg"
 										data-sub-html="#caption_3838152" data-no="1"></div>
