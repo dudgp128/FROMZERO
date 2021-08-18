@@ -393,7 +393,7 @@ div, table {
 								<a class="item_container _item_container _fade_link "
 									href="living.jsp" style="display: block">
 									<div class="img_wrap _img_wrap " id="gal_item_"
-										style="background-image: url(https://img.hankyung.com/photo/202104/BD.26107985.1.jpg;); 
+										style="background-image: /BD.26107985.1.jpg; 
 										background-repeat: no-repeat;
 										min-height: 270px;
 										background-size: contain;"

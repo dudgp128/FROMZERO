@@ -242,7 +242,7 @@ table {
          </div>
 
          <div class="point-view">
-            <a href="point.jsp"> 
+            <a href="exchange.jsp"> 
                <ul>
                   <li>포인트</li>
                   <li style='font-size: 23px'><%=point%></li>

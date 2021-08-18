@@ -7,6 +7,8 @@
 <%
 String store_id = (String) session.getAttribute("store_id");
 session.setAttribute("store_id", store_id);
+String user_id = (String) session.getAttribute("user_id");
+String user_name = (String) session.getAttribute("user_name");
 %>
 <link rel="stylesheet" href="./fromzero.css" type="text/css">
 <meta charset="UTF-8">
@@ -36,9 +38,42 @@ tr {
 </style>
 </head>
 <body style="overflow-x: hidden">
-	<%@ include file="./fz_header.jsp"%>
+	
 	<br />
-	<br />
+
+	<header>
+		<h1>
+			<a href="admin_point.jsp"> <img src="./농부제로로고.png" width="200px"
+				alt="My Image">
+			</a>
+		</h1>
+	</header>
+	</br>
+
+	<nav id="topMenu">
+		<ul>
+			<li class="topMenuLi"><a href="admin-main.jsp" class="menuLink"
+				href="">들어온 주문내역 확인</a></li>
+			<li>|</li>
+			<li class="topMenuLi"><a href="update_stock.jsp"
+				class="menuLink" href="">재고 변경</a></li>
+			<li>|</li>
+			<li class="topMenuLi"><a href="admin_point.jsp" class="menuLink"
+				href="">고객 포인트 차감</a></li>
+
+		</ul>
+	</nav>
+
+
+	<ul class="loginarea">
+		<li><a><%=user_name%> 관리자님, 안녕하세요!</a>
+		<li><a href="./doLogout">logout</a></li>
+		<li><a href="main.jsp">home</a></li>
+	</ul>
+	
+	</br>
+	</br>
+	
 
 	
 	<div style="text-align: center">
