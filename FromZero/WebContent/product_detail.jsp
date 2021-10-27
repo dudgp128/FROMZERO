@@ -253,6 +253,8 @@ connectionProps.put("serverTimezone", DBTimeZone);
 				name="tabmenu" id="tabmenu1"> <label for="tabmenu1">DETAIL</label>
 				<div style="width:100%; margin:0 auto; "class="tabCon">
 					<img src="<%=detail_img%>" style="width:100%; height:auto" />
+					<br>
+					<p> 해당 이미지의 저작권은 <%=brand%>에 있습니다.</p>
 				</div></li>
 			<li id="tab2" class="btnCon"><input type="radio" name="tabmenu"
 				id="tabmenu2"> <label for="tabmenu2">REVIEW</label>

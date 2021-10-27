@@ -70,6 +70,9 @@
 								<strong><%=productname%></strong>
 								<p><%=price%>원
 								</p>
+								<p style="font-size:10px">
+								현재 수량 <%=num %>개
+								</p>
 								<p>
 									<input id="productNum" type="number" name="<%=productid%>"
 										min="0" step="1" value="0" />
