@@ -270,8 +270,7 @@ table {
                            <%
                               try {
                               conn = DriverManager.getConnection(DBUrl, connectionProps);
-                              String osqlSt = "select online_product.productid,productname, count, price, img,big_category,online_order.orderid,orderdate from online_product, order_items,online_order where online_product.productid=order_items.productid and order_items.orderid=online_order.orderid and online_order.custid="
-                              + "'" + user_id + "' order by orderid desc";
+                              String osqlSt = "select online_product.productid,productname, count, price, img,big_category,online_order.orderid,orderdate from online_product, order_items,online_order where online_order.custid='"+user_id+"' and online_product.productid=order_items.productid and order_items.orderid=online_order.orderid order by orderid desc";
 
                               pstmt = conn.prepareStatement(osqlSt);
                               rset = pstmt.executeQuery();

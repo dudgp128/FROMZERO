@@ -13,6 +13,7 @@
 
 	<!-- 분리수거 방법 페이지 본문 -->
 	<div class="title">
+	<img style="margin-bottom:10px"src="images/teachable_machine_logo.png"/>
 		<h2 style="text-align: center">분리수거 방법 알아보기</h2>
 		<h4 style="text-align: center">
 			머신러닝 기술을 이용해 분리수거 방법을 알아보세요!<br/>

@@ -49,7 +49,12 @@
 	String name = multipartRequest.getParameter("name");
 	int price = Integer.parseInt(multipartRequest.getParameter("price"));
 	int num = Integer.parseInt(multipartRequest.getParameter("num"));
-
+	if(!fileName.endsWith(".jpg") && !fileName.endsWith(".png")){
+		File file =new File(directory+fileName);
+		file.delete();
+		out.write("이미지 파일(.jpg, .png)업로드만 가능합니다.");
+	}
+	else{
 	try {
 		conn = DriverManager.getConnection(DBUrl, connectionProps);
 		String sqlSt = null;
@@ -70,6 +75,7 @@
 		DBUtil.insertOfflineStock(conn, product_id, storeid, name, price, num, fileName);
 	} catch (Exception e) {
 		e.printStackTrace();
+	}
 	}
 	%>
 </body>

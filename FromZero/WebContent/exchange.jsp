@@ -35,7 +35,7 @@ div, table,tr,td{
 					<tr>
 						<td>
 							<div>
-								<img class="img_exchange" src="exchange/소주병.jpg"> <br />
+								<img class="img_exchange" src="exchange/초록병.jpg"> <br />
 								<p>소주병 (1개/100원)</p>
 								<input id="soju" type="number" name="soju" min="0"  max="10"
 									step="1" value="0" />
@@ -51,7 +51,7 @@ div, table,tr,td{
 						</td>
 						<td>
 							<div>
-								<img class="img_exchange" src="exchange/우유팩.jpg"> <br />
+								<img class="img_exchange" src="exchange/우유팩.png"> <br />
 								<p>우유팩(1L/400원)</p>
 								<input id="milk" type="number" name="milk" min="0" max="10"
 									step="1" value="0" />

@@ -72,7 +72,8 @@
 		int price = 0;
 		String big_category = null;
 		String img = null;
-
+		String product_brand=null;	
+		
 		String img_li = null;
 		PreparedStatement pPstmt = null;
 		ResultSet pRset = null;
@@ -83,7 +84,6 @@
 				c++;
 				productid = rset.getInt("productid");
 				count = rset.getInt("count");
-
 				String sql = "select * from online_product where productid = '" + productid + "'";
 				pPstmt = conn.prepareStatement(sql);
 				pRset = pPstmt.executeQuery();
@@ -106,7 +106,7 @@
 
 				<div id="display-text">
 
-					<strong style="font-size: 23px"><%=productname%></strong>
+					<strong style="font-size: 23px"> <%=productname%></strong>
 					<p>
 						<input type="text" name="<%=productid%>P" value="<%=price%>"
 							readonly="readonly"
