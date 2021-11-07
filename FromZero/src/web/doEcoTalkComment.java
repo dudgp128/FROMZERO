@@ -15,11 +15,11 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-@WebServlet("/doQnAComment")
-public class DoQnAComment extends HttpServlet {
+@WebServlet("/doEcoTalkComment")
+public class doEcoTalkComment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public DoQnAComment() {
+    public doEcoTalkComment() {
         super();
     }
 
@@ -30,6 +30,9 @@ public class DoQnAComment extends HttpServlet {
 		HttpSession session = request.getSession();
 		int comment_id = (int)session.getAttribute("comment_id");
 		String custid = (String) session.getAttribute("user_id");
+		if (custid == null) 
+			custid="비회원";
+		
 		int board_id = Integer.parseInt((String) session.getAttribute("board_id"));
 		String comment = request.getParameter("comment");
 	
@@ -37,10 +40,10 @@ public class DoQnAComment extends HttpServlet {
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 		
 		try {
-			DBUtil.insertComment("qna_comment",conn, comment_id, custid, board_id, comment);
+			DBUtil.insertComment("ecotalk_comment",conn, comment_id, custid, board_id, comment);
 			String board_id_string = Integer.toString(board_id);
 			request.setAttribute("board_id", board_id_string);
-			RequestDispatcher view = request.getRequestDispatcher("qna_board.jsp");
+			RequestDispatcher view = request.getRequestDispatcher("ECOTALK_board.jsp");
 		    view.forward(request, response);
 
 		} catch (Exception e) {

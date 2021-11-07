@@ -369,13 +369,13 @@ public class DBUtil {
 		}
 	}
 
-	public static void insertFAQ(Connection conn, int board_id, String custid, String board_title, String board_content)
+	public static void insertECOTALK(Connection conn, int board_id, String custid, String board_title, String board_content)
 			throws SQLException {
 		PreparedStatement pstmt = null;
 		try {
 			conn.setAutoCommit(false);
 
-			pstmt = conn.prepareStatement("INSERT INTO faq VALUES(?,?,?,?,?)");
+			pstmt = conn.prepareStatement("INSERT INTO ecotalk VALUES(?,?,?,?,?)");
 			pstmt.setInt(1, board_id);
 			pstmt.setString(2, custid);
 			pstmt.setString(3, board_title);
@@ -466,13 +466,13 @@ public class DBUtil {
 		}
 	}
 
-	public static void insertQnAComment(Connection conn, int comment_id, String custid, int board_id, String comment)
+	public static void insertComment(String table_name ,Connection conn, int comment_id, String custid, int board_id, String comment)
 			throws SQLException {
 		PreparedStatement pstmt = null;
 		try {
 			conn.setAutoCommit(false);
 
-			pstmt = conn.prepareStatement("INSERT INTO qna_comment VALUES(?,?,?,?,?)");
+			pstmt = conn.prepareStatement("INSERT INTO "+table_name +" VALUES(?,?,?,?,?)");
 			pstmt.setInt(1, comment_id);
 			pstmt.setString(2, custid);
 			pstmt.setInt(3, board_id);
@@ -513,9 +513,9 @@ public class DBUtil {
 		return null;
 	}
 
-	public static void deleteFAQ(Connection conn, String board_id) throws SQLException {
+	public static void deleteECOTALK(Connection conn, String board_id) throws SQLException {
 		Statement st = null;
-		String sqlSt = "DELETE FROM faq WHERE board_id=" + board_id;
+		String sqlSt = "DELETE FROM ecotalk WHERE board_id=" + board_id;
 		try {
 			st = conn.createStatement();
 			st.execute(sqlSt);

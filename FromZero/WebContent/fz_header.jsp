@@ -54,7 +54,7 @@ String user_name = (String) session.getAttribute("user_name");
 					BOARD</a>
 				<ul class="submenu" style="white-space: normal">
 					<li><a href="notice.jsp" class="submenuLink">NOTICE</a></li>
-					<li><a href="FAQ.jsp" class="submenuLink">FAQ</a></li>
+					<li><a href="ECOTALK.jsp" class="submenuLink">ECO TALK</a></li>
 					<li><a href="QnA.jsp" class="submenuLink">QNA</a></li>
 				</ul></li>
 		</ul>

@@ -39,8 +39,8 @@ public class DoDeleteWriting extends HttpServlet {
 		try {
 			if (cust_id.equals("admin")) {
 				if (page.equals("faq")) {
-					DBUtil.deleteFAQ(conn, board_id);
-					view = request.getRequestDispatcher("FAQ.jsp");
+					DBUtil.deleteECOTALK(conn, board_id);
+					view = request.getRequestDispatcher("ECOTALK.jsp");
 					view.forward(request, response);
 				} else if (page.equals("notice")) {
 					DBUtil.deleteNotice(conn, board_id);

@@ -15,11 +15,11 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-@WebServlet("/doQnAComment")
-public class DoQnAComment extends HttpServlet {
+@WebServlet("/doECOTALKWrite")
+public class DoECOTALKWrite extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public DoQnAComment() {
+    public DoECOTALKWrite() {
         super();
     }
 
@@ -28,24 +28,23 @@ public class DoQnAComment extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 	      
 		HttpSession session = request.getSession();
-		int comment_id = (int)session.getAttribute("comment_id");
+		int board_id = (int)session.getAttribute("board_id_2");
 		String custid = (String) session.getAttribute("user_id");
-		int board_id = Integer.parseInt((String) session.getAttribute("board_id"));
-		String comment = request.getParameter("comment");
+		String board_title = request.getParameter("title");
+		String board_content = request.getParameter("memo");
 	
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
+		ResultSet rs = DBUtil.getOnlineOrder(conn);
 		
 		try {
-			DBUtil.insertComment("qna_comment",conn, comment_id, custid, board_id, comment);
-			String board_id_string = Integer.toString(board_id);
-			request.setAttribute("board_id", board_id_string);
-			RequestDispatcher view = request.getRequestDispatcher("qna_board.jsp");
-		    view.forward(request, response);
-
+			DBUtil.insertECOTALK(conn, board_id, custid, board_title, board_content);
+			RequestDispatcher view = request.getRequestDispatcher("ECOTALK.jsp");
+			view.forward(request, response);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

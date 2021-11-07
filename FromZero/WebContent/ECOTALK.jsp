@@ -101,13 +101,28 @@ ul {
 	padding: 10px;
 	text-align: center;
 }
-table{
-	background-color:white;
-	border:0;
+table {
+	width: 1500px;
+	border: 0;
+	table-layout: fixed;
+	border-collapse: collapse;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
-td,th{
-	background-color:white;
-	border:0;
+
+th, td {
+	border: 0;
+	background-color: white;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
 }
 </style>
 </head>
@@ -115,7 +130,7 @@ td,th{
 <body style="overflow-x: hidden">
    <%@ include file="./fz_header.jsp" %>
    <%
-  	user_name = (String) session.getAttribute("user_name");
+ 	user_name = (String) session.getAttribute("user_name");
 
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
@@ -132,25 +147,16 @@ td,th{
 	connectionProps.put("serverTimezone", DBTimeZone);
 	String name = null;
 	
-	String b="display:none";
-	String access_user="";
-	if(user_name!=null){
-		access_user=user_name;
-		if(access_user.equals("관리자")){
-			b="";
-		}
-	}
-	
 	%>
 	
    <div>
-   		<br /> <br />
+		<br /> <br />
 		<h2 id="bigCategory"
-			style="text-align: center; margin-top: 30px;">NOTICE</h2>
+			style="text-align: center; margin-top: 30px;">ECO TALK</h2>
 	</div>
 	
-	<div class="write" align="right" style="<%=b%>">
-		<button onclick="location.href='notice_write.jsp'" class="test-result-button">글쓰기</button>
+	<div class="write" align="right">
+		<button onclick="location.href='ECOTALK_write.jsp'" class="test-result-button">글쓰기</button>
 	</div>
 	
    <div id="menu" style="float: left;">
@@ -161,10 +167,9 @@ td,th{
 		</ul>
 	</div>
 
-	<div id="content" style="float: left; width:50%;">
-		<!-- 리스트 게시판 시작-->
-		<table class="sub_news" border="1" cellspacing="0" \
-			summary="게시판의 글제목 리스트" style="font-size: 14px;">
+	<div id="content" style="float: left; width:50%">
+		<table class="sub_news" border="1" cellspacing="0"
+			summary="게시판의 글제목 리스트" style="font-size: 14px;" >
 			<caption>게시판 리스트</caption>
 			<colgroup>
 				<col width="80">
@@ -178,7 +183,6 @@ td,th{
 					<th scope="col">제목</th>
 					<th scope="col">글쓴이</th>
 					<th scope="col">날짜</th>
-
 				</tr>
 			</thead>
 			<tbody>
@@ -187,7 +191,7 @@ td,th{
 			try {
 				conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-				String sqlSt = "select * from notice order by board_id, custid, board_title, board_date";
+				String sqlSt = "select * from ecotalk order by board_id";
 				pstmt = conn.prepareStatement(sqlSt);				
 				rset = pstmt.executeQuery();
 				} 
@@ -207,7 +211,7 @@ td,th{
 				board_title = rset.getString("board_title");
 				board_date = rset.getString("board_date");
 			%>
-			<form method="post" action="doNotice">
+			<form method="post" action="doECOTALK">
 				<tr>
 					<td class="number"><input type="text" value="<%=board_id%>" name="boardID" readonly="readonly" 
       				style="border: none; background: transparent; pointer-events: none; text-align:center; width:100px; height:20px" /></td>
@@ -221,11 +225,12 @@ td,th{
 			<%
 			}
 			session.setAttribute("board_id", board_id);
+			session.setAttribute("cust_id", custid);
 			%>
 			</tbody>
 		</table>
-
 	</div>
+	
 
 </body>
 </html>

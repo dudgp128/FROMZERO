@@ -7,6 +7,11 @@
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.util.Properties"%>
+<%@page import="java.util.Date"%>
+<%@page import="java.text.DateFormat"%>
+<%@page import="java.text.SimpleDateFormat"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +21,6 @@
 <title>From zero</title>
 
 <style>
-.deleteBoard {
-	padding-right:300px;
-}
 table {
 	width: 1500px;
 	table-layout: fixed;
@@ -46,9 +48,6 @@ th, td {
 	margin: 50px;
 }
 
-
-
-<!-- 왼쪽 네비게이션 -->
 .leftMenu {
 	margin-top: 50px;
 	margin-left: 50px;
@@ -69,6 +68,7 @@ th, td {
    	<%
    	String board_id = (String)request.getAttribute("board_id");
    	user_name = (String) session.getAttribute("user_name");
+   	String cust_id=(String)session.getAttribute("cust_id");
    	
 	PreparedStatement pstmt = null;
 	ResultSet rset = null;
@@ -84,14 +84,20 @@ th, td {
 	connectionProps.put("password", DBpasswd);
 	connectionProps.put("serverTimezone", DBTimeZone);
 	String name = null;
+	
 	%>
 	
    <div>
 		<h1 id="bigCategory"
-			style="text-align: center; margin-top: 20px; text-transform: uppercase;">NOTICE</h1>
+			style="text-align: center; margin-top: 20px; text-transform: uppercase;">ECO TALK</h1>
 	</div>
 	
-
+	<div class="deleteBoard" align="right">
+	<form method="post" action="doDeleteWriting">
+	</form>
+	</div>
+	
+	
    <div id="menu" style="float: left;">
 		<ul class="leftMenu">
 			<li><a href="notice.jsp" class="submenuLink">NOTICE</a></li>
@@ -108,7 +114,7 @@ th, td {
 			try {
 				conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-				String sqlSt = "select * from notice where board_id='" + board_id 
+				String sqlSt = "select * from ecotalk where board_id='" + board_id 
 						+ "' order by custid, board_title, board_content, board_date";
 				pstmt = conn.prepareStatement(sqlSt);				
 				rset = pstmt.executeQuery();
@@ -132,42 +138,113 @@ th, td {
 			String access_user="";
 			if(user_name!=null){
 				access_user=user_name;
-				if(access_user.equals("관리자")){
+				if(access_user.equals("관리자") || cust_id.equals(custid)){
 					b="";
 				}
 			}
 			%>
-        <tr>
-            <th>글번호</th>
-            <td><%= board_id %></td>
-            <th>작성자</th>
-            <td><%= custid %></td>
-			<th>작성일</th>
-            <td><%= board_date %></td>
-        </tr>
-           
-        <tr>
-            <th>제목</th>
-            <td colspan="5"><%= board_title %></td>
-        </tr>
-         
-        <tr>
-            <th style="height:500px">글 내용</th>
-            <td colspan="5"><%= board_content %></td>
-        </tr>
-		</table>
-		<br/>
-		<div style="text-align: right; margin-right: 100px">
+			<div style="text-align: right; margin-right: 100px">
 				<button class="test-result-button" style="width:10%; color: red; <%=b%>"
 					type="submit">삭제하기</button>
 			</div>
-			</form>
-			<%
-			session.setAttribute("board_id", board_id);
-			session.setAttribute("cust_id", custid);
-			session.setAttribute("page", "notice");
+        <tr>
+					<th style="width: 10%">글번호</th>
+					<td style="width: 90%"><%=board_id%></td>
+				</tr>
+				<tr>
+					<th>작성자</th>
+					<td><%=custid%></td>
+				</tr>
+				<tr>
+					<th>작성일</th>
+					<td><%=board_date%></td>
+				</tr>
+
+				<tr>
+					<th>제목</th>
+					<td colspan="4"><%=board_title%></td>
+				</tr>
+
+				<tr>
+					<td colspan="5" style="width: 100%; padding: 200px 10px;"><%=board_content%></td>
+				</tr>
+			</table>
+			<br />
+
+			
+		</form>
+		<br/>
+		<%
+			try {
+
+			String sqlSt = "select * from ecotalk_comment where board_id='" + board_id + "' order by comment_id, custid, comment";
+			pstmt = conn.prepareStatement(sqlSt);
+			rset = pstmt.executeQuery();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+		String comment_id = null;
+		String comment_custid = null;
+		String comment = null;
+		Date _date=null;
+		DateFormat dateFormat=new SimpleDateFormat("dd/MM/yyyy");
+
+		while (rset.next()) {
+			comment_id = rset.getString("comment_id");
+			comment_custid = rset.getString("custid");
+			comment = rset.getString("comment");
+			_date=rset.getDate("comment_date");
+			String comment_date=dateFormat.format(_date);
 		%>
-	</div>
+		<div>
+			<table class="board" style=" margin-right: 100px">
+				<tr style="border:0px">
+					<th style="text-align:left; border:0px"><%=comment_custid%></th>
+					<td></td>
+				</tr>
+				<tr style="border:0px">
+					<td colspan="3" style="text-align:left"><%=comment%></td>
+					<td><%=comment_date%></td>
+				</tr>
+			</table>
+		</div>
+		<%
+			}
+		int comment_id_2 = 1;
+		if (comment_id == null)
+		comment_id_2 = 1;
+		else if (Integer.parseInt(comment_id) > 0)
+		comment_id_2 = Integer.parseInt(comment_id) + 1;
+		%>
+		<br /> <br /> <br />
+		<form method="post" action="doEcoTalkComment">
+			<div>
+				<table class="board" style="text-align: left">
+					<tr>
+						<th>댓글번호</th>
+						<td colspan="3"><%=comment_id_2%></td>
+					</tr>
+					<tr>
+						<th style="height: 100px">댓글 작성</th>
+						<td colspan="2"><textarea name="comment"
+								style="width: 100%; height: 100px"></textarea></td>
+						<td><button class="test-result-button" type="submit">댓글
+								작성</button></td>
+					</tr>
+				</table>
+			</div>
+			<br />
+
+			<div class="save" align="right"></div>
+		</form>
+		<%
+		session.setAttribute("comment_id", comment_id_2);
+		session.setAttribute("board_id", board_id);
+		session.setAttribute("cust_id", custid);
+		session.setAttribute("page","faq");
+		%>
+		</div>
 
 </body>
 </html>

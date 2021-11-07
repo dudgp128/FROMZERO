@@ -2,7 +2,7 @@ package web;
 
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.ResultSet;
+import java.sql.SQLException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletContext;
@@ -15,38 +15,31 @@ import javax.servlet.http.HttpSession;
 
 import model.DBUtil;
 
-@WebServlet("/doQnAComment")
-public class DoQnAComment extends HttpServlet {
+@WebServlet("/DoECOTALKDelete")
+public class DoECOTALKDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public DoQnAComment() {
+    public DoECOTALKDelete() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setCharacterEncoding("UTF-8");
-	      
+		
 		HttpSession session = request.getSession();
-		int comment_id = (int)session.getAttribute("comment_id");
-		String custid = (String) session.getAttribute("user_id");
-		int board_id = Integer.parseInt((String) session.getAttribute("board_id"));
-		String comment = request.getParameter("comment");
-	
+		String board_id = (String) session.getAttribute("board_id");
+		String cust_id = (String) session.getAttribute("cust_id");
 		ServletContext sc = getServletContext();
 		Connection conn = (Connection) sc.getAttribute("DBconnection");
 		
 		try {
-			DBUtil.insertComment("qna_comment",conn, comment_id, custid, board_id, comment);
-			String board_id_string = Integer.toString(board_id);
-			request.setAttribute("board_id", board_id_string);
-			RequestDispatcher view = request.getRequestDispatcher("qna_board.jsp");
-		    view.forward(request, response);
-
-		} catch (Exception e) {
+			DBUtil.deleteECOTALK(conn, board_id);
+			RequestDispatcher view = request.getRequestDispatcher("ECOTALK.jsp");
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-	}
+		}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doGet(request, response);

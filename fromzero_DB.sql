@@ -40,6 +40,7 @@ CREATE TABLE `bottle` (
 
 LOCK TABLES `bottle` WRITE;
 /*!40000 ALTER TABLE `bottle` DISABLE KEYS */;
+INSERT INTO `bottle` VALUES ('20181048',2,1,1,0,740);
 /*!40000 ALTER TABLE `bottle` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -96,7 +97,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES ('20181048','1111','조영혜','서울특별시 성북구','01095052726','20181048@sungshin.ac.kr',NULL,NULL),('admin','1234','관리자',NULL,NULL,NULL,NULL,1),('msyou99','1111','유민서','서울특별시 성북구 보문로26길 71-7','01072937923','20180926@sungshin.ac.kr',NULL,NULL),('off_admin1','1234','알맹상점',NULL,NULL,NULL,NULL,1),('off_admin2','1234','지구샵',NULL,NULL,NULL,NULL,1),('off_admin3','1234','더피커',NULL,NULL,NULL,NULL,1),('off_admin4','1234','라마홈',NULL,NULL,NULL,NULL,1),('off_admin5','1234','송포얼스',NULL,NULL,NULL,NULL,1),('off_admin6','1234','디어얼스',NULL,NULL,NULL,NULL,1),('yuha','1111','배유하','경기도 안양시 동안구 동안로 75','01028133880','20181027@sungshin.ac.kr',NULL,NULL);
+INSERT INTO `customer` VALUES ('20181048','1111','조영혜','동소문로','01095052726','nbv19@naver,com','화분',NULL),('admin','1234','관리자',NULL,NULL,NULL,NULL,1),('msyou99','1111','유민서','서울특별시 성북구 보문로26길 71-7','01072937923','20180926@sungshin.ac.kr','숲',NULL),('off_admin1','1234','알맹상점',NULL,NULL,NULL,NULL,1),('off_admin2','1234','지구샵',NULL,NULL,NULL,NULL,1),('off_admin3','1234','더피커',NULL,NULL,NULL,NULL,1),('off_admin4','1234','라마홈',NULL,NULL,NULL,NULL,1),('off_admin5','1234','송포얼스',NULL,NULL,NULL,NULL,1),('off_admin6','1234','디어얼스',NULL,NULL,NULL,NULL,1),('yuha','1111','배유하','경기도 안양시 동안구 동안로 75','01028133880','20181027@sungshin.ac.kr',NULL,NULL);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -126,13 +127,13 @@ INSERT INTO `eco_tip` VALUES ('bangle',10,'테니스 선수 팔에 채워진 팔
 UNLOCK TABLES;
 
 --
--- Table structure for table `faq`
+-- Table structure for table `ecotalk`
 --
 
-DROP TABLE IF EXISTS `faq`;
+DROP TABLE IF EXISTS `ecotalk`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `faq` (
+CREATE TABLE `ecotalk` (
   `board_id` int NOT NULL,
   `custid` varchar(50) NOT NULL,
   `board_title` varchar(100) NOT NULL,
@@ -145,13 +146,44 @@ CREATE TABLE `faq` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `faq`
+-- Dumping data for table `ecotalk`
 --
 
-LOCK TABLES `faq` WRITE;
-/*!40000 ALTER TABLE `faq` DISABLE KEYS */;
-INSERT INTO `faq` VALUES (1,'admin','대량 주문하고 싶어요.','대량 주문을 희망하실 경우 \' QnA\' 게시판을 통해 문의해주시면 확인 후 담당자가 연락을 드리도록 하겠습니다.','2020-12-06'),(2,'admin','상품을 포장 없이 구매하고 싶어요.','Fromzero 내 제품은 가급적 포장없이 제공하고 있습니다.\r다만, 제조사 측의 요청이나 제품 위생상 포장이 반드시 필요한 경우,\r제품의 안전한 배송을 위해 포장이 필요한 경우 등 포장된 제품도 있으니 구매에 참고 부탁드립니다.\r포장이 필요한 경우, 자원의 낭비를 최소화 하기위해 다중포장 되지 않도록 노력하고 있습니다.','2020-12-06'),(3,'admin','상품을 주문했는데 아직 배송을 받지 못 했어요.','지구샵은 주문일로부터 약 1~3일 내에 제품을 출고하고 있습니다. 따라서 고객님께서 제품을 수령하시기까지 약 3~5일가량 소요될 수 있습니다. 주문일로부터 5일 이상이 지난 후에도 별도의 연락을 받지 못하셨거나 배송이 되지 않았을 경우 고객센터를 통해 문의주시면 친절히 안내해드리도록 하겠습니다.','2020-12-06'),(4,'admin','불량/오배송의 경우 택배비를 부담해야 하나요?','불량/오배송 등 판매자 귀책사유로 인한 반품/교환의 경우 택배비를 모두 부담하고 있습니다.','2020-12-06'),(5,'admin','비닐이나 플라스틱 없이 어떻게 안전하게 배송되는지 궁금해요.','Fromzero의 모든 배송은 원칙적으로 플라스틱 없이 제공되고 있습니다. 상품의 안전한 배송을 위해 종이완충재를 사용하여 배송되며, 그 외 모든 택배 부자재 또한 종이를 사용합니다. 다만, 장마 기간 혹은 우천이 예상되는 경우, 제품의 안전을 위해 재사용 비닐 혹은 생분해성 비닐이 사용될 수도 있는 점 양해 부탁드립니다.','2020-12-06');
-/*!40000 ALTER TABLE `faq` ENABLE KEYS */;
+LOCK TABLES `ecotalk` WRITE;
+/*!40000 ALTER TABLE `ecotalk` DISABLE KEYS */;
+INSERT INTO `ecotalk` VALUES (1,'admin','대량 주문하고 싶어요.','대량 주문을 희망하실 경우 \' QnA\' 게시판을 통해 문의해주시면 확인 후 담당자가 연락을 드리도록 하겠습니다.','2020-12-06'),(2,'admin','상품을 포장 없이 구매하고 싶어요.','Fromzero 내 제품은 가급적 포장없이 제공하고 있습니다.\r다만, 제조사 측의 요청이나 제품 위생상 포장이 반드시 필요한 경우,\r제품의 안전한 배송을 위해 포장이 필요한 경우 등 포장된 제품도 있으니 구매에 참고 부탁드립니다.\r포장이 필요한 경우, 자원의 낭비를 최소화 하기위해 다중포장 되지 않도록 노력하고 있습니다.','2020-12-06'),(3,'admin','상품을 주문했는데 아직 배송을 받지 못 했어요.','지구샵은 주문일로부터 약 1~3일 내에 제품을 출고하고 있습니다. 따라서 고객님께서 제품을 수령하시기까지 약 3~5일가량 소요될 수 있습니다. 주문일로부터 5일 이상이 지난 후에도 별도의 연락을 받지 못하셨거나 배송이 되지 않았을 경우 고객센터를 통해 문의주시면 친절히 안내해드리도록 하겠습니다.','2020-12-06'),(4,'admin','불량/오배송의 경우 택배비를 부담해야 하나요?','불량/오배송 등 판매자 귀책사유로 인한 반품/교환의 경우 택배비를 모두 부담하고 있습니다.','2020-12-06'),(5,'admin','비닐이나 플라스틱 없이 어떻게 안전하게 배송되는지 궁금해요.','Fromzero의 모든 배송은 원칙적으로 플라스틱 없이 제공되고 있습니다. 상품의 안전한 배송을 위해 종이완충재를 사용하여 배송되며, 그 외 모든 택배 부자재 또한 종이를 사용합니다. 다만, 장마 기간 혹은 우천이 예상되는 경우, 제품의 안전을 위해 재사용 비닐 혹은 생분해성 비닐이 사용될 수도 있는 점 양해 부탁드립니다.','2020-12-06'),(6,'20181048','재미있는 에코 놀이터~','함께 즐겨요~!','2021-11-07');
+/*!40000 ALTER TABLE `ecotalk` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ecotalk_comment`
+--
+
+DROP TABLE IF EXISTS `ecotalk_comment`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `ecotalk_comment` (
+  `comment_id` int NOT NULL,
+  `custid` varchar(50) DEFAULT NULL,
+  `board_id` int NOT NULL,
+  `comment` varchar(1000) DEFAULT NULL,
+  `comment_date` date DEFAULT NULL,
+  PRIMARY KEY (`comment_id`,`board_id`),
+  KEY `custid` (`custid`),
+  KEY `board_id` (`board_id`),
+  CONSTRAINT `boardid` FOREIGN KEY (`board_id`) REFERENCES `ecotalk` (`board_id`),
+  CONSTRAINT `custid` FOREIGN KEY (`custid`) REFERENCES `customer` (`custid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ecotalk_comment`
+--
+
+LOCK TABLES `ecotalk_comment` WRITE;
+/*!40000 ALTER TABLE `ecotalk_comment` DISABLE KEYS */;
+INSERT INTO `ecotalk_comment` VALUES (1,NULL,6,'우리 함께해요!','2021-11-07'),(2,'20181048',6,'지구야 사랑해~!','2021-11-07'),(3,'20181048',6,'우리 모두 지구를 위해 노력해요!','2021-11-07');
+/*!40000 ALTER TABLE `ecotalk_comment` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -266,7 +298,7 @@ CREATE TABLE `offline_product` (
 
 LOCK TABLES `offline_product` WRITE;
 /*!40000 ALTER TABLE `offline_product` DISABLE KEYS */;
-INSERT INTO `offline_product` VALUES (100,NULL,1,'소프넛',NULL,11000),(101,NULL,1,'플레이니스트(빨래, 설거지)',NULL,9000),(102,NULL,1,'에코띠크 세탁세제',NULL,3500),(103,NULL,1,'에코띠크 섬유유연제',NULL,3500),(104,NULL,1,'구연산',NULL,2000),(105,NULL,1,'탄산수소나트륨(베이킹소다)',NULL,2000),(106,NULL,1,'과탄산소다(빨래)',NULL,2500),(107,NULL,1,'생활공작소(주방세제)',NULL,2500),(108,NULL,1,'바이오 크린콜',NULL,3500),(200,NULL,2,'설거지 비누',NULL,6500),(201,NULL,2,'천연수세미3개입',NULL,9900),(202,NULL,2,'브라질넛',NULL,50),(203,NULL,2,'헤이즐넛',NULL,35),(204,NULL,2,'캐슈넛',NULL,35),(205,NULL,2,'통밀쿠키(비건)',NULL,400),(206,NULL,2,'초코호두(비건)',NULL,600),(300,NULL,3,'자연분해 일회용 접시',NULL,1500),(301,NULL,3,'재사용 소창 화장지',NULL,25000),(302,NULL,3,'재사용 휴대용 소창와압스',NULL,10000),(303,NULL,3,'소창 바게트 주머니',NULL,7000),(304,NULL,3,'천연 실크 치실',NULL,7000),(305,NULL,3,'A5 크라프트 무지노트',NULL,1500),(306,NULL,3,'병아리콩',NULL,4000),(307,NULL,3,'유기농 국산 햇귀리',NULL,7500),(308,NULL,3,'쌀 파스타(펜네)',NULL,8500),(309,NULL,3,'브라운 렌틸콩',NULL,3000),(400,NULL,4,'친환경 노트',NULL,1000),(401,NULL,4,'삼베수세미',NULL,10000),(402,NULL,4,'손수건',NULL,3500),(403,NULL,4,'밀랍초',NULL,5000),(404,NULL,4,'소프넛',NULL,11000),(405,NULL,4,'천 마스크',NULL,5000),(406,NULL,4,'빨대키트',NULL,10000),(407,NULL,4,'대나무 칫솔',NULL,2000),(500,NULL,5,'칫솔 파우치',NULL,3000),(501,NULL,5,'혀클리너',NULL,7000),(502,NULL,5,'닥터노아 어린이 칫솔',NULL,3700),(503,NULL,5,'수세미 병솔(납작형)',NULL,7000),(504,NULL,5,'설거지 수세미 S',NULL,4000),(505,NULL,5,'다용도 집게',NULL,1000),(506,NULL,5,'고체치약',NULL,14000),(600,NULL,6,'삼베 주머니',NULL,2400),(601,NULL,6,'고체치약(120정)',NULL,13900),(602,NULL,6,'팜프리 비누',NULL,6800),(603,NULL,6,'비즈왁스랩(밀랍랩)',NULL,4500),(604,NULL,6,'다회용 소창 티백',NULL,3500);
+INSERT INTO `offline_product` VALUES (100,NULL,1,'소프넛',50,11000),(101,NULL,1,'플레이니스트(빨래, 설거지)',50,9000),(102,NULL,1,'에코띠크 세탁세제',50,3500),(103,NULL,1,'에코띠크 섬유유연제',50,3500),(104,NULL,1,'구연산',50,2000),(105,NULL,1,'탄산수소나트륨(베이킹소다)',50,2000),(106,NULL,1,'과탄산소다(빨래)',50,2500),(107,NULL,1,'생활공작소(주방세제)',50,2500),(108,NULL,1,'바이오 크린콜',50,3500),(200,NULL,2,'설거지 비누',50,6500),(201,NULL,2,'천연수세미3개입',50,9900),(202,NULL,2,'브라질넛',50,50),(203,NULL,2,'헤이즐넛',50,35),(204,NULL,2,'캐슈넛',50,35),(205,NULL,2,'통밀쿠키(비건)',50,400),(206,NULL,2,'초코호두(비건)',50,600),(300,NULL,3,'자연분해 일회용 접시',50,1500),(301,NULL,3,'재사용 소창 화장지',50,25000),(302,NULL,3,'재사용 휴대용 소창와압스',50,10000),(303,NULL,3,'소창 바게트 주머니',50,7000),(304,NULL,3,'천연 실크 치실',50,7000),(305,NULL,3,'A5 크라프트 무지노트',50,1500),(306,NULL,3,'병아리콩',50,4000),(307,NULL,3,'유기농 국산 햇귀리',50,7500),(308,NULL,3,'쌀 파스타(펜네)',50,8500),(309,NULL,3,'브라운 렌틸콩',50,3000),(400,NULL,4,'친환경 노트',50,1000),(401,NULL,4,'삼베수세미',50,10000),(402,NULL,4,'손수건',50,3500),(403,NULL,4,'밀랍초',50,5000),(404,NULL,4,'소프넛',50,11000),(405,NULL,4,'천 마스크',50,5000),(406,NULL,4,'빨대키트',50,10000),(407,NULL,4,'대나무 칫솔',50,2000),(500,NULL,5,'칫솔 파우치',50,3000),(501,NULL,5,'혀클리너',50,7000),(502,NULL,5,'닥터노아 어린이 칫솔',50,3700),(503,NULL,5,'수세미 병솔(납작형)',50,7000),(504,NULL,5,'설거지 수세미 S',50,4000),(505,NULL,5,'다용도 집게',50,1000),(506,NULL,5,'고체치약',50,14000),(600,NULL,6,'삼베 주머니',50,2400),(601,NULL,6,'고체치약(120정)',50,13900),(602,NULL,6,'팜프리 비누',50,6800),(603,NULL,6,'비즈왁스랩(밀랍랩)',50,4500),(604,NULL,6,'다회용 소창 티백',50,3500);
 /*!40000 ALTER TABLE `offline_product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -321,6 +353,7 @@ CREATE TABLE `online_order` (
 
 LOCK TABLES `online_order` WRITE;
 /*!40000 ALTER TABLE `online_order` DISABLE KEYS */;
+INSERT INTO `online_order` VALUES (1,'20181048',5500,'2021-10-30'),(2,'yuha',8000,'2021-10-30'),(3,'yuha',8000,'2021-10-30');
 /*!40000 ALTER TABLE `online_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -378,6 +411,7 @@ CREATE TABLE `order_items` (
 
 LOCK TABLES `order_items` WRITE;
 /*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
+INSERT INTO `order_items` VALUES (1,17,'20181048',1),(1,110,'20181048',1),(2,9,'yuha',1),(2,45,'yuha',1),(3,9,'yuha',1),(3,45,'yuha',1);
 /*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -407,6 +441,7 @@ CREATE TABLE `qna` (
 
 LOCK TABLES `qna` WRITE;
 /*!40000 ALTER TABLE `qna` DISABLE KEYS */;
+INSERT INTO `qna` VALUES (1,'yuha','배송 언제되나요?','저번주에 주문했는데 아직도 안와서요...','2021-08-14','1234'),(2,'20181048','공병 종류는 아무거나 상관 없나요?','공병으로 포인트 교환하고 싶은데 소주병 아무거나 상관없는지 궁금합니다 !','2021-08-16','2018'),(3,'yuha','전부터 물어봤는데 배송 도대체 언제되나요?','오늘까지 답변 주세요.','2021-08-17','1599');
 /*!40000 ALTER TABLE `qna` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -473,10 +508,6 @@ LOCK TABLES `review` WRITE;
 /*!40000 ALTER TABLE `review` DISABLE KEYS */;
 /*!40000 ALTER TABLE `review` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Dumping events for database 'fz_webapp'
---
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -487,4 +518,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-08-15 18:15:34
+-- Dump completed on 2021-11-07 17:44:12
