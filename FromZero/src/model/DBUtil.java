@@ -242,6 +242,8 @@ public class DBUtil {
 
 	public static void insertBuying(Connection conn, int order_id, String user_id, int all_price) throws SQLException {
 		PreparedStatement pstmt = null;
+		
+		
 		try {
 			conn.setAutoCommit(false);
 
@@ -249,7 +251,9 @@ public class DBUtil {
 			pstmt.setInt(1, order_id);
 			pstmt.setString(2, user_id);
 			pstmt.setInt(3, all_price);
+			//UPDATE [테이블] SET [열] = '변경할값' WHERE [조건]
 
+			
 			java.text.SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd"); // format
 			String stringDate = sdf.format(new java.util.Date());
 			java.sql.Date date = java.sql.Date.valueOf(stringDate);
@@ -273,6 +277,20 @@ public class DBUtil {
 	public static void insertItems(Connection conn, int order_id, int product_id, String user_id, int count)
 			throws SQLException {
 		PreparedStatement pstmt = null;
+		Statement stmt =null;
+		
+		stmt = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+		ResultSet uprs = stmt.executeQuery("SELECT * FROM online_product WHERE productid="+product_id );
+
+		int db_productcount = 0;
+
+		while (uprs.next()) {
+			db_productcount = uprs.getInt("stock");
+			uprs.updateInt("stock", db_productcount - count);
+			uprs.updateRow();
+		}
+		
+		
 		try {
 			conn.setAutoCommit(false);
 
