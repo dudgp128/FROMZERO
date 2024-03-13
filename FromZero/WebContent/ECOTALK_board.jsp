@@ -148,15 +148,11 @@ th, td {
 					type="submit">삭제하기</button>
 			</div>
         <tr>
-					<th style="width: 10%">글번호</th>
-					<td style="width: 90%"><%=board_id%></td>
-				</tr>
 				<tr>
 					<th>작성자</th>
 					<td><%=custid%></td>
-				</tr>
-				<tr>
-					<th>작성일</th>
+					<td></td>
+					<td></td>
 					<td><%=board_date%></td>
 				</tr>
 
@@ -165,8 +161,8 @@ th, td {
 					<td colspan="4"><%=board_title%></td>
 				</tr>
 
-				<tr>
-					<td colspan="5" style="width: 100%; padding: 200px 10px;"><%=board_content%></td>
+				<tr style="height:100px">
+					<td colspan="5" style="width: 100%; padding:10px;"><%=board_content%></td>
 				</tr>
 			</table>
 			<br />
@@ -174,6 +170,8 @@ th, td {
 			
 		</form>
 		<br/>
+		<br/>
+		<h3>댓글</h3>
 		<%
 			try {
 
@@ -198,14 +196,13 @@ th, td {
 			String comment_date=dateFormat.format(_date);
 		%>
 		<div>
-			<table class="board" style=" margin-right: 100px">
-				<tr style="border:0px">
-					<th style="text-align:left; border:0px"><%=comment_custid%></th>
-					<td></td>
+			<table class="board" style="border:0px; margin:0px; padding:0px">
+				<tr style="border:0px;">
+					<th style="text-align:left; border:0px; margin-bottom:0px; padding-bottom:0px"><%=comment_custid%></th>
 				</tr>
-				<tr style="border:0px">
-					<td colspan="3" style="text-align:left"><%=comment%></td>
-					<td><%=comment_date%></td>
+				<tr style="border:0px; margin:0px">
+					<td colspan="3" style="text-align:left;margin-top:0px; padding-top:0px"><%=comment%></td>
+					<td style="margin-top:0px; padding-top:0px"><%=comment_date%></td>
 				</tr>
 			</table>
 		</div>

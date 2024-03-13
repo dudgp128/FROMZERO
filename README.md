@@ -20,6 +20,7 @@
   -  **Bae yooha** - Sungshin Univ. Information System Eng.
   -  **Yoo Minseo** -  Sungshin Univ. Convergence Security Eng.
   -  **Jo younghye** - Sungshin Univ. Information System Eng.
+  -  **Lee sohee** - Sungshin Univ. Information System Eng.
 
 ![슬라이드1](https://github.com/dudgp128/FROMZERO/assets/59547170/b132dd0c-33d9-46d3-a300-37e9e9bb81f1)
 ![슬라이드2](https://github.com/dudgp128/FROMZERO/assets/59547170/26eec311-c27c-4083-9de8-ec637d95f159)

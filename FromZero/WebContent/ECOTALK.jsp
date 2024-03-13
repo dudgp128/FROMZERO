@@ -191,7 +191,7 @@ th, td {
 			try {
 				conn = DriverManager.getConnection(DBUrl, connectionProps);
 
-				String sqlSt = "select * from ecotalk order by board_id";
+				String sqlSt = "select * from ecotalk order by board_id desc";
 				pstmt = conn.prepareStatement(sqlSt);				
 				rset = pstmt.executeQuery();
 				} 
